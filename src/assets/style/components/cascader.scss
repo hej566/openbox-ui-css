@@ -1,0 +1,159 @@
+@import '../variables/namespace';
+@import '../variables/color';
+@import '../variables/animation';
+@import '../variables/size';
+
+.#{$ns}-cascader {
+  position: relative;
+  border-radius: 4px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid $cascader-field-primary-border-color;
+  background-color: $cascader-field-primary-bg-color;
+  &.#{$ns}-cascader-default {
+    height: $cascader-default-height;
+    .#{$ns}-cascader-field {
+      width: 100%;
+      height: 100%;
+      padding: 0 32px 0 12px;
+      box-sizing: border-box;
+
+      input {
+        &::-ms-clear,
+        input::-ms-reveal { display: none; }
+
+        display: flex;
+        align-items: center;
+        width: inherit;
+        height: inherit;
+        box-sizing: border-box;
+        font-size: $font-default-size;
+        outline: none;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        color: $cascader-field-primary-text-color;
+
+        &::placeholder {
+          color: $cascader-field-primary-placeholder-color;
+          font-size: $font-default-size;
+        }
+      }
+
+      &.open {
+        .suffix-icon {
+          .#{$ns}-suffix {
+            transform: rotate(180deg);
+            &.#{$ns}-loading {
+              animation: rotating 0.5s linear infinite;
+            }
+          }
+        }
+      }
+
+      .suffix-icon {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 8px;
+        display: flex;
+        align-items: center;
+        color: $cascader-field-primary-icon-color;
+        cursor: pointer;
+        .#{$ns}-suffix {
+          &.#{$ns}-loading {
+            animation: rotating 0.5s linear infinite;
+          }
+        }
+      }
+    }
+
+    &.focus {
+      outline: none;
+      border: 1px solid $cascader-field-primary-active-border-color;
+      box-shadow: $cascader-field-primary-active-box-shadow-color;
+    }
+
+    &.#{$ns}-disabled {
+      border: 1px solid $cascader-field-disabled-border-color;
+      box-shadow: none;
+      .#{$ns}-cascader-field {
+        background-color: $cascader-field-disabled-bg-color;
+        cursor: not-allowed;
+
+        input {
+          &::-ms-clear,
+          input::-ms-reveal { display: none; }
+
+          cursor: not-allowed;
+          color: $cascader-field-disabled-text-color;
+
+          &::placeholder {
+            color: $cascader-field-disabled-placeholder-color;
+          }
+        }
+
+        .suffix-icon {
+          .#{$ns}-suffix {
+            color: $cascader-field-disabled-icon-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tippy-box {
+  &[data-theme=cascader] {
+    margin-top: 8px;
+    height: $cascader-list-default-height;
+    width: $cascader-list-default-width;
+    border: 1px solid $cascader-list-primary-border-color;
+    background-color: $cascader-list-primary-bg-color;
+    box-shadow: $cascader-list-primary-shadow-color;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    .tippy-content {
+      height: inherit;
+      width: inherit;
+      box-sizing: border-box;
+      padding: 8px 0;
+      .#{$ns}-cascader-list {
+        height: inherit;
+        .#{$ns}-cascader-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: $cascader-item-default-height;
+          outline: none;
+          color: $cascader-list-item-primary-text-color;
+          padding: 0 12px;
+
+          & > div {
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: $font-default-size;
+          }
+
+          cursor: pointer;
+
+          &:hover {
+            background-color: $cascader-list-item-primary-hover-bg-color;
+            color: $cascader-list-item-primary-text-color;
+          }
+
+          &.active {
+            background-color: $cascader-list-item-primary-active-bg-color;
+            color: $cascader-list-item-primary-active-text-color;
+          }
+        }
+      }
+    }
+  }
+}

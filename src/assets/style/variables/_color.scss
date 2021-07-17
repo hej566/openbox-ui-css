@@ -1,0 +1,822 @@
+/* c4it color space */
+// White
+$white: #fff;
+// Black
+$black: #000;
+// trans-white
+$trans-white-1: rgba(#fff, 0.2);
+// Gray
+$gray-1: #fafafa;
+$gray-2: #f2f4f8;
+$gray-3: #eaecee;
+$gray-4: #dee4eb;
+$gray-5: #d6d7db;
+$gray-6: #999ea8;
+$gray-7: #778199;
+$gray-8: #6c7589;
+$gray-9: #374054;
+$gray-10: #2e364a;
+$gray-11: #2f344b;
+$gray-12: #2f374b;
+// transparent gray
+$trans-gray-1: rgba(#374054, 0.9);
+$trans-gray-2: rgba(#2e364a, 0.9);
+// Blue
+$blue-1: #edf7fe;
+$blue-2: #e7f2ff;
+$blue-3: #5ea9fe;
+$blue-4: #057aff;
+$blue-5: #0064d5;
+// Red
+$red-0: #ffe4e6;
+$red-1: #ff8b92;
+$red-2: #fd4e4e;
+$red-3: #da3a3a;
+// Yellow
+$yellow-1: #ffcf70;
+$yellow-2: #f8b42a;
+$yellow-3: #ea9c00;
+// green
+$green-1: #33c8a8;
+$green-2: #2aa78c;
+$green-3: #018a6c;
+// trans-brown
+$trans-brown-1: rgba(#000, 0.2);
+// gradient
+$gradient-blue: linear-gradient(45.18deg, #2ebddb 2.55%, #4c87fc 97.6%);
+$gradient-red: linear-gradient(45.5deg, #f77a9f 2.77%, #ea5186 97.88%);
+$gradient-purple: linear-gradient(225.35deg, #6f6fff 2.41%, #7d97ff 97.35%);
+
+
+
+/* color space */
+// Blue gray
+$blue-gray-50: #eceff1;
+$blue-gray-100: #cfd8dc;
+$blue-gray-200: #b0bec5;
+$blue-gray-300: #90a4ae;
+$blue-gray-400: #78909c;
+$blue-gray-500: #607d8b;
+$blue-gray-600: #546e7a;
+$blue-gray-700: #455a64;
+$blue-gray-800: #37474f;
+$blue-gray-900: #263238;
+
+// Gray
+$gray-50: #fafafa;
+$gray-100: #f5f5f5;
+$gray-200: #eee;
+$gray-300: #e0e0e0;
+$gray-400: #bdbdbd;
+$gray-500: #9e9e9e;
+$gray-600: #757575;
+$gray-700: #616161;
+$gray-800: #424242;
+$gray-900: #212121;
+
+// Brown
+$brown-50: #efebe9;
+$brown-100: #d7ccc8;
+$brown-200: #bcaaa4;
+$brown-300: #a1887f;
+$brown-400: #8d6e63;
+$brown-500: #795548;
+$brown-600: #6d4c41;
+$brown-700: #5d4037;
+$brown-800: #4e342e;
+$brown-900: #3e2723;
+
+// Deep orange
+$deep-orange-50: #fbe9e7;
+$deep-orange-100: #ffccbc;
+$deep-orange-200: #ffab91;
+$deep-orange-300: #ff8a65;
+$deep-orange-400: #ff7043;
+$deep-orange-500: #ff5722;
+$deep-orange-600: #f4511e;
+$deep-orange-700: #e64a19;
+$deep-orange-800: #d84315;
+$deep-orange-900: #bf360c;
+
+// Orange
+$orange-50: #fff3e0;
+$orange-100: #ffe0b2;
+$orange-200: #ffcc80;
+$orange-300: #ffb74d;
+$orange-400: #ffa726;
+$orange-500: #ff9800;
+$orange-600: #fb8c00;
+$orange-700: #f57c00;
+$orange-800: #ef6c00;
+$orange-900: #e65100;
+
+// Amber
+$amber-50: #fff8e1;
+$amber-100: #ffecb3;
+$amber-200: #ffe082;
+$amber-300: #ffd54f;
+$amber-400: #ffca28;
+$amber-500: #ffc107;
+$amber-600: #ffb300;
+$amber-700: #ffa000;
+$amber-800: #ff8f00;
+$amber-900: #ff6f00;
+
+// Yellow
+$yellow-50: #fffde7;
+$yellow-100: #fff9c4;
+$yellow-200: #fff59d;
+$yellow-300: #fff176;
+$yellow-400: #ffee58;
+$yellow-500: #ffeb3b;
+$yellow-600: #fdd835;
+$yellow-700: #fbc02d;
+$yellow-800: #f9a825;
+$yellow-900: #f57f17;
+
+// Lime
+$lime-50: #f9fbe7;
+$lime-100: #f0f4c3;
+$lime-200: #e6ee9c;
+$lime-300: #dce775;
+$lime-400: #d4e157;
+$lime-500: #cddc39;
+$lime-600: #c0ca33;
+$lime-700: #afb42b;
+$lime-800: #9e9d24;
+$lime-900: #827717;
+
+// Light green
+$light-green-50: #f1f8e9;
+$light-green-100: #dcedc8;
+$light-green-200: #c5e1a5;
+$light-green-300: #aed581;
+$light-green-400: #9ccc65;
+$light-green-500: #8bc34a;
+$light-green-600: #7cb342;
+$light-green-700: #689f38;
+$light-green-800: #558b2f;
+$light-green-900: #33691e;
+
+// Green
+$green-50: #e8f5e9;
+$green-100: #c8e6c9;
+$green-200: #a5d6a7;
+$green-300: #81c784;
+$green-400: #66bb6a;
+$green-500: #4caf50;
+$green-600: #43a047;
+$green-700: #388e3c;
+$green-800: #2e7d32;
+$green-900: #1b5e20;
+
+// Teal
+$teal-50: #e0f2f1;
+$teal-100: #b2dfdb;
+$teal-200: #80cbc4;
+$teal-300: #4db6ac;
+$teal-400: #26a69a;
+$teal-500: #009688;
+$teal-600: #00897b;
+$teal-700: #00796b;
+$teal-800: #00695c;
+$teal-900: #004d40;
+
+// Cyan
+$cyan-50: #e0f7fa;
+$cyan-100: #b2ebf2;
+$cyan-200: #80deea;
+$cyan-300: #4dd0e1;
+$cyan-400: #26c6da;
+$cyan-500: #00bcd4;
+$cyan-600: #00acc1;
+$cyan-700: #0097a7;
+$cyan-800: #00838f;
+$cyan-900: #006064;
+
+// Light blue
+$light-blue-50: #e1f5fe;
+$light-blue-100: #b3e5fc;
+$light-blue-200: #81d4fa;
+$light-blue-300: #4fc3f7;
+$light-blue-400: #29b6f6;
+$light-blue-500: #03a9f4;
+$light-blue-600: #039be5;
+$light-blue-700: #0288d1;
+$light-blue-800: #0277bd;
+$light-blue-900: #01579b;
+
+// Blue
+$blue-50: #e3f2fd;
+$blue-100: #bbdefb;
+$blue-200: #90caf9;
+$blue-300: #64b5f6;
+$blue-400: #42a5f5;
+$blue-500: #2196f3;
+$blue-600: #1e88e5;
+$blue-700: #1976d2;
+$blue-800: #1565c0;
+$blue-900: #0d47a1;
+
+// Indigo
+$indigo-50: #e8eaf6;
+$indigo-100: #c5cae9;
+$indigo-200: #9fa8da;
+$indigo-300: #7986cb;
+$indigo-400: #5c6bc0;
+$indigo-500: #3f51b5;
+$indigo-600: #3949ab;
+$indigo-700: #303f9f;
+$indigo-800: #283593;
+$indigo-900: #1a237e;
+
+// Deep purple
+$deep-purple-50: #ede7f6;
+$deep-purple-100: #d1c4e9;
+$deep-purple-200: #b39ddb;
+$deep-purple-300: #9575cd;
+$deep-purple-400: #7e57c2;
+$deep-purple-500: #673ab7;
+$deep-purple-600: #5e35b1;
+$deep-purple-700: #512da8;
+$deep-purple-800: #4527a0;
+$deep-purple-900: #311b92;
+
+// Purple
+$purple-50: #f3e5f5;
+$purple-100: #e1bee7;
+$purple-200: #ce93d8;
+$purple-300: #ba68c8;
+$purple-400: #ab47bc;
+$purple-500: #9c27b0;
+$purple-600: #8e24aa;
+$purple-700: #7b1fa2;
+$purple-800: #6a1b9a;
+$purple-900: #4a148c;
+
+// Pink
+$pink-50: #fce4ec;
+$pink-100: #f8bbd0;
+$pink-200: #f48fb1;
+$pink-300: #f06292;
+$pink-400: #ec407a;
+$pink-500: #e91e63;
+$pink-600: #d81b60;
+$pink-700: #c2185b;
+$pink-800: #ad1457;
+$pink-900: #880e4f;
+
+// Red
+$red-50: #ffebee;
+$red-100: #ffcdd2;
+$red-200: #ef9a9a;
+$red-300: #e57373;
+$red-400: #ef5350;
+$red-500: #f44336;
+$red-600: #e53935;
+$red-700: #d32f2f;
+$red-800: #c62828;
+$red-900: #b71c1c;
+
+// button color
+$button-primary-bg-color: $blue-4;
+$button-success-bg-color: $green-2;
+$button-warning-bg-color: $yellow-2;
+$button-danger-bg-color: $red-2;
+$button-outline-default-bg-color: $white;
+$button-outline-primary-bg-color: $white;
+$button-outline-success-bg-color: $white;
+$button-outline-warning-bg-color: $white;
+$button-outline-danger-bg-color: $white;
+$button-dashed-default-bg-color: $white;
+$button-dashed-primary-bg-color: $white;
+$button-dashed-danger-bg-color: $white;
+$button-dashed-success-bg-color: $white;
+$button-dashed-warning-bg-color: $white;
+$button-text-primary-bg-color: transparent;
+$button-text-danger-bg-color: transparent;
+$button-text-success-bg-color: transparent;
+$button-text-warning-bg-color: transparent;
+
+$button-primary-hover-bg-color: $blue-3;
+$button-success-hover-bg-color: $green-1;
+$button-warning-hover-bg-color: $yellow-1;
+$button-danger-hover-bg-color: $red-1;
+$button-outline-default-hover-bg-color: $white;
+$button-outline-primary-hover-bg-color: $white;
+$button-outline-success-hover-bg-color: $white;
+$button-outline-warning-hover-bg-color: $white;
+$button-outline-danger-hover-bg-color: $white;
+$button-dashed-default-hover-bg-color: $white;
+$button-dashed-primary-hover-bg-color: $white;
+$button-dashed-danger-hover-bg-color: $white;
+$button-dashed-warning-hover-bg-color: $white;
+$button-dashed-success-hover-bg-color: $white;
+$button-text-primary-hover-bg-color: transparent;
+$button-text-danger-hover-bg-color: transparent;
+$button-text-success-hover-bg-color: transparent;
+$button-text-warning-hover-bg-color: transparent;
+
+$button-primary-active-bg-color: $blue-5;
+$button-success-active-bg-color: $green-3;
+$button-warning-active-bg-color: $yellow-3;
+$button-danger-active-bg-color: $red-3;
+$button-outline-default-active-bg-color: $white;
+$button-outline-primary-active-bg-color: $white;
+$button-outline-success-active-bg-color: $white;
+$button-outline-warning-active-bg-color: $white;
+$button-outline-danger-active-bg-color: $white;
+$button-dashed-default-active-bg-color: $white;
+$button-dashed-primary-active-bg-color: $white;
+$button-dashed-success-active-bg-color: $white;
+$button-dashed-danger-active-bg-color: $white;
+$button-dashed-warning-active-bg-color: $white;
+$button-text-primary-active-bg-color: transparent;
+$button-text-danger-active-bg-color: transparent;
+$button-text-success-active-bg-color: transparent;
+$button-text-warning-active-bg-color: transparent;
+
+$button-primary-disabled-bg-color: rgba($blue-4, 0.5);
+$button-success-disabled-bg-color: rgba($green-2, 0.5);
+$button-danger-disabled-bg-color: rgba($red-2, 0.5);
+$button-warning-disabled-bg-color: rgba($yellow-2, 0.5);
+$button-outline-default-disabled-bg-color: rgba($white, 0.5);
+$button-outline-primary-disabled-bg-color: rgba($white, 0.5);
+$button-outline-success-disabled-bg-color: rgba($white, 0.5);
+$button-outline-warning-disabled-bg-color: rgba($white, 0.5);
+$button-outline-danger-disabled-bg-color: rgba($white, 0.5);
+$button-dashed-default-disabled-bg-color: rgba($white, 0.5);
+$button-dashed-primary-disabled-bg-color: rgba($white, 0.5);
+$button-dashed-danger-disabled-bg-color: rgba($white, 0.5);
+$button-dashed-success-disabled-bg-color: rgba($white, 0.5);
+$button-dashed-warning-disabled-bg-color: rgba($white, 0.5);
+$button-text-primary-disabled-bg-color: transparent;
+$button-text-danger-disabled-bg-color: transparent;
+$button-text-success-disabled-bg-color: transparent;
+$button-text-warning-disabled-bg-color: transparent;
+
+$button-primary-border-color: $blue-4;
+$button-success-border-color: $green-2;
+$button-warning-border-color: $yellow-2;
+$button-danger-border-color: $red-2;
+$button-outline-default-border-color: $gray-7;
+$button-outline-primary-border-color: $blue-4;
+$button-outline-success-border-color: $green-2;
+$button-outline-warning-border-color: $yellow-2;
+$button-outline-danger-border-color: $red-2;
+$button-dashed-default-border-color: $gray-7;
+$button-dashed-primary-border-color: $blue-4;
+$button-dashed-danger-border-color: $red-2;
+$button-dashed-success-border-color: $green-2;
+$button-dashed-warning-border-color: $yellow-2;
+$button-text-primary-border-color: transparent;
+$button-text-success-border-color: transparent;
+$button-text-danger-border-color: transparent;
+$button-text-warning-border-color: transparent;
+
+$button-primary-hover-border-color: $blue-4;
+$button-success-hover-border-color: $green-2;
+$button-warning-hover-border-color: $yellow-2;
+$button-danger-hover-border-color: $red-2;
+$button-outline-default-hover-border-color: $blue-4;
+$button-outline-primary-hover-border-color: $blue-4;
+$button-outline-success-hover-border-color: $green-2;
+$button-outline-warning-hover-border-color: $yellow-2;
+$button-outline-danger-hover-border-color: $red-2;
+$button-dashed-default-hover-border-color: $blue-4;
+$button-dashed-primary-hover-border-color: $blue-3;
+$button-dashed-success-hover-border-color: $green-1;
+$button-dashed-danger-hover-border-color: $red-1;
+$button-dashed-warning-hover-border-color: $yellow-1;
+$button-text-primary-hover-border-color: transparent;
+$button-text-success-hover-border-color: transparent;
+$button-text-danger-hover-border-color: transparent;
+$button-text-warning-hover-border-color: transparent;
+
+$button-primary-active-border-color: $blue-4;
+$button-success-active-border-color: $green-2;
+$button-warning-active-border-color: $yellow-2;
+$button-danger-active-border-color: $red-2;
+$button-outline-default-active-border-color: $blue-5;
+$button-outline-primary-active-border-color: $blue-5;
+$button-outline-success-active-border-color: $green-3;
+$button-outline-warning-active-border-color: $yellow-3;
+$button-outline-danger-active-border-color: $red-3;
+$button-dashed-default-active-border-color: $blue-5;
+$button-dashed-primary-active-border-color: $blue-5;
+$button-dashed-danger-active-border-color: $red-3;
+$button-dashed-success-active-border-color: $green-3;
+$button-dashed-warning-active-border-color: $yellow-3;
+$button-text-primary-active-border-color: transparent;
+$button-text-success-active-border-color: transparent;
+$button-text-danger-active-border-color: transparent;
+$button-text-warning-active-border-color: transparent;
+
+$button-primary-disabled-border-color: rgba($blue-4, 0.5);
+$button-success-disabled-border-color: rgba($green-2, 0.5);
+$button-danger-disabled-border-color: rgba($red-2, 0.5);
+$button-warning-disabled-border-color: rgba($yellow-2, 0.5);
+$button-outline-default-disabled-border-color: rgba($gray-7, 0.5);
+$button-outline-primary-disabled-border-color: rgba($blue-4, 0.5);
+$button-outline-success-disabled-border-color: rgba($green-2, 0.5);
+$button-outline-warning-disabled-border-color: rgba($yellow-2, 0.5);
+$button-outline-danger-disabled-border-color: rgba($red-2, 0.5);
+$button-dashed-default-disabled-border-color: rgba($gray-7, 0.5);
+$button-dashed-primary-disabled-border-color: rgba($blue-4, 0.5);
+$button-dashed-success-disabled-border-color: rgba($green-2, 0.5);
+$button-dashed-danger-disabled-border-color: rgba($red-2, 0.5);
+$button-dashed-warning-disabled-border-color: rgba($yellow-2, 0.5);
+$button-text-primary-disabled-border-color: transparent;
+$button-text-success-disabled-border-color: transparent;
+$button-text-danger-disabled-border-color: transparent;
+$button-text-warning-disabled-border-color: transparent;
+
+$button-primary-text-color: $white;
+$button-success-text-color: $white;
+$button-warning-text-color: $white;
+$button-danger-text-color: $white;
+$button-outline-default-text-color: $gray-12;
+$button-outline-primary-text-color: $blue-4;
+$button-outline-success-text-color: $green-2;
+$button-outline-warning-text-color: $yellow-2;
+$button-outline-danger-text-color: $red-2;
+$button-dashed-default-text-color: $gray-12;
+$button-dashed-primary-text-color: $blue-4;
+$button-dashed-success-text-color: $green-2;
+$button-dashed-danger-text-color: $red-2;
+$button-dashed-warning-text-color: $yellow-2;
+$button-text-primary-text-color: $blue-4;
+$button-text-danger-text-color: $red-2;
+$button-text-success-text-color: $green-2;
+$button-text-warning-text-color: $yellow-2;
+
+$button-primary-hover-text-color: $white;
+$button-success-hover-text-color: $white;
+$button-warning-hover-text-color: $white;
+$button-danger-hover-text-color: $white;
+$button-outline-default-hover-text-color: $blue-4;
+$button-outline-primary-hover-text-color: $blue-3;
+$button-outline-success-hover-text-color: $green-1;
+$button-outline-warning-hover-text-color: $yellow-1;
+$button-outline-danger-hover-text-color: $red-1;
+$button-dashed-default-hover-text-color: $blue-4;
+$button-dashed-success-hover-text-color: $green-1;
+$button-dashed-danger-hover-text-color: $red-1;
+$button-dashed-warning-hover-text-color: $yellow-1;
+$button-dashed-primary-hover-text-color: $blue-3;
+$button-text-primary-hover-text-color: $blue-3;
+$button-text-danger-hover-text-color: $red-1;
+$button-text-success-hover-text-color: $green-1;
+$button-text-warning-hover-text-color: $yellow-1;
+
+$button-primary-active-text-color: $white;
+$button-success-active-text-color: $white;
+$button-warning-active-text-color: $white;
+$button-danger-active-text-color: $white;
+$button-outline-default-active-text-color: $blue-5;
+$button-outline-primary-active-text-color: $blue-5;
+$button-outline-success-active-text-color: $green-3;
+$button-outline-warning-active-text-color: $yellow-3;
+$button-outline-danger-active-text-color: $red-3;
+$button-dashed-default-active-text-color: $blue-5;
+$button-dashed-primary-active-text-color: $blue-5;
+$button-dashed-success-active-text-color: $green-3;
+$button-dashed-danger-active-text-color: $red-3;
+$button-dashed-warning-active-text-color: $yellow-3;
+$button-text-primary-active-text-color: $blue-5;
+$button-text-danger-active-text-color: $red-3;
+$button-text-success-active-text-color: $green-3;
+$button-text-warning-active-text-color: $yellow-3;
+
+$button-primary-disabled-text-color: $white;
+$button-success-disabled-text-color: $white;
+$button-danger-disabled-text-color: $white;
+$button-warning-disabled-text-color: $white;
+$button-outline-default-disabled-text-color: rgba($gray-12, 0.5);
+$button-outline-primary-disabled-text-color: rgba($blue-4, 0.5);
+$button-outline-success-disabled-text-color: rgba($green-2, 0.5);
+$button-outline-warning-disabled-text-color: rgba($yellow-2, 0.5);
+$button-outline-danger-disabled-text-color: rgba($red-2, 0.5);
+$button-dashed-default-disabled-text-color: rgba($gray-12, 0.5);
+$button-dashed-primary-disabled-text-color: rgba($blue-4, 0.5);
+$button-dashed-success-disabled-text-color: rgba($green-2, 0.5);
+$button-dashed-danger-disabled-text-color: rgba($red-2, 0.5);
+$button-dashed-warning-disabled-text-color: rgba($yellow-2, 0.5);
+$button-text-primary-disabled-text-color: rgba($blue-4, 0.5);
+$button-text-danger-disabled-text-color: rgba($red-2, 0.5);
+$button-text-success-disabled-text-color: rgba($green-2, 0.5);
+$button-text-warning-disabled-text-color: rgba($yellow-2, 0.5);
+
+// nav color
+$nav-primary-bg-color: $gray-9;
+$nav-secondry-bg-color: $white;
+$nav-item-primary-bg-color: $gray-9;
+$nav-item-primary-text-color: $gray-5;
+$nav-item-secondry-bg-color: $white;
+$nav-item-secondry-text-color: $gray-11;
+$nav-item-primary-hover-text-color: $white;
+$nav-item-primary-active-text-color: $white;
+$nav-item-secondry-hover-text-color: $gray-12;
+$nav-item-secondry-active-text-color: $blue-4;
+$nav-item-primary-active-bg-color: $blue-4;
+$nav-item-primary-active-right-color: $blue-4;
+$nav-item-secondry-active-bg-color: $blue-2;
+$nav-item-secondry-active-right-color: $blue-4;
+$nav-cascader-shadow-color: 0 2px 12px rgba(0, 0, 0, 0.12);
+
+// table color
+$table-primary-header-bg-color: $gray-1;
+$table-primary-body-stripped-bg-color: $gray-1;
+$table-primary-border-color: $gray-5;
+$table-primary-body-text-color: $gray-7;
+
+// checkbox color
+$checkbox-primary-bg-color: $white;
+$checkbox-primary-icon-color: $white;
+$checkbox-primary-border-color: $gray-3;
+$checkbox-primary-text-color: $gray-12;
+$checkbox-primary-hover-bg-color: $white;
+$checkbox-primary-hover-icon-color: $white;
+$checkbox-primary-hover-border-color: $blue-4;
+$checkbox-primary-hover-text-color: $blue-3;
+$checkbox-primary-active-bg-color: $blue-4;
+$checkbox-primary-active-icon-color: $white;
+$checkbox-primary-active-border-color: $blue-4;
+$checkbox-primary-active-text-color: $gray-12;
+$checkbox-primary-active-box-shadow-color: 0 0 2px $blue-4;
+$checkbox-primary-disabled-bg-color: rgba($gray-1, 0.5);
+$checkbox-primary-disabled-icon-color: rgba($black, 0.5 * 0.25);
+$checkbox-primary-disabled-border-color: rgba($gray-3, 0.5);
+$checkbox-primary-disabled-text-color: rgba($gray-12, 0.5);
+$checkbox-circle-bg-color: $blue-2;
+$checkbox-circle-disabled-bg-color: rgba($blue-2, 0.5);
+
+// radio color
+$radio-primary-bg-color: $white;
+$radio-primary-icon-color: $white;
+$radio-primary-border-color: $gray-3;
+$radio-primary-text-color: $gray-12;
+$radio-primary-hover-bg-color: $white;
+$radio-primary-hover-icon-color: $white;
+$radio-primary-hover-border-color: $blue-4;
+$radio-primary-hover-text-color: $blue-3;
+$radio-primary-active-bg-color: $blue-4;
+$radio-primary-active-icon-color: $white;
+$radio-primary-active-border-color: $blue-4;
+$radio-primary-active-text-color: $gray-12;
+$radio-primary-active-box-shadow-color: 0 0 2px $blue-4;
+$radio-primary-disabled-bg-color: rgba($gray-1, 0.5);
+$radio-primary-disabled-icon-color: rgba($black, 0.5 * 0.25);
+$radio-primary-disabled-border-color: rgba($gray-3, 0.5);
+$radio-primary-disabled-text-color: rgba($gray-12, 0.5);
+
+// input color
+$input-field-primary-placeholder-color: $gray-7;
+$input-field-primary-border-color: $gray-3;
+$input-field-primary-icon-color: rgba($black, 0.25);
+$input-field-primary-text-color: $gray-12;
+$input-field-primary-active-border-color: $blue-4;
+$input-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$input-field-disabled-bg-color: rgba($white, 0.5);
+$input-field-disabled-border-color: rgba($gray-3, 0.5);
+$input-field-disabled-text-color:  rgba($gray-12, 0.5);
+$input-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$input-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$input-field-primary-bg-color: $white;
+
+// timepicker color
+$timer-primary-shadow-color: 0 2px 12px 0 rgba($black, 0.1);
+$timer-primary-text-color: $gray-12;
+$timer-primary-bg-color: $gray-3;
+$timer-primary-column-bg-color: $white;
+$timer-primary-icon-color: rgba($black, 0.25);
+$timer-primary-border-color: $gray-3;
+$timer-primary-text-selected-color: $blue-4;
+$timer-primary-text-selected-bg-color: $blue-4;
+$timer-primary-hover-text-bg-color: $blue-4;
+$timer-primary-hover-text-color: $white;
+$timer-primary-active-text-bg-color: $blue-4;
+$timer-primary-active-text-color: $white;
+$timer-primary-text-marker-border-color: $blue-4;
+$timer-primary-primary-button-bg-color: $blue-4;
+$timer-primary-primary-button-text-color: $white;
+$timer-primary-text-button-text-color: $blue-4;
+$timer-disabled-text-color:  rgba($gray-12, 0.5);
+$timepicker-field-disabled-bg-color: rgba($white, 0.5);
+$timepicker-field-disabled-border-color: rgba($gray-3, 0.5);
+$timepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
+$timepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$timepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$timepicker-field-primary-text-color: $gray-12;
+$timepicker-field-primary-border-color: $gray-3;
+$timepicker-field-primary-bg-color: $white;
+$timepicker-field-primary-icon-color: rgba($black, 0.25);
+$timepicker-field-primary-placeholder-color: $gray-7;
+$timepicker-field-primary-active-border-color: $blue-4;
+$timepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+
+// datetimerangepicker color
+$datetimerangepicker-field-disabled-bg-color: rgba($white, 0.5);
+$datetimerangepicker-field-disabled-border-color: rgba($gray-3, 0.5);
+$datetimerangepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
+$datetimerangepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$datetimerangepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$datetimerangepicker-field-primary-text-color: $gray-12;
+$datetimerangepicker-field-primary-border-color: $gray-3;
+$datetimerangepicker-field-primary-bg-color: $white;
+$datetimerangepicker-field-primary-icon-color: rgba($black, 0.25);
+$datetimerangepicker-field-primary-placeholder-color: $gray-7;
+$datetimerangepicker-field-primary-active-border-color: $blue-4;
+$datetimerangepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+
+// datepicker color
+$dater-primary-shadow-color: 0 2px 12px 0 rgba($black, 0.1);
+$dater-primary-text-color: $gray-12;
+$dater-primary-bg-color: $white;
+$dater-primary-icon-color: rgba($black, 0.25);
+$dater-primary-border-color: $gray-3;
+$dater-primary-text-selected-color: $blue-4;
+$dater-primary-text-selected-bg-color: $blue-4;
+$dater-primary-hover-text-bg-color: $blue-4;
+$dater-primary-hover-text-color: $white;
+$dater-primary-active-text-bg-color: $blue-4;
+$dater-primary-active-text-color: $white;
+$dater-primary-primary-button-bg-color: $blue-4;
+$dater-primary-primary-button-text-color: $white;
+$dater-primary-text-button-text-color: $blue-4;
+$dater-primary-text-marker-border-color: $blue-4;
+$dater-disabled-text-color:  rgba($gray-12, 0.5);
+$datepicker-field-disabled-bg-color: rgba($white, 0.5);
+$datepicker-field-disabled-border-color: rgba($gray-3, 0.5);
+$datepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
+$datepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$datepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$datepicker-field-primary-text-color: $gray-12;
+$datepicker-field-primary-border-color: $gray-3;
+$datepicker-field-primary-bg-color: $white;
+$datepicker-field-primary-icon-color: rgba($black, 0.25);
+$datepicker-field-primary-placeholder-color: $gray-7;
+$datepicker-field-primary-active-border-color: $blue-4;
+$datepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+
+// datetimepicker color
+$datetimer-primary-shadow-color: 0 2px 12px 0 rgba($black, 0.1);
+$datetimer-primary-text-color: $gray-12;
+$datetimer-primary-bg-color: $white;
+$datetimer-primary-icon-color: rgba($black, 0.25);
+$datetimer-primary-border-color: $gray-3;
+$datetimer-primary-text-selected-color: $blue-4;
+$datetimer-primary-text-selected-bg-color: $blue-4;
+$datetimer-primary-hover-text-bg-color: $blue-4;
+$datetimer-primary-hover-text-color: $white;
+$datetimer-primary-active-text-bg-color: $blue-4;
+$datetimer-primary-primary-button-bg-color: $blue-4;
+$datetimer-primary-primary-button-text-color: $white;
+$datetimer-primary-text-button-text-color: $blue-4;
+$datetimer-primary-text-marker-border-color: $blue-4;
+$datetimer-disabled-text-color:  rgba($gray-12, 0.5);
+$datetimepicker-field-disabled-bg-color: rgba($white, 0.5);
+$datetimepicker-field-disabled-border-color: rgba($gray-3, 0.5);
+$datetimepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
+$datetimepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$datetimepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$datetimepicker-field-primary-text-color: $gray-12;
+$datetimepicker-field-primary-border-color: $gray-3;
+$datetimepicker-field-primary-bg-color: $white;
+$datetimepicker-field-primary-icon-color: rgba($black, 0.25);
+$datetimepicker-field-primary-placeholder-color: $gray-7;
+$datetimepicker-field-primary-active-border-color: $blue-4;
+$datetimepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+
+// cascader color
+$cascader-list-primary-border-color: $gray-2;
+$cascader-list-primary-bg-color: $white;
+$cascader-list-primary-shadow-color: 0 2px 12px 0 rgba($black, 0.1);
+$cascader-list-item-primary-text-color: $gray-12;
+$cascader-list-item-primary-bg-color: $white;
+$cascader-list-item-primary-hover-bg-color: $gray-2;
+$cascader-list-item-primary-hover-right-border-color: $blue-4;
+$cascader-list-item-primary-active-bg-color: $gray-2;
+$cascader-list-item-primary-active-right-border-color: $blue-4;
+$cascader-list-item-primary-active-text-color: $blue-4;
+$cascader-field-disabled-bg-color: rgba($white, 0.5);
+$cascader-field-disabled-border-color: rgba($gray-3, 0.5);
+$cascader-field-disabled-text-color:  rgba($gray-12, 0.5);
+$cascader-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$cascader-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$cascader-field-primary-border-color: $gray-3;
+$cascader-field-primary-text-color: $gray-12;
+$cascader-field-primary-icon-color: rgba($black, 0.25);
+$cascader-field-primary-bg-color: $white;
+$cascader-field-primary-placeholder-color: $gray-7;
+$cascader-field-primary-active-border-color: $blue-4;
+$cascader-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+
+// dropdown color
+$dropdown-list-primary-border-color: $gray-2;
+$dropdown-list-primary-bg-color: $white;
+$dropdown-list-primary-shadow-color: 0 2px 12px 0 rgba($black, 0.1);
+$dropdown-list-item-primary-text-color: $gray-12;
+$dropdown-list-item-primary-bg-color: $white;
+$dropdown-list-item-primary-hover-text-color: $blue-3;
+$dropdown-list-item-primary-active-bg-color: $gray-2;
+$dropdown-list-item-primary-active-right-border-color: $blue-4;
+$dropdown-list-item-primary-active-text-color: $blue-4;
+$dropdown-list-item-primary-disabled-text-color: rgba($gray-12, 0.5);
+$dropdown-list-item-danger-text-color: $gray-12;
+$dropdown-list-item-danger-bg-color: $white;
+$dropdown-list-item-danger-hover-text-color: $red-1;
+$dropdown-list-item-danger-active-bg-color: $red-0;
+$dropdown-list-item-danger-active-right-border-color: $red-3;
+$dropdown-list-item-danger-active-text-color: $red-2;
+$dropdown-list-item-danger-text-color: $red-2;
+$dropdown-list-item-danger-disabled-text-color: rgba($red-2, 0.2);
+$dropdown-field-disabled-bg-color: rgba($white, 0.5);
+$dropdown-field-disabled-border-color: rgba($gray-3, 0.5);
+$dropdown-field-disabled-text-color:  rgba($gray-12, 0.5);
+$dropdown-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$dropdown-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$dropdown-field-primary-border-color: $gray-3;
+$dropdown-field-primary-text-color: $gray-12;
+$dropdown-field-primary-icon-color: rgba($black, 0.25);
+$dropdown-field-primary-bg-color: $white;
+$dropdown-field-primary-active-border-color: $blue-4;
+$dropdown-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+
+// select color
+$select-list-primary-border-color: $gray-2;
+$select-list-primary-bg-color: $white;
+$select-list-primary-shadow-color: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+$select-list-item-primary-text-color: $gray-12;
+$select-list-item-primary-bg-color: $white;
+$select-list-item-primary-hover-text-color: $blue-3;
+$select-list-item-primary-active-bg-color: $gray-2;
+$select-list-item-primary-active-right-border-color: $blue-4;
+$select-list-item-primary-active-text-color: $blue-4;
+$select-list-item-primary-disabled-text-color: rgba($gray-12, 0.5);
+$select-list-item-danger-bg-color: $white;
+$select-list-item-danger-hover-text-color: $red-1;
+$select-list-item-danger-active-bg-color: $red-0;
+$select-list-item-danger-active-right-border-color: $red-3;
+$select-list-item-danger-active-text-color: $red-2;
+$select-list-item-danger-text-color: $red-2;
+$select-list-item-danger-disabled-text-color: rgba($red-2, 0.2);
+$select-field-disabled-bg-color: rgba($white, 0.5);
+$select-field-disabled-text-color:  rgba($gray-12, 0.5);
+$select-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$select-field-disabled-border-color: rgba($gray-3, 0.5);
+$select-field-disabled-placeholder-color: rgba($gray-7, 0.5);
+$select-field-primary-border-color: $gray-3;
+$select-field-primary-text-color: $gray-12;
+$select-field-primary-icon-color: rgba($black, 0.25);
+$select-field-primary-bg-color: $white;
+$select-field-primary-placeholder-color: $gray-7;
+$select-field-primary-active-border-color: $blue-4;
+$select-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+
+// modal color
+$modal-wrapper-color: rgba(55, 55, 55, 0.6);
+$modal-content-bg-default-color: $white;
+// $modal-header-text-color: $dark;
+// $modal-body-text-color: $dark;
+
+// message color
+$message-bg-color-light: rgba(255, 255, 255, 0.6);
+$message-box-shadow-color-light: 0 8px 12px rgba(0, 0, 0, 0.12);
+$message-icon-bg-color: $white;
+$message-bg-color-dark: rgba(47, 55, 75, 0.6);
+$message-box-shadow-color-dark: 0 8px 12px rgba(0, 0, 0, 0.12);
+$message-text-dark-color: #2e364a;
+$message-text-light-color: $white;
+$message-bg-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.08);
+
+// tree color
+$tree-primary-icon-color: $gray-5;
+$tree-primary-text-color: $gray-12;
+$tree-node-primary-active-bg-color: $blue-4;
+$tree-node-primary-active-text-color: $white;
+
+// scrollbar color
+$scrollbar-color: rgba($gray-3, 0.5);
+
+// uploader color
+$upload-primary-bg-color: $blue-4;
+$upload-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$upload-disabled-bg-color: rgba($blue-4, 0.5);
+$upload-disabled-text-color:  $white;
+$upload-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$upload-disabled-border-color: rgba($gray-3, 0.5);
+
+// switch color
+$switch-on-primary-bg-color: $blue-4;
+$switch-off-primary-bg-color: $gray-7;
+$switch-slider-primary-bg-color: $white;
+$switch-primary-text-color: $white;
+$switch-slider-primary-box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+$switch-on-disabled-bg-color: rgba($blue-4, 0.4);
+$switch-off-disabled-bg-color: rgba($gray-7, 0.4);
+$switch-slider-disabled-bg-color: $white;
+$switch-disabled-text-color: $white;
+
+// badge color
+$badge-primary-bg-color: $blue-4;

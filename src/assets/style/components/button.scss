@@ -1,0 +1,1122 @@
+@import '../variables/size';
+@import '../variables/namespace';
+@import '../variables/animation';
+@import '../variables/color';
+@import '../variables/shadow';
+
+&.#{$ns}-button {
+  display: flex;
+  box-sizing: border-box;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  position: relative;
+  min-width: $button-min-width;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  cursor: pointer;
+  .#{$ns}-loaded {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &.#{$ns}-normal {
+    border-radius: $border-default-radius;
+    height: $button-default-height;
+    .#{$ns}-loading, .#{$ns}-loaded {
+      font-size: $font-default-size;
+      line-height: 18px;
+      box-sizing: border-box;
+    }
+    .#{$ns}-center {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      .#{$ns}-spinner {
+        width: $icon-default;
+        animation: rotating 0.5s linear infinite;
+      }
+    }
+
+    .prefix-icon {
+      display: flex;
+      align-items: center;
+      padding-right: 8px;
+    }
+
+    .suffix-icon {
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+    }
+  }
+
+  // color
+  &.#{$ns}-text-primary {
+    border: none;
+    min-width: 0;
+    color: $button-text-primary-text-color;
+    background-color: $button-text-primary-bg-color;
+    transition: background-color 0.1s ease;
+    height: $font-default-size;
+    padding: 0;
+
+    &:hover {
+      color: $button-text-primary-hover-text-color;
+      background-color: $button-text-primary-hover-bg-color;
+      transition: color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-text-primary-active-text-color;
+      background-color: $button-text-primary-active-bg-color;
+      transition: color 0.1s ease;
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-text-primary-disabled-text-color;
+      background-color: $button-text-primary-disabled-bg-color;
+
+      &:hover {
+        color: $button-text-primary-disabled-text-color;
+        background-color: $button-text-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-text-primary-disabled-text-color;
+        background-color: $button-text-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-text-primary-disabled-text-color;
+        background-color: $button-text-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-text-danger {
+    border: none;
+    min-width: 0;
+    color: $button-text-danger-text-color;
+    background-color: $button-text-danger-bg-color;
+    transition: background-color 0.1s ease;
+    padding: 0;
+    height: $font-default-size;
+
+    &:hover {
+      color: $button-text-danger-hover-text-color;
+      background-color: $button-text-danger-hover-bg-color;
+      transition: color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-text-danger-active-text-color;
+      background-color: $button-text-danger-active-bg-color;
+      transition: color 0.1s ease;
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-text-danger-disabled-text-color;
+      background-color: $button-text-danger-disabled-bg-color;
+
+      &:hover {
+        color: $button-text-danger-disabled-text-color;
+        background-color: $button-text-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-text-danger-disabled-text-color;
+        background-color: $button-text-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-text-danger-disabled-text-color;
+        background-color: $button-text-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-text-success {
+    border: none;
+    min-width: 0;
+    color: $button-text-success-text-color;
+    background-color: $button-text-success-bg-color;
+    transition: background-color 0.1s ease;
+    padding: 0;
+    height: $font-default-size;
+
+    &:hover {
+      color: $button-text-success-hover-text-color;
+      background-color: $button-text-success-hover-bg-color;
+      transition: color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-text-success-active-text-color;
+      background-color: $button-text-success-active-bg-color;
+      transition: color 0.1s ease;
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-text-success-disabled-text-color;
+      background-color: $button-text-success-disabled-bg-color;
+
+      &:hover {
+        color: $button-text-success-disabled-text-color;
+        background-color: $button-text-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-text-success-disabled-text-color;
+        background-color: $button-text-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-text-success-disabled-text-color;
+        background-color: $button-text-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-text-warning {
+    border: none;
+    min-width: 0;
+    color: $button-text-warning-text-color;
+    background-color: $button-text-warning-bg-color;
+    transition: background-color 0.1s ease;
+    padding: 0;
+    height: $font-default-size;
+
+    &:hover {
+      color: $button-text-warning-hover-text-color;
+      background-color: $button-text-warning-hover-bg-color;
+      transition: color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-text-warning-active-text-color;
+      background-color: $button-text-warning-active-bg-color;
+      transition: color 0.1s ease;
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-text-warning-disabled-text-color;
+      background-color: $button-text-warning-disabled-bg-color;
+
+      &:hover {
+        color: $button-text-warning-disabled-text-color;
+        background-color: $button-text-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-text-warning-disabled-text-color;
+        background-color: $button-text-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-text-warning-disabled-text-color;
+        background-color: $button-text-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-primary {
+    border: none;
+    color: $button-primary-text-color;
+    background-color: $button-primary-bg-color;
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      color: $button-primary-hover-text-color;
+      background-color: $button-primary-hover-bg-color;
+      transition: background-color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-primary-active-text-color;
+      background-color: $button-primary-active-bg-color;
+      transition: background-color 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-primary-active-bg-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-primary-active-bg-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      color: $button-primary-disabled-text-color;
+      cursor: not-allowed;
+      background-color: $button-primary-disabled-bg-color;
+      border-color: $button-primary-disabled-border-color;
+
+      &:hover {
+        color: $button-primary-disabled-text-color;
+        background-color: $button-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-primary-disabled-text-color;
+        background-color: $button-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-primary-disabled-text-color;
+        background-color: $button-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-success {
+    border: none;
+    color: $button-success-text-color;
+    background-color: $button-success-bg-color;
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      color: $button-success-hover-text-color;
+      background-color: $button-success-hover-bg-color;
+      transition: background-color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-success-active-text-color;
+      background-color: $button-success-active-bg-color;
+      transition: background-color 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-success-active-bg-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-success-active-bg-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-success-disabled-text-color;
+      background-color: $button-success-disabled-bg-color;
+      border-color: $button-success-disabled-border-color;
+
+      &:hover {
+        color: $button-success-disabled-text-color;
+        background-color: $button-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-success-disabled-text-color;
+        background-color: $button-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-success-disabled-text-color;
+        background-color: $button-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-warning {
+    border: none;
+    color: $button-warning-text-color;
+    background-color: $button-warning-bg-color;
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      color: $button-warning-hover-text-color;
+      background-color: $button-warning-hover-bg-color;
+      transition: background-color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-warning-active-text-color;
+      background-color: $button-warning-active-bg-color;
+      transition: background-color 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-warning-active-bg-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-warning-active-bg-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-warning-disabled-text-color;
+      background-color: $button-warning-disabled-bg-color;
+      border-color: $button-warning-disabled-border-color;
+
+      &:hover {
+        color: $button-warning-disabled-text-color;
+        background-color: $button-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-warning-disabled-text-color;
+        background-color: $button-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-warning-disabled-text-color;
+        background-color: $button-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-danger {
+    border: none;
+    color: $button-danger-text-color;
+    background-color: $button-danger-bg-color;
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      color: $button-danger-hover-text-color;
+      background-color: $button-danger-hover-bg-color;
+      transition: background-color 0.1s ease;
+    }
+
+    &:active {
+      color: $button-danger-active-text-color;
+      background-color: $button-danger-active-bg-color;
+      transition: background-color 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-danger-active-bg-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-danger-active-bg-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-danger-disabled-text-color;
+      background-color: $button-danger-disabled-bg-color;
+      border-color: $button-danger-disabled-border-color;
+
+      &:hover {
+        color: $button-danger-disabled-text-color;
+        background-color: $button-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-danger-disabled-text-color;
+        background-color: $button-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-danger-disabled-text-color;
+        background-color: $button-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-outline-default {
+    color: $button-outline-default-text-color;
+    background-color: $button-outline-default-bg-color;
+    border: 1px solid $button-outline-default-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-outline-default-hover-text-color;
+      background-color: $button-outline-default-hover-bg-color;
+      border-color: $button-outline-default-hover-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-outline-default-active-text-color;
+      background-color: $button-outline-default-active-bg-color;
+      border-color: $button-outline-default-active-border-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-outline-default-active-text-color, 0.2);
+        color: $button-outline-default-active-text-color;
+        border-color: $button-outline-default-active-border-color;
+      }
+
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-outline-default-active-text-color, 0.2);
+        color: $button-outline-default-active-text-color;
+        border-color: $button-outline-default-active-border-color;
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-outline-default-disabled-text-color;
+      background-color: $button-outline-default-disabled-bg-color;
+      border-color: $button-outline-default-disabled-border-color;
+
+      &:hover {
+        color: $button-outline-default-disabled-text-color;
+        background-color: $button-outline-default-disabled-bg-color;
+        border-color: $button-outline-default-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-outline-default-disabled-text-color;
+        background-color: $button-outline-default-disabled-bg-color;
+        border-color: $button-outline-default-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-outline-default-disabled-text-color;
+        background-color: $button-outline-default-disabled-bg-color;
+        border-color: $button-outline-default-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-outline-primary {
+    color: $button-outline-primary-text-color;
+    background-color: $button-outline-primary-bg-color;
+    border: 1px solid $button-outline-primary-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-outline-primary-hover-text-color;
+      background-color: $button-outline-primary-hover-bg-color;
+      border-color: $button-outline-primary-hover-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-outline-primary-active-text-color;
+      background-color: $button-outline-primary-active-bg-color;
+      border-color: $button-outline-primary-hover-border-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-outline-primary-active-text-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-outline-primary-active-text-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-outline-primary-disabled-text-color;
+      background-color: $button-outline-primary-disabled-bg-color;
+      border-color: $button-outline-primary-disabled-border-color;
+
+      &:hover {
+        color: $button-outline-primary-disabled-text-color;
+        background-color: $button-outline-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-outline-primary-disabled-text-color;
+        background-color: $button-outline-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-outline-primary-disabled-text-color;
+        background-color: $button-outline-primary-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-outline-success {
+    color: $button-outline-success-text-color;
+    background-color: $button-outline-success-bg-color;
+    border: 1px solid $button-outline-success-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-outline-success-hover-text-color;
+      background-color: $button-outline-success-hover-bg-color;
+      border-color: $button-outline-success-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-outline-success-active-text-color;
+      border-color: $button-outline-success-active-border-color;
+      background-color: $button-outline-success-hover-bg-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-outline-success-active-text-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-outline-success-active-text-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-outline-success-disabled-text-color;
+      background-color: $button-outline-success-disabled-bg-color;
+      border-color: $button-outline-success-disabled-border-color;
+
+      &:hover {
+        color: $button-outline-success-disabled-text-color;
+        background-color: $button-outline-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-outline-success-disabled-text-color;
+        background-color: $button-outline-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-outline-success-disabled-text-color;
+        background-color: $button-outline-success-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-outline-warning {
+    color: $button-outline-warning-text-color;
+    background-color: $button-outline-warning-bg-color;
+    border: 1px solid $button-outline-warning-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-outline-warning-hover-text-color;
+      border-color: $button-outline-warning-hover-border-color;
+      background-color: $button-outline-warning-hover-bg-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-outline-warning-active-text-color;
+      border-color: $button-outline-warning-active-border-color;
+      background-color: $button-outline-warning-active-bg-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-outline-warning-active-text-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-outline-warning-active-text-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-outline-warning-disabled-text-color;
+      background-color: $button-outline-warning-disabled-bg-color;
+      border-color: $button-outline-warning-disabled-border-color;
+
+      &:hover {
+        color: $button-outline-warning-disabled-text-color;
+        background-color: $button-outline-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-outline-warning-disabled-text-color;
+        background-color: $button-outline-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-outline-warning-disabled-text-color;
+        background-color: $button-outline-warning-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-outline-danger {
+    color: $button-outline-danger-text-color;
+    background-color: $button-outline-danger-bg-color;
+    border: 1px solid $button-outline-danger-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-outline-danger-hover-text-color;
+      border-color: $button-outline-danger-hover-border-color;
+      background-color: $button-outline-danger-hover-bg-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-outline-danger-active-text-color;
+      border-color: $button-outline-danger-active-border-color;
+      background-color: $button-outline-danger-active-bg-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-outline-danger-active-text-color, 0.2);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-outline-danger-active-text-color, 0.2);
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-outline-danger-disabled-text-color;
+      background-color: $button-outline-danger-disabled-bg-color;
+      border-color: $button-outline-danger-disabled-border-color;
+
+      &:hover {
+        color: $button-outline-danger-disabled-text-color;
+        background-color: $button-outline-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-outline-danger-disabled-text-color;
+        background-color: $button-outline-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-outline-danger-disabled-text-color;
+        background-color: $button-outline-danger-disabled-bg-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-dashed-default {
+    color: $button-dashed-default-text-color;
+    background-color: $button-dashed-default-bg-color;
+    border: 1px dashed $button-dashed-default-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-dashed-default-hover-text-color;
+      background-color: $button-dashed-default-hover-bg-color;
+      border-color: $button-dashed-default-hover-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-dashed-default-active-text-color;
+      background-color: $button-dashed-default-active-bg-color;
+      border-color: $button-dashed-default-active-border-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-dashed-default-active-text-color, 0.2);
+        color: $button-dashed-default-active-text-color;
+        border-color: $button-dashed-default-active-border-color;
+      }
+
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-dashed-default-active-text-color, 0.2);
+        color: $button-dashed-default-active-text-color;
+        border-color: $button-dashed-default-active-border-color;
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-dashed-default-disabled-text-color;
+      background-color: $button-dashed-default-disabled-bg-color;
+      border-color: $button-dashed-default-disabled-border-color;
+
+      &:hover {
+        color: $button-dashed-default-disabled-text-color;
+        background-color: $button-dashed-default-disabled-bg-color;
+        border-color: $button-dashed-default-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-dashed-default-disabled-text-color;
+        background-color: $button-dashed-default-disabled-bg-color;
+        border-color: $button-dashed-default-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-dashed-default-disabled-text-color;
+        background-color: $button-dashed-default-disabled-bg-color;
+        border-color: $button-dashed-default-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-dashed-primary {
+    color: $button-dashed-primary-text-color;
+    background-color: $button-dashed-primary-bg-color;
+    border: 1px dashed $button-dashed-primary-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-dashed-primary-hover-text-color;
+      background-color: $button-dashed-primary-hover-bg-color;
+      border-color: $button-dashed-primary-hover-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-dashed-primary-active-text-color;
+      background-color: $button-dashed-primary-active-bg-color;
+      border-color: $button-dashed-primary-active-border-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-dashed-primary-active-text-color, 0.2);
+        color: $button-dashed-primary-active-text-color;
+        border-color: $button-dashed-primary-active-border-color;
+      }
+
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-dashed-primary-active-text-color, 0.2);
+        color: $button-dashed-primary-active-text-color;
+        border-color: $button-dashed-primary-active-border-color;
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-dashed-primary-disabled-text-color;
+      background-color: $button-dashed-primary-disabled-bg-color;
+      border-color: $button-dashed-primary-disabled-border-color;
+
+      &:hover {
+        color: $button-dashed-primary-disabled-text-color;
+        background-color: $button-dashed-primary-disabled-bg-color;
+        border-color: $button-dashed-primary-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-dashed-primary-disabled-text-color;
+        background-color: $button-dashed-primary-disabled-bg-color;
+        border-color: $button-dashed-primary-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-dashed-primary-disabled-text-color;
+        background-color: $button-dashed-primary-disabled-bg-color;
+        border-color: $button-dashed-primary-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+  &.#{$ns}-dashed-danger {
+    color: $button-dashed-danger-text-color;
+    background-color: $button-dashed-danger-bg-color;
+    border: 1px dashed $button-dashed-danger-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-dashed-danger-hover-text-color;
+      background-color: $button-dashed-danger-hover-bg-color;
+      border-color: $button-dashed-danger-hover-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-dashed-danger-active-text-color;
+      background-color: $button-dashed-danger-active-bg-color;
+      border-color: $button-dashed-danger-active-border-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-dashed-danger-active-text-color, 0.2);
+        color: $button-dashed-danger-active-text-color;
+        border-color: $button-dashed-danger-active-border-color;
+      }
+
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-dashed-danger-active-text-color, 0.2);
+        color: $button-dashed-danger-active-text-color;
+        border-color: $button-dashed-danger-active-border-color;
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-dashed-danger-disabled-text-color;
+      background-color: $button-dashed-danger-disabled-bg-color;
+      border-color: $button-dashed-danger-disabled-border-color;
+
+      &:hover {
+        color: $button-dashed-danger-disabled-text-color;
+        background-color: $button-dashed-danger-disabled-bg-color;
+        border-color: $button-dashed-danger-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-dashed-danger-disabled-text-color;
+        background-color: $button-dashed-danger-disabled-bg-color;
+        border-color: $button-dashed-danger-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-dashed-danger-disabled-text-color;
+        background-color: $button-dashed-danger-disabled-bg-color;
+        border-color: $button-dashed-danger-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-dashed-success {
+    color: $button-dashed-success-text-color;
+    background-color: $button-dashed-success-bg-color;
+    border: 1px dashed $button-dashed-success-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-dashed-success-hover-text-color;
+      background-color: $button-dashed-success-hover-bg-color;
+      border-color: $button-dashed-success-hover-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-dashed-success-active-text-color;
+      background-color: $button-dashed-success-active-bg-color;
+      border-color: $button-dashed-success-active-border-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-dashed-success-active-text-color, 0.2);
+        color: $button-dashed-success-active-text-color;
+        border-color: $button-dashed-success-active-border-color;
+      }
+
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-dashed-success-active-text-color, 0.2);
+        color: $button-dashed-success-active-text-color;
+        border-color: $button-dashed-success-active-border-color;
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-dashed-success-disabled-text-color;
+      background-color: $button-dashed-success-disabled-bg-color;
+      border-color: $button-dashed-success-disabled-border-color;
+
+      &:hover {
+        color: $button-dashed-success-disabled-text-color;
+        background-color: $button-dashed-success-disabled-bg-color;
+        border-color: $button-dashed-success-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-dashed-success-disabled-text-color;
+        background-color: $button-dashed-success-disabled-bg-color;
+        border-color: $button-dashed-success-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-dashed-success-disabled-text-color;
+        background-color: $button-dashed-success-disabled-bg-color;
+        border-color: $button-dashed-success-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-dashed-warning {
+    color: $button-dashed-warning-text-color;
+    background-color: $button-dashed-warning-bg-color;
+    border: 1px dashed $button-dashed-warning-border-color;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $button-dashed-warning-hover-text-color;
+      background-color: $button-dashed-warning-hover-bg-color;
+      border-color: $button-dashed-warning-hover-border-color;
+      transition: all 0.1s ease;
+    }
+
+    &:active {
+      color: $button-dashed-warning-active-text-color;
+      background-color: $button-dashed-warning-active-bg-color;
+      border-color: $button-dashed-warning-active-border-color;
+      transition: all 0.1s ease;
+    }
+    &.#{$ns}-aria {
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($button-dashed-warning-active-text-color, 0.2);
+        color: $button-dashed-warning-active-text-color;
+        border-color: $button-dashed-warning-active-border-color;
+      }
+
+      &:active {
+        box-shadow: 0 0 0 2px rgba($button-dashed-warning-active-text-color, 0.2);
+        color: $button-dashed-warning-active-text-color;
+        border-color: $button-dashed-warning-active-border-color;
+      }
+    }
+    &.#{$ns}-disabled {
+      cursor: not-allowed;
+      color: $button-dashed-warning-disabled-text-color;
+      background-color: $button-dashed-warning-disabled-bg-color;
+      border-color: $button-dashed-warning-disabled-border-color;
+
+      &:hover {
+        color: $button-dashed-warning-disabled-text-color;
+        background-color: $button-dashed-warning-disabled-bg-color;
+        border-color: $button-dashed-warning-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:active {
+        color: $button-dashed-warning-disabled-text-color;
+        background-color: $button-dashed-warning-disabled-bg-color;
+        border-color: $button-dashed-warning-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+
+      &:focus {
+        color: $button-dashed-warning-disabled-text-color;
+        background-color: $button-dashed-warning-disabled-bg-color;
+        border-color: $button-dashed-warning-disabled-border-color;
+        transition: background-color 0.1s ease;
+        box-shadow: 0 0 0 0;
+      }
+    }
+  }
+
+  &.#{$ns}-elevation {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  .#{$ns}-ripple {
+    &.#{$ns}-fire {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      width: 5px;
+      height: 5px;
+      animation: rippleEffect 0.88s 1;
+      opacity: 0;
+    }
+  }
+
+  .#{$ns}-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .#{$ns}-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .#{$ns}-icon,
+    .#{$ns}-text {
+      visibility: hidden;
+    }
+  }
+
+  &.#{$ns}-icon {
+    min-width: 32px;
+  }
+}

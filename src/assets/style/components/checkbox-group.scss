@@ -1,0 +1,11 @@
+@import '../variables/namespace';
+@import '../variables/color';
+@import '../variables/animation';
+@import '../variables/size';
+.#{$ns}-checkbox-group {
+  display: flex;
+  flex-direction: row;
+  .#{$ns}-checkbox {
+    margin-right: 30px;
+  }
+}

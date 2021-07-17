@@ -1,0 +1,77 @@
+@import '../variables/namespace';
+@import '../variables/color';
+@import '../variables/size';
+
+.#{$ns}-accordion {
+  position: relative;
+  transition: color 0.1s ease-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  & > .#{$ns}-accordion-header {
+    display: flex;
+    align-items: center;
+    height: $accordion-header-default-height;
+
+    & > .header-bg {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 8px;
+      padding-right: 24px;
+      height: $accordion-header-bg-height;
+
+      & > .left {
+        display: flex;
+        align-items: center;
+
+        & > .prefix-icon {
+          margin-right: 16px;
+        }
+      }
+
+      & > .suffix-icon {
+        transform: rotate(-90deg);
+        transition: transform 0.3s linear;
+      }
+
+      .#{$ns}-accordion-title {
+        font-size: $font-default-size;
+      }
+    }
+
+    &.open {
+      & > .header-bg {
+        & > .suffix-icon {
+          transform: rotate(0deg);
+          transition: transform 0.3s linear;
+        }
+      }
+    }
+
+    cursor: pointer;
+  }
+
+  &.active {
+    & > .#{$ns}-accordion-header {
+      transition: color 0.3s ease-in;
+    }
+
+    &.anchor {
+      & > .#{$ns}-accordion-header {
+        & > .header-bg {
+          transition: color 0.3s ease-in;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.#{$ns}-accordion-group {
+  outline: none;
+  width: 100%;
+}

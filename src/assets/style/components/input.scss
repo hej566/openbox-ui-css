@@ -1,0 +1,112 @@
+@import '../variables/namespace';
+@import '../variables/color';
+@import '../variables/animation';
+@import '../variables/size';
+
+.#{$ns}-input {
+  position: relative;
+  border-radius: $border-default-radius;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid $input-field-primary-border-color;
+  background-color: $input-field-primary-bg-color;
+  .#{$ns}-input-field {
+    height: $input-default-height;
+    width: inherit;
+    display: flex;
+    box-sizing: border-box;
+
+    .prefix {
+      display: flex;
+      align-items: center;
+      .#{$ns}-prefix {
+        color: $input-field-primary-icon-color;
+        margin-left: 12px;
+        &.#{$ns}-loading {
+          animation: rotating 0.5s linear infinite;
+        }
+      }
+
+      button {
+        border-radius: $border-default-radius 0 0 $border-default-radius;
+      }
+    }
+
+    .suffix {
+      display: flex;
+      align-items: center;
+      .#{$ns}-suffix {
+        color: $input-field-primary-icon-color;
+        margin-right: 12px;
+        &.#{$ns}-loading {
+          animation: rotating 0.5s linear infinite;
+        }
+      }
+
+      button {
+        border-radius: 0 $border-default-radius $border-default-radius 0;
+      }
+    }
+
+    input {
+      &::-ms-clear,
+      &::-ms-reveal { display: none; }
+
+      font-size: $font-default-size;
+      color: $input-field-primary-text-color;
+      min-width: 0;
+      flex: 1;
+      padding: 0;
+      border: none;
+      outline: none;
+      margin: 0 12px;
+      box-sizing: border-box;
+      border-radius: $border-default-radius;
+
+      &::placeholder {
+        color: $input-field-primary-placeholder-color;
+      }
+    }
+  }
+
+  &.focus {
+    outline: none;
+    border-color: $input-field-primary-active-border-color;
+    box-shadow: $input-field-primary-active-box-shadow-color;
+  }
+
+  &.#{$ns}-disabled {
+    border-color: $input-field-disabled-border-color;
+    box-shadow: none;
+
+    input {
+      &::-ms-clear,
+      input::-ms-reveal { display: none; }
+
+      background-color: $input-field-disabled-bg-color;
+      color: $input-field-disabled-text-color;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $input-field-disabled-placeholder-color;
+      }
+    }
+
+    .prefix {
+      cursor: not-allowed;
+      .#{$ns}-prefix {
+        color: $input-field-disabled-icon-color;
+      }
+    }
+
+    .suffix {
+      cursor: not-allowed;
+      .#{$ns}-suffix {
+        color: $input-field-disabled-icon-color;
+      }
+    }
+  }
+}

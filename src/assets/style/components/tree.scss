@@ -1,0 +1,118 @@
+@import '../variables/namespace';
+@import '../variables/color';
+@import '../variables/size';
+
+.#{$ns}-tree {
+  .#{$ns}-tree-node {
+    cursor: pointer;
+    .#{$ns}-tree-node-header {
+      width: 224px;
+      height: $tree-node-default-height;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+
+      .header-bg {
+        display: flex;
+        align-items: center;
+        .#{$ns}-tree-node-title {
+          width: 120px;
+          margin-left: 8px;
+          font-size: 14px;
+          height: 22px;
+          color: $tree-primary-text-color;
+
+          div {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      &.open {
+        .header-bg {
+          .svg-icon:first-child {
+            width: 9px;
+            fill: $tree-primary-icon-color;
+
+            &.hide {
+              visibility: hidden;
+            }
+
+            &.show {
+              visibility: visible;
+            }
+          }
+
+          .svg-icon:nth-child(2) {
+            margin-left: 8px;
+            fill: $tree-primary-text-color;
+          }
+        }
+      }
+
+      &.close {
+        .header-bg {
+          .svg-icon:first-child {
+            width: 9px;
+            fill: $tree-primary-icon-color;
+            transform: rotate(-90deg);
+
+            &.hide {
+              visibility: hidden;
+            }
+
+            &.show {
+              visibility: visible;
+            }
+          }
+
+          .svg-icon:nth-child(2) {
+            margin-left: 8px;
+            fill: $tree-primary-text-color;
+          }
+        }
+      }
+
+      &.active {
+        outline: none;
+        background-color: $tree-node-primary-active-bg-color;
+        border-radius: $tree-node-active-bg-radius;
+
+        .header-bg {
+          .svg-icon {
+            fill: $tree-node-primary-active-text-color;
+          }
+
+          .svg-icon:nth-child(2) {
+            margin-left: 8px;
+            fill: $tree-node-primary-active-text-color;
+          }
+          .#{$ns}-tree-node-title {
+            color: $tree-node-primary-active-text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tippy-box {
+  &[data-theme^="tree-node-tooltip"] {
+    height: 40px;
+    padding: 0 16px;
+
+    .tippy-content {
+      height: inherit;
+      width: inherit;
+      color: $tree-node-primary-active-text-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

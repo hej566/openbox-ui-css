@@ -1,0 +1,149 @@
+@import '../variables/namespace';
+@import '../variables/color';
+@import '../variables/animation';
+@import '../variables/size';
+.#{$ns}-form {
+  .#{$ns}-form-item-no-label-width {
+    .#{$ns}-dropdown-multiple-field, .#{$ns}-dropdown-field, .#{$ns}-cascader-field {
+      clear: both;
+    }
+  }
+  .#{$ns}-radio-group .#{$ns}-radio {
+    margin: 0 8px;
+  }
+  &.#{$ns}-form--inline .#{$ns}-form-item, &.#{$ns}-form--inline .#{$ns}-form-item__content {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .#{$ns}-form-item::after, .#{$ns}-form-item__content::after {
+    clear: both;
+  }
+  .#{$ns}-form--label-left .#{$ns}-form-item__label {
+    text-align: left;
+  }
+  .#{$ns}-form--label-top .#{$ns}-form-item__label {
+    float: none;
+    display: inline-block;
+    text-align: left;
+    padding: 0 0 10px;
+  }
+  .#{$ns}-form-item__content .#{$ns}-dropdown-type-default {
+    margin: 2px 0;
+  }
+  .#{$ns}-form-item__content .c4it-textarea-field {
+    margin-bottom: -8px;
+  }
+  .is-required .#{$ns}-form-item__label {
+    margin-left: -12px;
+  }
+  &.#{$ns}-form--inline .#{$ns}-form-item {
+    margin-right: 10px;
+  }
+  &.#{$ns}-form--inline .#{$ns}-form-item__label {
+    float: none;
+    display: inline-block;
+  }
+  &.#{$ns}-form--inline.#{$ns}-form--label-top .#{$ns}-form-item__content {
+    display: block;
+  }
+  .#{$ns}-form-item {
+    margin-bottom: 22px;
+  }
+  .#{$ns}-form-item::after,.#{$ns}-form-item::before {
+    display: table;
+    content: "";
+  }
+  .#{$ns}-form-item .#{$ns}-form-item {
+    margin-bottom: 0;
+  }
+  .#{$ns}-form-item--mini.#{$ns}-form-item,.#{$ns}-form-item--small.#{$ns}-form-item {
+    margin-bottom: 18px;
+  }
+  .#{$ns}-form-item .#{$ns}-input__validateIcon {
+    display: none;
+  }
+  .#{$ns}-form-item--medium .#{$ns}-form-item__content,.#{$ns}-form-item--medium .#{$ns}-form-item__label {
+    line-height: 36px;
+  }
+  .#{$ns}-form-item--small .#{$ns}-form-item__content,.#{$ns}-form-item--small .#{$ns}-form-item__label {
+    line-height: 32px;
+  }
+  .#{$ns}-form-item--small .#{$ns}-form-item__error {
+    padding-top: 2px;
+  }
+  .#{$ns}-form-item--mini .#{$ns}-form-item__content,.#{$ns}-form-item--mini .#{$ns}-form-item__label {
+    line-height: 28px;
+  }
+  .#{$ns}-form-item--mini .#{$ns}-form-item__error {
+    padding-top: 1px;
+  }
+  .#{$ns}-form-item__label-wrap {
+    float: left;
+  }
+  .#{$ns}-form-item__label-wrap .#{$ns}-form-item__label {
+    display: inline-block;
+    float: none;
+  }
+  .#{$ns}-form-item__label {
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+    font-size: 14px;
+    color: #606266;
+    line-height: 40px;
+    padding: 0 12px 0 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .#{$ns}-form-item__content {
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+  }
+  .#{$ns}-form-item__content::after,.#{$ns}-form-item__content::before {
+    display: table;
+    content: "";
+  }
+  .#{$ns}-form-item__content .#{$ns}-input-group {
+    vertical-align: top;
+  }
+  .#{$ns}-form-item__error {
+    color: #f56c6c;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  .#{$ns}-form-item__error--inline {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .#{$ns}-form-item.is-required:not(.is-no-asterisk) .#{$ns}-form-item__label-wrap>.#{$ns}-form-item__label:before,.#{$ns}-form-item.is-required:not(.is-no-asterisk)>.#{$ns}-form-item__label:before {
+    content: '*';
+    color: #f56c6c;
+    margin-right: 4px;
+  }
+  .#{$ns}-form-item.is-error .#{$ns}-input,.#{$ns}-form-item.is-error .#{$ns}-input:focus, .#{$ns}-form-item.is-error .#{$ns}-datepicker,.#{$ns}-form-item.is-error .#{$ns}-datepicker:focus, .#{$ns}-form-item.is-error .#{$ns}-timepicker,.#{$ns}-form-item.is-error .#{$ns}-timepicker:focus, .#{$ns}-form-item.is-error .#{$ns}-textarea,.#{$ns}-form-item.is-error .#{$ns}-textarea:focus,.#{$ns}-form-item.is-error div[class^=#{$ns}-dropdown-uneditable], .#{$ns}-form-item.is-error input[class^=#{$ns}-dropdown-uneditable], .#{$ns}-form-item.is-error input[class^=#{$ns}-dropdown-editable], .#{$ns}-form-item.is-error div[class^=#{$ns}-dropdown-editable], .#{$ns}-form-item.is-error div[class^=#{$ns}-cascader-uneditable], .#{$ns}-form-item.is-error div[class^=#{$ns}-cascader-editable] {
+    border-color: #f56c6c;
+  }
+  .#{$ns}-form-item.is-error .#{$ns}-input-group__append .#{$ns}-input__inner,.#{$ns}-form-item.is-error .#{$ns}-input-group__prepend .#{$ns}-input__inner {
+    border-color: transparent;
+  }
+  .#{$ns}-form-item.is-error .#{$ns}-input__validateIcon {
+    color: #f56c6c;
+  }
+  .#{$ns}-form-item--feedback .#{$ns}-input__validateIcon {
+    display: inline-block;
+  }
+}
+
+.#{$ns}-form-no-label-width {
+  .#{$ns}-dropdown-multiple-field {
+    clear: both;
+  }
+}

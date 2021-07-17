@@ -1,0 +1,99 @@
+@import '../variables/namespace';
+@import '../variables/color';
+@import '../variables/size';
+
+.#{$ns}-progress-circle {
+  transform: rotate(-90deg);
+  .#{$ns}-circle-fg {
+    stroke: $primary;
+    fill: transparent;
+  }
+  .#{$ns}-circle-bg {
+    stroke: $gray-100;
+    fill: transparent;
+  }
+}
+
+.#{$ns}-progress-circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: black;
+}
+
+.#{$ns}-progress-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: $progress-bar-default-width;
+  height: $progress-bar-default-height;
+
+  .progress-bar {
+    border-radius: 6px;
+    height: inherit;
+    width: inherit;
+    position: relative;
+
+    .progress-bg {
+      border-radius: 6px;
+      height: inherit;
+      width: inherit;
+    }
+
+    .progress-fg {
+      position: absolute;
+      border-radius: 6px;
+      height: inherit;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  & > .label {
+    position: absolute;
+    white-space: nowrap;
+
+    &.bottom-start {
+      top: 100%;
+      left: 0;
+    }
+
+    &.bottom-center {
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    &.bottom-end {
+      top: 100%;
+      right: 0;
+    }
+
+    &.top-start {
+      top: -100%;
+      left: 0;
+      transform: translate(0, -50%);
+    }
+
+    &.top-center {
+      top: -100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &.top-end {
+      top: -100%;
+      right: 0;
+      transform: translate(0, -50%);
+    }
+  }
+
+  & > .svg-icon {
+    position: absolute;
+    left: 100%;
+    transform: translate(8px);
+    color: $success;
+  }
+}

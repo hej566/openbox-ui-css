@@ -1,0 +1,91 @@
+@import '../variables/layout';
+@import '../variables/namespace';
+@import '../variables/color';
+
+.#{$ns}-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.#{$ns}-row {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .#{$ns}-col:first-child {
+    margin-left: 0;
+  }
+  .#{$ns}-col-1 {
+    width: $col-1;
+    background-color: $blue-gray-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-2 {
+    width: $col-2;
+    background-color: $gray-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-3 {
+    width: $col-3;
+    background-color: $brown-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-4 {
+    width: $col-4;
+    background-color: $deep-orange-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-5 {
+    width: $col-5;
+    background-color: $orange-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-6 {
+    width: $col-6;
+    background-color: $amber-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-7 {
+    width: $col-7;
+    background-color: $yellow-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-8 {
+    width: $col-8;
+    background-color: $light-green-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-9 {
+    width: $col-9;
+    background-color: $green-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-10 {
+    width: $col-10;
+    background-color: $cyan-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-11 {
+    width: $col-11;
+    background-color: $light-blue-500;
+    display: inline-block;
+  }
+  .#{$ns}-col-12 {
+    width: $col-12;
+    background-color: $blue-500;
+    display: inline-block;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}

@@ -1,0 +1,32 @@
+.breadcrumb {
+  .bread_link {
+    color: #778199;
+    font-size: 14px;
+
+    &:last-child {
+      color: #2f374b;
+
+      span:hover {
+        color: #2f374b;
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+  }
+
+  .link_text:hover {
+    color: #057aff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .separate {
+    margin-left: 10px;
+    margin-right: 14px;
+
+    .separateIconClass {
+      width: 5px;
+      height: 8px;
+    }
+  }
+}
