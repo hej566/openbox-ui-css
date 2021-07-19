@@ -1,11 +1,9 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const webpack = require('webpack');
-const path = require('path');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
-const os = require('os');
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import os from 'os';
 
 function networkIP() {
   const ifaces = os.networkInterfaces();
@@ -27,7 +25,7 @@ const IP = networkIP();
 
 module.exports = {
   mode: 'development',
-  entry: './index.js',
+  entry: './index.ts',
   devtool: 'source-map',
   devServer: {
     hot: true,
@@ -44,6 +42,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
+    extensions: [".tsx", ".ts", ".js"],
     alias: {
       '@': path.join(__dirname, '../src')
     }
@@ -57,19 +56,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        exclude: [path.resolve(__dirname, '../node_modules')],
-        use: [{ loader: 'vue-loader' }, { loader: 'vue-svg-inline-loader' }]
-      },
-      {
-        test: /\.js$/,
-        exclude: [path.resolve(__dirname, '../node_modules')],
-        use: [
-          {
-            loader: 'thread-loader'
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ],
           },
-          'babel-loader'
-        ]
+        },
       },
       {
         test: /\.(css|scss)$/,
@@ -90,7 +88,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(js|vue)$/,
+        test: /\.(ts|js)x?$/,
         exclude: [path.resolve(__dirname, '../node_modules')],
         use: ['eslint-loader'],
         enforce: 'pre'
@@ -133,7 +131,6 @@ module.exports = {
     }),
     new BundleAnalyzerPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'public/index.html',

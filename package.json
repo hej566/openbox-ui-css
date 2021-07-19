@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "npm run dll | webpack --config  config/webpack.prod.js",
-    "dev": "npm run dll | webpack-dev-server --config  config/webpack.dev.js",
+    "dev": "npm run dll | webpack-dev-server --config  config/webpack.dev.ts",
     "prepublishOnly": "npm run lint:fix | webpack --config  config/webpack.prod.js",
     "dll": "webpack --config config/webpack.dll.js",
     "lint": "eslint --ext .js,.vue src test index.js build.js | stylelint src/assets/style/**/*.scss",
