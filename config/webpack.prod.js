@@ -1,4 +1,3 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
@@ -7,9 +6,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'production',
   target: 'web',
-  entry: './build.js',
+  entry: './build.tsx',
   output: {
-    filename: 'index.js',
+    filename: 'index.tsx',
     path: path.resolve(__dirname, '../dist'),
     library: '@c4it/UI',
     libraryTarget: 'umd',
@@ -25,19 +24,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        exclude: [path.resolve(__dirname, '../node_modules')],
-        use: [{ loader: 'vue-loader' }, { loader: 'vue-svg-inline-loader' }]
-      },
-      {
-        test: /\.js$/,
-        exclude: [path.resolve(__dirname, '../node_modules')],
-        use: [
-          {
-            loader: 'thread-loader'
-          },
-          'babel-loader'
-        ]
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react',
+              '@babel/preset-typescript'
+            ]
+          }
+        }
       },
       {
         test: /\.(css|scss)$/,
@@ -56,12 +54,6 @@ module.exports = {
             loader: 'sass-loader'
           },
         ]
-      },
-      {
-        test: /\.(js|vue)$/,
-        exclude: [path.resolve(__dirname, './node_modules')],
-        use: ['eslint-loader'],
-        enforce: 'pre'
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -94,16 +86,11 @@ module.exports = {
       cleanStaleWebpackAssets: false,
       cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist')],
     }),
-    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       ns: JSON.stringify('c4it')
     }),
     new MiniCssExtractPlugin({
       filename: "index.css",
-    }),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require('./build/library/library.json')
     })
   ]
 }

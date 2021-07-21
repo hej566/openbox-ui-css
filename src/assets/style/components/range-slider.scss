@@ -28,6 +28,10 @@
       &::-webkit-slider-thumb {
         box-shadow: 0 0 0 3px rgba($primary, 0.3);
       }
+
+      &::-moz-range-thumb {
+        box-shadow: 0 0 0 3px rgba($primary, 0.3);
+      }
     }
 
     &::-moz-range-thumb {
@@ -38,12 +42,6 @@
       background-color: $primary;
       box-shadow: 0 3px 6px rgba($primary, 0.16), 0 0 6px rgba($primary, 0.3);
       margin-top: -8px;
-    }
-
-    &:focus {
-      &::-moz-range-thumb {
-        box-shadow: 0 0 0 3px rgba($primary, 0.3);
-      }
     }
 
     &::-webkit-slider-runnable-track {

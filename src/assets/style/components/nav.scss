@@ -233,9 +233,7 @@
       }
     }
   }
-}
 
-.tippy-box {
   &[data-theme="nav-cascader-item-light"] {
     background-color: $nav-secondry-bg-color;
     width: $nav-collapse-cascader-item-width;
@@ -290,9 +288,7 @@
       }
     }
   }
-}
 
-.tippy-box {
   &[data-theme="nav-tooltip"] {
     height: 40px;
     width: 100px;
@@ -374,9 +370,6 @@
   }
 
   &.active {
-    & > .#{$ns}-nav-item-header {
-    }
-
     &.anchor {
       & > .#{$ns}-nav-item-header {
         & > .header-bg {

@@ -40,9 +40,7 @@
         }
       }
     }
-  }
 
-  input[type='checkbox'] {
     &:checked {
       & + label {
         background-color: $switch-on-primary-bg-color;
