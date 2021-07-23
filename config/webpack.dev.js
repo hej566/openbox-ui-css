@@ -3,10 +3,13 @@ const path = require('path');
 const webpack = require('webpack');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ForkTSCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './index.tsx',
+  entry: {
+    app: './index.tsx'
+  },
   devtool: 'source-map',
   devServer: {
     hot: true,
@@ -19,49 +22,39 @@ module.exports = {
     port: 8081
   },
   output: {
-    chunkFilename: '[name].[fullhash].bundle.js',
+    filename: '[name].[chunkhash:8].bundle.js',
     publicPath: '/'
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js', 'jsx'],
-    alias: {
-      '@': path.join(__dirname, '../src')
+  optimization: {
+    splitChunks: {
+      name: 'vendor',
+      chunks: 'all'
     }
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    },
+    extensions: ['.tsx', '.ts', '.js']
   },
 
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: ['ts-loader']
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            }
+          }
+        ]
       },
       {
         test: /\.(css|scss)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          'sass-loader'
-          // {
-          //   loader: 'postcss-loader',
-          //   options: {
-          //     postcssOptions: {
-          //       // config: {
-          //       //   path: path.join(__dirname, '../postcss.config.js')
-          //       // }
-          //     }
-          //   }
-          // },
-          // {
-          //   loader: 'sass-loader'
-          // }
-        ]
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -101,6 +94,7 @@ module.exports = {
       template: 'public/index.html',
       inject: true
     }),
-    new FaviconsWebpackPlugin('public/favicon.ico')
+    new FaviconsWebpackPlugin('public/favicon.ico'),
+    new ForkTSCheckerWebpackPlugin()
   ]
 };

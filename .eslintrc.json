@@ -27,6 +27,8 @@
         "@typescript-eslint/no-use-before-define": ["error"],
         "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts",".tsx"] }],
         "no-undef": 0,
-        "import/no-extraneous-dependencies": 0
+        "import/no-extraneous-dependencies": 0,
+        "import/no-unresolved" : 0,
+        "import/extensions": 0
     }
 }
