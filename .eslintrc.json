@@ -4,14 +4,12 @@
         "es2021": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "plugin:prettier/recommended",
         "airbnb",
+        "plugin:react/recommended",
         "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "parser": "babel-eslint",
         "ecmaFeatures": {
             "jsx": true
         },
@@ -29,6 +27,7 @@
         "no-undef": 0,
         "import/no-extraneous-dependencies": 0,
         "import/no-unresolved" : 0,
-        "import/extensions": 0
+        "import/extensions": 0,
+        "react/prop-types": 0
     }
 }
