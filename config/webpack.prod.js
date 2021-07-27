@@ -11,7 +11,7 @@ module.exports = {
   target: 'web',
   entry: './build.tsx',
   output: {
-    filename: 'index.tsx',
+    filename: 'index.js',
     path: path.resolve(__dirname, '../dist'),
     library: '@c4it/UI',
     libraryTarget: 'umd',
