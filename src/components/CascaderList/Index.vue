@@ -10,11 +10,7 @@
       <div class="cascader-label">
         {{ item.label }}
       </div>
-      <svg-icon
-        v-if="item.children"
-        icon-class="angle-right"
-        class="cascader-icon"
-      />
+      <svg-icon v-if="item.children" icon-class="angle-right" class="cascader-icon" />
     </div>
     <div :class="cascaderListWrapperClasses" v-show="false">
       <c4it-scrollbar v-if="childrenOptions.length" is-vertical>
@@ -37,19 +33,19 @@ export default {
   name: `${ns}CascaderList`,
   /* eslint-enable */
   components: {
-    c4itScrollbar
+    c4itScrollbar,
   },
   props: {
     options: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     index: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   data() {
@@ -63,7 +59,7 @@ export default {
       targetElm: null,
       popoverElm: null,
       cascaderIndex: '',
-      classesSet: null
+      classesSet: null,
     };
   },
 
@@ -76,7 +72,7 @@ export default {
     },
     cascaderListWrapperClasses() {
       return this.cascaderListWrapperClassArr;
-    }
+    },
   },
 
   created() {
@@ -113,13 +109,10 @@ export default {
           duration: 0,
           delay: 0,
           onClickOutside: (instance, event) => {
-            if (
-              event.target.classList &&
-              !this.classesSet.includes(event.target.classList[0])
-            ) {
+            if (event.target.classList && !this.classesSet.includes(event.target.classList[0])) {
               instance.destroy();
             }
-          }
+          },
         });
         this.instance.show();
       } else if (this.instance && this.instance.state.isShown) {
@@ -146,7 +139,7 @@ export default {
         this.$emit('selected', {
           index: $event.currentTarget.dataset['index'],
           item: item,
-          status: 'node'
+          status: 'node',
         });
       } else {
         $event.currentTarget.classList.add('active');
@@ -154,7 +147,7 @@ export default {
         this.$emit('selected', {
           index: $event.currentTarget.dataset['index'],
           item: item,
-          status: 'leaf'
+          status: 'leaf',
         });
       }
     },
@@ -180,7 +173,7 @@ export default {
       if (vm && vm.instance) {
         vm.instance.hide();
       }
-    }
-  }
+    },
+  },
 };
 </script>

@@ -29,33 +29,33 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     isVertical: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     width: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     isHorizontal: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     throttle: {
       type: Number,
-      default: 3000
+      default: 3000,
     },
 
     useThrottle: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -79,7 +79,7 @@ export default {
       scrollTop: 0,
       scrollLeft: 0,
       raf: null,
-      timer: null
+      timer: null,
     };
   },
 
@@ -95,7 +95,7 @@ export default {
     },
     wrapperClassList() {
       return this.wrapperClassArr;
-    }
+    },
   },
 
   created() {
@@ -118,10 +118,10 @@ export default {
   methods: {
     init() {
       /* eslint-disable */
-      this.scrollbarClassArr.push(`${ns}-scrollbar`)
-      this.barClassArr.push(`${ns}-scrollbar-bar`)
-      this.thumbClassArr.push(`${ns}-scrollbar-thumb`)
-      this.wrapperClassArr.push(`${ns}-scrollbar-wrapper`)
+      this.scrollbarClassArr.push(`${ns}-scrollbar`);
+      this.barClassArr.push(`${ns}-scrollbar-bar`);
+      this.thumbClassArr.push(`${ns}-scrollbar-thumb`);
+      this.wrapperClassArr.push(`${ns}-scrollbar-wrapper`);
       /* eslint-enable */
       if (this.isVertical) {
         this.scrollbarClassArr.push(`is-vertical`);
@@ -134,8 +134,8 @@ export default {
     mouseleaveThumbHandler() {
       /* eslint-disable */
       if (this.thumbElm) {
-          this.thumbElm.classList.remove(`${ns}-grabbed`);
-          this.thumbElm.removeEventListener('mousemove', this.drag);
+        this.thumbElm.classList.remove(`${ns}-grabbed`);
+        this.thumbElm.removeEventListener('mousemove', this.drag);
       }
       this.wrapperElm.classList.remove(`${ns}-grabbed`);
       /* eslint-enable */
@@ -148,7 +148,7 @@ export default {
         this.thumbElm.classList.add(`${ns}-grabbed`);
         this.thumbElm.addEventListener('mousemove', this.drag);
       }
-      
+
       this.wrapperElm.classList.add(`${ns}-grabbed`);
       /* eslint-enable */
     },
@@ -156,8 +156,8 @@ export default {
     mouseupThumbHandler($event) {
       /* eslint-disable */
       if (this.thumbElm) {
-          this.thumbElm.classList.remove(`${ns}-grabbed`);
-          this.thumbElm.removeEventListener('mousemove', this.drag);
+        this.thumbElm.classList.remove(`${ns}-grabbed`);
+        this.thumbElm.removeEventListener('mousemove', this.drag);
       }
       this.wrapperElm.classList.remove(`${ns}-grabbed`);
       /* eslint-enable */
@@ -199,7 +199,7 @@ export default {
       if ($event.propertyName === 'max-height') {
         let closeElms = $event.currentTarget.querySelectorAll(`.close`);
         if (closeElms) {
-          closeElms.forEach(element => {
+          closeElms.forEach((element) => {
             if (
               element.nextElementSibling &&
               element.nextElementSibling.style.display === 'block'
@@ -220,9 +220,7 @@ export default {
         this.scrollRatio = this.offsetHeight / this.scrollHeight;
         if (this.scrollRatio < 1) {
           this.thumbElm.style.cssText = `height:${this.scrollRatio * 100}%;`;
-          let top = `${Math.floor(
-            (this.scrollTop * this.offsetHeight) / this.scrollHeight
-          )}px`;
+          let top = `${Math.floor((this.scrollTop * this.offsetHeight) / this.scrollHeight)}px`;
           this.thumbElm.style.transform = `translate(0, ${top})`;
         } else {
           this.thumbElm.style.cssText = `opacity: 0`;
@@ -235,9 +233,7 @@ export default {
         this.scrollRatio = this.offsetWidth / this.scrollWidth;
         if (this.scrollRatio < 1) {
           this.thumbElm.style.cssText = `width:${this.scrollRatio * 100}%;`;
-          let left = `${Math.floor(
-            (this.scrollLeft * this.offsetWidth) / this.scrollWidth
-          )}px`;
+          let left = `${Math.floor((this.scrollLeft * this.offsetWidth) / this.scrollWidth)}px`;
           this.thumbElm.style.transform = `translate(${left}, 0)`;
         } else {
           this.thumbElm.style.cssText = `opacity: 0`;
@@ -253,9 +249,7 @@ export default {
         this.thumbElm = $event.target.nextElementSibling.firstChild;
         if (this.scrollRatio < 1) {
           this.thumbElm.style.cssText = `height:${this.scrollRatio * 100}%;`;
-          let top = `${Math.floor(
-            (this.scrollTop * this.offsetHeight) / this.scrollHeight
-          )}px`;
+          let top = `${Math.floor((this.scrollTop * this.offsetHeight) / this.scrollHeight)}px`;
           this.thumbElm.style.transform = `translate(0, ${top})`;
         } else {
           this.thumbElm.style.cssText = `opacity: 0`;
@@ -269,9 +263,7 @@ export default {
         this.thumbElm = $event.target.nextElementSibling.firstChild;
         if (this.scrollRatio < 1) {
           this.thumbElm.style.cssText = `width:${this.scrollRatio * 100}%;`;
-          let left = `${Math.floor(
-            (this.scrollLeft * this.offsetWidth) / this.scrollWidth
-          )}px`;
+          let left = `${Math.floor((this.scrollLeft * this.offsetWidth) / this.scrollWidth)}px`;
           this.thumbElm.style.transform = `translate(${left}, 0)`;
         } else {
           this.thumbElm.style.cssText = `opacity: 0`;
@@ -300,7 +292,7 @@ export default {
         this.lastPageX = $event.pageX;
         this.wrapperElm.scrollLeft += delta / this.scrollRatio;
       }
-    }
-  }
+    },
+  },
 };
 </script>

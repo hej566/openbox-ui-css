@@ -11,24 +11,15 @@
               :class="field.thClass"
             >
               <span>{{ field.label }}</span>
-              <svg-icon
-                v-if="field.sortable"
-                @click="sort(field.key)"
-                icon-class="sort"
-              />
+              <svg-icon v-if="field.sortable" @click="sort(field.key)" icon-class="sort" />
             </th>
           </tr>
         </thead>
         <tbody>
-          <div
-            v-for="(row, idx_item) in rows"
-            :key="idx_item"
-            :data-id="idx_item"
-            class="row"
-          >
+          <div v-for="(row, idx_item) in rows" :key="idx_item" :data-id="idx_item" class="row">
             <tr
               :style="{
-                backgroundColor: row.rowColor ? row.rowColor : '#ffffff'
+                backgroundColor: row.rowColor ? row.rowColor : '#ffffff',
               }"
             >
               <td
@@ -41,17 +32,14 @@
                   :name="field.key"
                   :row="{
                     ...row,
-                    toggleDetails: () => detailsWrapper(idx_item)
+                    toggleDetails: () => detailsWrapper(idx_item),
                   }"
                 >
                   {{ row[field.key] }}
                 </slot>
               </td>
             </tr>
-            <tr
-              :style="{ borderTop: '1px solid #d6d7db' }"
-              v-if="showDetails[idx_item]"
-            >
+            <tr :style="{ borderTop: '1px solid #d6d7db' }" v-if="showDetails[idx_item]">
               <slot :row="row" name="row-details"></slot>
             </tr>
           </div>
@@ -70,24 +58,15 @@
               :class="field.thClass"
             >
               <span>{{ field.label }}</span>
-              <svg-icon
-                v-if="field.sortable"
-                @click="sort(field.key)"
-                icon-class="sort"
-              />
+              <svg-icon v-if="field.sortable" @click="sort(field.key)" icon-class="sort" />
             </th>
           </tr>
         </thead>
         <tbody>
-          <div
-            v-for="(row, idx_item) in rows"
-            :key="idx_item"
-            :data-id="idx_item"
-            class="row"
-          >
+          <div v-for="(row, idx_item) in rows" :key="idx_item" :data-id="idx_item" class="row">
             <tr
               :style="{
-                backgroundColor: row.rowColor ? row.rowColor : '#ffffff'
+                backgroundColor: row.rowColor ? row.rowColor : '#ffffff',
               }"
             >
               <td
@@ -100,17 +79,14 @@
                   :name="field.key"
                   :row="{
                     ...row,
-                    toggleDetails: () => detailsWrapper(idx_item)
+                    toggleDetails: () => detailsWrapper(idx_item),
                   }"
                 >
                   {{ row[field.key] }}
                 </slot>
               </td>
             </tr>
-            <tr
-              :style="{ borderTop: '1px solid #d6d7db' }"
-              v-if="showDetails[idx_item]"
-            >
+            <tr :style="{ borderTop: '1px solid #d6d7db' }" v-if="showDetails[idx_item]">
               <slot :row="row" name="row-details"></slot>
             </tr>
           </div>
@@ -129,24 +105,15 @@
             :class="field.thClass"
           >
             <span>{{ field.label }}</span>
-            <svg-icon
-              v-if="field.sortable"
-              @click="sort(field.key)"
-              icon-class="sort"
-            />
+            <svg-icon v-if="field.sortable" @click="sort(field.key)" icon-class="sort" />
           </th>
         </tr>
       </thead>
       <tbody>
-        <div
-          v-for="(row, idx_item) in rows"
-          :key="idx_item"
-          :data-id="idx_item"
-          class="row"
-        >
+        <div v-for="(row, idx_item) in rows" :key="idx_item" :data-id="idx_item" class="row">
           <tr
             :style="{
-              backgroundColor: row.rowColor ? row.rowColor : '#ffffff'
+              backgroundColor: row.rowColor ? row.rowColor : '#ffffff',
             }"
           >
             <td
@@ -159,17 +126,14 @@
                 :name="field.key"
                 :row="{
                   ...row,
-                  toggleDetails: () => detailsWrapper(idx_item)
+                  toggleDetails: () => detailsWrapper(idx_item),
                 }"
               >
                 {{ row[field.key] }}
               </slot>
             </td>
           </tr>
-          <tr
-            :style="{ borderTop: '1px solid #d6d7db' }"
-            v-if="showDetails[idx_item]"
-          >
+          <tr :style="{ borderTop: '1px solid #d6d7db' }" v-if="showDetails[idx_item]">
             <slot :row="row" name="row-details"></slot>
           </tr>
         </div>
@@ -188,49 +152,49 @@ export default {
   name: `${ns}Table`,
   /*eslint-enable*/
   components: {
-    c4itScrollbar
+    c4itScrollbar,
   },
   props: {
     fields: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     items: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     stripped: {
       type: Boolean,
-      default: false
+      default: false,
     },
     fixedHeader: {
       type: Boolean,
-      default: false
+      default: false,
     },
     height: {
       type: Number,
-      default: 9999
+      default: 9999,
     },
     fixedColumn: {
       type: Boolean,
-      default: false
+      default: false,
     },
     width: {
       type: Number,
-      default: 9999
+      default: 9999,
     },
     columnName: {
       type: String,
-      default: ''
+      default: '',
     },
     drag: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -241,14 +205,14 @@ export default {
       showDetails: {},
       innerFields: [],
       innerItems: [],
-      tableElm: null
+      tableElm: null,
     };
   },
 
   computed: {
     tableClasses() {
       return this.tableClassArr;
-    }
+    },
   },
 
   watch: {
@@ -256,7 +220,7 @@ export default {
       immediate: true,
       handler(val) {
         this.innerFields = val;
-      }
+      },
     },
     items: {
       immediate: true,
@@ -274,8 +238,8 @@ export default {
             });
           });
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -289,12 +253,12 @@ export default {
   methods: {
     initClasses() {
       /*eslint-disable*/
-      this.tableClassArr.push(`${ns}-table`)
+      this.tableClassArr.push(`${ns}-table`);
       if (this.stripped) {
-          this.tableClassArr.push(`${ns}-stripped`)
+        this.tableClassArr.push(`${ns}-stripped`);
       }
       if (this.fixedHeader) {
-        this.tableClassArr.push(`${ns}-fixedHeader`)
+        this.tableClassArr.push(`${ns}-fixedHeader`);
       }
       /*eslint-enable*/
       this.rows = deepClone(this.innerItems);
@@ -306,10 +270,7 @@ export default {
     dragStartHandler($event) {
       $event.currentTarget.style.opacity = '0.4';
       const id = $event.currentTarget.dataset['id'];
-      $event.dataTransfer.setData(
-        'text/plain',
-        JSON.stringify({ row: this.rows[id], id })
-      );
+      $event.dataTransfer.setData('text/plain', JSON.stringify({ row: this.rows[id], id }));
       $event.dataTransfer.dropEffect = 'copy';
     },
 
@@ -372,7 +333,7 @@ export default {
         });
         this.descent = true;
       }
-    }
-  }
+    },
+  },
 };
 </script>

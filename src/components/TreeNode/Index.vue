@@ -10,9 +10,7 @@
         <div :class="titleClasses">
           <div>
             {{ node.name }}
-            <span v-if="node.prenum && node.suffnum">
-              ({{ node.prenum }}/{{ node.suffnum }})
-            </span>
+            <span v-if="node.prenum && node.suffnum"> ({{ node.prenum }}/{{ node.suffnum }}) </span>
           </div>
         </div>
         <slot></slot>
@@ -40,15 +38,15 @@ export default {
   props: {
     index: {
       type: String,
-      default: ''
+      default: '',
     },
 
     node: {
       type: Object,
       default: () => {
         return {};
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -58,7 +56,7 @@ export default {
       treeNodeHeaderElm: null,
       open: false,
       path: [],
-      level: 0
+      level: 0,
     };
   },
 
@@ -71,7 +69,7 @@ export default {
     },
     titleClasses() {
       return this.titleClassArr;
-    }
+    },
   },
 
   created() {
@@ -96,7 +94,7 @@ export default {
       sticky: true,
       plugins: [sticky],
       duration: 0,
-      delay: 0
+      delay: 0,
     });
   },
 
@@ -105,10 +103,10 @@ export default {
       /*eslint-disable*/
       this.treeNodeClassArr.push(`${ns}-tree-node`);
       this.headerClassArr.push(`${ns}-tree-node-header`);
-      this.headerClassArr.push('close')
+      this.headerClassArr.push('close');
       this.titleClassArr.push(`${ns}-tree-node-title`);
       if (this.node.color) {
-        this.headerClassArr.push(this.node.colorSpace)
+        this.headerClassArr.push(this.node.colorSpace);
       }
       /* eslint-enable */
     },
@@ -127,8 +125,7 @@ export default {
               this.treeNodeHeaderElm.classList.remove(`close`);
               this.treeNodeHeaderElm.classList.add('open');
               if (this.treeNodeHeaderBgElm.children) {
-                this.treeNodeHeaderBgElm.children[0].style.transition =
-                  'all 0.1s ease-in-out';
+                this.treeNodeHeaderBgElm.children[0].style.transition = 'all 0.1s ease-in-out';
               }
             }
           });
@@ -141,8 +138,7 @@ export default {
               this.treeNodeHeaderElm.classList.remove(`open`);
               this.treeNodeHeaderElm.classList.add('close');
               if (this.treeNodeHeaderBgElm.children) {
-                this.treeNodeHeaderBgElm.children[0].style.transition =
-                  'all 0.1s ease-in-out';
+                this.treeNodeHeaderBgElm.children[0].style.transition = 'all 0.1s ease-in-out';
               }
             }
           });
@@ -173,7 +169,11 @@ export default {
       if (!vm || (vm.$el.classList && !vm.$el.classList.contains(`${ns}-tree-node`))) {
         return;
       } else {
-        if (vm.$el.children && vm.$el.children[0].classList && vm.$el.children[0].classList.contains('active')) {
+        if (
+          vm.$el.children &&
+          vm.$el.children[0].classList &&
+          vm.$el.children[0].classList.contains('active')
+        ) {
           vm.$el.children[0].classList.remove('active');
         }
       }
@@ -192,7 +192,7 @@ export default {
       }
       /*eslint-enable*/
       return this.findRootVm(vm.$parent);
-    }
-  }
+    },
+  },
 };
 </script>

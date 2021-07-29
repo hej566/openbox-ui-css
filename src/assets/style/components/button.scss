@@ -29,7 +29,8 @@
   &.#{$ns}-normal {
     border-radius: $border-default-radius;
     height: $button-default-height;
-    .#{$ns}-loading, .#{$ns}-loaded {
+    .#{$ns}-loading,
+    .#{$ns}-loaded {
       font-size: $font-default-size;
       line-height: 18px;
       box-sizing: border-box;

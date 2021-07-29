@@ -53,7 +53,9 @@
 
     input {
       &::-ms-clear,
-      &::-ms-reveal { display: none; }
+      &::-ms-reveal {
+        display: none;
+      }
 
       font-size: $font-default-size;
       color: $input-field-primary-text-color;
@@ -84,7 +86,9 @@
 
     input {
       &::-ms-clear,
-      input::-ms-reveal { display: none; }
+      input::-ms-reveal {
+        display: none;
+      }
 
       background-color: $input-field-disabled-bg-color;
       color: $input-field-disabled-text-color;

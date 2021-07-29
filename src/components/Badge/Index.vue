@@ -17,20 +17,20 @@ export default {
   props: {
     count: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
 
   data() {
     return {
-      badgeClassArr: []
+      badgeClassArr: [],
     };
   },
 
   computed: {
     badgeClassList() {
       return this.badgeClassArr;
-    }
+    },
   },
 
   created() {
@@ -40,9 +40,9 @@ export default {
   methods: {
     init() {
       /* eslint-disable */
-      this.badgeClassArr.push(`${ns}-badge`)
+      this.badgeClassArr.push(`${ns}-badge`);
       /* eslint-enable */
-    }
-  }
+    },
+  },
 };
 </script>

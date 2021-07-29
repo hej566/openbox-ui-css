@@ -45,22 +45,22 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     multiple: {
       type: Boolean,
-      default: false
+      default: false,
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     list: {
       type: Array,
       default: () => {
         return [];
-      }
-    }
+      },
+    },
   },
 
   data() {
@@ -68,7 +68,7 @@ export default {
       selectListClassArr: [],
       selectItemClassObj: {},
       items: null,
-      checked: {}
+      checked: {},
     };
   },
 
@@ -78,7 +78,7 @@ export default {
     },
     deepCloneOptions() {
       return deepClone(this.options);
-    }
+    },
   },
 
   watch: {
@@ -98,16 +98,13 @@ export default {
         this.deepCloneOptions.forEach((option, idx) => {
           /*eslint-disable*/
           this.$set(this.selectItemClassObj, idx, [`${ns}-select-item`]);
-           /*eslint-enable*/
+          /*eslint-enable*/
           this.selectItemClassObj[idx].push(`${option.type}`);
-          if (
-            option.value === val &&
-            !option.type.split(' ').includes('disabled')
-          ) {
+          if (option.value === val && !option.type.split(' ').includes('disabled')) {
             this.selectItemClassObj[idx].push(`active`);
           }
         });
-      }
+      },
     },
 
     value: {
@@ -118,15 +115,12 @@ export default {
           this.$set(this.selectItemClassObj, idx, [`${ns}-select-item`]);
           /*eslint-enable*/
           this.selectItemClassObj[idx].push(`${option.type}`);
-          if (
-            option.value === val &&
-            !option.type.split(' ').includes('disabled')
-          ) {
+          if (option.value === val && !option.type.split(' ').includes('disabled')) {
             this.selectItemClassObj[idx].push(`active`);
           }
         });
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -150,8 +144,8 @@ export default {
       if (type !== 'disabled') {
         this.checked[idx] = !this.checked[idx];
         const selectedList = Object.entries(this.checked)
-          .filter(item => item[1])
-          .map(item => item[0]);
+          .filter((item) => item[1])
+          .map((item) => item[0]);
         this.$emit('selected-list', selectedList);
       }
     },
@@ -159,11 +153,11 @@ export default {
     changeHandler({ type }) {
       if (type !== 'disabled') {
         const selectedList = Object.entries(this.checked)
-          .filter(item => item[1])
-          .map(item => item[0]);
+          .filter((item) => item[1])
+          .map((item) => item[0]);
         this.$emit('selected-list', selectedList);
       }
-    }
-  }
+    },
+  },
 };
 </script>

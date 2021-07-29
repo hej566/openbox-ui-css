@@ -34,7 +34,9 @@
       color: $timepicker-field-primary-text-color;
 
       &::-ms-clear,
-      input::-ms-reveal { display: none; }
+      input::-ms-reveal {
+        display: none;
+      }
 
       &::placeholder {
         color: $timepicker-field-primary-placeholder-color;
@@ -89,7 +91,9 @@
         color: $timepicker-field-disabled-text-color;
 
         &::-ms-clear,
-        input::-ms-reveal { display: none; }
+        input::-ms-reveal {
+          display: none;
+        }
 
         &::placeholder {
           color: $timepicker-field-disabled-placeholder-color;
@@ -104,7 +108,7 @@
 }
 
 .tippy-box {
-  &[data-theme="timepicker"] {
+  &[data-theme='timepicker'] {
     margin-top: 8px;
     border: 1px solid $timer-primary-border-color;
     border-radius: 4px;

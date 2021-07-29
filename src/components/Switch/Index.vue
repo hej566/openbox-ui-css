@@ -1,12 +1,6 @@
 <template>
   <div :class="switchClasses">
-    <input
-      :id="_uid"
-      :checked="checked"
-      @change="change"
-      :disabled="disabled"
-      type="checkbox"
-    />
+    <input :id="_uid" :checked="checked" @change="change" :disabled="disabled" type="checkbox" />
     <label :for="_uid">
       <div class="inner">
         <span class="off-text">{{ offText }}</span>
@@ -24,25 +18,25 @@ export default {
   /*eslint-enable*/
   model: {
     prop: 'checked',
-    event: 'change'
+    event: 'change',
   },
   props: {
     checked: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     onText: {
       type: String,
-      default: ''
+      default: '',
     },
     offText: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
@@ -50,7 +44,7 @@ export default {
       checkClassArr: [],
       spanElms: null,
       checkElm: null,
-      switchLabelElmHeight: null
+      switchLabelElmHeight: null,
     };
   },
 
@@ -60,7 +54,7 @@ export default {
     },
     checkClasses() {
       return this.checkClassArr;
-    }
+    },
   },
 
   watch: {
@@ -73,7 +67,7 @@ export default {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
+      },
     },
     checked: {
       handler(val) {
@@ -86,8 +80,8 @@ export default {
           this.spanElms[1].style.display = 'block';
           this.spanElms[1].style.flex = '1';
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -104,7 +98,7 @@ export default {
     /* eslint-enable */
     if (this.onText || this.offText) {
       const maxWidth = Math.max(
-        ...Array.from(this.spanElms).map(spanElm => {
+        ...Array.from(this.spanElms).map((spanElm) => {
           return spanElm.offsetWidth;
         })
       );
@@ -142,7 +136,7 @@ export default {
 
     change($event) {
       this.$emit('change', $event.target.checked);
-    }
-  }
+    },
+  },
 };
 </script>

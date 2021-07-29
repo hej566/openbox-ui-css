@@ -23,7 +23,9 @@
 
       input {
         &::-ms-clear,
-        input::-ms-reveal { display: none; }
+        input::-ms-reveal {
+          display: none;
+        }
 
         display: flex;
         align-items: center;
@@ -86,7 +88,9 @@
 
         input {
           &::-ms-clear,
-          input::-ms-reveal { display: none; }
+          input::-ms-reveal {
+            display: none;
+          }
 
           cursor: not-allowed;
           color: $cascader-field-disabled-text-color;
@@ -107,7 +111,7 @@
 }
 
 .tippy-box {
-  &[data-theme=cascader] {
+  &[data-theme='cascader'] {
     margin-top: 8px;
     height: $cascader-list-default-height;
     width: $cascader-list-default-width;

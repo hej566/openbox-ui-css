@@ -5,7 +5,7 @@ let MessageConstructor = Vue.extend(Message);
 
 let messages = [];
 
-const close = id => {
+const close = (id) => {
   let len = messages.length;
   let index = -1;
   let removedHeight;
@@ -22,24 +22,23 @@ const close = id => {
   if (len <= 1 || index === -1 || index > messages.length - 1) return;
   for (let i = index; i < len - 1; i++) {
     let messageDom = messages[i].$el;
-    messageDom.style['top'] =
-      parseInt(messageDom.style['top'], 10) - removedHeight - 16 + 'px';
+    messageDom.style['top'] = parseInt(messageDom.style['top'], 10) - removedHeight - 16 + 'px';
   }
 };
 
-export default options => {
+export default (options) => {
   let message = new MessageConstructor({
-    data: options
+    data: options,
   });
   message.id = message._uid;
-  message.timer = function() {
+  message.timer = function () {
     setTimeout(() => {
       close(message.id);
     }, 3000);
   };
   message.$mount();
   let verticalOffset = options.offset || 20;
-  messages.forEach(item => {
+  messages.forEach((item) => {
     verticalOffset += item.$el.offsetHeight + 16;
   });
   message.verticalOffset = verticalOffset;

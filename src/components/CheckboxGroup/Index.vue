@@ -14,34 +14,34 @@ export default {
   mixins: [emitter],
   model: {
     prop: 'checked',
-    event: 'change'
+    event: 'change',
   },
   props: {
     checked: {
       type: Array,
       default: () => {
         return [];
-      }
-    }
+      },
+    },
   },
   data() {
     return {
-      checkboxGroupClassArr: []
+      checkboxGroupClassArr: [],
     };
   },
 
   computed: {
     checkboxGroupClasses() {
       return this.checkboxGroupClassArr;
-    }
+    },
   },
 
   watch: {
     checked: {
       handler() {
         this.update();
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -88,8 +88,8 @@ export default {
         this.checked.splice(unchecked, 1);
       }
       this.dispatch('C4itFormItem', 'c4it.form.change', [this.checked]);
-    }
-  }
+    },
+  },
 };
 </script>
 

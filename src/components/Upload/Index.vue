@@ -11,10 +11,7 @@
     <label :for="_uid" :class="labelClassList">
       <div :class="uploadingClassList" v-if="uploading">
         <div :class="loaderClassList">
-          <svg-icon
-            :icon-class="`circle-notch`"
-            :class="spinnerClassList"
-          ></svg-icon>
+          <svg-icon :icon-class="`circle-notch`" :class="spinnerClassList"></svg-icon>
         </div>
         <div :class="iconUploadingClassList" v-if="icon">
           <svg-icon :icon-class="icon"></svg-icon>
@@ -42,29 +39,29 @@ export default {
   /*eslint-enable*/
   model: {
     prop: 'uploading',
-    event: 'uploading'
+    event: 'uploading',
   },
   props: {
     elevation: {
       type: Boolean,
-      default: false
+      default: false,
     },
     aria: {
       type: Boolean,
-      default: true
+      default: true,
     },
     uploading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     icon: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -77,7 +74,7 @@ export default {
       iconUploadingClassArr: [],
       textUploadingClassArr: [],
       loaderClassArr: [],
-      spinnerClassArr: []
+      spinnerClassArr: [],
     };
   },
 
@@ -111,7 +108,7 @@ export default {
     },
     spinnerClassList() {
       return this.spinnerClassArr;
-    }
+    },
   },
 
   watch: {
@@ -135,7 +132,7 @@ export default {
           this.uploadedClassArr.push(`${ns}-uploaded`);
         }
         /* eslint-enable */
-      }
+      },
     },
     disabled: {
       handler(val) {
@@ -146,8 +143,8 @@ export default {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -178,14 +175,14 @@ export default {
         this.uploadedClassArr.push(`${ns}-uploaded`);
       }
       if (this.disabled) {
-        this.uploadClassArr.push(`${ns}-disabled`)
+        this.uploadClassArr.push(`${ns}-disabled`);
       }
       /* eslint-enable */
     },
     changeHandler($event) {
       this.$emit('change', $event.target.files);
       this.$emit('uploading', false);
-    }
-  }
+    },
+  },
 };
 </script>

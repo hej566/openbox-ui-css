@@ -3,22 +3,14 @@
     <div :class="headerClassList" :data-id="_uid" @click="test">
       <div class="header-bg">
         <div class="left">
-          <svg-icon
-            v-if="item.prefix"
-            :icon-class="item.prefix"
-            class="prefix-icon"
-          />
+          <svg-icon v-if="item.prefix" :icon-class="item.prefix" class="prefix-icon" />
           <div :class="titleClassList">
             <slot name="header">
               {{ item.title }}
             </slot>
           </div>
         </div>
-        <svg-icon
-          v-if="item.suffix"
-          :icon-class="item.suffix"
-          class="suffix-icon"
-        />
+        <svg-icon v-if="item.suffix" :icon-class="item.suffix" class="suffix-icon" />
       </div>
     </div>
     <div :class="bodyClassList">
@@ -39,12 +31,12 @@ export default {
       type: Object,
       default: () => {
         return {};
-      }
+      },
     },
     prefix: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
@@ -57,7 +49,7 @@ export default {
       accordionHeaderElm: null,
       accordionTitleElm: null,
       accordionElm: null,
-      accordionHeight: ''
+      accordionHeight: '',
     };
   },
 
@@ -73,7 +65,7 @@ export default {
     },
     titleClassList() {
       return this.titleClassArr;
-    }
+    },
   },
 
   created() {
@@ -83,16 +75,10 @@ export default {
   mounted() {
     this.accordionElm = this.$el;
     /*eslint-disable*/
-    this.accordionBodyElm = this.accordionElm.querySelector(
-      `.${ns}-accordion-body`
-    )
-    this.accordionHeaderElm = this.accordionElm.querySelector(
-      `.${ns}-accordion-header`
-    );
-    this.accordionHeaderLeftElm = this.accordionHeaderElm.querySelector(
-      `.left`
-    );
-    this.accordionTitleElm = this.accordionHeaderElm.querySelector(`.${ns}-accordion-title`)
+    this.accordionBodyElm = this.accordionElm.querySelector(`.${ns}-accordion-body`);
+    this.accordionHeaderElm = this.accordionElm.querySelector(`.${ns}-accordion-header`);
+    this.accordionHeaderLeftElm = this.accordionHeaderElm.querySelector(`.left`);
+    this.accordionTitleElm = this.accordionHeaderElm.querySelector(`.${ns}-accordion-title`);
     /* eslint-enable */
     this.accordionBodyHeight = this.accordionBodyElm.clientHeight;
     this.$nextTick(() => {
@@ -109,7 +95,7 @@ export default {
       this.bodyClassArr.push(`${ns}-accordion-body`);
       this.accordionClassArr.push(`${ns}-accordion`);
       this.headerClassArr.push(`${ns}-accordion-header`);
-      this.headerClassArr.push('close')
+      this.headerClassArr.push('close');
       this.titleClassArr.push(`${ns}-accordion-title`);
       /* eslint-enable */
     },
@@ -129,9 +115,7 @@ export default {
         this.headerClassArr.push(`open`);
         this.accordionBodyElm.style.display = 'block';
         requestAnimationFrame(() => {
-          this.accordionBodyElm.style.maxHeight = `${
-            this.accordionBodyHeight
-          }px`;
+          this.accordionBodyElm.style.maxHeight = `${this.accordionBodyHeight}px`;
           this.accordionBodyElm.style.visibility = 'visible';
           this.accordionBodyElm.style.opacity = '1';
           this.accordionBodyElm.style.transition = 'all 0.3s ease-in-out';
@@ -146,7 +130,7 @@ export default {
           this.accordionBodyElm.style.transition = 'all 0.3s ease-in-out';
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>

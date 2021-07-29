@@ -29,36 +29,36 @@ export default {
 
   model: {
     prop: 'checked',
-    event: 'change'
+    event: 'change',
   },
   props: {
     checked: {
       type: Boolean,
-      default: false
+      default: false,
     },
     name: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     aria: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   data() {
     return {
       radioClassArr: [],
       checkClassArr: [],
-      labelClassArr: []
+      labelClassArr: [],
     };
   },
 
@@ -71,7 +71,7 @@ export default {
     },
     labelClasses() {
       return this.labelClassArr;
-    }
+    },
   },
 
   watch: {
@@ -84,8 +84,8 @@ export default {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -110,7 +110,7 @@ export default {
     change($event) {
       this.$emit('change', $event.target.checked);
       this.dispatch('C4itFormItem', 'c4it.form.change', $event.target.checked);
-    }
-  }
+    },
+  },
 };
 </script>

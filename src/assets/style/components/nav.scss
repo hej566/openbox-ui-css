@@ -189,7 +189,7 @@
 }
 
 .tippy-box {
-  &[data-theme="nav-cascader-item-dark"] {
+  &[data-theme='nav-cascader-item-dark'] {
     background-color: $nav-primary-bg-color;
     width: $nav-collapse-cascader-item-width;
 
@@ -234,7 +234,7 @@
     }
   }
 
-  &[data-theme="nav-cascader-item-light"] {
+  &[data-theme='nav-cascader-item-light'] {
     background-color: $nav-secondry-bg-color;
     width: $nav-collapse-cascader-item-width;
 
@@ -289,7 +289,7 @@
     }
   }
 
-  &[data-theme="nav-tooltip"] {
+  &[data-theme='nav-tooltip'] {
     height: 40px;
     width: 100px;
 

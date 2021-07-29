@@ -2,14 +2,14 @@
 export default {
   props: {
     isAutoWidth: Boolean,
-    updateAll: Boolean
+    updateAll: Boolean,
   },
 
   inject: ['c4itForm', 'c4itFormItem'],
 
   data() {
     return {
-      computedWidth: 0
+      computedWidth: 0,
     };
   },
   watch: {
@@ -18,7 +18,7 @@ export default {
         this.c4itForm.registerLabelWidth(val, oldVal);
         this.c4itFormItem.updateComputedLabelWidth(val);
       }
-    }
+    },
   },
 
   mounted() {
@@ -36,27 +36,21 @@ export default {
   methods: {
     getLabelWidth() {
       if (this.$el && this.$el.firstElementChild) {
-        const computedWidth = window.getComputedStyle(
-          this.$el.firstElementChild
-        ).width;
+        const computedWidth = window.getComputedStyle(this.$el.firstElementChild).width;
         return Math.ceil(parseFloat(computedWidth));
       } else {
         return 0;
       }
     },
     updateLabelWidth(action = 'update') {
-      if (
-        this.$slots.default &&
-        this.isAutoWidth &&
-        this.$el.firstElementChild
-      ) {
+      if (this.$slots.default && this.isAutoWidth && this.$el.firstElementChild) {
         if (action === 'update') {
           this.computedWidth = this.getLabelWidth();
         } else if (action === 'remove') {
           this.elForm.deregisterLabelWidth(this.computedWidth);
         }
       }
-    }
+    },
   },
   render(createElement) {
     const slots = this.$slots.default;
@@ -75,8 +69,7 @@ export default {
         'div', // 标签名称
         {
           style,
-          class: `${ns}-form-item__label-wrap`
-
+          class: `${ns}-form-item__label-wrap`,
         },
         slots // 子节点数组
       );
@@ -84,6 +77,6 @@ export default {
     } else {
       return slots[0];
     }
-  }
+  },
 };
 </script>

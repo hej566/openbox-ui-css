@@ -25,7 +25,8 @@
     color: $white;
     font-size: $font-default-size;
     cursor: pointer;
-    .#{$ns}-uploaded, .#{$ns}-uploading {
+    .#{$ns}-uploaded,
+    .#{$ns}-uploading {
       display: flex;
       align-items: center;
     }

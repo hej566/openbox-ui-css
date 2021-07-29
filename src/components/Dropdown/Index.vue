@@ -34,39 +34,39 @@ export default {
   mixins: [emitter],
   model: {
     prop: 'context',
-    event: 'change'
+    event: 'change',
   },
   props: {
     validateEvent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     context: {
       type: String,
-      default: ''
+      default: '',
     },
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     options: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     label: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
@@ -80,7 +80,7 @@ export default {
       popoverElm: null,
       targetElm: null,
       selectedList: [],
-      instance: null
+      instance: null,
     };
   },
 
@@ -103,7 +103,7 @@ export default {
 
     suffixClasses() {
       return this.suffixClassesArr;
-    }
+    },
   },
 
   watch: {
@@ -123,15 +123,15 @@ export default {
           }
         }
         /* eslint-enable */
-      }
+      },
     },
 
     context: {
       immediate: true,
       handler(val) {
         this.selectedValue = val;
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -150,12 +150,12 @@ export default {
         this.suffixClassesArr.push(`${ns}-suffix`);
       }
       if (this.disabled) {
-        this.dropdownClassesArr.push(`${ns}-disabled`)
+        this.dropdownClassesArr.push(`${ns}-disabled`);
       }
       if (this.type === 'text') {
-        this.dropdownClassesArr.push(`${ns}-dropdown-text`)
+        this.dropdownClassesArr.push(`${ns}-dropdown-text`);
       } else {
-        this.dropdownClassesArr.push(`${ns}-dropdown-default`)
+        this.dropdownClassesArr.push(`${ns}-dropdown-default`);
       }
       this.dropdownFieldClassesArr.push(`${ns}-dropdown-field`);
       this.dropdownClassesArr.push(`${ns}-dropdown`);
@@ -183,7 +183,7 @@ export default {
         maxWidth: 'none',
         duration: 0,
         delay: 0,
-        onMount: instance => {
+        onMount: (instance) => {
           const popoverWidth = instance.popper.offsetWidth;
           const referenceWidth = instance.reference.offsetWidth;
           if (popoverWidth > referenceWidth) {
@@ -192,7 +192,7 @@ export default {
             instance.popper.style['width'] = `${referenceWidth}px`;
           }
         },
-        onClickOutside: instance => {
+        onClickOutside: (instance) => {
           instance.hide();
         },
         onShow: () => {
@@ -210,7 +210,7 @@ export default {
           ) {
             this.targetElm.children[0].classList.remove('open');
           }
-        }
+        },
       });
 
       if (this.disabled) {
@@ -221,7 +221,7 @@ export default {
     selectedHandler(value) {
       this.$emit('change', value);
       document.getElementById(this._uid).click();
-    }
-  }
+    },
+  },
 };
 </script>

@@ -41,12 +41,8 @@
     </div>
     <div :class="timerFooterClasses">
       <div class="btns">
-        <div @click="chooseNow" class="now">
-          此刻
-        </div>
-        <div @click="confirm" class="confirm">
-          确定
-        </div>
+        <div @click="chooseNow" class="now">此刻</div>
+        <div @click="confirm" class="confirm">确定</div>
       </div>
     </div>
   </div>
@@ -65,12 +61,12 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     open: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -89,7 +85,7 @@ export default {
       second: '',
       hoursElm: null,
       minutesElm: null,
-      secondsElm: null
+      secondsElm: null,
     };
   },
 
@@ -120,7 +116,7 @@ export default {
 
     secondClasses() {
       return this.secondClassArr;
-    }
+    },
   },
 
   watch: {
@@ -131,7 +127,7 @@ export default {
         } else {
           this.resetTimer();
         }
-      }
+      },
     },
 
     open: {
@@ -139,8 +135,8 @@ export default {
         if (val) {
           this.setTimer();
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -212,7 +208,7 @@ export default {
           hourElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
         }
       }
@@ -223,7 +219,7 @@ export default {
           minuteElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
         }
       }
@@ -234,7 +230,7 @@ export default {
           secondElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
         }
       }
@@ -251,7 +247,7 @@ export default {
           hourElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
           hourElm.classList.add('active');
         }
@@ -263,7 +259,7 @@ export default {
           minuteElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
           minuteElm.classList.add('active');
         }
@@ -275,7 +271,7 @@ export default {
           secondElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
           secondElm.classList.add('active');
         }
@@ -317,7 +313,7 @@ export default {
       const strMinute = this.minute < 10 ? `0${this.minute}` : `${this.minute}`;
       const strSecond = this.second < 10 ? `0${this.second}` : `${this.second}`;
       this.$emit('choose-timer', `${strHour}:${strMinute}:${strSecond}`);
-    }
-  }
+    },
+  },
 };
 </script>

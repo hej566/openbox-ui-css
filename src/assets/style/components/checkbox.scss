@@ -120,7 +120,8 @@
             &.#{$ns}-aria {
               box-shadow: none;
             }
-            .#{$ns}-indeterminate, .#{$ns}-checked {
+            .#{$ns}-indeterminate,
+            .#{$ns}-checked {
               color: $checkbox-primary-disabled-icon-color;
             }
           }
@@ -235,7 +236,8 @@
             &.#{$ns}-aria {
               box-shadow: none;
             }
-            .#{$ns}-indeterminate, .#{$ns}-checked {
+            .#{$ns}-indeterminate,
+            .#{$ns}-checked {
               color: $checkbox-primary-disabled-icon-color;
             }
           }

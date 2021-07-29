@@ -2,17 +2,9 @@
   <div :class="selectClasses" :id="_uid">
     <div :class="selectFieldClasses" @click="focusHandler">
       <div v-if="multiple" :class="selectedGroupClasses">
-        <div
-          v-for="(item, idx) in selectedList"
-          :key="idx"
-          :class="selectedItemClasses"
-        >
+        <div v-for="(item, idx) in selectedList" :key="idx" :class="selectedItemClasses">
           <span>{{ item.label }}</span>
-          <svg-icon
-            @click.stop="removeHandler(idx)"
-            v-if="!disabled"
-            icon-class="times"
-          ></svg-icon>
+          <svg-icon @click.stop="removeHandler(idx)" v-if="!disabled" icon-class="times"></svg-icon>
           <svg-icon v-else icon-class="times"></svg-icon>
         </div>
         <div :class="searchItemClasses">
@@ -44,11 +36,7 @@
         />
       </div>
       <div v-if="suffix" @click="focusHandler" class="suffix-icon">
-        <svg-icon
-          :class="suffixClasses"
-          v-if="sufLoading"
-          icon-class="circle-notch"
-        ></svg-icon>
+        <svg-icon :class="suffixClasses" v-if="sufLoading" icon-class="circle-notch"></svg-icon>
         <svg-icon :class="suffixClasses" v-else :icon-class="suffix"></svg-icon>
       </div>
     </div>
@@ -87,56 +75,56 @@ export default {
   mixins: [emitter],
   model: {
     prop: 'context',
-    event: 'change'
+    event: 'change',
   },
   props: {
     validateEvent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     /*eslint-disable*/
     context: {
-      type: [String, Array]
+      type: [String, Array],
     },
-     /*eslint-enable*/
+    /*eslint-enable*/
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     sufLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     remoteSearch: {
       type: Boolean,
-      default: false
+      default: false,
     },
     options: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     debounce: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     multiple: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
@@ -159,7 +147,7 @@ export default {
       instance: null,
       selectedList: [],
       input: '',
-      inputLength: -1
+      inputLength: -1,
     };
   },
 
@@ -202,7 +190,7 @@ export default {
 
     placeholderText() {
       return this.selectedList.length > 0 ? '' : this.placeholder;
-    }
+    },
   },
 
   watch: {
@@ -215,7 +203,7 @@ export default {
           this.suffixClassArr.pop();
         }
         /* eslint-enable */
-      }
+      },
     },
 
     disabled: {
@@ -234,7 +222,7 @@ export default {
           }
         }
         /* eslint-enable */
-      }
+      },
     },
 
     context: {
@@ -257,8 +245,8 @@ export default {
             }
           }
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -286,7 +274,7 @@ export default {
         this.suffixClassArr.push(`${ns}-loading`);
       }
       if (this.disabled) {
-        this.selectClassArr.push(`${ns}-disabled`)
+        this.selectClassArr.push(`${ns}-disabled`);
       }
       if (this.multiple) {
         this.selectClassArr.push(`${ns}-select-multiple`);
@@ -327,7 +315,7 @@ export default {
             instance.popper.style['width'] = `${referenceWidth}px`;
           }
         },
-        onClickOutside: instance => {
+        onClickOutside: (instance) => {
           instance.hide();
         },
         onShow: () => {
@@ -346,9 +334,12 @@ export default {
             this.targetElm.children[0].classList.remove('open');
           }
           if (this.multiple) {
-            this.$emit('change', this.selectedList.map(item => item.value));
+            this.$emit(
+              'change',
+              this.selectedList.map((item) => item.value)
+            );
           }
-        }
+        },
       });
 
       if (this.disabled) {
@@ -358,10 +349,7 @@ export default {
 
     focusHandler() {
       this.$el.classList.add('focus');
-      document
-        .getElementById(this._uid)
-        .querySelector('input')
-        .focus();
+      document.getElementById(this._uid).querySelector('input').focus();
     },
 
     blurHandler() {
@@ -401,10 +389,13 @@ export default {
     deleteHandler($event) {
       if (this.inputLength < 0 && this.selectedList.length) {
         this.selectedList.pop();
-        this.$emit('change', this.selectedList.map(item => item.value));
+        this.$emit(
+          'change',
+          this.selectedList.map((item) => item.value)
+        );
       }
       this.inputLength -= 1;
-    }
-  }
+    },
+  },
 };
 </script>

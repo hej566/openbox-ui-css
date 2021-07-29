@@ -18,11 +18,7 @@
         @click="focusHandler"
       ></svg-icon>
       <div :class="suffixClasses" v-if="suffix" @click="focusHandler">
-        <svg-icon
-          :icon-class="suffix"
-          v-if="showIcon"
-          @mouseover="hideHandler"
-        ></svg-icon>
+        <svg-icon :icon-class="suffix" v-if="showIcon" @mouseover="hideHandler"></svg-icon>
         <svg-icon
           v-if="showRemove"
           @click.stop="clearHandler"
@@ -56,33 +52,33 @@ export default {
   mixins: [emitter],
   model: {
     prop: 'context',
-    event: 'change'
+    event: 'change',
   },
   props: {
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     context: {
       type: String,
-      default: ''
+      default: '',
     },
     prefix: {
       type: String,
-      default: ''
+      default: '',
     },
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     validateEvent: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   data() {
@@ -103,7 +99,7 @@ export default {
       timer: [],
       showIcon: true,
       showRemove: false,
-      instance: null
+      instance: null,
     };
   },
 
@@ -130,7 +126,7 @@ export default {
 
     isNotEmpty() {
       return this.selected !== '';
-    }
+    },
   },
 
   watch: {
@@ -141,7 +137,7 @@ export default {
         if (val && moment(val, 'HH:mm:ss', true).isValid()) {
           this.parseContext(val);
         }
-      }
+      },
     },
     selected: {
       handler(val) {
@@ -151,7 +147,7 @@ export default {
         if (!val) {
           this.timer = [];
         }
-      }
+      },
     },
     disabled: {
       handler(val) {
@@ -169,8 +165,8 @@ export default {
           }
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -186,7 +182,7 @@ export default {
       /* eslint-disable */
       this.timepickerFieldClassArr.push(`${ns}-timepicker-field`);
       this.timepickerClassArr.push(`${ns}-timepicker`);
-      this.timerWrapperClassArr.push(`${ns}-timer-wrapper`)
+      this.timerWrapperClassArr.push(`${ns}-timer-wrapper`);
       if (this.suffix) {
         this.suffixClassArr.push(`${ns}-suffix`);
       }
@@ -194,7 +190,7 @@ export default {
         this.prefixClassArr.push(`${ns}-prefix`);
       }
       if (this.disabled) {
-        this.timepickerClassArr.push(`${ns}-disabled`)
+        this.timepickerClassArr.push(`${ns}-disabled`);
       }
       /* eslint-enable */
     },
@@ -232,7 +228,7 @@ export default {
           ) {
             this.targetElm.children[0].classList.remove('open');
           }
-        }
+        },
       });
 
       if (this.disabled) {
@@ -246,10 +242,7 @@ export default {
 
     focusHandler() {
       this.$el.classList.add('focus');
-      document
-        .getElementById(this._uid)
-        .querySelector('input')
-        .focus();
+      document.getElementById(this._uid).querySelector('input').focus();
     },
 
     blurHandler() {
@@ -283,7 +276,7 @@ export default {
     confirmHandler() {
       this.$emit('confirm', this.selected);
       document.getElementById(this._uid).click();
-    }
-  }
+    },
+  },
 };
 </script>

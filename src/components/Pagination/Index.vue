@@ -31,11 +31,7 @@
         </a>
       </div>
     </div>
-    <div
-      v-show="nextPage"
-      @click="goNextPage"
-      :class="computedliPageClassRight()"
-    >
+    <div v-show="nextPage" @click="goNextPage" :class="computedliPageClassRight()">
       <svg-icon icon-class="angle-right" class="page-right-arrow"></svg-icon>
     </div>
   </div>
@@ -52,16 +48,16 @@ export default {
   props: {
     size: {
       type: [Number, String],
-      default: DEFAULT_PER_PAGE
+      default: DEFAULT_PER_PAGE,
     },
     totalCount: {
       type: [Number, String],
-      default: DEFAULT_TOTAL_ROWS
+      default: DEFAULT_TOTAL_ROWS,
     },
     current: {
       type: [Number, String],
-      default: DEFAULT_CURRENT_PAGE
-    }
+      default: DEFAULT_CURRENT_PAGE,
+    },
   },
   data() {
     return {
@@ -73,7 +69,7 @@ export default {
       currentPage: DEFAULT_CURRENT_PAGE,
       leftText: '<',
       rightText: '>',
-      hoverIndex: null
+      hoverIndex: null,
     };
   },
   computed: {
@@ -120,20 +116,10 @@ export default {
           pageNum - 3,
           pageNum - 2,
           pageNum - 1,
-          pageNum
+          pageNum,
         ];
-      return [
-        1,
-        'left',
-        index - 2,
-        index - 1,
-        index,
-        index + 1,
-        index + 2,
-        'right',
-        pageNum
-      ];
-    }
+      return [1, 'left', index - 2, index - 1, index, index + 1, index + 2, 'right', pageNum];
+    },
   },
   watch: {
     totalCount(value) {
@@ -145,7 +131,7 @@ export default {
       } else {
         this.currentPage = 1;
       }
-    }
+    },
   },
   created() {
     this.init();
@@ -185,22 +171,23 @@ export default {
       const classMap = {};
       /*eslint-disable*/
       classMap[`${ns}-out-btn`] = true;
-      classMap[`${ns}-out-btn-disable`] = (this.currentPage === this.totalPage) || (this.totalPage === 0);
+      classMap[`${ns}-out-btn-disable`] =
+        this.currentPage === this.totalPage || this.totalPage === 0;
       /*eslint-enable*/
       return classMap;
     },
     init() {
       /*eslint-disable*/
-      this.pageWrapClassListArr.push(`${ns}-page-wrap`)
-      this.noPointerClassListArr.push(`${ns}-no-pointer`)
-      this.pageInnerClassListArr.push(`${ns}-inner-btn`)
+      this.pageWrapClassListArr.push(`${ns}-page-wrap`);
+      this.noPointerClassListArr.push(`${ns}-no-pointer`);
+      this.pageInnerClassListArr.push(`${ns}-inner-btn`);
       if (this.current > 1 && (this.current - 1) * this.perPage < this.totalCount) {
         this.currentPage = this.current;
       } else {
         this.currentPage = 1;
       }
-      this.perPage = this.size
-      this.total = this.totalCount
+      this.perPage = this.size;
+      this.total = this.totalCount;
       /*eslint-enable*/
     },
     goPage(i) {
@@ -238,8 +225,8 @@ export default {
         this.currentPage += 1;
         this.$emit('current-change', this.currentPage, pre);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

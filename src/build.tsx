@@ -1,7 +1,9 @@
-export {};
+// export {};
 // import './polyfill';
 // import 'tippy.js/dist/tippy.css';
-// import '@/assets/style/custom.scss';
+import '@/assets/style/custom.scss';
+import { a } from './components/test';
+a('hello');
 //
 // import Button from '@/components/Button/Index.vue';
 // import Breadcrumb from '@/components/Breadcrumb/Index.vue';

@@ -9,21 +9,13 @@
               icon-class="angle-double-left"
               class="angle-double-left"
             ></svg-icon>
-            <svg-icon
-              @click="prevMonth"
-              icon-class="angle-left"
-              class="angle-left"
-            ></svg-icon>
+            <svg-icon @click="prevMonth" icon-class="angle-left" class="angle-left"></svg-icon>
           </div>
           <div :class="daterHeaderTitleClasses">
             {{ yearMonth }}
           </div>
           <div class="right">
-            <svg-icon
-              @click="nextMonth"
-              icon-class="angle-right"
-              class="angle-right"
-            ></svg-icon>
+            <svg-icon @click="nextMonth" icon-class="angle-right" class="angle-right"></svg-icon>
             <svg-icon
               @click="nextYear"
               icon-class="angle-double-right"
@@ -44,14 +36,12 @@
                   dayItemClasses.concat([
                     { disable: day.disable },
                     { active: day.active },
-                    { mark: day.mark }
+                    { mark: day.mark },
                   ])
                 "
-                :data-date="
-                  `${day.year}-${
-                    day.month < 10 ? '0' + day.month : day.month
-                  }-${day.value < 10 ? '0' + day.value : day.value}`
-                "
+                :data-date="`${day.year}-${day.month < 10 ? '0' + day.month : day.month}-${
+                  day.value < 10 ? '0' + day.value : day.value
+                }`"
                 @click="chooseDater"
                 tabindex="0"
               >
@@ -108,12 +98,8 @@
     </div>
     <div :class="datetimerFooterClasses">
       <div class="btns">
-        <div @click="chooseNow" class="now">
-          此刻
-        </div>
-        <div @click="confirm" class="confirm">
-          确定
-        </div>
+        <div @click="chooseNow" class="now">此刻</div>
+        <div @click="confirm" class="confirm">确定</div>
       </div>
     </div>
   </div>
@@ -132,18 +118,18 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     dater: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     open: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -169,7 +155,7 @@ export default {
         { key: 'Wed', val: '三' },
         { key: 'Thu', val: '四' },
         { key: 'Fri', val: '五' },
-        { key: 'Sat', val: '六' }
+        { key: 'Sat', val: '六' },
       ],
       days: [],
       timerClassArr: [],
@@ -190,7 +176,7 @@ export default {
       secondsElm: null,
       nowDate: null,
       nowMonth: null,
-      nowYear: null
+      nowYear: null,
     };
   },
 
@@ -254,7 +240,7 @@ export default {
       const strMinute = this.minute < 10 ? `0${this.minute}` : `${this.minute}`;
       const strSecond = this.second < 10 ? `0${this.second}` : `${this.second}`;
       return `${strHour}:${strMinute}:${strSecond}`;
-    }
+    },
   },
 
   watch: {
@@ -262,18 +248,18 @@ export default {
       immediate: false,
       handler() {
         this.computeDays();
-      }
+      },
     },
     month: {
       immediate: false,
       handler() {
         this.computeDays();
-      }
+      },
     },
     dateInMonth: {
       handler(val) {
         this.highlight(val);
-      }
+      },
     },
     timer: {
       handler(val) {
@@ -282,7 +268,7 @@ export default {
         } else {
           this.resetTimer();
         }
-      }
+      },
     },
     dater: {
       handler(val) {
@@ -291,7 +277,7 @@ export default {
         } else {
           this.resetDater();
         }
-      }
+      },
     },
     open: {
       handler(val) {
@@ -299,8 +285,8 @@ export default {
           this.setTimer();
           this.setDater();
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -315,7 +301,7 @@ export default {
       this.daterHeaderClassArr.push(`${ns}-dater-header`);
       this.daterHeaderTitleClassArr.push(`${ns}-dater-header-title`);
       this.daterBodyClassArr.push(`${ns}-dater-body`);
-      this.datetimerBodyClassArr.push(`${ns}-datetimer-body`)
+      this.datetimerBodyClassArr.push(`${ns}-datetimer-body`);
       this.datetimerFooterClassArr.push(`${ns}-datetimer-footer`);
       this.weekClassArr.push(`${ns}-days-in-week`);
       this.daysTableClassArr.push(`${ns}-days-in-grid`);
@@ -401,7 +387,7 @@ export default {
           hourElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
           hourElm.classList.add('active');
         }
@@ -413,7 +399,7 @@ export default {
           minuteElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
           minuteElm.classList.add('active');
         }
@@ -425,7 +411,7 @@ export default {
           secondElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
           secondElm.classList.add('active');
         }
@@ -443,7 +429,7 @@ export default {
           hourElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
         }
       }
@@ -454,7 +440,7 @@ export default {
           minuteElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
         }
       }
@@ -465,7 +451,7 @@ export default {
           secondElm.scrollIntoView({
             behavior: 'auto',
             block: 'start',
-            inline: 'start'
+            inline: 'start',
           });
         }
       }
@@ -499,11 +485,7 @@ export default {
 
     markNowDate(date) {
       for (let day of this.days) {
-        if (
-          day.value === date &&
-          day.month === this.nowMonth &&
-          day.year === this.nowYear
-        ) {
+        if (day.value === date && day.month === this.nowMonth && day.year === this.nowYear) {
           day.mark = true;
         }
       }
@@ -533,16 +515,9 @@ export default {
           daysFromNextMonth = 7 - idx;
         }
       });
-      const prevMonthLength = this.computeMonthLength(
-        this.year,
-        this.month - 1
-      );
+      const prevMonthLength = this.computeMonthLength(this.year, this.month - 1);
 
-      for (
-        let i = prevMonthLength - daysFromPrevMonth + 1;
-        i <= prevMonthLength;
-        i++
-      ) {
+      for (let i = prevMonthLength - daysFromPrevMonth + 1; i <= prevMonthLength; i++) {
         if (this.month === 1) {
           this.days.push({
             disable: true,
@@ -550,7 +525,7 @@ export default {
             year: Number(this.year) - 1,
             month: 12,
             active: false,
-            mark: false
+            mark: false,
           });
         } else {
           this.days.push({
@@ -559,7 +534,7 @@ export default {
             year: Number(this.year),
             month: Number(this.month) - 1,
             active: false,
-            mark: false
+            mark: false,
           });
         }
       }
@@ -571,7 +546,7 @@ export default {
           year: Number(this.year),
           month: Number(this.month),
           active: false,
-          mark: false
+          mark: false,
         });
       }
 
@@ -583,7 +558,7 @@ export default {
             year: Number(this.year) + 1,
             month: 1,
             active: false,
-            mark: false
+            mark: false,
           });
         } else {
           this.days.push({
@@ -592,7 +567,7 @@ export default {
             year: Number(this.year),
             month: Number(this.month) + 1,
             active: false,
-            mark: false
+            mark: false,
           });
         }
       }
@@ -607,7 +582,7 @@ export default {
               year: Number(this.year) + 1,
               month: 1,
               active: false,
-              mark: false
+              mark: false,
             });
           } else {
             this.days.push({
@@ -616,7 +591,7 @@ export default {
               year: Number(this.year),
               month: Number(this.month) + 1,
               active: false,
-              mark: false
+              mark: false,
             });
           }
         }
@@ -661,8 +636,7 @@ export default {
       }
       const strYear = this.year < 10 ? `0${this.year}` : `${this.year}`;
       const strMonth = this.month < 10 ? `0${this.month}` : `${this.month}`;
-      const strDate =
-        this.dateInMonth < 10 ? `0${this.dateInMonth}` : `${this.dateInMonth}`;
+      const strDate = this.dateInMonth < 10 ? `0${this.dateInMonth}` : `${this.dateInMonth}`;
       const strHour = this.hour < 10 ? `0${this.hour}` : `${this.hour}`;
       const strMinute = this.minute < 10 ? `0${this.minute}` : `${this.minute}`;
       const strSecond = this.second < 10 ? `0${this.second}` : `${this.second}`;
@@ -709,8 +683,7 @@ export default {
       this.dateInMonth = this.nowDate;
       const strYear = this.year < 10 ? `0${this.year}` : `${this.year}`;
       const strMonth = this.month < 10 ? `0${this.month}` : `${this.month}`;
-      const strDate =
-        this.dateInMonth < 10 ? `0${this.dateInMonth}` : `${this.dateInMonth}`;
+      const strDate = this.dateInMonth < 10 ? `0${this.dateInMonth}` : `${this.dateInMonth}`;
       const strHour = this.hour < 10 ? `0${this.hour}` : `${this.hour}`;
       const strMinute = this.minute < 10 ? `0${this.minute}` : `${this.minute}`;
       const strSecond = this.second < 10 ? `0${this.second}` : `${this.second}`;
@@ -722,7 +695,7 @@ export default {
 
     confirm() {
       this.$emit('confirm');
-    }
-  }
+    },
+  },
 };
 </script>

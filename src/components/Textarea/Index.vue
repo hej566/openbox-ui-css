@@ -22,36 +22,36 @@ export default {
   /*eslint-enable*/
   model: {
     prop: 'context',
-    event: 'input'
+    event: 'input',
   },
   props: {
     validateEvent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     context: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     rows: {
       type: Number,
-      default: 2
-    }
+      default: 2,
+    },
   },
 
   data() {
     return {
       inputFieldClassArr: [],
       inputClassArr: [],
-      inputed: ''
+      inputed: '',
     };
   },
 
@@ -61,7 +61,7 @@ export default {
     },
     inputClassList() {
       return this.inputClassArr;
-    }
+    },
   },
 
   watch: {
@@ -74,15 +74,15 @@ export default {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
+      },
     },
 
     context: {
       immediate: true,
       handler(val) {
         this.inputed = val;
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -102,7 +102,7 @@ export default {
       this.inputFieldClassArr.push(`${ns}-textarea-field`);
       this.inputClassArr.push(`${ns}-textarea`);
       if (this.disabled) {
-        this.inputFieldClassArr.push(`${ns}-disabled`)
+        this.inputFieldClassArr.push(`${ns}-disabled`);
       }
       /* eslint-enable */
       this.inputed = this.context;
@@ -111,11 +111,9 @@ export default {
     inputHandler($event) {
       this.$emit('input', $event.target.value);
       if (this.validateEvent) {
-        this.dispatch('C4itFormItem', 'c4it.form.change', [
-          $event.target.value
-        ]);
+        this.dispatch('C4itFormItem', 'c4it.form.change', [$event.target.value]);
       }
-    }
-  }
+    },
+  },
 };
 </script>

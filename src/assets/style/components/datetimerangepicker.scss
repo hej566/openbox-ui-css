@@ -24,7 +24,7 @@
     outline: none;
     flex: 1;
   }
-  .#{$ns}-datetimepicker:first-child[aria-expanded="true"] {
+  .#{$ns}-datetimepicker:first-child[aria-expanded='true'] {
     &.focus {
       position: relative;
 
@@ -39,7 +39,7 @@
       }
     }
   }
-  .#{$ns}-datetimepicker:last-child[aria-expanded="true"] {
+  .#{$ns}-datetimepicker:last-child[aria-expanded='true'] {
     &.focus {
       position: relative;
 

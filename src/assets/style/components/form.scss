@@ -4,18 +4,22 @@
 @import '../variables/size';
 .#{$ns}-form {
   .#{$ns}-form-item-no-label-width {
-    .#{$ns}-dropdown-multiple-field, .#{$ns}-dropdown-field, .#{$ns}-cascader-field {
+    .#{$ns}-dropdown-multiple-field,
+    .#{$ns}-dropdown-field,
+    .#{$ns}-cascader-field {
       clear: both;
     }
   }
   .#{$ns}-radio-group .#{$ns}-radio {
     margin: 0 8px;
   }
-  &.#{$ns}-form--inline .#{$ns}-form-item, &.#{$ns}-form--inline .#{$ns}-form-item__content {
+  &.#{$ns}-form--inline .#{$ns}-form-item,
+  &.#{$ns}-form--inline .#{$ns}-form-item__content {
     display: inline-block;
     vertical-align: top;
   }
-  .#{$ns}-form-item::after, .#{$ns}-form-item__content::after {
+  .#{$ns}-form-item::after,
+  .#{$ns}-form-item__content::after {
     clear: both;
   }
   .#{$ns}-form--label-left .#{$ns}-form-item__label {
@@ -49,29 +53,34 @@
   .#{$ns}-form-item {
     margin-bottom: 22px;
   }
-  .#{$ns}-form-item::after,.#{$ns}-form-item::before {
+  .#{$ns}-form-item::after,
+  .#{$ns}-form-item::before {
     display: table;
-    content: "";
+    content: '';
   }
   .#{$ns}-form-item .#{$ns}-form-item {
     margin-bottom: 0;
   }
-  .#{$ns}-form-item--mini.#{$ns}-form-item,.#{$ns}-form-item--small.#{$ns}-form-item {
+  .#{$ns}-form-item--mini.#{$ns}-form-item,
+  .#{$ns}-form-item--small.#{$ns}-form-item {
     margin-bottom: 18px;
   }
   .#{$ns}-form-item .#{$ns}-input__validateIcon {
     display: none;
   }
-  .#{$ns}-form-item--medium .#{$ns}-form-item__content,.#{$ns}-form-item--medium .#{$ns}-form-item__label {
+  .#{$ns}-form-item--medium .#{$ns}-form-item__content,
+  .#{$ns}-form-item--medium .#{$ns}-form-item__label {
     line-height: 36px;
   }
-  .#{$ns}-form-item--small .#{$ns}-form-item__content,.#{$ns}-form-item--small .#{$ns}-form-item__label {
+  .#{$ns}-form-item--small .#{$ns}-form-item__content,
+  .#{$ns}-form-item--small .#{$ns}-form-item__label {
     line-height: 32px;
   }
   .#{$ns}-form-item--small .#{$ns}-form-item__error {
     padding-top: 2px;
   }
-  .#{$ns}-form-item--mini .#{$ns}-form-item__content,.#{$ns}-form-item--mini .#{$ns}-form-item__label {
+  .#{$ns}-form-item--mini .#{$ns}-form-item__content,
+  .#{$ns}-form-item--mini .#{$ns}-form-item__label {
     line-height: 28px;
   }
   .#{$ns}-form-item--mini .#{$ns}-form-item__error {
@@ -100,9 +109,10 @@
     position: relative;
     font-size: 14px;
   }
-  .#{$ns}-form-item__content::after,.#{$ns}-form-item__content::before {
+  .#{$ns}-form-item__content::after,
+  .#{$ns}-form-item__content::before {
     display: table;
-    content: "";
+    content: '';
   }
   .#{$ns}-form-item__content .#{$ns}-input-group {
     vertical-align: top;
@@ -123,15 +133,32 @@
     display: inline-block;
     margin-left: 10px;
   }
-  .#{$ns}-form-item.is-required:not(.is-no-asterisk) .#{$ns}-form-item__label-wrap>.#{$ns}-form-item__label:before,.#{$ns}-form-item.is-required:not(.is-no-asterisk)>.#{$ns}-form-item__label:before {
+  .#{$ns}-form-item.is-required:not(.is-no-asterisk)
+    .#{$ns}-form-item__label-wrap
+    > .#{$ns}-form-item__label:before,
+  .#{$ns}-form-item.is-required:not(.is-no-asterisk) > .#{$ns}-form-item__label:before {
     content: '*';
     color: #f56c6c;
     margin-right: 4px;
   }
-  .#{$ns}-form-item.is-error .#{$ns}-input,.#{$ns}-form-item.is-error .#{$ns}-input:focus, .#{$ns}-form-item.is-error .#{$ns}-datepicker,.#{$ns}-form-item.is-error .#{$ns}-datepicker:focus, .#{$ns}-form-item.is-error .#{$ns}-timepicker,.#{$ns}-form-item.is-error .#{$ns}-timepicker:focus, .#{$ns}-form-item.is-error .#{$ns}-textarea,.#{$ns}-form-item.is-error .#{$ns}-textarea:focus,.#{$ns}-form-item.is-error div[class^=#{$ns}-dropdown-uneditable], .#{$ns}-form-item.is-error input[class^=#{$ns}-dropdown-uneditable], .#{$ns}-form-item.is-error input[class^=#{$ns}-dropdown-editable], .#{$ns}-form-item.is-error div[class^=#{$ns}-dropdown-editable], .#{$ns}-form-item.is-error div[class^=#{$ns}-cascader-uneditable], .#{$ns}-form-item.is-error div[class^=#{$ns}-cascader-editable] {
+  .#{$ns}-form-item.is-error .#{$ns}-input,
+  .#{$ns}-form-item.is-error .#{$ns}-input:focus,
+  .#{$ns}-form-item.is-error .#{$ns}-datepicker,
+  .#{$ns}-form-item.is-error .#{$ns}-datepicker:focus,
+  .#{$ns}-form-item.is-error .#{$ns}-timepicker,
+  .#{$ns}-form-item.is-error .#{$ns}-timepicker:focus,
+  .#{$ns}-form-item.is-error .#{$ns}-textarea,
+  .#{$ns}-form-item.is-error .#{$ns}-textarea:focus,
+  .#{$ns}-form-item.is-error div[class^='#{$ns}-dropdown-uneditable'],
+  .#{$ns}-form-item.is-error input[class^='#{$ns}-dropdown-uneditable'],
+  .#{$ns}-form-item.is-error input[class^='#{$ns}-dropdown-editable'],
+  .#{$ns}-form-item.is-error div[class^='#{$ns}-dropdown-editable'],
+  .#{$ns}-form-item.is-error div[class^='#{$ns}-cascader-uneditable'],
+  .#{$ns}-form-item.is-error div[class^='#{$ns}-cascader-editable'] {
     border-color: #f56c6c;
   }
-  .#{$ns}-form-item.is-error .#{$ns}-input-group__append .#{$ns}-input__inner,.#{$ns}-form-item.is-error .#{$ns}-input-group__prepend .#{$ns}-input__inner {
+  .#{$ns}-form-item.is-error .#{$ns}-input-group__append .#{$ns}-input__inner,
+  .#{$ns}-form-item.is-error .#{$ns}-input-group__prepend .#{$ns}-input__inner {
     border-color: transparent;
   }
   .#{$ns}-form-item.is-error .#{$ns}-input__validateIcon {

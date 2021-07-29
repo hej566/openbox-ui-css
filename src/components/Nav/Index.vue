@@ -58,7 +58,7 @@ export default {
   /*eslint-enable*/
   components: {
     c4itNavItem,
-    c4itCascaderNavItem
+    c4itCascaderNavItem,
   },
 
   props: {
@@ -66,20 +66,20 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     index: {
       type: String,
-      default: ''
+      default: '',
     },
     collapse: {
       type: Boolean,
-      default: false
+      default: false,
     },
     theme: {
       type: String,
-      default: 'dark'
-    }
+      default: 'dark',
+    },
   },
 
   data() {
@@ -91,7 +91,7 @@ export default {
       navCollapseItemClassObj: {},
       open: {},
       tooltips: [],
-      instance: null
+      instance: null,
     };
   },
 
@@ -107,7 +107,7 @@ export default {
     },
     navCollapseItemWrapperClassList() {
       return this.navCollapseItemWrapperClassArr;
-    }
+    },
   },
 
   watch: {
@@ -119,9 +119,9 @@ export default {
           this.navClassArr.push(`${ns}-nav-collapse`);
           this.navCollapseClassArr.push(`nav-collapse`);
           this.navCollapseItemWrapperClassArr.push(`${ns}-nav-collapse-item-wrapper`);
-          this.setToggleReactive(this.nav) 
-          this.setClassesReactive(this.nav)  
-          this.renderTooltips()
+          this.setToggleReactive(this.nav);
+          this.setClassesReactive(this.nav);
+          this.renderTooltips();
           /*eslint-enable*/
         } else {
           this.navClassArr.pop();
@@ -140,7 +140,7 @@ export default {
             this.destroyChildren(this);
           }
         }
-      }
+      },
     },
     nav: {
       immediate: false,
@@ -150,8 +150,8 @@ export default {
           this.setClassesReactive(val);
           this.renderTooltips();
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -168,24 +168,22 @@ export default {
     },
 
     renderTooltips() {
-      Array.from(this.$mount().$el.children[0].children).forEach(
-        (item, idx) => {
-          let instance = tippy(item, {
-            appendTo: () => document.body,
-            content: `<div>${this.nav[idx].meta.title}</div>`,
-            allowHTML: true,
-            arrow: false,
-            placement: 'right',
-            interactive: true,
-            theme: 'nav-tooltip',
-            sticky: true,
-            delay: 0,
-            duration: 0,
-            plugins: [sticky]
-          });
-          this.tooltips.push(instance);
-        }
-      );
+      Array.from(this.$mount().$el.children[0].children).forEach((item, idx) => {
+        let instance = tippy(item, {
+          appendTo: () => document.body,
+          content: `<div>${this.nav[idx].meta.title}</div>`,
+          allowHTML: true,
+          arrow: false,
+          placement: 'right',
+          interactive: true,
+          theme: 'nav-tooltip',
+          sticky: true,
+          delay: 0,
+          duration: 0,
+          plugins: [sticky],
+        });
+        this.tooltips.push(instance);
+      });
     },
 
     setToggleReactive(val) {
@@ -270,7 +268,7 @@ export default {
             plugins: [sticky],
             delay: 0,
             duration: 0,
-            offset: [-10, 8]
+            offset: [-10, 8],
           });
           this.instance.show();
         }
@@ -370,9 +368,11 @@ export default {
       if (vm.instance && !vm.instance.state.isDestroyed) {
         /*eslint-disable*/
         for (let child of vm.$children) {
-          if (child.$el.classList &&
+          if (
+            child.$el.classList &&
             child.$el.classList.contains(`${ns}-cascader-nav-group`) &&
-            child.instance && !child.instance.state.isDestroyed
+            child.instance &&
+            !child.instance.state.isDestroyed
           ) {
             this.destroyInstance(child.$children[child.$children.length - 1]);
             child.showChildren = false;
@@ -395,7 +395,7 @@ export default {
         target.instance.destroy();
         target.instance = null;
       }
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,4 +1,4 @@
-const deepClone = target => {
+const deepClone = (target) => {
   if (typeof target !== 'object') {
     return target;
   } else if (target === null) {

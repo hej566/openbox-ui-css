@@ -31,37 +31,37 @@ export default {
   mixins: [emitter],
   model: {
     prop: 'checked',
-    event: 'change'
+    event: 'change',
   },
   props: {
     checked: {
       type: Boolean,
-      default: false
+      default: false,
     },
     aria: {
       type: Boolean,
-      default: true
+      default: true,
     },
     indeterminate: {
       type: Boolean,
-      default: false
+      default: false,
     },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     shape: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
@@ -69,7 +69,7 @@ export default {
       labelCheckClassArr: [],
       checkedClassArr: [],
       indeterminateClassArr: [],
-      labelClassArr: []
+      labelClassArr: [],
     };
   },
 
@@ -88,7 +88,7 @@ export default {
     },
     labelClasses() {
       return this.labelClassArr;
-    }
+    },
   },
 
   watch: {
@@ -105,20 +105,20 @@ export default {
             document.getElementById(this._uid).checked = false;
           }
         }
-      }
+      },
     },
     disabled: {
       handler(val) {
         /* eslint-disable */
         if (val && this.$el.classList && !this.$el.classList.contains(`${ns}-disabled`)) {
           this.$el.classList.add(`${ns}-disabled`);
-        } 
+        }
         if (!val && this.$el.classList && this.$el.classList.contains(`${ns}-disabled`)) {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -154,9 +154,9 @@ export default {
         this.checkboxClassArr.push(`${ns}-disabled`);
       }
       if (this.shape) {
-        this.checkboxClassArr.push(`${ns}-${this.shape}`)
+        this.checkboxClassArr.push(`${ns}-${this.shape}`);
       } else {
-        this.checkboxClassArr.push(`${ns}-default`)
+        this.checkboxClassArr.push(`${ns}-default`);
       }
       /* eslint-enable */
     },
@@ -165,7 +165,7 @@ export default {
       // console.log($event);
       this.$emit('change', $event.target.checked);
       // this.dispatch('C4itFormItem', 'c4it.form.change', $event.target.checked);
-    }
-  }
+    },
+  },
 };
 </script>

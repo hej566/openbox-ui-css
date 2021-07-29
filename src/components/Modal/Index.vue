@@ -16,8 +16,8 @@ export default {
   props: {
     open: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -27,7 +27,7 @@ export default {
       modalContentClassArr: [],
       instance: null,
       popoverElm: null,
-      targetElm: null
+      targetElm: null,
     };
   },
 
@@ -40,7 +40,7 @@ export default {
     },
     modalWrapperClassList() {
       return this.modalWrapperClassArr;
-    }
+    },
   },
 
   watch: {
@@ -51,8 +51,8 @@ export default {
         } else {
           this.hideModal();
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -71,9 +71,9 @@ export default {
   methods: {
     init() {
       /*eslint-disable*/
-      this.modalClassArr.push(`${ns}-modal`)
-      this.modalWrapperClassArr.push(`${ns}-modal-wrapper`)
-      this.modalContentClassArr.push(`${ns}-modal-content`)
+      this.modalClassArr.push(`${ns}-modal`);
+      this.modalWrapperClassArr.push(`${ns}-modal-wrapper`);
+      this.modalContentClassArr.push(`${ns}-modal-content`);
       /*eslint-enable*/
     },
 
@@ -87,7 +87,7 @@ export default {
 
     hideModal() {
       this.targetElm.removeChild(this.popoverElm);
-    }
-  }
+    },
+  },
 };
 </script>

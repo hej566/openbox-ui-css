@@ -1,11 +1,6 @@
 <template>
   <div :class="treeClasses">
-    <c4it-tree-node
-      v-for="(node, idx) in treeData"
-      :key="idx"
-      :index="`${idx + 1}`"
-      :node="node"
-    />
+    <c4it-tree-node v-for="(node, idx) in treeData" :key="idx" :index="`${idx + 1}`" :node="node" />
   </div>
 </template>
 
@@ -17,12 +12,12 @@ export default {
   name: `${ns}Tree`,
   /*eslint-enable*/
   components: {
-    c4itTreeNode
+    c4itTreeNode,
   },
-  provide: function() {
+  provide: function () {
     return {
       fetchData: this.fetchData,
-      removeData: this.removeData
+      removeData: this.removeData,
     };
   },
 
@@ -31,19 +26,19 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
-    }
+      },
+    },
   },
   data() {
     return {
-      treeClassArr: []
+      treeClassArr: [],
     };
   },
 
   computed: {
     treeClasses() {
       return this.treeClassArr;
-    }
+    },
   },
 
   created() {
@@ -63,7 +58,7 @@ export default {
 
     removeData(node) {
       this.$emit('remove-data', node);
-    }
-  }
+    },
+  },
 };
 </script>

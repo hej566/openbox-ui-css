@@ -22,25 +22,25 @@ export default {
   /*eslint-enable*/
   model: {
     prop: 'value',
-    event: 'change'
+    event: 'change',
   },
   props: {
     value: {
       type: Number,
-      default: 0
+      default: 0,
     },
     min: {
       type: Number,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number,
-      default: 100
+      default: 100,
     },
     step: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
 
   data() {
@@ -50,7 +50,7 @@ export default {
       rangeValueClassArr: [],
       rangeFillClassArr: [],
       rangeSliderElem: null,
-      rangeSliderFillElem: null
+      rangeSliderFillElem: null,
     };
   },
 
@@ -69,7 +69,7 @@ export default {
 
     rangeFillClassList() {
       return this.rangeFillClassArr;
-    }
+    },
   },
 
   created() {
@@ -86,10 +86,7 @@ export default {
 
   beforeDestroy() {
     this.rangeSliderElem.removeEventListener('input', this.rangeHandler);
-    this.rangeSliderFillElem.removeEventListener(
-      'click',
-      this.rangeFillHandler
-    );
+    this.rangeSliderFillElem.removeEventListener('click', this.rangeFillHandler);
   },
 
   methods: {
@@ -98,7 +95,7 @@ export default {
       this.rangeSliderClassArr.push(`${ns}-range-slider`);
       this.rangeValueClassArr.push(`${ns}-value`);
       this.rangeClassArr.push(`${ns}-range`);
-      this.rangeFillClassArr.push(`${ns}-range-fill`)
+      this.rangeFillClassArr.push(`${ns}-range-fill`);
       /* eslint-enable */
     },
 
@@ -106,18 +103,14 @@ export default {
       const filledWidth =
         (Number(this.value) * Number(this.rangeSliderElem.clientWidth)) /
         Number(this.rangeSliderElem.max);
-      document.getElementById(
-        `${this._uid}-fill`
-      ).style.width = `${filledWidth}px`;
+      document.getElementById(`${this._uid}-fill`).style.width = `${filledWidth}px`;
     },
 
     rangeHandler($event) {
       const filledWidth =
         (Number($event.target.value) * Number($event.target.clientWidth)) /
         Number($event.target.max);
-      document.getElementById(
-        `${this._uid}-fill`
-      ).style.width = `${filledWidth}px`;
+      document.getElementById(`${this._uid}-fill`).style.width = `${filledWidth}px`;
     },
 
     rangeFillHandler($event) {
@@ -126,7 +119,7 @@ export default {
 
     change($event) {
       this.$emit('change', Number($event.target.value));
-    }
-  }
+    },
+  },
 };
 </script>

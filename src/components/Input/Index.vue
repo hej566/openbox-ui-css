@@ -3,16 +3,8 @@
     <div :class="inputFieldClasses">
       <slot name="prefix">
         <div v-if="prefix" class="prefix">
-          <svg-icon
-            :class="prefixClasses"
-            v-if="preLoading"
-            icon-class="circle-notch"
-          ></svg-icon>
-          <svg-icon
-            :class="prefixClasses"
-            v-else
-            :icon-class="prefix"
-          ></svg-icon>
+          <svg-icon :class="prefixClasses" v-if="preLoading" icon-class="circle-notch"></svg-icon>
+          <svg-icon :class="prefixClasses" v-else :icon-class="prefix"></svg-icon>
         </div>
       </slot>
       <input
@@ -26,16 +18,8 @@
       />
       <slot name="suffix">
         <div v-if="suffix" class="suffix">
-          <svg-icon
-            :class="suffixClasses"
-            v-if="sufLoading"
-            icon-class="circle-notch"
-          ></svg-icon>
-          <svg-icon
-            :class="suffixClasses"
-            v-else
-            :icon-class="suffix"
-          ></svg-icon>
+          <svg-icon :class="suffixClasses" v-if="sufLoading" icon-class="circle-notch"></svg-icon>
+          <svg-icon :class="suffixClasses" v-else :icon-class="suffix"></svg-icon>
         </div>
       </slot>
     </div>
@@ -52,45 +36,45 @@ export default {
   /*eslint-enable*/
   model: {
     prop: 'context',
-    event: 'input'
+    event: 'input',
   },
   props: {
     validateEvent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     context: {
       type: String,
-      default: ''
+      default: '',
     },
     /*eslint-disable*/
     prefix: {
-      type: [String, Boolean]
+      type: [String, Boolean],
     },
     suffix: {
-      type: [String, Boolean]
+      type: [String, Boolean],
     },
     /*eslint-disable*/
     preLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     sufLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: 'text'
-    }
+      default: 'text',
+    },
   },
 
   data() {
@@ -100,7 +84,7 @@ export default {
       inputClassArr: [],
       prefixClassArr: [],
       suffixClassArr: [],
-      inputed: ''
+      inputed: '',
     };
   },
 
@@ -123,7 +107,7 @@ export default {
 
     suffixClasses() {
       return this.suffixClassArr;
-    }
+    },
   },
 
   watch: {
@@ -136,7 +120,7 @@ export default {
           this.suffixClassArr.pop();
         }
         /* eslint-enable */
-      }
+      },
     },
 
     preLoading: {
@@ -148,7 +132,7 @@ export default {
           this.prefixClassArr.pop();
         }
         /* eslint-enable */
-      }
+      },
     },
 
     disabled: {
@@ -161,15 +145,15 @@ export default {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
+      },
     },
 
     context: {
       immediate: true,
       handler(val) {
         this.inputed = val;
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -202,7 +186,7 @@ export default {
         this.suffixClassArr.push(`${ns}-loading`);
       }
       if (this.disabled) {
-        this.inputClassArr.push(`${ns}-disabled`)
+        this.inputClassArr.push(`${ns}-disabled`);
       }
       /* eslint-enable */
       this.inputed = this.context;
@@ -215,7 +199,7 @@ export default {
       //     $event.target.value
       //   ]);
       // }
-    }
-  }
+    },
+  },
 };
 </script>

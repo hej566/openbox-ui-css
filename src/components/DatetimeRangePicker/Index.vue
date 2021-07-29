@@ -27,36 +27,36 @@ export default {
   name: `${ns}Datetimerangepicker`,
   /*eslint-enable*/
   components: {
-    c4itDatetimepicker
+    c4itDatetimepicker,
   },
   props: {
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     placeholder: {
       type: Array,
       default: () => {
         return ['开始日期', '结束日期'];
-      }
+      },
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       input11: '',
       input12: '',
-      datetimeRangePickerClassArr: []
+      datetimeRangePickerClassArr: [],
     };
   },
 
   computed: {
     datetimeRangePickerClasses() {
       return this.datetimeRangePickerClassArr;
-    }
+    },
   },
 
   watch: {
@@ -70,8 +70,8 @@ export default {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -89,10 +89,10 @@ export default {
       /*eslint-disable*/
       this.datetimeRangePickerClassArr.push(`${ns}-datetimerangepicker`);
       if (this.disabled) {
-        this.datetimeRangePickerClassArr.push(`${ns}-disabled`)
+        this.datetimeRangePickerClassArr.push(`${ns}-disabled`);
       }
       /*eslint-enable*/
-    }
-  }
+    },
+  },
 };
 </script>

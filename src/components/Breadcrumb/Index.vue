@@ -7,14 +7,12 @@
       :key="index"
       class="bread_link"
     >
-      <span :class="textClass" class="link_text" style="float: left;">{{
-        item.text
-      }}</span>
+      <span :class="textClass" class="link_text" style="float: left">{{ item.text }}</span>
       <div
         :class="separateClass"
         v-if="index < items.length - 1"
         class="separate"
-        style="float: left;"
+        style="float: left"
       >
         <svg-icon
           :icon-class="separateIcon"
@@ -36,31 +34,31 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     customClass: {
       type: String,
-      default: ''
+      default: '',
     },
     textClass: {
       type: String,
-      default: ''
+      default: '',
     },
     separateClass: {
       type: String,
-      default: ''
+      default: '',
     },
     separateIcon: {
       type: String,
-      default: 'arrow-right'
+      default: 'arrow-right',
     },
     separateIconClass: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {};
-  }
+  },
 };
 </script>

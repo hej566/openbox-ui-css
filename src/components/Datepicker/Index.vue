@@ -18,11 +18,7 @@
         @click="focusHandler"
       ></svg-icon>
       <div :class="suffixClasses" v-if="suffix" @click="focusHandler">
-        <svg-icon
-          :icon-class="suffix"
-          v-if="showIcon"
-          @mouseover="hideHandler"
-        ></svg-icon>
+        <svg-icon :icon-class="suffix" v-if="showIcon" @mouseover="hideHandler"></svg-icon>
         <svg-icon
           @click.stop="clearHandler"
           v-if="showRemove"
@@ -32,12 +28,7 @@
       </div>
     </div>
     <div :class="dateWrapperClasses" v-show="false">
-      <c4it-dater
-        @choose-dater="chooseDater"
-        @confirm="confirmDater"
-        :dater="dater"
-        :open="open"
-      />
+      <c4it-dater @choose-dater="chooseDater" @confirm="confirmDater" :dater="dater" :open="open" />
     </div>
   </div>
 </template>
@@ -58,37 +49,37 @@ export default {
 
   model: {
     prop: 'context',
-    event: 'change'
+    event: 'change',
   },
   props: {
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     context: {
       type: String,
-      default: ''
+      default: '',
     },
     prefix: {
       type: String,
-      default: ''
+      default: '',
     },
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     timepicker: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     validateEvent: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   data() {
@@ -109,7 +100,7 @@ export default {
       open: false,
       showIcon: true,
       showRemove: false,
-      instance: null
+      instance: null,
     };
   },
 
@@ -136,7 +127,7 @@ export default {
 
     isNotEmpty() {
       return this.selected !== '';
-    }
+    },
   },
 
   watch: {
@@ -147,7 +138,7 @@ export default {
         if (val && moment(val, 'YYYY-MM-DD', true).isValid()) {
           this.parseContext(val);
         }
-      }
+      },
     },
     selected: {
       handler(val) {
@@ -157,7 +148,7 @@ export default {
         if (!val) {
           this.dater = [];
         }
-      }
+      },
     },
     disabled: {
       handler(val) {
@@ -175,8 +166,8 @@ export default {
           }
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -192,7 +183,7 @@ export default {
       /* eslint-disable */
       this.datepickerFieldClassArr.push(`${ns}-datepicker-field`);
       this.datepickerClassArr.push(`${ns}-datepicker`);
-      this.dateWrapperClassArr.push(`${ns}-date-wrapper`)
+      this.dateWrapperClassArr.push(`${ns}-date-wrapper`);
       if (this.suffix) {
         this.suffixClassArr.push(`${ns}-suffix`);
       }
@@ -200,7 +191,7 @@ export default {
         this.prefixClassArr.push(`${ns}-prefix`);
       }
       if (this.disabled) {
-        this.datepickerClassArr.push(`${ns}-disabled`)
+        this.datepickerClassArr.push(`${ns}-disabled`);
       }
       /* eslint-enable */
     },
@@ -238,7 +229,7 @@ export default {
           ) {
             this.targetElm.children[0].classList.remove('open');
           }
-        }
+        },
       });
 
       if (this.disabled) {
@@ -252,10 +243,7 @@ export default {
 
     focusHandler() {
       this.$el.classList.add('focus');
-      document
-        .getElementById(this._uid)
-        .querySelector('input')
-        .focus();
+      document.getElementById(this._uid).querySelector('input').focus();
     },
 
     blurHandler() {
@@ -289,7 +277,7 @@ export default {
     confirmDater() {
       this.$emit('confirm', this.selected);
       document.getElementById(this._uid).click();
-    }
-  }
+    },
+  },
 };
 </script>

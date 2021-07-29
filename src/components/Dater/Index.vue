@@ -7,21 +7,13 @@
           icon-class="angle-double-left"
           class="angle-double-left"
         ></svg-icon>
-        <svg-icon
-          @click="prevMonth"
-          icon-class="angle-left"
-          class="angle-left"
-        ></svg-icon>
+        <svg-icon @click="prevMonth" icon-class="angle-left" class="angle-left"></svg-icon>
       </div>
       <div :class="dateHeaderTitleClasses">
         {{ yearMonth }}
       </div>
       <div class="right">
-        <svg-icon
-          @click="nextMonth"
-          icon-class="angle-right"
-          class="angle-right"
-        ></svg-icon>
+        <svg-icon @click="nextMonth" icon-class="angle-right" class="angle-right"></svg-icon>
         <svg-icon
           @click="nextYear"
           icon-class="angle-double-right"
@@ -42,14 +34,12 @@
               dayItemClasses.concat([
                 { disable: day.disable },
                 { active: day.active },
-                { mark: day.mark }
+                { mark: day.mark },
               ])
             "
-            :data-date="
-              `${day.year}-${day.month < 10 ? '0' + day.month : day.month}-${
-                day.value < 10 ? '0' + day.value : day.value
-              }`
-            "
+            :data-date="`${day.year}-${day.month < 10 ? '0' + day.month : day.month}-${
+              day.value < 10 ? '0' + day.value : day.value
+            }`"
             tabindex="0"
           >
             {{ day.value }}
@@ -59,12 +49,8 @@
     </div>
     <div :class="dateFooterClasses">
       <div class="btns">
-        <div @click="chooseNow" class="now">
-          此刻
-        </div>
-        <div @click="confirm" class="confirm">
-          确定
-        </div>
+        <div @click="chooseNow" class="now">此刻</div>
+        <div @click="confirm" class="confirm">确定</div>
       </div>
     </div>
   </div>
@@ -80,12 +66,12 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     open: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -109,12 +95,12 @@ export default {
         { key: 'Wed', val: '三' },
         { key: 'Thu', val: '四' },
         { key: 'Fri', val: '五' },
-        { key: 'Sat', val: '六' }
+        { key: 'Sat', val: '六' },
       ],
       days: [],
       nowDate: null,
       nowMonth: null,
-      nowYear: null
+      nowYear: null,
     };
   },
 
@@ -145,26 +131,26 @@ export default {
     },
     yearMonth() {
       return `${this.year} 年 ${this.month} 月`;
-    }
+    },
   },
 
   watch: {
     year: {
       handler() {
         this.computeDays();
-      }
+      },
     },
     month: {
       handler() {
         this.computeDays();
-      }
+      },
     },
     dateInMonth: {
       handler(val) {
         if (val) {
           this.highlight(val);
         }
-      }
+      },
     },
     dater: {
       handler(val) {
@@ -173,15 +159,15 @@ export default {
         } else {
           this.resetDater();
         }
-      }
+      },
     },
     open: {
       handler(val) {
         if (val) {
           this.setDater();
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -243,11 +229,7 @@ export default {
 
     markNowDate(date) {
       for (let day of this.days) {
-        if (
-          day.value === date &&
-          day.month === this.nowMonth &&
-          day.year === this.nowYear
-        ) {
+        if (day.value === date && day.month === this.nowMonth && day.year === this.nowYear) {
           day.mark = true;
         }
       }
@@ -281,16 +263,9 @@ export default {
           daysFromNextMonth = 7 - idx;
         }
       });
-      const prevMonthLength = this.computeMonthLength(
-        this.year,
-        this.month - 1
-      );
+      const prevMonthLength = this.computeMonthLength(this.year, this.month - 1);
 
-      for (
-        let i = prevMonthLength - daysFromPrevMonth + 1;
-        i <= prevMonthLength;
-        i++
-      ) {
+      for (let i = prevMonthLength - daysFromPrevMonth + 1; i <= prevMonthLength; i++) {
         if (this.month === 1) {
           this.days.push({
             disable: true,
@@ -298,7 +273,7 @@ export default {
             year: this.year - 1,
             month: 12,
             active: false,
-            mark: false
+            mark: false,
           });
         } else {
           this.days.push({
@@ -307,7 +282,7 @@ export default {
             year: this.year,
             month: this.month - 1,
             active: false,
-            mark: false
+            mark: false,
           });
         }
       }
@@ -319,7 +294,7 @@ export default {
           year: this.year,
           month: this.month,
           active: false,
-          mark: false
+          mark: false,
         });
       }
 
@@ -331,7 +306,7 @@ export default {
             year: this.year + 1,
             month: 1,
             active: false,
-            mark: false
+            mark: false,
           });
         } else {
           this.days.push({
@@ -340,7 +315,7 @@ export default {
             year: this.year,
             month: this.month + 1,
             active: false,
-            mark: false
+            mark: false,
           });
         }
       }
@@ -355,7 +330,7 @@ export default {
               year: this.year + 1,
               month: 1,
               active: false,
-              mark: false
+              mark: false,
             });
           } else {
             this.days.push({
@@ -364,7 +339,7 @@ export default {
               year: this.year,
               month: this.month + 1,
               active: false,
-              mark: false
+              mark: false,
             });
           }
         }
@@ -418,14 +393,13 @@ export default {
       this.dateInMonth = this.nowDate;
       const strYear = this.year < 10 ? `0${this.year}` : `${this.year}`;
       const strMonth = this.month < 10 ? `0${this.month}` : `${this.month}`;
-      const strDate =
-        this.dateInMonth < 10 ? `0${this.dateInMonth}` : `${this.dateInMonth}`;
+      const strDate = this.dateInMonth < 10 ? `0${this.dateInMonth}` : `${this.dateInMonth}`;
       this.$emit('choose-dater', `${strYear}-${strMonth}-${strDate}`);
     },
 
     confirm() {
       this.$emit('confirm');
-    }
-  }
+    },
+  },
 };
 </script>

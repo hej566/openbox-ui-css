@@ -36,16 +36,16 @@ export default {
   props: {
     progress: {
       type: Number,
-      default: 0
+      default: 0,
     },
     radius: {
       type: Number,
-      default: 0
+      default: 0,
     },
     stroke: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
 
   data() {
@@ -57,7 +57,7 @@ export default {
       progressClassArr: [],
       circleFgClassArr: [],
       circleBgClassArr: [],
-      textClassArr: []
+      textClassArr: [],
     };
   },
   computed: {
@@ -75,7 +75,7 @@ export default {
     },
     textClassList() {
       return this.textClassArr;
-    }
+    },
   },
 
   created() {
@@ -90,8 +90,8 @@ export default {
       this.circleBgClassArr.push(`${ns}-circle-bg`);
       this.textClassArr.push(`${ns}-progress-circle-text`);
       /* eslint-enable */
-    }
-  }
+    },
+  },
 };
 </script>
 

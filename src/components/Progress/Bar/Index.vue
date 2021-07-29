@@ -16,34 +16,34 @@ export default {
   props: {
     max: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     value: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     color: {
       type: String,
-      default: ''
+      default: '',
     },
 
     label: {
       type: String,
-      default: ''
+      default: '',
     },
 
     position: {
       type: String,
-      default: 'bottom-start'
-    }
+      default: 'bottom-start',
+    },
   },
   data() {
     return {
       progressClassArr: [],
       labelClassArr: [],
-      progress: 0
+      progress: 0,
     };
   },
 
@@ -53,7 +53,7 @@ export default {
     },
     labelClassList() {
       return this.labelClassArr;
-    }
+    },
   },
 
   watch: {
@@ -61,8 +61,8 @@ export default {
       immediate: false,
       handler(val) {
         this.computeProgress();
-      }
-    }
+      },
+    },
   },
 
   mounted() {
@@ -75,7 +75,7 @@ export default {
       this.progressClassArr.push(`${ns}-progress-bar`);
       this.labelClassArr.push(`label`);
       if (this.position) {
-        this.labelClassArr.push(`${this.position}`)
+        this.labelClassArr.push(`${this.position}`);
       }
       /* eslint-enable */
       this.computeProgress();
@@ -100,7 +100,7 @@ export default {
         const percentage = (this.value / this.max) * 100;
         progressFgElm.style['width'] = `${percentage}%`;
       }
-    }
-  }
+    },
+  },
 };
 </script>

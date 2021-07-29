@@ -1,16 +1,8 @@
 <template>
-  <button
-    :class="btnClasses"
-    :disabled="disabled"
-    @click="$emit('click', $event)"
-    :type="c4itType"
-  >
+  <button :class="btnClasses" :disabled="disabled" @click="$emit('click', $event)" :type="c4itType">
     <div :class="loadingClasses" v-if="loading">
       <div :class="loaderClasses">
-        <svg-icon
-          :icon-class="`circle-notch`"
-          :class="spinnerClasses"
-        ></svg-icon>
+        <svg-icon :icon-class="`circle-notch`" :class="spinnerClasses"></svg-icon>
       </div>
       <div :class="iconLoadingClasses" v-if="icon">
         <svg-icon :icon-class="icon"></svg-icon>
@@ -50,48 +42,48 @@ export default {
   props: {
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     size: {
       type: String,
-      default: 'normal'
+      default: 'normal',
     },
     c4itType: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
     type: {
       type: String,
-      default: 'primary'
+      default: 'primary',
     },
     prefix: {
       type: String,
-      default: ''
+      default: '',
     },
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     elevation: {
       type: Boolean,
-      default: false
+      default: false,
     },
     ripple: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     aria: {
       type: Boolean,
-      default: true
+      default: true,
     },
     icon: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   data() {
@@ -107,7 +99,7 @@ export default {
       loaderClassArr: [],
       spinnerClassArr: [],
       rippleElem: null,
-      iconClassArr: []
+      iconClassArr: [],
     };
   },
 
@@ -144,7 +136,7 @@ export default {
     },
     spinnerClasses() {
       return this.spinnerClassArr;
-    }
+    },
   },
 
   watch: {
@@ -153,13 +145,13 @@ export default {
         /* eslint-disable */
         if (val && this.$el.classList && !this.$el.classList.contains(`${ns}-disabled`)) {
           this.$el.classList.add(`${ns}-disabled`);
-        } 
+        }
         if (!val && this.$el.classList && this.$el.classList.contains(`${ns}-disabled`)) {
           this.$el.classList.remove(`${ns}-disabled`);
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -188,7 +180,7 @@ export default {
   methods: {
     initClasses() {
       /* eslint-disable */
-      this.btnClassArr.push(`${ns}-button`)
+      this.btnClassArr.push(`${ns}-button`);
       if (this.disabled) {
         this.btnClassArr.push(`${ns}-disabled`);
       }
@@ -212,7 +204,7 @@ export default {
       }
       if (this.icon) {
         this.iconClassArr.push(`icon`);
-        this.btnClassArr.push(`${ns}-icon`)
+        this.btnClassArr.push(`${ns}-icon`);
       }
       if (this.loading) {
         this.loadingClassArr.push(`${ns}-loading`);
@@ -230,10 +222,7 @@ export default {
       /* eslint-disable */
       if (this.rippleElem.classList && !this.rippleElem.classList.contains(`${ns}-fire`)) {
         this.rippleElem.classList.add(`${ns}-fire`);
-        this.rippleElem.setAttribute(
-          'style',
-          'top:' + e.layerY + 'px; left:' + e.layerX + 'px;'
-        );
+        this.rippleElem.setAttribute('style', 'top:' + e.layerY + 'px; left:' + e.layerX + 'px;');
       }
 
       setTimeout(() => {
@@ -241,8 +230,8 @@ export default {
           this.rippleElem.classList.remove(`${ns}-fire`);
         }
       }, 400);
-       /* eslint-enable */ 
-    }
-  }
+      /* eslint-enable */
+    },
+  },
 };
 </script>

@@ -12,20 +12,20 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
       accordionGroupClassArr: [],
-      groupItems: []
+      groupItems: [],
     };
   },
 
   computed: {
     accordionGroupClassList() {
       return this.accordionGroupClassArr;
-    }
+    },
   },
 
   created() {
@@ -34,7 +34,7 @@ export default {
 
   mounted() {
     if (Object.keys(this.$slots).length) {
-      this.groupItems = this.$slots.default.filter(item => {
+      this.groupItems = this.$slots.default.filter((item) => {
         return item.componentInstance;
       });
     }
@@ -55,11 +55,10 @@ export default {
           let { id } = itemHeaderElm.dataset;
           if (id !== targetId && itemHeaderElm.classList.contains('open')) {
             item.child.toggleHandler();
-            
-          } 
+          }
           if (id === targetId) {
             item.child.toggleHandler();
-          } 
+          }
         }
       }
       /*eslint-enable*/
@@ -70,13 +69,13 @@ export default {
       for (let item of this.groupItems) {
         let itemHeaderElm = item.elm.querySelector(`.${ns}-accordion-header`);
         let itemBodyElm = item.elm.querySelector(`.${ns}-accordion-body`);
-        let cascaderWrapperElm = itemBodyElm.querySelector(`.${ns}-cascader-nav-group-wrapper`)
+        let cascaderWrapperElm = itemBodyElm.querySelector(`.${ns}-cascader-nav-group-wrapper`);
         if (cascaderWrapperElm && itemHeaderElm.classList.contains('open')) {
           item.child.toggleHandler('clear');
         }
       }
       /*eslint-enable*/
-    }
-  }
+    },
+  },
 };
 </script>

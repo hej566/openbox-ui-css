@@ -33,7 +33,9 @@
       color: $datepicker-field-primary-text-color;
 
       &::-ms-clear,
-      input::-ms-reveal { display: none; }
+      input::-ms-reveal {
+        display: none;
+      }
 
       &::placeholder {
         color: $datepicker-field-primary-placeholder-color;
@@ -87,7 +89,9 @@
         color: $datepicker-field-disabled-text-color;
 
         &::-ms-clear,
-        input::-ms-reveal { display: none; }
+        input::-ms-reveal {
+          display: none;
+        }
 
         &::placeholder {
           color: $datepicker-field-disabled-placeholder-color;
@@ -102,7 +106,7 @@
 }
 
 .tippy-box {
-  &[data-theme="datepicker"] {
+  &[data-theme='datepicker'] {
     margin-top: 8px;
     padding-bottom: 0;
     width: $dater-default-width;

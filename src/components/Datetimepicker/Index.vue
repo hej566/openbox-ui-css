@@ -18,11 +18,7 @@
         @click="focusHandler"
       ></svg-icon>
       <div :class="suffixClasses" v-if="suffix" @click="focusHandler">
-        <svg-icon
-          :icon-class="suffix"
-          v-if="showIcon"
-          @mouseover="hideHandler"
-        ></svg-icon>
+        <svg-icon :icon-class="suffix" v-if="showIcon" @mouseover="hideHandler"></svg-icon>
         <svg-icon
           @click.stop="clearHandler"
           v-if="showRemove"
@@ -58,33 +54,33 @@ export default {
 
   model: {
     prop: 'context',
-    event: 'change'
+    event: 'change',
   },
   props: {
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     context: {
       type: String,
-      default: ''
+      default: '',
     },
     prefix: {
       type: String,
-      default: ''
+      default: '',
     },
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     validateEvent: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   data() {
@@ -109,7 +105,7 @@ export default {
       open: false,
       showIcon: true,
       showRemove: false,
-      instance: null
+      instance: null,
     };
   },
 
@@ -136,7 +132,7 @@ export default {
 
     isNotEmpty() {
       return this.selected !== '';
-    }
+    },
   },
 
   watch: {
@@ -148,7 +144,7 @@ export default {
           this.parseContext(val);
           // this.dispatch('C4itFormItem', 'c4it.form.change', val);
         }
-      }
+      },
     },
     selected: {
       handler(val) {
@@ -159,7 +155,7 @@ export default {
           this.dater = [];
           this.timer = [];
         }
-      }
+      },
     },
     disabled: {
       handler(val) {
@@ -177,8 +173,8 @@ export default {
           }
         }
         /* eslint-enable */
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -194,7 +190,7 @@ export default {
       /* eslint-disable */
       this.datetimepickerFieldClassArr.push(`${ns}-datetimepicker-field`);
       this.datetimepickerClassArr.push(`${ns}-datetimepicker`);
-      this.datetimerWrapperClassArr.push(`${ns}-datetime-wrapper`)
+      this.datetimerWrapperClassArr.push(`${ns}-datetime-wrapper`);
       if (this.suffix) {
         this.suffixClassArr.push(`${ns}-suffix`);
       }
@@ -202,7 +198,7 @@ export default {
         this.prefixClassArr.push(`${ns}-prefix`);
       }
       if (this.disabled) {
-        this.datetimepickerClassArr.push(`${ns}-disabled`)
+        this.datetimepickerClassArr.push(`${ns}-disabled`);
       }
       /* eslint-enable */
     },
@@ -240,7 +236,7 @@ export default {
           ) {
             this.targetElm.children[0].classList.remove('open');
           }
-        }
+        },
       });
 
       if (this.disabled) {
@@ -256,10 +252,7 @@ export default {
 
     focusHandler() {
       this.$el.classList.add('focus');
-      document
-        .getElementById(this._uid)
-        .querySelector('input')
-        .focus();
+      document.getElementById(this._uid).querySelector('input').focus();
       this.$emit('focusin');
     },
 
@@ -295,7 +288,7 @@ export default {
     confirmDatetimer() {
       this.$emit('confirm', this.selected);
       document.getElementById(this._uid).click();
-    }
-  }
+    },
+  },
 };
 </script>

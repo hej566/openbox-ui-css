@@ -34,7 +34,9 @@
       color: $datetimepicker-field-primary-text-color;
 
       &::-ms-clear,
-      input::-ms-reveal { display: none; }
+      input::-ms-reveal {
+        display: none;
+      }
 
       &::placeholder {
         color: $datetimepicker-field-primary-placeholder-color;
@@ -90,7 +92,9 @@
         color: $datetimepicker-field-disabled-text-color;
 
         &::-ms-clear,
-        input::-ms-reveal { display: none; }
+        input::-ms-reveal {
+          display: none;
+        }
 
         &::placeholder {
           color: $datetimepicker-field-disabled-placeholder-color;
@@ -105,7 +109,7 @@
 }
 
 .tippy-box {
-  &[data-theme="datetimepicker"] {
+  &[data-theme='datetimepicker'] {
     margin-top: 8px;
     padding-bottom: 0;
     border: 1px solid $datetimer-primary-border-color;

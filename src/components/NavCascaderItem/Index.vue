@@ -14,11 +14,7 @@
       tabindex="0"
     >
       <div @click="test(idx)" class="title-bg">
-        <div
-          :data-node="item.children ? 1 : 0"
-          :data-value="item.meta.title"
-          class="title"
-        >
+        <div :data-node="item.children ? 1 : 0" :data-value="item.meta.title" class="title">
           {{ item.meta.title }}
         </div>
         <svg-icon
@@ -56,25 +52,25 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
 
     index: {
       type: String,
-      default: ''
+      default: '',
     },
 
     theme: {
       type: String,
-      default: 'dark'
+      default: 'dark',
     },
 
     nav: {
       type: Array,
       default: () => {
         return [];
-      }
-    }
+      },
+    },
   },
 
   data() {
@@ -84,14 +80,14 @@ export default {
       childrenOptions: [],
       showChildren: false,
       indexPath: '',
-      instance: null
+      instance: null,
     };
   },
 
   computed: {
     cascaderGroupClassList() {
       return this.cascaderGroupClassArr;
-    }
+    },
   },
 
   watch: {
@@ -110,8 +106,8 @@ export default {
             this.cascaderItemClassObject[idx].push('anchor');
           }
         });
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -126,15 +122,15 @@ export default {
       /*eslint-disable*/
       this.cascaderGroupClassArr.push(`${ns}-cascader-nav-group`);
       this.options.forEach((item, idx) => {
-        this.$set(this.cascaderItemClassObject, idx, [])
+        this.$set(this.cascaderItemClassObject, idx, []);
         this.cascaderItemClassObject[idx].push(`${ns}-cascader-nav-item`);
         if (item.meta.active) {
-          this.cascaderItemClassObject[idx].push('active')
+          this.cascaderItemClassObject[idx].push('active');
         }
         if (item.meta.anchor) {
-          this.cascaderItemClassObject[idx].push('anchor')
+          this.cascaderItemClassObject[idx].push('anchor');
         }
-      })
+      });
       /*eslint-enable*/
     },
 
@@ -149,8 +145,7 @@ export default {
     blurHandler($event, item, index) {
       if (
         !$event.relatedTarget ||
-        ($event.relatedTarget.classList &&
-          $event.relatedTarget.classList[0] === 'nav') ||
+        ($event.relatedTarget.classList && $event.relatedTarget.classList[0] === 'nav') ||
         ($event.relatedTarget &&
           $event.relatedTarget.classList &&
           $event.relatedTarget.classList[0] !== 'c4it-cascader-nav-item' &&
@@ -196,7 +191,7 @@ export default {
             sticky: true,
             duration: 0,
             delay: 0,
-            plugins: [sticky]
+            plugins: [sticky],
           });
 
           this.instance.show();
@@ -205,21 +200,21 @@ export default {
         this.$emit('router-name', item.name);
         this.$emit('router-index', {
           index: $event.currentTarget.dataset['index'],
-          status: 'node'
+          status: 'node',
         });
       } else {
         this.markPath(item);
         this.$emit('router-name', item.name);
         this.$emit('router-index', {
           index: $event.currentTarget.dataset['index'],
-          status: 'leaf'
+          status: 'leaf',
         });
       }
     },
 
     markPath(target) {
       const path = [];
-      this.nav.forEach(item => {
+      this.nav.forEach((item) => {
         path.push(item);
         this.markPathRecr(target, path, item);
         path.pop();
@@ -234,7 +229,7 @@ export default {
         return;
       }
       if (item.children && item.children.length) {
-        item.children.forEach(child => {
+        item.children.forEach((child) => {
           path.push(child);
           this.markPathRecr(target, path, child);
           path.pop();
@@ -252,7 +247,7 @@ export default {
     },
 
     clearAllActiveAndAnchor() {
-      this.nav.forEach(item => {
+      this.nav.forEach((item) => {
         item.meta.active = false;
         item.meta.anchor = false;
         if (item.children && item.children.length) {
@@ -295,7 +290,7 @@ export default {
         vm.instance.destroy();
         vm.instance = null;
       }
-    }
-  }
+    },
+  },
 };
 </script>

@@ -15,24 +15,24 @@ export default {
 
   model: {
     prop: 'checked',
-    event: 'change'
+    event: 'change',
   },
   props: {
     checked: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      radioGroupClassArr: []
+      radioGroupClassArr: [],
     };
   },
 
   computed: {
     radioGroupClassList() {
       return this.radioGroupClassArr;
-    }
+    },
   },
 
   created() {
@@ -60,7 +60,7 @@ export default {
     change($event) {
       this.$emit('change', $event.target.value);
       this.dispatch('C4itFormItem', 'c4it.form.change', [$event.target.value]);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -27,19 +27,19 @@ export default {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
 
     value: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   data() {
     return {
       dropdownListClassArr: [],
-      dropdownItemClassObj: {}
+      dropdownItemClassObj: {},
     };
   },
 
@@ -49,7 +49,7 @@ export default {
     },
     deepCloneOptions() {
       return deepClone(this.options);
-    }
+    },
   },
 
   watch: {
@@ -61,15 +61,12 @@ export default {
           this.$set(this.dropdownItemClassObj, idx, [`${ns}-dropdown-item`]);
           /*eslint-enable*/
           this.dropdownItemClassObj[idx].push(`${option.type}`);
-          if (
-            option.value === val &&
-            !option.type.split(' ').includes('disabled')
-          ) {
+          if (option.value === val && !option.type.split(' ').includes('disabled')) {
             this.dropdownItemClassObj[idx].push(`active`);
           }
         });
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -87,7 +84,7 @@ export default {
       if (!type.split(' ').includes('disabled')) {
         this.$emit('selected-item', value);
       }
-    }
-  }
+    },
+  },
 };
 </script>

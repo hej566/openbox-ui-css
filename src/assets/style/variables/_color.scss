@@ -1,9 +1,5 @@
-/* c4it color space */
-// White
 $white: #fff;
-// Black
 $black: #000;
-// trans-white
 $trans-white-1: rgba(#fff, 0.2);
 // Gray
 $gray-1: #fafafa;
@@ -574,11 +570,11 @@ $input-field-primary-border-color: $gray-3;
 $input-field-primary-icon-color: rgba($black, 0.25);
 $input-field-primary-text-color: $gray-12;
 $input-field-primary-active-border-color: $blue-4;
-$input-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$input-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 $input-field-disabled-bg-color: rgba($white, 0.5);
 $input-field-disabled-border-color: rgba($gray-3, 0.5);
-$input-field-disabled-text-color:  rgba($gray-12, 0.5);
-$input-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$input-field-disabled-text-color: rgba($gray-12, 0.5);
+$input-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $input-field-disabled-placeholder-color: rgba($gray-7, 0.5);
 $input-field-primary-bg-color: $white;
 
@@ -599,11 +595,11 @@ $timer-primary-text-marker-border-color: $blue-4;
 $timer-primary-primary-button-bg-color: $blue-4;
 $timer-primary-primary-button-text-color: $white;
 $timer-primary-text-button-text-color: $blue-4;
-$timer-disabled-text-color:  rgba($gray-12, 0.5);
+$timer-disabled-text-color: rgba($gray-12, 0.5);
 $timepicker-field-disabled-bg-color: rgba($white, 0.5);
 $timepicker-field-disabled-border-color: rgba($gray-3, 0.5);
-$timepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
-$timepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$timepicker-field-disabled-text-color: rgba($gray-12, 0.5);
+$timepicker-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $timepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
 $timepicker-field-primary-text-color: $gray-12;
 $timepicker-field-primary-border-color: $gray-3;
@@ -611,21 +607,21 @@ $timepicker-field-primary-bg-color: $white;
 $timepicker-field-primary-icon-color: rgba($black, 0.25);
 $timepicker-field-primary-placeholder-color: $gray-7;
 $timepicker-field-primary-active-border-color: $blue-4;
-$timepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$timepicker-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 
 // datetimerangepicker color
 $datetimerangepicker-field-disabled-bg-color: rgba($white, 0.5);
 $datetimerangepicker-field-disabled-border-color: rgba($gray-3, 0.5);
-$datetimerangepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
+$datetimerangepicker-field-disabled-text-color: rgba($gray-12, 0.5);
 $datetimerangepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
-$datetimerangepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$datetimerangepicker-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $datetimerangepicker-field-primary-text-color: $gray-12;
 $datetimerangepicker-field-primary-border-color: $gray-3;
 $datetimerangepicker-field-primary-bg-color: $white;
 $datetimerangepicker-field-primary-icon-color: rgba($black, 0.25);
 $datetimerangepicker-field-primary-placeholder-color: $gray-7;
 $datetimerangepicker-field-primary-active-border-color: $blue-4;
-$datetimerangepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$datetimerangepicker-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 
 // datepicker color
 $dater-primary-shadow-color: 0 2px 12px 0 rgba($black, 0.1);
@@ -643,19 +639,19 @@ $dater-primary-primary-button-bg-color: $blue-4;
 $dater-primary-primary-button-text-color: $white;
 $dater-primary-text-button-text-color: $blue-4;
 $dater-primary-text-marker-border-color: $blue-4;
-$dater-disabled-text-color:  rgba($gray-12, 0.5);
+$dater-disabled-text-color: rgba($gray-12, 0.5);
 $datepicker-field-disabled-bg-color: rgba($white, 0.5);
 $datepicker-field-disabled-border-color: rgba($gray-3, 0.5);
-$datepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
+$datepicker-field-disabled-text-color: rgba($gray-12, 0.5);
 $datepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
-$datepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$datepicker-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $datepicker-field-primary-text-color: $gray-12;
 $datepicker-field-primary-border-color: $gray-3;
 $datepicker-field-primary-bg-color: $white;
 $datepicker-field-primary-icon-color: rgba($black, 0.25);
 $datepicker-field-primary-placeholder-color: $gray-7;
 $datepicker-field-primary-active-border-color: $blue-4;
-$datepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$datepicker-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 
 // datetimepicker color
 $datetimer-primary-shadow-color: 0 2px 12px 0 rgba($black, 0.1);
@@ -672,11 +668,11 @@ $datetimer-primary-primary-button-bg-color: $blue-4;
 $datetimer-primary-primary-button-text-color: $white;
 $datetimer-primary-text-button-text-color: $blue-4;
 $datetimer-primary-text-marker-border-color: $blue-4;
-$datetimer-disabled-text-color:  rgba($gray-12, 0.5);
+$datetimer-disabled-text-color: rgba($gray-12, 0.5);
 $datetimepicker-field-disabled-bg-color: rgba($white, 0.5);
 $datetimepicker-field-disabled-border-color: rgba($gray-3, 0.5);
-$datetimepicker-field-disabled-text-color:  rgba($gray-12, 0.5);
-$datetimepicker-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$datetimepicker-field-disabled-text-color: rgba($gray-12, 0.5);
+$datetimepicker-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $datetimepicker-field-disabled-placeholder-color: rgba($gray-7, 0.5);
 $datetimepicker-field-primary-text-color: $gray-12;
 $datetimepicker-field-primary-border-color: $gray-3;
@@ -684,7 +680,7 @@ $datetimepicker-field-primary-bg-color: $white;
 $datetimepicker-field-primary-icon-color: rgba($black, 0.25);
 $datetimepicker-field-primary-placeholder-color: $gray-7;
 $datetimepicker-field-primary-active-border-color: $blue-4;
-$datetimepicker-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$datetimepicker-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 
 // cascader color
 $cascader-list-primary-border-color: $gray-2;
@@ -699,8 +695,8 @@ $cascader-list-item-primary-active-right-border-color: $blue-4;
 $cascader-list-item-primary-active-text-color: $blue-4;
 $cascader-field-disabled-bg-color: rgba($white, 0.5);
 $cascader-field-disabled-border-color: rgba($gray-3, 0.5);
-$cascader-field-disabled-text-color:  rgba($gray-12, 0.5);
-$cascader-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$cascader-field-disabled-text-color: rgba($gray-12, 0.5);
+$cascader-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $cascader-field-disabled-placeholder-color: rgba($gray-7, 0.5);
 $cascader-field-primary-border-color: $gray-3;
 $cascader-field-primary-text-color: $gray-12;
@@ -708,7 +704,7 @@ $cascader-field-primary-icon-color: rgba($black, 0.25);
 $cascader-field-primary-bg-color: $white;
 $cascader-field-primary-placeholder-color: $gray-7;
 $cascader-field-primary-active-border-color: $blue-4;
-$cascader-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$cascader-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 
 // dropdown color
 $dropdown-list-primary-border-color: $gray-2;
@@ -731,15 +727,15 @@ $dropdown-list-item-danger-text-color: $red-2;
 $dropdown-list-item-danger-disabled-text-color: rgba($red-2, 0.2);
 $dropdown-field-disabled-bg-color: rgba($white, 0.5);
 $dropdown-field-disabled-border-color: rgba($gray-3, 0.5);
-$dropdown-field-disabled-text-color:  rgba($gray-12, 0.5);
-$dropdown-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$dropdown-field-disabled-text-color: rgba($gray-12, 0.5);
+$dropdown-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $dropdown-field-disabled-placeholder-color: rgba($gray-7, 0.5);
 $dropdown-field-primary-border-color: $gray-3;
 $dropdown-field-primary-text-color: $gray-12;
 $dropdown-field-primary-icon-color: rgba($black, 0.25);
 $dropdown-field-primary-bg-color: $white;
 $dropdown-field-primary-active-border-color: $blue-4;
-$dropdown-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$dropdown-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 
 // select color
 $select-list-primary-border-color: $gray-2;
@@ -760,8 +756,8 @@ $select-list-item-danger-active-text-color: $red-2;
 $select-list-item-danger-text-color: $red-2;
 $select-list-item-danger-disabled-text-color: rgba($red-2, 0.2);
 $select-field-disabled-bg-color: rgba($white, 0.5);
-$select-field-disabled-text-color:  rgba($gray-12, 0.5);
-$select-field-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$select-field-disabled-text-color: rgba($gray-12, 0.5);
+$select-field-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $select-field-disabled-border-color: rgba($gray-3, 0.5);
 $select-field-disabled-placeholder-color: rgba($gray-7, 0.5);
 $select-field-primary-border-color: $gray-3;
@@ -770,7 +766,7 @@ $select-field-primary-icon-color: rgba($black, 0.25);
 $select-field-primary-bg-color: $white;
 $select-field-primary-placeholder-color: $gray-7;
 $select-field-primary-active-border-color: $blue-4;
-$select-field-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$select-field-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 
 // modal color
 $modal-wrapper-color: rgba(55, 55, 55, 0.6);
@@ -799,10 +795,10 @@ $scrollbar-color: rgba($gray-3, 0.5);
 
 // uploader color
 $upload-primary-bg-color: $blue-4;
-$upload-primary-active-box-shadow-color:  0 0 0 2px rgba($blue-4, 0.2);
+$upload-primary-active-box-shadow-color: 0 0 0 2px rgba($blue-4, 0.2);
 $upload-disabled-bg-color: rgba($blue-4, 0.5);
-$upload-disabled-text-color:  $white;
-$upload-disabled-icon-color:  rgba($black, 0.5 * 0.25);
+$upload-disabled-text-color: $white;
+$upload-disabled-icon-color: rgba($black, 0.5 * 0.25);
 $upload-disabled-border-color: rgba($gray-3, 0.5);
 
 // switch color

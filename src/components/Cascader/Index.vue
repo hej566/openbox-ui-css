@@ -13,22 +13,14 @@
         autocomplete="off"
       />
       <div v-if="suffix" @click="focusHandler" class="suffix-icon">
-        <svg-icon
-          :class="suffixClasses"
-          v-if="sufLoading"
-          icon-class="circle-notch"
-        ></svg-icon>
+        <svg-icon :class="suffixClasses" v-if="sufLoading" icon-class="circle-notch"></svg-icon>
         <svg-icon :class="suffixClasses" v-else :icon-class="suffix"></svg-icon>
       </div>
     </div>
 
     <div :class="cascaderListWrapperClasses" v-show="false">
       <c4it-scrollbar is-vertical>
-        <c4it-cascader-List
-          :options="options"
-          @selected="selectedHandler"
-          index="1"
-        />
+        <c4it-cascader-List :options="options" @selected="selectedHandler" index="1" />
       </c4it-scrollbar>
     </div>
   </div>
@@ -47,56 +39,56 @@ export default {
   /*eslint-enable*/
   components: {
     c4itCascaderList,
-    c4itScrollbar
+    c4itScrollbar,
   },
   mixins: [emitter],
   model: {
     prop: 'context',
-    event: 'change'
+    event: 'change',
   },
   props: {
     validateEvent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     context: {
       type: String,
-      default: ''
+      default: '',
     },
     suffix: {
       type: String,
-      default: ''
+      default: '',
     },
     sufLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     remoteSearch: {
       type: Boolean,
-      default: false
+      default: false,
     },
     debounce: {
       type: String,
-      default: ''
+      default: '',
     },
     options: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: 'default'
-    }
+      default: 'default',
+    },
   },
 
   data() {
@@ -113,7 +105,7 @@ export default {
       timeoutId: null,
       instance: null,
       selectedLabel: null,
-      classesSet: null
+      classesSet: null,
     };
   },
 
@@ -140,7 +132,7 @@ export default {
 
     searchInputClasses() {
       return this.searchInputClassArr;
-    }
+    },
   },
 
   watch: {
@@ -156,7 +148,7 @@ export default {
           }
         }
         /* eslint-enable */
-      }
+      },
     },
 
     disabled: {
@@ -175,12 +167,12 @@ export default {
           }
         }
         /* eslint-enable */
-      }
+      },
     },
     context: {
       immediate: true,
-      handler(val) {}
-    }
+      handler(val) {},
+    },
   },
 
   created() {
@@ -195,7 +187,7 @@ export default {
     initClasses() {
       /* eslint-disable */
       this.cascaderFieldClassArr.push(`${ns}-cascader-field`);
-      this.cascaderListWrapperClassArr.push(`${ns}-cascader-list-wrapper`)
+      this.cascaderListWrapperClassArr.push(`${ns}-cascader-list-wrapper`);
       this.labelClassArr.push(`${ns}-label`);
       this.cascaderClassArr.push(`${ns}-cascader`);
       this.searchInputClassArr.push(`${ns}-search-input`);
@@ -206,12 +198,12 @@ export default {
         this.suffixClassArr.push(`${ns}-loading`);
       }
       if (this.disabled) {
-        this.cascaderClassArr.push(`${ns}-disabled`)
+        this.cascaderClassArr.push(`${ns}-disabled`);
       }
       if (this.type === 'text') {
-        this.cascaderClassArr.push(`${ns}-cascader-text`)
+        this.cascaderClassArr.push(`${ns}-cascader-text`);
       } else {
-        this.cascaderClassArr.push(`${ns}-cascader-default`)
+        this.cascaderClassArr.push(`${ns}-cascader-default`);
       }
       this.classesSet = [`${ns}-cascader-item`, 'cascader-label', 'cascader-icon'];
       /* eslint-enable */
@@ -237,10 +229,7 @@ export default {
         duration: 0,
         delay: 0,
         onClickOutside: (instance, event) => {
-          if (
-            event.target.classList &&
-            !this.classesSet.includes(event.target.classList[0])
-          ) {
+          if (event.target.classList && !this.classesSet.includes(event.target.classList[0])) {
             hideAll();
           }
         },
@@ -259,7 +248,7 @@ export default {
           ) {
             this.targetElm.children[0].classList.remove('open');
           }
-        }
+        },
       });
 
       if (this.disabled) {
@@ -269,10 +258,7 @@ export default {
 
     focusHandler() {
       this.$el.classList.add('focus');
-      document
-        .getElementById(this._uid)
-        .querySelector('input')
-        .focus();
+      document.getElementById(this._uid).querySelector('input').focus();
     },
 
     blurHandler() {
@@ -302,7 +288,7 @@ export default {
         this.$emit('index', index);
         hideAll();
       }
-    }
-  }
+    },
+  },
 };
 </script>

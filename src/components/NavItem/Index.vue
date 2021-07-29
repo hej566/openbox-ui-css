@@ -6,18 +6,10 @@
     :data-index="index"
     tabindex="0"
   >
-    <div
-      :class="headerClassList"
-      :data-id="_uid"
-      @mousedown="toggleHandler('mousedown')"
-    >
+    <div :class="headerClassList" :data-id="_uid" @mousedown="toggleHandler('mousedown')">
       <div class="header-bg">
         <div class="left">
-          <svg-icon
-            v-if="item.meta.prefix"
-            :icon-class="item.meta.prefix"
-            class="prefix-icon"
-          />
+          <svg-icon v-if="item.meta.prefix" :icon-class="item.meta.prefix" class="prefix-icon" />
           <div :class="titleClassList">
             <slot name="header">
               {{ item.meta.title }}
@@ -25,11 +17,7 @@
           </div>
         </div>
         <div class="right">
-          <svg-icon
-            v-if="item.meta.suffix"
-            :icon-class="item.meta.suffix"
-            class="suffix-icon"
-          />
+          <svg-icon v-if="item.meta.suffix" :icon-class="item.meta.suffix" class="suffix-icon" />
         </div>
       </div>
     </div>
@@ -49,25 +37,25 @@ export default {
   props: {
     index: {
       type: String,
-      default: ''
+      default: '',
     },
 
     item: {
       type: Object,
       default: () => {
         return {};
-      }
+      },
     },
     nav: {
       type: Array,
       default: () => {
         return [];
-      }
+      },
     },
     prefix: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
@@ -83,7 +71,7 @@ export default {
       accordionHeight: '',
       path: [],
       level: 0,
-      tooltip: null
+      tooltip: null,
     };
   },
 
@@ -99,7 +87,7 @@ export default {
     },
     titleClassList() {
       return this.titleClassArr;
-    }
+    },
   },
 
   watch: {
@@ -121,8 +109,8 @@ export default {
             this.accordionElm.classList.remove('anchor');
           });
         }
-      }
-    }
+      },
+    },
   },
 
   created() {
@@ -134,16 +122,10 @@ export default {
   mounted() {
     this.accordionElm = this.$el;
     /*eslint-disable*/
-    this.accordionBodyElm = this.accordionElm.querySelector(
-      `.${ns}-nav-item-body`
-    )
-    this.accordionHeaderElm = this.accordionElm.querySelector(
-      `.${ns}-nav-item-header`
-    );
-    this.accordionHeaderLeftElm = this.accordionHeaderElm.querySelector(
-      `.left`
-    );
-    this.accordionTitleElm = this.accordionHeaderElm.querySelector(`.${ns}-nav-item-title`)
+    this.accordionBodyElm = this.accordionElm.querySelector(`.${ns}-nav-item-body`);
+    this.accordionHeaderElm = this.accordionElm.querySelector(`.${ns}-nav-item-header`);
+    this.accordionHeaderLeftElm = this.accordionHeaderElm.querySelector(`.left`);
+    this.accordionTitleElm = this.accordionHeaderElm.querySelector(`.${ns}-nav-item-title`);
     /* eslint-enable */
     this.accordionBodyHeight = this.accordionBodyElm.clientHeight;
     this.$nextTick(() => {
@@ -172,7 +154,7 @@ export default {
       this.bodyClassArr.push(`${ns}-nav-item-body`);
       this.accordionClassArr.push(`${ns}-nav-item`);
       this.headerClassArr.push(`${ns}-nav-item-header`);
-      this.headerClassArr.push('close')
+      this.headerClassArr.push('close');
       this.titleClassArr.push(`${ns}-nav-item-title`);
       /* eslint-enable */
     },
@@ -187,7 +169,8 @@ export default {
 
     findRootElm(dom) {
       /*eslint-disable*/
-      if (dom.classList &&
+      if (
+        dom.classList &&
         dom.classList.contains(`${ns}-nav-item`) &&
         dom.dataset['index'].split('-').length === 1
       ) {
@@ -199,7 +182,8 @@ export default {
 
     findRootVm(vm) {
       /*eslint-disable*/
-      if (vm.$el.classList &&
+      if (
+        vm.$el.classList &&
         vm.$el.classList.contains(`${ns}-nav-item`) &&
         vm.$el.dataset['index'].split('-').length === 1
       ) {
@@ -212,11 +196,9 @@ export default {
     mousedownHandler($event) {
       /*eslint-disable*/
       let topLevelElm = this.findRootElm($event.currentTarget);
-      let accordionElms = topLevelElm.parentNode.querySelectorAll(
-        `.${ns}-nav-item`
-      );
+      let accordionElms = topLevelElm.parentNode.querySelectorAll(`.${ns}-nav-item`);
       /*eslint-enable*/
-      accordionElms.forEach(elem => {
+      accordionElms.forEach((elem) => {
         if (elem.classList && elem.classList.contains('active')) {
           elem.classList.remove('active');
         }
@@ -245,8 +227,7 @@ export default {
       if (vm && vm.$children.length) {
         for (let children of vm.$children) {
           /*eslint-disable*/
-          if (children.$el.classList &&
-            children.$el.classList.contains(`${ns}-nav-item`)) {
+          if (children.$el.classList && children.$el.classList.contains(`${ns}-nav-item`)) {
             children.item.meta.active = false;
             children.item.meta.anchor = false;
           }
@@ -279,10 +260,9 @@ export default {
     findVmPath(target, vm) {
       const path = [];
       if (vm && vm.$children.length) {
-        vm.$children.forEach(item => {
+        vm.$children.forEach((item) => {
           /*eslint-disable*/
-          if (item.$el.classList &&
-            item.$el.classList.contains(`${ns}-nav-item`)) {
+          if (item.$el.classList && item.$el.classList.contains(`${ns}-nav-item`)) {
             path.push(item);
             this.findVmPathRecr(target, path, item);
             path.pop();
@@ -294,22 +274,23 @@ export default {
 
     findVmPathRecr(target, path, item) {
       /*eslint-disable*/
-      if (path[path.length - 1].$el.classList &&
+      if (
+        path[path.length - 1].$el.classList &&
         path[path.length - 1].$el.classList.contains(`${ns}-nav-item`) &&
         path[path.length - 1].item.name === target.name
       ) {
-        path.forEach(path => {
+        path.forEach((path) => {
           if (path.item) {
             path.item.meta.active = true;
             path.item.meta.anchor = false;
           }
         });
-        path[path.length - 1].item.meta.anchor = true
+        path[path.length - 1].item.meta.anchor = true;
         return;
       }
       /*eslint-enable*/
       if (item.$children && item.$children.length) {
-        item.$children.forEach(item => {
+        item.$children.forEach((item) => {
           path.push(item);
           this.findVmPathRecr(target, path, item);
           path.pop();
@@ -318,20 +299,14 @@ export default {
     },
 
     toggleHandler(eventName) {
-      if (
-        eventName === 'mousedown' ||
-        eventName === 'init' ||
-        eventName === 'clear'
-      ) {
+      if (eventName === 'mousedown' || eventName === 'init' || eventName === 'clear') {
         this.open = !this.open;
         if (this.open) {
           this.headerClassArr.pop();
           this.headerClassArr.push(`open`);
           this.accordionBodyElm.style.display = 'block';
           requestAnimationFrame(() => {
-            this.accordionBodyElm.style.maxHeight = `${
-              this.accordionBodyHeight
-            }px`;
+            this.accordionBodyElm.style.maxHeight = `${this.accordionBodyHeight}px`;
             this.accordionBodyElm.style.visibility = 'visible';
             this.accordionBodyElm.style.opacity = '1';
             this.accordionBodyElm.style.transition = 'all 0.1s linear';
@@ -347,7 +322,7 @@ export default {
           });
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>

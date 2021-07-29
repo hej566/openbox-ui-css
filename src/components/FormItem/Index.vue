@@ -26,7 +26,7 @@
               'c4it-form-item__error--inline':
                 typeof inlineMessage === 'boolean'
                   ? inlineMessage
-                  : (c4itForm && c4itForm.inlineMessage) || false
+                  : (c4itForm && c4itForm.inlineMessage) || false,
             }"
             class="c4it-form-item__error"
           >
@@ -50,14 +50,14 @@ export default {
   componentName: 'C4itFormItem',
   components: {
     // use this component to calculate auto width
-    LabelWrap
+    LabelWrap,
   },
 
   mixins: [emitter],
 
   provide() {
     return {
-      c4itFormItem: this
+      c4itFormItem: this,
     };
   },
 
@@ -69,7 +69,7 @@ export default {
     prop: String,
     required: {
       type: Boolean,
-      default: undefined
+      default: undefined,
     },
     rules: [Object, Array],
     error: String,
@@ -77,13 +77,13 @@ export default {
     for: String,
     inlineMessage: {
       type: [String, Boolean],
-      default: ''
+      default: '',
     },
     showMessage: {
       type: Boolean,
-      default: true
+      default: true,
     },
-    size: String
+    size: String,
   },
   data() {
     return {
@@ -92,7 +92,7 @@ export default {
       validateDisabled: false,
       validator: {},
       isNested: false,
-      computedLabelWidth: ''
+      computedLabelWidth: '',
     };
   },
   computed: {
@@ -156,7 +156,7 @@ export default {
       let isRequired = false;
 
       if (rules && rules.length) {
-        rules.every(rule => {
+        rules.every((rule) => {
           if (rule.required) {
             isRequired = true;
             return false;
@@ -174,7 +174,7 @@ export default {
     },
     sizeClass() {
       return this.c4itFormItemSize || undefined;
-    }
+    },
   },
   watch: {
     error: {
@@ -182,11 +182,11 @@ export default {
       handler(value) {
         this.validateMessage = value;
         this.validateState = value ? 'error' : '';
-      }
+      },
     },
     validateStatus(value) {
       this.validateState = value;
-    }
+    },
   },
   mounted() {
     if (this.prop) {
@@ -197,7 +197,7 @@ export default {
         initialValue = [].concat(initialValue);
       }
       Object.defineProperty(this, 'initialValue', {
-        value: initialValue
+        value: initialValue,
       });
 
       this.addValidateEvents();
@@ -210,7 +210,7 @@ export default {
     computedClassLabel() {
       /*eslint-disable*/
 
-      return `${ns}-form-item__label`
+      return `${ns}-form-item__label`;
     },
     computedClassContainer() {
       const objClass = {
@@ -219,16 +219,15 @@ export default {
         'is-success': this.validateState === 'success',
         'is-required': this.isRequired || this.required,
         'is-no-asterisk': this.c4itForm && this.c4itForm.hideRequiredAsterisk,
-        
       };
       /*eslint-disable*/
-      objClass[`${ns}-form-item-no-label-width`] = this.form.labelPosition === 'top' || !(this.labelWidth || this.form.labelWidth),
-      objClass[`${ns}-form-item--feedback`] =
-        this.c4itForm && this.c4itForm.statusIcon;
+      (objClass[`${ns}-form-item-no-label-width`] =
+        this.form.labelPosition === 'top' || !(this.labelWidth || this.form.labelWidth)),
+        (objClass[`${ns}-form-item--feedback`] = this.c4itForm && this.c4itForm.statusIcon);
       return [
         objClass,
         this.sizeClass ? `${ns}-form-item--${this.sizeClass}` : '',
-        `${ns}-form-item`
+        `${ns}-form-item`,
       ];
     },
     validate(trigger, callback = noop) {
@@ -238,12 +237,12 @@ export default {
         callback();
         return true;
       }
-  console.log(111111);
+      console.log(111111);
       this.validateState = 'validating';
 
       const descriptor = {};
       if (rules && rules.length > 0) {
-        rules.forEach(rule => {
+        rules.forEach((rule) => {
           delete rule.trigger;
         });
       }
@@ -254,24 +253,15 @@ export default {
 
       model[this.prop] = this.fieldValue;
 
-      validator.validate(
-        model,
-        { firstFields: true },
-        (errors, invalidFields) => {
-          console.log(errors);
-          this.validateState = !errors ? 'success' : 'error';
-          this.validateMessage = errors ? errors[0].message : '';
+      validator.validate(model, { firstFields: true }, (errors, invalidFields) => {
+        console.log(errors);
+        this.validateState = !errors ? 'success' : 'error';
+        this.validateMessage = errors ? errors[0].message : '';
 
-          callback(this.validateMessage, invalidFields);
-          this.c4itForm &&
-            this.c4itForm.$emit(
-              'validate',
-              this.prop,
-              !errors,
-              this.validateMessage || null
-            );
-        }
-      );
+        callback(this.validateMessage, invalidFields);
+        this.c4itForm &&
+          this.c4itForm.$emit('validate', this.prop, !errors, this.validateMessage || null);
+      });
     },
     clearValidate() {
       this.validateState = '';
@@ -308,8 +298,7 @@ export default {
     getRules() {
       let formRules = this.form.rules;
       const selfRules = this.rules;
-      const requiredRule =
-        this.required !== undefined ? { required: !!this.required } : [];
+      const requiredRule = this.required !== undefined ? { required: !!this.required } : [];
 
       const prop = getPropByPath(formRules, this.prop || '');
       formRules = formRules ? prop.o[this.prop || ''] || prop.v : [];
@@ -320,7 +309,7 @@ export default {
       const rules = this.getRules();
 
       return rules
-        .filter(rule => {
+        .filter((rule) => {
           if (!rule.trigger || trigger === '') return true;
           if (Array.isArray(rule.trigger)) {
             return rule.trigger.indexOf(trigger) > -1;
@@ -328,7 +317,7 @@ export default {
             return rule.trigger === trigger;
           }
         })
-        .map(rule => objectAssign({}, rule));
+        .map((rule) => objectAssign({}, rule));
     },
     onFieldBlur() {
       this.validate('blur');
@@ -354,7 +343,7 @@ export default {
     },
     removeValidateEvents() {
       this.$off();
-    }
-  }
+    },
+  },
 };
 </script>
