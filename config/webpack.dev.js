@@ -8,7 +8,7 @@ const baseConfig = require('./webpack.base');
 module.exports = {
     mode: 'development',
     entry: {
-      app: './src/index.tsx'
+      app: './src/index.js'
     },
     devtool: 'source-map',
     target: 'web',

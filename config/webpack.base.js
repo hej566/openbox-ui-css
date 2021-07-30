@@ -5,17 +5,15 @@ module.exports = {
     module: {
         rules: [
           {
-            test: /\.(ts|tsx|js)$/,
-            include: [path.resolve(__dirname, '../src')],
-            use: [ 
-              {
-                loader: 'babel-loader',
-                options: {
-                  presets: [
-                    ['@babel/preset-env', { modules: false }]
-                  ]
-                }
-              },
+            test: /\.(js|jsx)$/,
+            exclude: [path.resolve(__dirname, '../node_modules')],
+            use: ['babel-loader'],
+          },
+          {
+            test: /\.(ts|tsx)$/,
+            exclude: [path.resolve(__dirname, '../node_modules')],
+            use: [
+              'babel-loader',
               {
                 loader: 'ts-loader',
                 options: {
@@ -44,7 +42,7 @@ module.exports = {
           alias: {
               '@': path.resolve(__dirname, '../src')
           },
-          extensions: ['.tsx', '.ts', '.js'],
+          extensions: ['.tsx', '.ts', '.js', '.jsx'],
           modules: [path.resolve(__dirname, '../node_modules')],
       },
     

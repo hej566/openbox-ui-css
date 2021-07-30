@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import 'tippy.js/dist/tippy.css';
 import '@/assets/style/custom.scss';
 
-import Hello from './components/Hello';
+import {a} from './test';
+
+a()
+
+import App from '@/App';
 
 ReactDOM.render(
-  <Hello name="hejin" firstName="jin" lastName="he" />,
+  <App />,
   document.getElementById('app')
 );
