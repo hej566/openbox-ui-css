@@ -9,7 +9,7 @@
     "prepublishOnly": "npm run lint:fix | webpack --config  config/webpack.prod.js",
     "lint": "eslint --ext .ts,.tsx src",
     "stylelint": "stylelint src/**/*.scss",
-    "prettier:fix": "prettier --write src",
+    "prettier:fix": "prettier --write src config .eslintrc.js",
     "test": "jest"
   },
   "prepublishOnly": "webpack --config  config/webpack.prod.js",

@@ -4,7 +4,7 @@
 @import '../variables/color';
 @import '../variables/shadow';
 
-&.#{$ns}-button {
+.#{$ns}-button {
   display: flex;
   box-sizing: border-box;
   white-space: nowrap;
@@ -16,48 +16,47 @@
   overflow: hidden;
   align-items: center;
   cursor: pointer;
-  .#{$ns}-loaded {
+  & > .inner {
     display: flex;
     align-items: center;
-
-    .icon {
+    & > .icon {
       display: flex;
       align-items: center;
     }
   }
 
-  &.#{$ns}-normal {
+  &.normal {
     border-radius: $border-default-radius;
     height: $button-default-height;
-    .#{$ns}-loading,
-    .#{$ns}-loaded {
-      font-size: $font-default-size;
-      line-height: 18px;
-      box-sizing: border-box;
-    }
-    .#{$ns}-center {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      .#{$ns}-spinner {
-        width: $icon-default;
-        animation: rotating 0.5s linear infinite;
-      }
-    }
+    //.#{$ns}-loading,
+    //.#{$ns}-loaded {
+    //  font-size: $font-default-size;
+    //  line-height: 18px;
+    //  box-sizing: border-box;
+    //}
+    //.#{$ns}-center {
+    //  display: flex;
+    //  align-items: center;
+    //  position: absolute;
+    //  left: 50%;
+    //  transform: translate(-50%);
+    //  .#{$ns}-spinner {
+    //    width: $icon-default;
+    //    animation: rotating 0.5s linear infinite;
+    //  }
+    //}
 
-    .prefix-icon {
-      display: flex;
-      align-items: center;
-      padding-right: 8px;
-    }
-
-    .suffix-icon {
-      display: flex;
-      align-items: center;
-      padding-left: 8px;
-    }
+    //.prefix-icon {
+    //  display: flex;
+    //  align-items: center;
+    //  padding-right: 8px;
+    //}
+    //
+    //.suffix-icon {
+    //  display: flex;
+    //  align-items: center;
+    //  padding-left: 8px;
+    //}
   }
 
   // color
@@ -1100,7 +1099,7 @@
     }
   }
 
-  .#{$ns}-loading {
+  .loading {
     position: absolute;
     top: 50%;
     left: 50%;
