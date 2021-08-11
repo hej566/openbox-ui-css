@@ -2,16 +2,27 @@ import React, { useState } from 'react';
 import Button from './components/Button/index';
 
 function App() {
-  const [disabled, setDisabled] = useState(false);
+  const [btnState, setBtnState] = useState({
+    loading: false,
+    size: 'normal',
+    type: 'button',
+    variant: 'primary',
+    prefix: '',
+    suffix: '',
+    disabled: false,
+    icon: '',
+  });
 
   function clickHandler() {
-    console.log('click');
-    setDisabled(true);
+    setBtnState((preState) => ({
+      ...preState,
+      loading: true,
+    }));
   }
 
   return (
-    <Button disabled={disabled} onClick={clickHandler}>
-      primary
+    <Button {...btnState} onClick={clickHandler}>
+      Button
     </Button>
   );
 }

@@ -26,15 +26,16 @@ $cascader-list-default-width: 180px;
 $cascader-item-default-height: 34px;
 
 // font size
-$font-default-size: 14px;
-$font-default-line-height: 22px;
+$font-default-size: 1rem;
+$font-default-line-height: 1.5;
 
 // input size
 $input-default-width: 180px;
 $input-default-height: 32px;
 
 // button size
-$button-default-height: 32px;
+$button-default-height: 38px;
+$button-default-padding: .375rem .75rem;
 $button-min-width: 100px;
 $button-active-height: 28px;
 

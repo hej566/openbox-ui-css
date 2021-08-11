@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 interface PropsTypes {
   loading?: boolean;
   size?: string;
   type?: string;
+  variant?: string;
   prefix?: string;
   suffix?: string;
   disabled?: boolean;
@@ -15,7 +16,8 @@ interface PropsTypes {
 Button.defaultProps = {
   loading: false,
   size: 'normal',
-  type: 'primary',
+  type: 'button',
+  variant: 'primary',
   prefix: '',
   suffix: '',
   disabled: false,
@@ -25,7 +27,7 @@ Button.defaultProps = {
 };
 
 function Button(props: PropsTypes) {
-  const { loading, size, type, prefix, suffix, disabled, icon, children, onClick } = props;
+  const { loading, size, type, variant, prefix, suffix, disabled, icon, children, onClick } = props;
 
   // @ts-ignore
   const btnClasses: Array<String> = [`${ns}-button`];
@@ -36,19 +38,17 @@ function Button(props: PropsTypes) {
   const loadedSuffixClasses: Array<String> = ['suffix'];
 
   if (loading) {
-    btnClasses.push('loading');
-    loadingClasses.push('show');
     loadedPrefixClasses.push('hide');
     loadedContentClasses.push('hide');
     loadedSuffixClasses.push('hide');
   } else {
     loadingClasses.push('hide');
-    loadedPrefixClasses.push('show');
-    loadedContentClasses.push('show');
-    loadedSuffixClasses.push('show');
   }
   if (size) {
     btnClasses.push(`${size}`);
+  }
+  if (variant) {
+    btnClasses.push(`${variant}`);
   }
   if (type) {
     btnClasses.push(`${type}`);
@@ -68,7 +68,7 @@ function Button(props: PropsTypes) {
             <svg className="loader" />
           </div>
           <div className={loadedPrefixClasses.join(' ')}>
-            <svg className="prefix" />
+            <svg className="icon" />
           </div>
         </div>
       ) : (
@@ -76,13 +76,17 @@ function Button(props: PropsTypes) {
           <div className={loadingClasses.join(' ')}>
             <svg className="loader" />
           </div>
-          <div className={loadedPrefixClasses.join(' ')}>
-            <svg className="prefix" />
-          </div>
+          {prefix ? (
+            <div className={loadedPrefixClasses.join(' ')}>
+              <svg className="prefix" />
+            </div>
+          ) : null}
           <div className={loadedContentClasses.join(' ')}>{children}</div>
-          <div className={loadedSuffixClasses.join(' ')}>
-            <svg className="suffix" />
-          </div>
+          {suffix ? (
+            <div className={loadedSuffixClasses.join(' ')}>
+              <svg className="suffix" />
+            </div>
+          ) : null}
         </div>
       )}
     </button>
