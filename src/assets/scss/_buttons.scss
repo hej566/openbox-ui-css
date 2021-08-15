@@ -1,0 +1,193 @@
+//
+// Base styles
+//
+
+.#{$ns}-button {
+  display: inline-block;
+  font-family: $btn-font-family;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  vertical-align: middle;
+  color: $body-color;
+  text-align: center;
+  text-decoration: if($link-decoration == none, null, none);
+  white-space: $btn-white-space;
+  cursor: if($enable-button-pointers, pointer, null);
+  user-select: none;
+  background-color: transparent;
+  border: $btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+  @include transition($btn-transition);
+
+  &:hover {
+    color: $body-color;
+    text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+  //
+  //.btn-check:focus + &,
+  &:focus {
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+  //
+  //.btn-check:checked + &,
+  //.btn-check:active + &,
+  &:active,
+  &.active {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
+  }
+  //
+  &:disabled,
+  &.disabled,
+  fieldset:disabled & {
+    //pointer-events: none;
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    @include box-shadow(none);
+  }
+  //
+  &.#{$ns}-button-icon {
+    @include button-size(
+      $btn-icon-padding-y,
+      $btn-icon-padding-x,
+      $btn-font-size,
+      $btn-border-radius
+    );
+  }
+}
+
+.#{$ns}-button__inner {
+  display: flex;
+  align-items: center;
+}
+
+.#{$ns}-button-lg {
+  &.#{$ns}-button-icon {
+    .#{$ns}-button__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.#{$ns}-button-sm {
+  &.#{$ns}-button-icon {
+    .#{$ns}-button__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 21px;
+      height: 21px;
+    }
+  }
+}
+
+.#{$ns}-button__icon {
+  & + .#{$ns}-button__content {
+    margin-left: 0.5rem;
+  }
+}
+
+//
+// Alternate buttons
+//
+
+// scss-docs-start btn-variant-loops
+@each $color, $value in $theme-colors {
+  .#{$ns}-button-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .#{$ns}-button-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+// scss-docs-end btn-variant-loops
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.#{$ns}-button-link {
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus {
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+
+  // No need for an active state here
+}
+
+//
+// Icon Buttons size
+//
+
+.#{$ns}-button-lg {
+  &.#{$ns}-button-icon {
+    @include button-size(
+      $btn-icon-padding-y-lg,
+      $btn-icon-padding-x-lg,
+      $btn-font-size-lg,
+      $btn-border-radius-lg
+    );
+  }
+}
+
+.#{$ns}-button-sm {
+  &.#{$ns}-button-icon {
+    @include button-size(
+      $btn-icon-padding-y-sm,
+      $btn-icon-padding-x-sm,
+      $btn-font-size-sm,
+      $btn-border-radius-sm
+    );
+  }
+}
+
+//
+// Button Sizes
+//
+
+.#{$ns}-button-lg {
+  &:not(.#{$ns}-button-icon) {
+    @include button-size(
+      $btn-padding-y-lg,
+      $btn-padding-x-lg,
+      $btn-font-size-lg,
+      $btn-border-radius-lg
+    );
+  }
+}
+
+.#{$ns}-button-sm {
+  &:not(.#{$ns}-button-icon) {
+    @include button-size(
+      $btn-padding-y-sm,
+      $btn-padding-x-sm,
+      $btn-font-size-sm,
+      $btn-border-radius-sm
+    );
+  }
+}

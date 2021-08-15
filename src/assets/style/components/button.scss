@@ -1,7 +1,7 @@
 @import '../variables/size';
 @import '../variables/namespace';
 @import '../variables/animation';
-@import '../variables/color';
+@import '../variables/variables';
 @import '../variables/shadow';
 
 .#{$ns}-button {
@@ -37,7 +37,7 @@
         line-height: 1.5;
         padding: $button-default-padding;
       }
-      & > prefix {
+      & > .prefix {
         display: inline-block;
       }
       & > .suffix {

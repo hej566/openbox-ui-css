@@ -1,96 +1,105 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Icon from '../Icon';
+import Spinner from '../../assets/icons/svg/spinner-third-duotone.svg';
 
 interface PropsTypes {
   loading?: boolean;
+  toggle?: boolean;
+  SpinnerIcon?: React.ReactNode;
   size?: string;
-  type?: string;
+  type?: 'button' | 'reset' | 'submit';
   variant?: string;
-  prefix?: string;
-  suffix?: string;
   disabled?: boolean;
-  icon?: string;
-  children?: string;
+  ButtonIcon?: React.ReactNode;
+  children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 Button.defaultProps = {
+  ButtonSpinner: null,
   loading: false,
-  size: 'normal',
+  size: '',
+  toggle: false,
   type: 'button',
   variant: 'primary',
-  prefix: '',
-  suffix: '',
   disabled: false,
-  icon: '',
-  children: '',
+  children: null,
   onClick: () => {},
-};
+} as PropsTypes;
 
 function Button(props: PropsTypes) {
-  const { loading, size, type, variant, prefix, suffix, disabled, icon, children, onClick } = props;
+  const [pressed, setPressedState] = useState(false);
+  const {
+    loading,
+    SpinnerIcon,
+    size,
+    type,
+    toggle,
+    variant,
+    disabled,
+    ButtonIcon,
+    children,
+    onClick,
+  } = props;
 
-  // @ts-ignore
-  const btnClasses: Array<String> = [`${ns}-button`];
-  const btnInnerClasses: Array<String> = ['inner'];
-  const loadingClasses: Array<String> = ['loading'];
-  const loadedPrefixClasses: Array<String> = ['prefix'];
-  const loadedContentClasses: Array<String> = ['content'];
-  const loadedSuffixClasses: Array<String> = ['suffix'];
+  let buttonIcon = null;
+  let defaultSpinner = null;
+  let normalOrToggleButton = null;
 
-  if (loading) {
-    loadedPrefixClasses.push('hide');
-    loadedContentClasses.push('hide');
-    loadedSuffixClasses.push('hide');
+  const buttonClasses: Array<String> = [`${ns}-button`];
+
+  if (size) buttonClasses.push(`${ns}-button-${size}`);
+  if (!SpinnerIcon) defaultSpinner = <Icon Component={Spinner} rotating size={size} />;
+  if (variant) buttonClasses.push(`${ns}-button-${variant}`);
+  if (!children) buttonClasses.push(`${ns}-button-icon`);
+  if (loading && SpinnerIcon) {
+    buttonIcon = SpinnerIcon;
+  } else if (loading && !SpinnerIcon) {
+    buttonIcon = defaultSpinner;
+  } else if (!loading && ButtonIcon) {
+    buttonIcon = ButtonIcon;
+  }
+
+  function clickInnerHandler() {
+    setPressedState((curState) => !curState);
+  }
+
+  if (toggle && pressed && buttonClasses.indexOf('active') === -1) {
+    buttonClasses.push('active');
+  } else if (toggle && !pressed && buttonClasses.indexOf('active') !== -1) {
+    buttonClasses.pop();
+  }
+
+  if (toggle) {
+    normalOrToggleButton = (
+      <button
+        className={buttonClasses.join(' ')}
+        disabled={disabled}
+        onClick={onClick}
+        onClickCapture={clickInnerHandler}
+        type={type}
+        aria-pressed={pressed}
+        data-toggle="button"
+        aria-autocomplete="none"
+      >
+        <div className={`${ns}-button__inner`}>
+          {buttonIcon && <span className={`${ns}-button__icon`}>{buttonIcon}</span>}
+          {children && <span className={`${ns}-button__content`}>{children}</span>}
+        </div>
+      </button>
+    );
   } else {
-    loadingClasses.push('hide');
-  }
-  if (size) {
-    btnClasses.push(`${size}`);
-  }
-  if (variant) {
-    btnClasses.push(`${variant}`);
-  }
-  if (type) {
-    btnClasses.push(`${type}`);
-  }
-  if (prefix) {
-    btnClasses.push(`hasPrefix`);
-  }
-  if (suffix) {
-    btnClasses.push(`hasSuffix`);
+    normalOrToggleButton = (
+      <button className={buttonClasses.join(' ')} disabled={disabled} onClick={onClick} type={type}>
+        <div className={`${ns}-button__inner`}>
+          {buttonIcon && <span className={`${ns}-button__icon`}>{buttonIcon}</span>}
+          {children && <span className={`${ns}-button__content`}>{children}</span>}
+        </div>
+      </button>
+    );
   }
 
-  return (
-    <button className={btnClasses.join(' ')} disabled={disabled} onClick={onClick} type="button">
-      {icon ? (
-        <div className={btnInnerClasses.join(' ')}>
-          <div className={loadingClasses.join(' ')}>
-            <svg className="loader" />
-          </div>
-          <div className={loadedPrefixClasses.join(' ')}>
-            <svg className="icon" />
-          </div>
-        </div>
-      ) : (
-        <div className={btnInnerClasses.join(' ')}>
-          <div className={loadingClasses.join(' ')}>
-            <svg className="loader" />
-          </div>
-          {prefix ? (
-            <div className={loadedPrefixClasses.join(' ')}>
-              <svg className="prefix" />
-            </div>
-          ) : null}
-          <div className={loadedContentClasses.join(' ')}>{children}</div>
-          {suffix ? (
-            <div className={loadedSuffixClasses.join(' ')}>
-              <svg className="suffix" />
-            </div>
-          ) : null}
-        </div>
-      )}
-    </button>
-  );
+  return normalOrToggleButton;
 }
 
 export default Button;

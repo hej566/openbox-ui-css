@@ -5,19 +5,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: [path.resolve(__dirname, '../node_modules')],
-        use: ['babel-loader'],
-      },
-      {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: [path.resolve(__dirname, '../node_modules')],
         use: [
-          'babel-loader',
           {
-            loader: 'ts-loader',
+            loader: 'babel-loader',
             options: {
-              transpileOnly: false,
+              cacheDirectory: true,
+              presets: [
+                ['@babel/preset-env', { targets: { node: '8' } }],
+                ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
+              ],
             },
           },
         ],
@@ -28,12 +26,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        include: [path.resolve(__dirname, '../src/assets/icons')],
-        loader: 'svg-sprite-loader',
-        options: {
-          runtimeCompat: true,
-          symbolId: 'icon-[name]',
-        },
+        use: ['@svgr/webpack'],
       },
     ],
   },

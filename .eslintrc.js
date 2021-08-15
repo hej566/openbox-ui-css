@@ -23,5 +23,6 @@ module.exports = {
     'no-undef': 0,
     'react/no-unused-prop-types': 0,
     'react/jsx-props-no-spreading': 0,
+    'react/button-has-type': 0,
   },
 };

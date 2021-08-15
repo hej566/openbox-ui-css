@@ -32,7 +32,7 @@ import '@/assets/style/custom.scss';
 // // import CascaderList from '@/components/CascaderList/Index.vue';
 // import Nav from '@/components/Nav/Index.vue';
 // import Table from '@/components/Table/Index.vue';
-// import SvgIcon from '@/components/SvgIcon/Index.vue';
+// import Icon from '@/components/Icon/Index.vue';
 // import Modal from '@/components/Modal/Index.vue';
 // import Tree from '@/components/Tree/Index.vue';
 // import TreeNode from '@/components/TreeNode/Index.vue';
@@ -72,7 +72,7 @@ import '@/assets/style/custom.scss';
 //   // CascaderList,
 //   Nav,
 //   Table,
-//   SvgIcon,
+//   Icon,
 //   Modal,
 //   TreeNode,
 //   Tree,
@@ -118,7 +118,7 @@ import '@/assets/style/custom.scss';
 //   // CascaderList,
 //   Nav,
 //   Table,
-//   SvgIcon,
+//   Icon,
 //   Modal,
 //   Tree,
 //   TreeNode,

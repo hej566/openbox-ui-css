@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const baseConfig = require('./webpack.base');
 
 module.exports = {
@@ -33,7 +34,7 @@ module.exports = {
       ns: JSON.stringify('rc'),
     }),
     new BundleAnalyzerPlugin(),
-
+    new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'public/index.html',

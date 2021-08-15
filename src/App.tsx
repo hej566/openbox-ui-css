@@ -1,30 +1,8 @@
-import React, { useState } from 'react';
-import Button from './components/Button/index';
+import React from 'react';
+import Buttons from './examples/Buttons';
 
 function App() {
-  const [btnState, setBtnState] = useState({
-    loading: false,
-    size: 'normal',
-    type: 'button',
-    variant: 'primary',
-    prefix: '',
-    suffix: '',
-    disabled: false,
-    icon: '',
-  });
-
-  function clickHandler() {
-    setBtnState((preState) => ({
-      ...preState,
-      loading: true,
-    }));
-  }
-
-  return (
-    <Button {...btnState} onClick={clickHandler}>
-      Button
-    </Button>
-  );
+  return <Buttons />;
 }
 
 export default App;
