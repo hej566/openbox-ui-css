@@ -71,7 +71,7 @@ function Buttons() {
   }
 
   return (
-    <div className="app">
+    <div className="button">
       <div className="button-variant">
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>

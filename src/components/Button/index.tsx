@@ -42,10 +42,9 @@ function Button(props: PropsTypes) {
     onClick,
   } = props;
 
-  let buttonIcon = null;
+  let buttonIcon = ButtonIcon;
   let defaultSpinner = null;
   let normalOrToggleButton = null;
-
   const buttonClasses: Array<String> = [`${ns}-button`];
 
   if (size) buttonClasses.push(`${ns}-button-${size}`);
@@ -56,8 +55,6 @@ function Button(props: PropsTypes) {
     buttonIcon = SpinnerIcon;
   } else if (loading && !SpinnerIcon) {
     buttonIcon = defaultSpinner;
-  } else if (!loading && ButtonIcon) {
-    buttonIcon = ButtonIcon;
   }
 
   function clickInnerHandler() {

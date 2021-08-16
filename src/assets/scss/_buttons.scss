@@ -24,14 +24,14 @@
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
   //
-  //.btn-check:focus + &,
+  .#{$ns}-button-check:focus + &,
   &:focus {
     outline: 0;
     box-shadow: $btn-focus-box-shadow;
   }
   //
-  //.btn-check:checked + &,
-  //.btn-check:active + &,
+  .#{$ns}-button-check:checked + &,
+  .#{$ns}-button-check:active + &,
   &:active,
   &.active {
     @include box-shadow($btn-active-box-shadow);
@@ -63,6 +63,7 @@
 .#{$ns}-button__inner {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .#{$ns}-button-lg {

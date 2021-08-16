@@ -69,7 +69,6 @@
   "include": [
     "src",
     "src/declaration/svg.d.ts",
-    "src/declaration/ns.d.ts",
-    "src/declaration/buttons.d.ts"
+    "src/declaration/ns.d.ts"
   ]
 }
