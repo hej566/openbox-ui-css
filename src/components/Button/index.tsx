@@ -13,6 +13,7 @@ interface PropsTypes {
   ButtonIcon?: React.ReactNode;
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  className?: string;
 }
 
 Button.defaultProps = {
@@ -25,6 +26,7 @@ Button.defaultProps = {
   disabled: false,
   children: null,
   onClick: () => {},
+  className: '',
 } as PropsTypes;
 
 function Button(props: PropsTypes) {
@@ -40,6 +42,7 @@ function Button(props: PropsTypes) {
     ButtonIcon,
     children,
     onClick,
+    className,
   } = props;
 
   let buttonIcon = ButtonIcon;
@@ -51,6 +54,7 @@ function Button(props: PropsTypes) {
   if (!SpinnerIcon) defaultSpinner = <Icon Component={Spinner} rotating size={size} />;
   if (variant) buttonClasses.push(`${ns}-button-${variant}`);
   if (!children) buttonClasses.push(`${ns}-button-icon`);
+  if (className) buttonClasses.push(className);
   if (loading && SpinnerIcon) {
     buttonIcon = SpinnerIcon;
   } else if (loading && !SpinnerIcon) {

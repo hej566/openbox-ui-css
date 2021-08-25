@@ -27,56 +27,64 @@ function Alerts() {
           <Alert variant="primary">
             A simple primary alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
           <Alert variant="secondary">
             A simple secondary alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
           <Alert variant="success">
             A simple success alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
           <Alert variant="danger">
             A simple danger alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
           <Alert variant="warning">
             A simple warning alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
           <Alert variant="info">
             A simple info alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
           <Alert variant="light">
             A simple light alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
           <Alert variant="dark">
             A simple dark alert with
             <a href="#" className="rc-alert-link">
-              {' '} an example link {' '}
+              {' '}
+              an example link{' '}
             </a>
             . Give it a click if you like.
           </Alert>
@@ -88,9 +96,9 @@ function Alerts() {
           <Alert variant="success">
             <h4 className="rc-alert-heading">Well done!</h4>
             <p>
-              Aww yeah, you successfully read this important alert message. This example text is going
-              to run a bit longer so that you can see how spacing within an alert works with this kind
-              of content.
+              Aww yeah, you successfully read this important alert message. This example text is
+              going to run a bit longer so that you can see how spacing within an alert works with
+              this kind of content.
             </p>
             <hr />
             <p className="mb-0">

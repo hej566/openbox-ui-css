@@ -4,6 +4,7 @@ import Buttons from './examples/Buttons';
 import ButtonGroup from './examples/ButtonGroup';
 import Accordion from './examples/Accordion';
 import Alerts from './examples/Alerts';
+import Badges from './examples/Badges';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <li>
             <Link to="/alerts">Alerts</Link>
           </li>
+          <li>
+            <Link to="/badges">Badges</Link>
+          </li>
         </ul>
         <hr />
         <div className="main bg-light">
@@ -37,6 +41,9 @@ function App() {
             </Route>
             <Route exact path="/alerts">
               <Alerts />
+            </Route>
+            <Route exact path="/badges">
+              <Badges />
             </Route>
           </Switch>
         </div>

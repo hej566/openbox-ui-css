@@ -66,6 +66,11 @@
   justify-content: center;
 }
 
+.#{$ns}-button__content {
+  display: flex;
+  align-items: center;
+}
+
 .#{$ns}-button-lg {
   &.#{$ns}-button-icon {
     .#{$ns}-button__icon {
