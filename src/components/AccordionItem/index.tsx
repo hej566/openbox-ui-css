@@ -27,6 +27,14 @@ function AccordionItem(props: PropsType) {
   const accordionButton: Array<string> = [`${ns}-accordion-button`];
   const accordionCollapse: Array<string> = [`${ns}-accordion-collapse`];
 
+  if (open) {
+    accordionCollapse.push('collapse');
+    accordionCollapse.push('show');
+  } else {
+    accordionButton.push('collapsed');
+    accordionCollapse.push('collapse');
+  }
+
   function transitionEndHandler() {
     const accordionCollapseDom = accordionCollapseRef.current;
     if (accordionCollapseDom) {
@@ -44,15 +52,9 @@ function AccordionItem(props: PropsType) {
   }
 
   function initAccordionItemHandler() {
-    setInitAccordionItemState(false);
-  }
-
-  if (open) {
-    accordionCollapse.push('collapse');
-    accordionCollapse.push('show');
-  } else {
-    accordionButton.push('collapsed');
-    accordionCollapse.push('collapse');
+    if (initAccordionItemState) {
+      setInitAccordionItemState(false);
+    }
   }
 
   useEffect(() => {

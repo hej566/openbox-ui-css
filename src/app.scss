@@ -9,8 +9,9 @@
 }
 
 .top-nav {
-  height: 100px;
-  overflow: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 hr {
