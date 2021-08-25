@@ -1,7 +1,7 @@
 .#{$ns}-icon {
   display: flex;
-  justify-self: center;
-  align-self: center;
+  justify-content: center;
+  align-items: center;
 
   & > svg {
     @include icon-size($btn-font-size);

@@ -243,7 +243,11 @@ function ButtonGroup() {
         </div>
       </div>
       <div className="button-vertical">
-        <div className={`${ns}-button-group-vertical`} role="group" aria-label="Basic toggle styles example">
+        <div
+          className={`${ns}-button-group-vertical`}
+          role="group"
+          aria-label="Basic toggle styles example"
+        >
           <Button toggle variant="primary">
             Left
           </Button>

@@ -24,5 +24,7 @@ module.exports = {
     'react/no-unused-prop-types': 0,
     'react/jsx-props-no-spreading': 0,
     'react/button-has-type': 0,
+    'no-lonely-if': 0,
+    'no-unused-vars': 0,
   },
 };

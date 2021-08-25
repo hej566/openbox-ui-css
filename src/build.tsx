@@ -26,7 +26,7 @@ import '@/assets/style/custom.scss';
 // import Datetimer from '@/components/Datetimer/Index.vue';
 // import Scrollbar from '@/components/Scrollbar/Index.vue';
 // import Upload from '@/components/Upload/Index.vue';
-// import Accordion from '@/components/Accordion/Index.vue';
+// import AccordionItem from '@/components/AccordionItem/Index.vue';
 // import AccordionGroup from '@/components/AccordionGroup/Index.vue';
 // import Cascader from '@/components/Cascader/Index.vue';
 // // import CascaderList from '@/components/CascaderList/Index.vue';
@@ -66,7 +66,7 @@ import '@/assets/style/custom.scss';
 //   Datetimer,
 //   Scrollbar,
 //   Upload,
-//   Accordion,
+//   AccordionItem,
 //   AccordionGroup,
 //   Cascader,
 //   // CascaderList,
@@ -112,7 +112,7 @@ import '@/assets/style/custom.scss';
 //   Dater,
 //   Scrollbar,
 //   Upload,
-//   Accordion,
+//   AccordionItem,
 //   AccordionGroup,
 //   Cascader,
 //   // CascaderList,
