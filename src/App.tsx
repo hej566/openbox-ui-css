@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Buttons from './examples/Buttons';
 import ButtonGroup from './examples/ButtonGroup';
 import Accordion from './examples/Accordion';
+import Alerts from './examples/Alerts';
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
             <Link to="/buttons-group">Buttons Group</Link>
           </li>
           <li>
-            <Link to="/accordion">Accordion</Link>
+            <Link to="/accordions">Accordion</Link>
+          </li>
+          <li>
+            <Link to="/alerts">Alerts</Link>
           </li>
         </ul>
         <hr />
@@ -28,8 +32,11 @@ function App() {
             <Route exact path="/buttons-group">
               <ButtonGroup />
             </Route>
-            <Route exact path="/accordion">
+            <Route exact path="/accordions">
               <Accordion />
+            </Route>
+            <Route exact path="/alerts">
+              <Alerts />
             </Route>
           </Switch>
         </div>

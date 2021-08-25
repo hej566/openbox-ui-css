@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useMemo } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AccordionItem from '../components/AccordionItem';
 import AccordionGroup from '../components/AccordionGroup';
@@ -7,8 +7,9 @@ import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 
 function Accordion() {
   return (
-    <div className="accordions">
-      <div className="accordion only">
+    <div className="rc-accordions">
+      <section className="rc-accordion-only">
+        <div className="rc-title">Basic</div>
         <AccordionGroup only>
           <AccordionItem
             title=" Accordion Item #1"
@@ -40,9 +41,10 @@ function Accordion() {
             <code>.accordion-body</code>, though the transition does limit overflow.
           </AccordionItem>
         </AccordionGroup>
-      </div>
+      </section>
 
-      <div className="accordion flush only">
+      <section className="rc-accordion-flush-only">
+        <div className="rc-title">Flush</div>
         <AccordionGroup only flush>
           <AccordionItem
             title=" Accordion Item #1"
@@ -74,9 +76,10 @@ function Accordion() {
             <code>.accordion-body</code>, though the transition does limit overflow.
           </AccordionItem>
         </AccordionGroup>
-      </div>
+      </section>
 
-      <div className="accordion always open">
+      <section className="rc-accordion-always-open">
+        <div className="rc-title">Always open</div>
         <AccordionGroup>
           <AccordionItem
             title=" Accordion Item #1"
@@ -108,7 +111,7 @@ function Accordion() {
             <code>.accordion-body</code>, though the transition does limit overflow.
           </AccordionItem>
         </AccordionGroup>
-      </div>
+      </section>
     </div>
   );
 }

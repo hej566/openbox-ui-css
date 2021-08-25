@@ -14,10 +14,6 @@
   flex-wrap: wrap;
 }
 
-hr {
-  margin: 0;
-}
-
 .main {
   flex: 1;
 }
@@ -81,8 +77,49 @@ hr {
   }
 }
 
-.accordions {
-  .accordion {
+.rc-accordions {
+  .rc-title {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+  }
+  .rc-accordion-only, .rc-accordion-flush-only, .rc-accordion-always-open {
     margin: 1rem;
+    .rc-accordion-group {
+      margin: 1rem;
+    }
+  }
+}
+
+.rc-alerts {
+  .rc-title {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+  }
+  .rc-alert-variant, .rc-alert-link-content, .rc-alert-additional-content, .rc-alert-icon, .rc-alert-button {
+    margin: 1rem;
+    .rc-alert-group {
+      margin: 1rem;
+    }
+
+  }
+  .rc-alert {
+    &.rc-prefix-icon {
+      display: flex;
+      & > .rc-icon {
+        margin-right: 1rem;
+      }
+    }
+    &.rc-suffix-icon {
+      display: flex;
+      align-items: center;
+      position: relative;
+      .rc-button-link {
+        position: absolute;
+        right: 0;
+        color: currentColor;
+      }
+    }
   }
 }
