@@ -1,3 +1,26 @@
+#app {
+  height: 100vh;
+}
+
+.layout {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav {
+  height: 100px;
+  overflow: auto;
+}
+
+hr {
+  margin: 0;
+}
+
+.main {
+  flex: 1;
+}
+
 .button {
   padding: 1rem;
   .button-variant {
@@ -53,6 +76,12 @@
   padding: 1rem;
   .rc-button-group,
   .rc-button-group-vertical {
+    margin: 1rem;
+  }
+}
+
+.accordions {
+  .accordion {
     margin: 1rem;
   }
 }

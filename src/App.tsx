@@ -7,8 +7,8 @@ import Accordion from './examples/Accordion';
 function App() {
   return (
     <Router>
-      <div>
-        <ul>
+      <div className="layout">
+        <ul className="top-nav">
           <li>
             <Link to="/buttons">Buttons</Link>
           </li>
@@ -20,17 +20,19 @@ function App() {
           </li>
         </ul>
         <hr />
-        <Switch>
-          <Route exact path="/buttons">
-            <Buttons />
-          </Route>
-          <Route exact path="/buttons-group">
-            <ButtonGroup />
-          </Route>
-          <Route exact path="/accordion">
-            <Accordion />
-          </Route>
-        </Switch>
+        <div className="main bg-light">
+          <Switch>
+            <Route exact path="/buttons">
+              <Buttons />
+            </Route>
+            <Route exact path="/buttons-group">
+              <ButtonGroup />
+            </Route>
+            <Route exact path="/accordion">
+              <Accordion />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );

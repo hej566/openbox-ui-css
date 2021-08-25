@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.accordion-button {
+.#{$ns}-accordion-button {
   position: relative;
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@
   }
 }
 
-.accordion-header {
+.#{$ns}-accordion-header {
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@
   }
 }
 
-.accordion-body {
+.#{$ns}-accordion-body {
   padding: $accordion-body-padding-y $accordion-body-padding-x;
 }
 
@@ -92,12 +92,12 @@
 //
 // Remove borders and border-radius to keep accordion items edge-to-edge.
 
-.accordion-flush {
-  .accordion-collapse {
+.#{$ns}-accordion-flush {
+  .#{$ns}-accordion-collapse {
     border-width: 0;
   }
 
-  .accordion-item {
+  .#{$ns}-accordion-item {
     border-right: 0;
     border-left: 0;
     @include border-radius(0);
@@ -109,7 +109,7 @@
       border-bottom: 0;
     }
 
-    .accordion-button {
+    .#{$ns}-accordion-button {
       @include border-radius(0);
     }
   }

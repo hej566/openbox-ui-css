@@ -3,38 +3,48 @@ import React, { useState } from 'react';
 interface PropsTypes {
   children: React.ComponentElement<any, any>[];
   only?: boolean;
+  flush?: boolean;
 }
 
 AccordionGroup.defaultProps = {
   only: false,
+  flush: false,
 } as PropsTypes;
 
 function AccordionGroup(props: PropsTypes) {
-  const { children, only } = props;
+  const { children, only, flush } = props;
   const initObject: { [key: string]: boolean } = {};
   const [stateMap, setStateMap] = useState(initObject);
 
+  const accordionGroup: Array<string> = [`${ns}-accordion-group`];
+
+  if (flush) {
+    accordionGroup.push(`${ns}-accordion-flush`);
+  }
+
   if (!Object.keys(stateMap).length) {
     React.Children.forEach(children, (child) => {
-      const { show } = child.props;
+      const { open } = child.props;
       const { key } = child;
-      if (key) stateMap[key] = show;
+      if (key) stateMap[key] = open;
     });
   }
 
-  function accordionHandler(child: any, mode: undefined | boolean) {
+  function accordionHandler(child: React.ComponentElement<any, any>, mode: undefined | boolean) {
     return (e: React.MouseEvent<HTMLElement>) => {
       const { key } = child;
       if (mode) {
-        if (stateMap[key]) stateMap[key] = false;
-        else {
-          for (const mapKey in stateMap) {
-            stateMap[mapKey] = false;
+        if (key) {
+          if (stateMap[key]) stateMap[key] = false;
+          else {
+            for (const mapKey in stateMap) {
+              stateMap[mapKey] = false;
+            }
+            stateMap[key] = true;
           }
-          stateMap[key] = true;
         }
       } else {
-        stateMap[key] = !stateMap[key];
+        if (key) stateMap[key] = !stateMap[key];
       }
 
       setStateMap(() => {
@@ -49,13 +59,13 @@ function AccordionGroup(props: PropsTypes) {
     const { key } = child;
     if (key) {
       return React.cloneElement(child, {
-        show: stateMap[key],
+        open: stateMap[key],
         onClick: accordionHandler(child, only),
       });
     }
   });
 
-  return <div className="accordion">{accordionList}</div>;
+  return <div className={accordionGroup.join(' ')}>{accordionList}</div>;
 }
 
 export default AccordionGroup;

@@ -8,29 +8,29 @@ interface PropsType {
   children: any;
   AccordionIcon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  show?: boolean;
+  open?: boolean;
 }
 
 AccordionItem.defaultProps = {
   AccordionIcon: <Icon Component={ChervonDown} />,
   onClick: () => {},
-  show: false,
+  open: false,
 };
 
 function AccordionItem(props: PropsType) {
-  const { title, children, AccordionIcon, onClick, show } = props;
+  const { title, children, AccordionIcon, onClick, open } = props;
   const headerUUID = uuidv4();
   const bodyUUID = uuidv4();
   const [accordionBodyHeight, setAccordionHeight] = useState(0);
   const [initAccordionItemState, setInitAccordionItemState] = useState(true);
   const accordionCollapseRef = useRef<HTMLDivElement>(null);
-  const accordionButton: Array<string> = ['accordion-button'];
-  const accordionCollapse: Array<string> = ['accordion-collapse'];
+  const accordionButton: Array<string> = [`${ns}-accordion-button`];
+  const accordionCollapse: Array<string> = [`${ns}-accordion-collapse`];
 
   function transitionEndHandler() {
     const accordionCollapseDom = accordionCollapseRef.current;
     if (accordionCollapseDom) {
-      if (show) {
+      if (open) {
         accordionCollapseDom.style.height = '';
         accordionCollapseDom.classList.remove('collapsing');
         accordionCollapseDom.classList.add('collapse', 'show');
@@ -47,7 +47,7 @@ function AccordionItem(props: PropsType) {
     setInitAccordionItemState(false);
   }
 
-  if (show) {
+  if (open) {
     accordionCollapse.push('collapse');
     accordionCollapse.push('show');
   } else {
@@ -60,7 +60,7 @@ function AccordionItem(props: PropsType) {
     if (accordionCollapseDom) {
       accordionCollapseDom.style.display = 'block';
       setAccordionHeight(accordionCollapseDom.clientHeight);
-      if (!show) {
+      if (!open) {
         accordionCollapseDom.style.display = 'none';
       }
     }
@@ -69,7 +69,7 @@ function AccordionItem(props: PropsType) {
   useEffect(() => {
     const accordionCollapseDom = accordionCollapseRef.current;
     if (accordionCollapseDom && !initAccordionItemState) {
-      if (show) {
+      if (open) {
         requestAnimationFrame(() => {
           accordionCollapseDom.style.display = 'block';
           accordionCollapseDom.style.height = `0px`;
@@ -94,17 +94,17 @@ function AccordionItem(props: PropsType) {
         });
       }
     }
-  }, [show]);
+  }, [open]);
 
   return (
     <div className={`${ns}-accordion-item`}>
-      <h2 className="accordion-header" id={headerUUID}>
+      <h2 className={`${ns}-accordion-header`} id={headerUUID}>
         <button
           className={accordionButton.join(' ')}
           type="button"
           data-toggle="collapse"
           data-target={`#${bodyUUID}`}
-          aria-expanded={show}
+          aria-expanded={open}
           aria-controls={bodyUUID}
           onClick={onClick}
           onClickCapture={initAccordionItemHandler}
@@ -120,7 +120,7 @@ function AccordionItem(props: PropsType) {
         onTransitionEnd={transitionEndHandler}
         ref={accordionCollapseRef}
       >
-        <div className="accordion-body">{children}</div>
+        <div className={`${ns}-accordion-body`}>{children}</div>
       </div>
     </div>
   );
