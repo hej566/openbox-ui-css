@@ -1,4 +1,4 @@
-.#{$ns}-icon {
+.icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,13 +12,13 @@
   }
 }
 
-.#{$ns}-icon-lg {
+.icon-lg {
   & > svg {
     @include icon-size($btn-font-size-lg);
   }
 }
 
-.#{$ns}-icon-sm {
+.icon-sm {
   & > svg {
     @include icon-size($btn-font-size-sm);
   }

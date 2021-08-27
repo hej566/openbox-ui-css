@@ -49,7 +49,7 @@
     border-color: $hover-border;
   }
 
-  .#{$ns}-button-check:focus + &,
+  .btn-check:focus + &,
   &:focus {
     color: $hover-color;
     @include gradient-bg($hover-background);
@@ -65,8 +65,8 @@
     }
   }
 
-  .#{$ns}-button-check:checked + &,
-  .#{$ns}-button-check:active + &,
+  .btn-check:checked + &,
+  .btn-check:active + &,
   &:active,
   &.active,
   .show > &.dropdown-toggle {
@@ -117,13 +117,13 @@
     border-color: $active-border;
   }
 
-  .#{$ns}-button-check:focus + &,
+  .btn-check:focus + &,
   &:focus {
     box-shadow: 0 0 0 $btn-focus-width rgba($color, 0.5);
   }
 
-  .#{$ns}-button-check:checked + &,
-  .#{$ns}-button-check:active + &,
+  .btn-check:checked + &,
+  .btn-check:active + &,
   &:active,
   &.active,
   &.dropdown-toggle.show {

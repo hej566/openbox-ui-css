@@ -73,14 +73,14 @@ function ButtonGroup() {
   return (
     <div className="button-group">
       <div className="basic">
-        <div className={`${ns}-button-group`} role="group" aria-label="Basic example">
+        <div className="btn-group" role="group" aria-label="Basic example">
           <Button variant="primary">Left</Button>
           <Button variant="primary">Middle</Button>
           <Button variant="primary">Right</Button>
         </div>
       </div>
       <div className="mixed">
-        <div className={`${ns}-button-group`} role="group" aria-label="Basic mixed styles example">
+        <div className="btn-group" role="group" aria-label="Basic mixed styles example">
           <Button variant="danger" type="button">
             Left
           </Button>
@@ -93,11 +93,7 @@ function ButtonGroup() {
         </div>
       </div>
       <div className="outline">
-        <div
-          className={`${ns}-button-group`}
-          role="group"
-          aria-label="Basic outline styles example"
-        >
+        <div className="btn-group" role="group" aria-label="Basic outline styles example">
           <Button variant="outline-primary">Left</Button>
           <Button variant="outline-primary">Middle</Button>
           <Button variant="outline-primary">Right</Button>
@@ -105,7 +101,7 @@ function ButtonGroup() {
       </div>
       <div className="size">
         <div
-          className={`${ns}-button-group ${ns}-button-group-sm`}
+          className="btn-group btn-group-sm"
           role="group"
           aria-label="Basic small size styles example"
         >
@@ -119,17 +115,13 @@ function ButtonGroup() {
             Right
           </Button>
         </div>
-        <div
-          className={`${ns}-button-group`}
-          role="group"
-          aria-label="Basic normal size styles example"
-        >
+        <div className="btn-group" role="group" aria-label="Basic normal size styles example">
           <Button variant="primary">Left</Button>
           <Button variant="primary">Middle</Button>
           <Button variant="primary">Right</Button>
         </div>
         <div
-          className={`${ns}-button-group ${ns}-button-group-lg`}
+          className="btn-group btn-group-lg"
           role="group"
           aria-label="Basic large size styles example"
         >
@@ -146,18 +138,14 @@ function ButtonGroup() {
       </div>
 
       <div className="button-with-icon">
-        <div className={`${ns}-button-group`} role="group" aria-label="Basic icon styles example">
+        <div className="btn-group" role="group" aria-label="Basic icon styles example">
           <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />} />
           <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />} />
           <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />} />
         </div>
       </div>
       <div className="button-with-loading">
-        <div
-          className={`${ns}-button-group`}
-          role="group"
-          aria-label="Basic icon loading styles example"
-        >
+        <div className="btn-group" role="group" aria-label="Basic icon loading styles example">
           <Button
             loading={loading1}
             ButtonIcon={<Icon Component={Acorn} />}
@@ -175,11 +163,7 @@ function ButtonGroup() {
           />
         </div>
 
-        <div
-          className={`${ns}-button-group`}
-          role="group"
-          aria-label="Basic icon loading styles example"
-        >
+        <div className="btn-group" role="group" aria-label="Basic icon loading styles example">
           <Button
             loading={loading2}
             ButtonIcon={<Icon Component={Acorn} />}
@@ -204,11 +188,7 @@ function ButtonGroup() {
         </div>
       </div>
       <div className="button-disabled">
-        <div
-          className={`${ns}-button-group`}
-          role="group"
-          aria-label="Basic disabled styles example"
-        >
+        <div className="btn-group" role="group" aria-label="Basic disabled styles example">
           <Button
             ButtonIcon={<Icon Component={Acorn} />}
             onClick={clickHandler5}
@@ -230,7 +210,7 @@ function ButtonGroup() {
         </div>
       </div>
       <div className="button-toggle">
-        <div className={`${ns}-button-group`} role="group" aria-label="Basic toggle styles example">
+        <div className="btn-group" role="group" aria-label="Basic toggle styles example">
           <Button toggle variant="primary">
             Left
           </Button>
@@ -243,11 +223,7 @@ function ButtonGroup() {
         </div>
       </div>
       <div className="button-vertical">
-        <div
-          className={`${ns}-button-group-vertical`}
-          role="group"
-          aria-label="Basic toggle styles example"
-        >
+        <div className="btn-group-vertical" role="group" aria-label="Basic toggle styles example">
           <Button toggle variant="primary">
             Left
           </Button>

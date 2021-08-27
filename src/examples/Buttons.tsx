@@ -71,121 +71,149 @@ function Buttons() {
   }
 
   return (
-    <div className="button">
-      <div className="button-variant">
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="success">Success</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="warning">Warning</Button>
-        <Button variant="info">Info</Button>
-        <Button variant="light">Light</Button>
-        <Button variant="dark">Dark</Button>
-        <Button variant="link">Link</Button>
-      </div>
-      <div className="button-type">
-        <Button variant="primary" type="button">
-          Button
-        </Button>
-        <Button variant="primary" type="reset">
-          Reset
-        </Button>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </div>
-      <div className="button-outline">
-        <Button variant="outline-primary">Primary</Button>
-        <Button variant="outline-secondary">Secondary</Button>
-        <Button variant="outline-success">Success</Button>
-        <Button variant="outline-danger">Danger</Button>
-        <Button variant="outline-warning">Warning</Button>
-        <Button variant="outline-info">Info</Button>
-        <Button variant="outline-light">Light</Button>
-        <Button variant="outline-dark">Dark</Button>
-      </div>
-      <div className="button-size">
-        <Button variant="primary" size="sm">
-          Small button
-        </Button>
-        <Button variant="primary">Normal button</Button>
-        <Button variant="primary" size="lg">
-          Large button
-        </Button>
-      </div>
-      <div className="button-with-icon">
-        <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />}>
-          Primary
-        </Button>
-        <Button variant="outline-success" ButtonIcon={<Icon Component={Acorn} />} />
-        <Button variant="danger" ButtonIcon={<Icon Component={Acorn} />} />
-        <Button variant="warning" ButtonIcon={<Icon Component={Acorn} />} />
-        <Button variant="link" ButtonIcon={<Icon Component={Acorn} />}>
-          Link
-        </Button>
-      </div>
-      <div className="button-with-loading">
-        <Button
-          loading={loading1}
-          ButtonIcon={<Icon Component={Acorn} />}
-          onClick={clickHandler1}
-        />
-        <Button loading={loading2} ButtonIcon={<Icon Component={Acorn} />} onClick={clickHandler2}>
-          Button
-        </Button>
-        <Button loading={loading3} onClick={clickHandler3}>
-          Button
-        </Button>
-        <Button
-          loading={loading4}
-          SpinnerIcon={<Icon Component={Acorn} rotating />}
-          onClick={clickHandler4}
-        >
-          Button
-        </Button>
-      </div>
-      <div className="button-disabled">
-        <Button
-          ButtonIcon={<Icon Component={Acorn} />}
-          onClick={clickHandler5}
-          disabled={disabled5}
-        />
-        <Button
-          disabled={disabled6}
-          variant="secondary"
-          ButtonIcon={<Icon Component={Acorn} />}
-          onClick={clickHandler6}
-        >
-          Button
-        </Button>
-        <Button disabled={disabled7} variant="success" onClick={clickHandler7}>
-          Button
-        </Button>
-        <Button
-          disabled={disabled8}
-          variant="danger"
-          SpinnerIcon={<Icon Component={Acorn} rotating />}
-          onClick={clickHandler8}
-        >
-          Button
-        </Button>
-      </div>
-      <div className="button-toggle">
-        <Button toggle variant="primary">
-          Primary
-        </Button>
-        <Button toggle variant="secondary">
-          Secondary
-        </Button>
-        <Button toggle variant="success">
-          Success
-        </Button>
-        <Button toggle variant="danger">
-          Danger
-        </Button>
-        <Button toggle variant="warning">
-          Warning
-        </Button>
+    <div className="rc-buttons">
+      <section className="rc-button-variant">
+        <div className="rc-title">Basic</div>
+        <div className="rc-group">
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="success">Success</Button>
+          <Button variant="danger">Danger</Button>
+          <Button variant="warning">Warning</Button>
+          <Button variant="info">Info</Button>
+          <Button variant="light">Light</Button>
+          <Button variant="dark">Dark</Button>
+          <Button variant="link">Link</Button>
+        </div>
+      </section>
+      <section className="rc-button-type">
+        <div className="rc-title">Types</div>
+        <div className="rc-group">
+          <Button variant="primary" type="button">
+            Button
+          </Button>
+          <Button variant="primary" type="reset">
+            Reset
+          </Button>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </div>
+      </section>
+      <section className="rc-button-outline">
+        <div className="rc-title">Outline</div>
+        <div className="rc-group">
+          <Button variant="outline-primary">Primary</Button>
+          <Button variant="outline-secondary">Secondary</Button>
+          <Button variant="outline-success">Success</Button>
+          <Button variant="outline-danger">Danger</Button>
+          <Button variant="outline-warning">Warning</Button>
+          <Button variant="outline-info">Info</Button>
+          <Button variant="outline-light">Light</Button>
+          <Button variant="outline-dark">Dark</Button>
+        </div>
+      </section>
+      <section className="rc-button-size">
+        <div className="rc-title">Size</div>
+        <div className="rc-group">
+          <Button variant="primary" size="sm">
+            Small button
+          </Button>
+          <Button variant="primary">Normal button</Button>
+          <Button variant="primary" size="lg">
+            Large button
+          </Button>
+        </div>
+      </section>
+      <section className="rc-button-with-icon">
+        <div className="rc-title">Icon</div>
+        <div className="rc-group">
+          <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />}>
+            Primary
+          </Button>
+          <Button variant="outline-success" ButtonIcon={<Icon Component={Acorn} />} />
+          <Button variant="danger" ButtonIcon={<Icon Component={Acorn} />} />
+          <Button variant="warning" ButtonIcon={<Icon Component={Acorn} />} />
+          <Button variant="link" ButtonIcon={<Icon Component={Acorn} />}>
+            Link
+          </Button>
+        </div>
+      </section>
+      <section className="rc-button-with-loading">
+        <div className="rc-title">Loading</div>
+        <div className="rc-group">
+          <Button
+            loading={loading1}
+            ButtonIcon={<Icon Component={Acorn} />}
+            onClick={clickHandler1}
+          />
+          <Button
+            loading={loading2}
+            ButtonIcon={<Icon Component={Acorn} />}
+            onClick={clickHandler2}
+          >
+            Button
+          </Button>
+          <Button loading={loading3} onClick={clickHandler3}>
+            Button
+          </Button>
+          <Button
+            loading={loading4}
+            SpinnerIcon={<Icon Component={Acorn} rotating />}
+            onClick={clickHandler4}
+          >
+            Button
+          </Button>
+        </div>
+      </section>
+      <section className="rc-button-disabled">
+        <div className="rc-title">Loading</div>
+        <div className="rc-group">
+          <Button
+            ButtonIcon={<Icon Component={Acorn} />}
+            onClick={clickHandler5}
+            disabled={disabled5}
+          />
+          <Button
+            disabled={disabled6}
+            variant="secondary"
+            ButtonIcon={<Icon Component={Acorn} />}
+            onClick={clickHandler6}
+          >
+            Button
+          </Button>
+          <Button disabled={disabled7} variant="success" onClick={clickHandler7}>
+            Button
+          </Button>
+          <Button
+            disabled={disabled8}
+            variant="danger"
+            SpinnerIcon={<Icon Component={Acorn} rotating />}
+            onClick={clickHandler8}
+          >
+            Button
+          </Button>
+        </div>
+      </section>
+      <div className="rc-button-toggle">
+        <div className="rc-title">Loading</div>
+        <div className="rc-group">
+          <Button toggle variant="primary">
+            Primary
+          </Button>
+          <Button toggle variant="secondary">
+            Secondary
+          </Button>
+          <Button toggle variant="success">
+            Success
+          </Button>
+          <Button toggle variant="danger">
+            Danger
+          </Button>
+          <Button toggle variant="warning">
+            Warning
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -48,12 +48,12 @@ function Button(props: PropsTypes) {
   let buttonIcon = ButtonIcon;
   let defaultSpinner = null;
   let normalOrToggleButton = null;
-  const buttonClasses: Array<String> = [`${ns}-button`];
+  const buttonClasses: Array<String> = [`btn`];
 
-  if (size) buttonClasses.push(`${ns}-button-${size}`);
+  if (size) buttonClasses.push(`btn-${size}`);
   if (!SpinnerIcon) defaultSpinner = <Icon Component={Spinner} rotating size={size} />;
-  if (variant) buttonClasses.push(`${ns}-button-${variant}`);
-  if (!children) buttonClasses.push(`${ns}-button-icon`);
+  if (variant) buttonClasses.push(`btn-${variant}`);
+  if (!children) buttonClasses.push(`btn-icon`);
   if (className) buttonClasses.push(className);
   if (loading && SpinnerIcon) {
     buttonIcon = SpinnerIcon;
@@ -83,18 +83,18 @@ function Button(props: PropsTypes) {
         data-toggle="button"
         aria-autocomplete="none"
       >
-        <div className={`${ns}-button__inner`}>
-          {buttonIcon && <span className={`${ns}-button__icon`}>{buttonIcon}</span>}
-          {children && <span className={`${ns}-button__content`}>{children}</span>}
+        <div className="btn__inner">
+          {buttonIcon && <span className="btn__icon">{buttonIcon}</span>}
+          {children && <span className="btn__content">{children}</span>}
         </div>
       </button>
     );
   } else {
     normalOrToggleButton = (
       <button className={buttonClasses.join(' ')} disabled={disabled} onClick={onClick} type={type}>
-        <div className={`${ns}-button__inner`}>
-          {buttonIcon && <span className={`${ns}-button__icon`}>{buttonIcon}</span>}
-          {children && <span className={`${ns}-button__content`}>{children}</span>}
+        <div className="btn__inner">
+          {buttonIcon && <span className="btn__icon">{buttonIcon}</span>}
+          {children && <span className="btn__content">{children}</span>}
         </div>
       </button>
     );

@@ -5,7 +5,7 @@ import '@/assets/style/custom.scss';
 
 //
 // import Button from '@/components/Button/Index.vue';
-// import Breadcrumb from '@/components/Breadcrumb/Index.vue';
+// import BreadcrumbItem from '@/components/BreadcrumbItem/Index.vue';
 // import Checkbox from '@/components/Checkbox/Index.vue';
 // import CheckboxGroup from '@/components/CheckboxGroup/Index.vue';
 // import ProgressCircle from '@/components/Progress/Circle/Index.vue';
@@ -45,7 +45,7 @@ import '@/assets/style/custom.scss';
 //
 // const components = [
 //   Button,
-//   Breadcrumb,
+//   BreadcrumbItem,
 //   Checkbox,
 //   CheckboxGroup,
 //   ProgressCircle,
@@ -91,7 +91,7 @@ import '@/assets/style/custom.scss';
 //
 // export default {
 //   Button,
-//   Breadcrumb,
+//   BreadcrumbItem,
 //   Checkbox,
 //   CheckboxGroup,
 //   ProgressCircle,

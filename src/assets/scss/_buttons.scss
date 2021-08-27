@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.#{$ns}-button {
+.btn {
   display: inline-block;
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
@@ -24,14 +24,14 @@
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
   //
-  .#{$ns}-button-check:focus + &,
+  .btn-check:focus + &,
   &:focus {
     outline: 0;
     box-shadow: $btn-focus-box-shadow;
   }
   //
-  .#{$ns}-button-check:checked + &,
-  .#{$ns}-button-check:active + &,
+  .btn-check:checked + &,
+  .btn-check:active + &,
   &:active,
   &.active {
     @include box-shadow($btn-active-box-shadow);
@@ -50,7 +50,7 @@
     @include box-shadow(none);
   }
   //
-  &.#{$ns}-button-icon {
+  &.btn-icon {
     @include button-size(
       $btn-icon-padding-y,
       $btn-icon-padding-x,
@@ -60,20 +60,20 @@
   }
 }
 
-.#{$ns}-button__inner {
+.btn__inner {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.#{$ns}-button__content {
+.btn__content {
   display: flex;
   align-items: center;
 }
 
-.#{$ns}-button-lg {
-  &.#{$ns}-button-icon {
-    .#{$ns}-button__icon {
+.btn-lg {
+  &.btn-icon {
+    .btn__icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,9 +83,9 @@
   }
 }
 
-.#{$ns}-button-sm {
-  &.#{$ns}-button-icon {
-    .#{$ns}-button__icon {
+.btn-sm {
+  &.btn-icon {
+    .btn__icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,8 +95,8 @@
   }
 }
 
-.#{$ns}-button__icon {
-  & + .#{$ns}-button__content {
+.btn__icon {
+  & + .btn__content {
     margin-left: 0.5rem;
   }
 }
@@ -107,13 +107,13 @@
 
 // scss-docs-start btn-variant-loops
 @each $color, $value in $theme-colors {
-  .#{$ns}-button-#{$color} {
+  .btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
 @each $color, $value in $theme-colors {
-  .#{$ns}-button-outline-#{$color} {
+  .btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
@@ -124,7 +124,7 @@
 //
 
 // Make a button look and behave like a link
-.#{$ns}-button-link {
+.btn-link {
   font-weight: $font-weight-normal;
   color: $btn-link-color;
   text-decoration: $link-decoration;
@@ -150,8 +150,8 @@
 // Icon Buttons size
 //
 
-.#{$ns}-button-lg {
-  &.#{$ns}-button-icon {
+.btn-lg {
+  &.btn-icon {
     @include button-size(
       $btn-icon-padding-y-lg,
       $btn-icon-padding-x-lg,
@@ -161,8 +161,8 @@
   }
 }
 
-.#{$ns}-button-sm {
-  &.#{$ns}-button-icon {
+.btn-sm {
+  &.btn-icon {
     @include button-size(
       $btn-icon-padding-y-sm,
       $btn-icon-padding-x-sm,
@@ -176,8 +176,8 @@
 // Button Sizes
 //
 
-.#{$ns}-button-lg {
-  &:not(.#{$ns}-button-icon) {
+.btn-lg {
+  &:not(.btn-icon) {
     @include button-size(
       $btn-padding-y-lg,
       $btn-padding-x-lg,
@@ -187,8 +187,8 @@
   }
 }
 
-.#{$ns}-button-sm {
-  &:not(.#{$ns}-button-icon) {
+.btn-sm {
+  &:not(.btn-icon) {
     @include button-size(
       $btn-padding-y-sm,
       $btn-padding-x-sm,

@@ -18,10 +18,26 @@
   flex: 1;
 }
 
-.button {
-  padding: 1rem;
-  .button-variant {
-    .rc-button {
+.rc-buttons {
+  margin: 1rem;
+  .rc-title {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+  }
+  .rc-group {
+    margin: 1rem;
+  }
+  .rc-button-variant,
+  .rc-button-type,
+  .rc-button-outline,
+  .rc-button-size,
+  .rc-button-with-icon,
+  .rc-button-with-loading,
+  .rc-button-disabled,
+  .rc-button-toggle {
+    margin: 1rem;
+    .btn {
       margin: 1rem;
     }
   }
@@ -150,5 +166,19 @@
         margin-right: 8px;
       }
     }
+  }
+}
+
+.rc-breadcrumbs {
+  .rc-breadcrumbs-basic {
+    margin: 1rem;
+  }
+  .rc-title {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+  }
+  .rc-breadcrumbs-group {
+    margin: 1rem;
   }
 }
