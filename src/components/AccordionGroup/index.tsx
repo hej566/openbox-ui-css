@@ -4,23 +4,24 @@ interface PropsTypes {
   children: React.ComponentElement<any, any>[];
   only?: boolean;
   flush?: boolean;
+  className?: string;
 }
 
 AccordionGroup.defaultProps = {
   only: false,
   flush: false,
+  className: '',
 } as PropsTypes;
 
 function AccordionGroup(props: PropsTypes) {
-  const { children, only, flush } = props;
+  const { children, only, flush, className } = props;
   const initObject: { [key: string]: boolean } = {};
   const [stateMap, setStateMap] = useState(initObject);
 
-  const accordionGroup: Array<string> = [`${ns}-accordion-group`];
+  const accordionGroupClasses: Array<string> = [`accordion-group`];
 
-  if (flush) {
-    accordionGroup.push(`${ns}-accordion-flush`);
-  }
+  if (flush) accordionGroupClasses.push(`accordion-flush`);
+  if (className) accordionGroupClasses.push(className);
 
   if (!Object.keys(stateMap).length) {
     React.Children.forEach(children, (child) => {
@@ -65,7 +66,7 @@ function AccordionGroup(props: PropsTypes) {
     }
   });
 
-  return <div className={accordionGroup.join(' ')}>{accordionList}</div>;
+  return <div className={accordionGroupClasses.join(' ')}>{accordionList}</div>;
 }
 
 export default AccordionGroup;

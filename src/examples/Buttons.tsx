@@ -73,7 +73,7 @@ function Buttons() {
   return (
     <div className="rc-buttons">
       <section className="rc-button-variant">
-        <div className="rc-title">Basic</div>
+        <div className="rc-title">Basic button</div>
         <div className="rc-group">
           <Button variant="primary">Primary</Button>
           <Button variant="secondary">Secondary</Button>
@@ -87,7 +87,7 @@ function Buttons() {
         </div>
       </section>
       <section className="rc-button-type">
-        <div className="rc-title">Types</div>
+        <div className="rc-title">Types button</div>
         <div className="rc-group">
           <Button variant="primary" type="button">
             Button
@@ -101,7 +101,7 @@ function Buttons() {
         </div>
       </section>
       <section className="rc-button-outline">
-        <div className="rc-title">Outline</div>
+        <div className="rc-title">Outline button</div>
         <div className="rc-group">
           <Button variant="outline-primary">Primary</Button>
           <Button variant="outline-secondary">Secondary</Button>
@@ -114,7 +114,7 @@ function Buttons() {
         </div>
       </section>
       <section className="rc-button-size">
-        <div className="rc-title">Size</div>
+        <div className="rc-title">Size button</div>
         <div className="rc-group">
           <Button variant="primary" size="sm">
             Small button
@@ -126,7 +126,7 @@ function Buttons() {
         </div>
       </section>
       <section className="rc-button-with-icon">
-        <div className="rc-title">Icon</div>
+        <div className="rc-title">Icon button</div>
         <div className="rc-group">
           <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />}>
             Primary
@@ -140,7 +140,7 @@ function Buttons() {
         </div>
       </section>
       <section className="rc-button-with-loading">
-        <div className="rc-title">Loading</div>
+        <div className="rc-title">Loading button</div>
         <div className="rc-group">
           <Button
             loading={loading1}
@@ -167,7 +167,7 @@ function Buttons() {
         </div>
       </section>
       <section className="rc-button-disabled">
-        <div className="rc-title">Loading</div>
+        <div className="rc-title">Disabled button</div>
         <div className="rc-group">
           <Button
             ButtonIcon={<Icon Component={Acorn} />}
@@ -196,7 +196,7 @@ function Buttons() {
         </div>
       </section>
       <div className="rc-button-toggle">
-        <div className="rc-title">Loading</div>
+        <div className="rc-title">Toggle button</div>
         <div className="rc-group">
           <Button toggle variant="primary">
             Primary

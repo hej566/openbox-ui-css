@@ -6,8 +6,8 @@ function Badges() {
   return (
     <div className="rc-badges">
       <section className="rc-badges-basic">
-        <div className="rc-title">Basic</div>
-        <div className="rc-badges-group">
+        <div className="rc-title">Basic badge</div>
+        <div className="rc-group">
           <h1>
             Example heading <Badge className="bg-secondary">New</Badge>
           </h1>
@@ -29,8 +29,8 @@ function Badges() {
         </div>
       </section>
       <section className="rc-badges-button">
-        <div className="rc-title">Buttons</div>
-        <div className="rc-badges-group">
+        <div className="rc-title">Button badge</div>
+        <div className="rc-group">
           <Button variant="primary">
             <span className="rc-badge-content">Notifications</span>
             <Badge className="bg-secondary">4</Badge>
@@ -38,8 +38,8 @@ function Badges() {
         </div>
       </section>
       <section className="rc-badges-positioned">
-        <div className="rc-title">Positioned</div>
-        <div className="rc-badges-group">
+        <div className="rc-title">Positioned badge</div>
+        <div className="rc-group">
           <Button variant="primary" className="position-relative">
             Inbox
             <Badge className="position-absolute top-0 start-100 translate-middle rounded-pill bg-danger">
@@ -55,8 +55,8 @@ function Badges() {
         </div>
       </section>
       <section className="rc-badges-bg-color">
-        <div className="rc-title">Background colors</div>
-        <div className="rc-badges-group">
+        <div className="rc-title">Background colors badge</div>
+        <div className="rc-group">
           <Badge className="bg-primary">Primary</Badge>
           <Badge className="bg-secondary">Secondary</Badge>
           <Badge className="bg-success">Success</Badge>
@@ -68,8 +68,8 @@ function Badges() {
         </div>
       </section>
       <section className="rc-badges-pill">
-        <div className="rc-title">Pill badges</div>
-        <div className="rc-badges-group">
+        <div className="rc-title">Pill badge</div>
+        <div className="rc-group">
           <Badge className="bg-primary rounded-pill">Primary</Badge>
           <Badge className="bg-secondary rounded-pill">Secondary</Badge>
           <Badge className="bg-success rounded-pill">Success</Badge>

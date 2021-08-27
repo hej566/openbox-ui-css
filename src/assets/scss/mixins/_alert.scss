@@ -4,7 +4,7 @@
   @include gradient-bg($background);
   border-color: $border;
 
-  .#{$ns}-alert-link {
+  .alert-link {
     color: shade-color($color, 20%);
   }
 }

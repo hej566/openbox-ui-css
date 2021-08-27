@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.#{$ns}-alert {
+.alert {
   position: relative;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
@@ -11,13 +11,13 @@
 }
 
 // Headings for larger alerts
-.#{$ns}-alert-heading {
+.alert-heading {
   // Specified to prevent conflicts of changing $headings-color
   color: inherit;
 }
 
 // Provide class for links that match alerts
-.#{$ns}-alert-link {
+.alert-link {
   font-weight: $alert-link-font-weight;
 }
 
@@ -25,11 +25,11 @@
 //
 // Expand the right padding and account for the close button's positioning.
 
-.#{$ns}-alert-dismissible {
+.alert-dismissible {
   padding-right: $alert-dismissible-padding-r;
 
   // Adjust close link position
-  .#{$ns}-btn-close {
+  .btn-close {
     position: absolute;
     top: 0;
     right: 0;
@@ -48,7 +48,7 @@
   @if (contrast-ratio($alert-background, $alert-color) < $min-contrast-ratio) {
     $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
   }
-  .#{$ns}-alert-#{$state} {
+  .alert-#{$state} {
     @include alert-variant($alert-background, $alert-border, $alert-color);
   }
 }

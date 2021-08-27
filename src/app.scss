@@ -41,115 +41,95 @@
       margin: 1rem;
     }
   }
-
-  .button-type {
-    .rc-button {
-      margin: 1rem;
-    }
-  }
-
-  .button-outline {
-    .rc-button {
-      margin: 1rem;
-    }
-  }
-
-  .button-size {
-    .rc-button {
-      margin: 1rem;
-    }
-  }
-
-  .button-with-icon {
-    .rc-button {
-      margin: 1rem;
-    }
-  }
-
-  .button-with-loading {
-    .rc-button {
-      margin: 1rem;
-    }
-  }
-
-  .button-disabled {
-    .rc-button {
-      margin: 1rem;
-    }
-  }
-
-  .button-toggle {
-    .rc-button {
-      margin: 1rem;
-    }
-  }
 }
 
-.button-group {
-  padding: 1rem;
-  .rc-button-group,
-  .rc-button-group-vertical {
-    margin: 1rem;
-  }
-}
-
-.rc-accordions {
+.rc-button-groups {
+  margin: 1rem;
   .rc-title {
     font-size: 1rem;
     text-align: center;
     font-weight: 700;
+  }
+  .rc-group {
+    margin: 1rem;
+  }
+  .rc-button-groups-basic,
+  .rc-button-groups-mixed,
+  .rc-button-groups-outline,
+  .rc-button-groups-size,
+  .rc-button-group-with-icon,
+  .rc-button-group-with-loading,
+  .rc-button-group-disabled,
+  .rc-button-group-toggle,
+  .rc-button-group-vertical {
+    margin: 1rem;
+    .btn-group,
+    .btn-group-vertical {
+      margin: 1rem;
+    }
+  }
+}
+
+.rc-accordions {
+  margin: 1rem;
+  .rc-title {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+  }
+  .rc-group {
+    margin: 1rem;
   }
   .rc-accordion-only,
   .rc-accordion-flush-only,
   .rc-accordion-always-open {
     margin: 1rem;
-    .rc-accordion-group {
-      margin: 1rem;
-    }
   }
 }
 
 .rc-alerts {
+  margin: 1rem;
   .rc-title {
     font-size: 1rem;
     text-align: center;
     font-weight: 700;
   }
+  .rc-group {
+    margin: 1rem;
+  }
   .rc-alert-variant,
   .rc-alert-link-content,
   .rc-alert-additional-content,
-  .rc-alert-icon,
+  .rc-alert-prefix-icon,
   .rc-alert-button {
     margin: 1rem;
-    .rc-alert-group {
-      margin: 1rem;
-    }
   }
-  .rc-alert {
-    &.rc-prefix-icon {
-      display: flex;
-      & > .rc-icon {
-        margin-right: 1rem;
-      }
+  .alert {
+    & > .icon {
+      margin-right: 0.5rem;
     }
-    &.rc-suffix-icon {
+    &.suffix-btn {
       display: flex;
       align-items: center;
       position: relative;
-      .rc-button-link {
-        position: absolute;
-        right: 0;
+      .btn-link {
         color: currentColor;
+        position: absolute;
+        right: 0.5rem;
       }
     }
   }
 }
 
 .rc-badges {
+  margin: 1rem;
   .rc-title {
     font-size: 1rem;
     text-align: center;
     font-weight: 700;
+  }
+  .rc-group {
+    margin: 1rem;
   }
   .rc-badges-basic,
   .rc-badges-button,
@@ -157,28 +137,25 @@
   .rc-badges-bg-color,
   .rc-badges-pill {
     margin: 1rem;
-    .rc-badges-group {
-      margin: 1rem;
-      .rc-button {
-        margin-right: 2rem;
-      }
-      .rc-badge-content {
-        margin-right: 8px;
-      }
+    .btn {
+      margin-right: 2rem;
     }
   }
 }
 
 .rc-breadcrumbs {
-  .rc-breadcrumbs-basic {
-    margin: 1rem;
-  }
+  margin: 1rem;
   .rc-title {
     font-size: 1rem;
     text-align: center;
     font-weight: 700;
   }
-  .rc-breadcrumbs-group {
+  .rc-group {
+    margin: 1rem;
+  }
+  .rc-breadcrumbs-basic,
+  .rc-breadcrumbs-divider,
+  .rc-breadcrumbs-no-divider {
     margin: 1rem;
   }
 }

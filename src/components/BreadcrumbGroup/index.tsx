@@ -5,16 +5,21 @@ import Slash from '../../assets/icons/svg/slash-regular.svg';
 interface PropsTypes {
   children: React.ReactComponentElement<any>[] | React.ReactComponentElement<any>;
   Divider?: React.ReactComponentElement<any>;
+  className?: string;
+  noDivider?: boolean;
 }
 
 BreadcrumbGroup.defaultProps = {
   Divider: <Icon Component={Slash} />,
-};
+  className: '',
+  noDivider: false,
+} as PropsTypes;
 
 function BreadcrumbGroup(props: PropsTypes) {
-  const { children, Divider } = props;
-  const breadcrumbGroupClasses: string[] = [];
-  breadcrumbGroupClasses.push('breadcrumb');
+  const { children, Divider, className, noDivider } = props;
+  const breadcrumbGroupClasses: string[] = ['breadcrumb'];
+
+  if (className) breadcrumbGroupClasses.push(className);
 
   const countChild = React.Children.count(children);
 
@@ -25,13 +30,16 @@ function BreadcrumbGroup(props: PropsTypes) {
   } else if (countChild > 1) {
     breadcrumbList = React.Children.map(children, (child, index) => {
       if (index !== 0) {
-        if (Divider) {
+        if (Divider && !noDivider) {
           return React.cloneElement(
             child,
             {},
             React.cloneElement(Divider, {}),
             child.props.children
           );
+        }
+        if (noDivider) {
+          return React.cloneElement(child, {}, child.props.children);
         }
       } else {
         return child;

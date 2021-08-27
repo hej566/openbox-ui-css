@@ -3,36 +3,43 @@ import { v4 as uuidv4 } from 'uuid';
 import Icon from '../Icon';
 import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 
-interface PropsType {
+interface PropsTypes {
   title: string;
   children: any;
   AccordionIcon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   open?: boolean;
+  className?: string;
 }
 
 AccordionItem.defaultProps = {
   AccordionIcon: <Icon Component={ChervonDown} />,
   onClick: () => {},
   open: false,
-};
+  title: '',
+  children: '',
+  className: '',
+} as PropsTypes;
 
-function AccordionItem(props: PropsType) {
-  const { title, children, AccordionIcon, onClick, open } = props;
+function AccordionItem(props: PropsTypes) {
+  const { title, children, AccordionIcon, onClick, open, className } = props;
   const headerUUID = uuidv4();
   const bodyUUID = uuidv4();
   const [accordionBodyHeight, setAccordionHeight] = useState(0);
   const [initAccordionItemState, setInitAccordionItemState] = useState(true);
   const accordionCollapseRef = useRef<HTMLDivElement>(null);
-  const accordionButton: Array<string> = [`${ns}-accordion-button`];
-  const accordionCollapse: Array<string> = [`${ns}-accordion-collapse`];
+  const accordionButtonClasses: Array<string> = ['accordion-button'];
+  const accordionCollapseClasses: Array<string> = ['accordion-collapse'];
+  const accordionItemClasses: Array<string> = ['accordion-item'];
+
+  if (className) accordionItemClasses.push(className);
 
   if (open) {
-    accordionCollapse.push('collapse');
-    accordionCollapse.push('show');
+    accordionCollapseClasses.push('collapse');
+    accordionCollapseClasses.push('show');
   } else {
-    accordionButton.push('collapsed');
-    accordionCollapse.push('collapse');
+    accordionButtonClasses.push('collapsed');
+    accordionCollapseClasses.push('collapse');
   }
 
   function transitionEndHandler() {
@@ -99,10 +106,10 @@ function AccordionItem(props: PropsType) {
   }, [open]);
 
   return (
-    <div className={`${ns}-accordion-item`}>
-      <h2 className={`${ns}-accordion-header`} id={headerUUID}>
+    <div className={accordionItemClasses.join(' ')}>
+      <h2 className="accordion-header" id={headerUUID}>
         <button
-          className={accordionButton.join(' ')}
+          className={accordionButtonClasses.join(' ')}
           type="button"
           data-toggle="collapse"
           data-target={`#${bodyUUID}`}
@@ -117,12 +124,12 @@ function AccordionItem(props: PropsType) {
       </h2>
       <div
         id={bodyUUID}
-        className={accordionCollapse.join(' ')}
+        className={accordionCollapseClasses.join(' ')}
         aria-labelledby={headerUUID}
         onTransitionEnd={transitionEndHandler}
         ref={accordionCollapseRef}
       >
-        <div className={`${ns}-accordion-body`}>{children}</div>
+        <div className="accordion-body">{children}</div>
       </div>
     </div>
   );

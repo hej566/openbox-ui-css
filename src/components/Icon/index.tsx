@@ -6,6 +6,7 @@ interface PropsTypes {
   size?: string;
   Component: React.FunctionComponent<React.SVGProps<SVGElement>>;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  className?: string;
 }
 
 Icon.defaultProps = {
@@ -13,15 +14,17 @@ Icon.defaultProps = {
   name: '',
   size: '',
   onClick: () => {},
+  className: '',
 };
 
 function Icon(props: PropsTypes) {
-  const { rotating, Component, name, size, onClick } = props;
+  const { rotating, Component, name, size, onClick, className } = props;
   const iconClasses: Array<string> = [`icon`];
 
   if (rotating) iconClasses.push(`rotating`);
   if (name) iconClasses.push(`${name}`);
   if (size) iconClasses.push(`icon-${size}`);
+  if (className) iconClasses.push(className);
 
   return (
     <i className={iconClasses.join(' ')} onClick={onClick}>

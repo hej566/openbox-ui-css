@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Buttons from './examples/Buttons';
-import ButtonGroup from './examples/ButtonGroup';
+import ButtonsGroup from './examples/ButtonsGroup';
 import Accordion from './examples/Accordion';
 import Alerts from './examples/Alerts';
 import Badges from './examples/Badges';
@@ -38,7 +38,7 @@ function App() {
               <Buttons />
             </Route>
             <Route exact path="/buttons-group">
-              <ButtonGroup />
+              <ButtonsGroup />
             </Route>
             <Route exact path="/accordions">
               <Accordion />

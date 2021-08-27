@@ -1,17 +1,18 @@
 import React from 'react';
 
 interface PropsTypes {
-  children: React.ReactNode;
+  children: any;
   className?: string;
 }
 
 Badge.defaultProps = {
   className: '',
-};
+  children: '',
+} as PropsTypes;
 
 function Badge(props: PropsTypes) {
   const { children, className } = props;
-  const badgeClasses: string[] = [`${ns}-badge`];
+  const badgeClasses: string[] = [`badge`];
   if (className) badgeClasses.push(className);
   return <span className={badgeClasses.join(' ')}>{children}</span>;
 }
