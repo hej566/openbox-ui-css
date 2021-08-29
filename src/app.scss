@@ -18,16 +18,18 @@
   flex: 1;
 }
 
+.rc-title {
+  font-size: 1rem;
+  text-align: start;
+  font-weight: 700;
+  margin-left: 2rem;
+}
+.rc-group {
+  margin: 1rem;
+}
+
 .rc-buttons {
   margin: 1rem;
-  .rc-title {
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 700;
-  }
-  .rc-group {
-    margin: 1rem;
-  }
   .rc-button-variant,
   .rc-button-type,
   .rc-button-outline,
@@ -45,14 +47,6 @@
 
 .rc-button-groups {
   margin: 1rem;
-  .rc-title {
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 700;
-  }
-  .rc-group {
-    margin: 1rem;
-  }
   .rc-button-groups-basic,
   .rc-button-groups-mixed,
   .rc-button-groups-outline,
@@ -72,14 +66,6 @@
 
 .rc-accordions {
   margin: 1rem;
-  .rc-title {
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 700;
-  }
-  .rc-group {
-    margin: 1rem;
-  }
   .rc-accordion-only,
   .rc-accordion-flush-only,
   .rc-accordion-always-open {
@@ -89,14 +75,6 @@
 
 .rc-alerts {
   margin: 1rem;
-  .rc-title {
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 700;
-  }
-  .rc-group {
-    margin: 1rem;
-  }
   .rc-alert-variant,
   .rc-alert-link-content,
   .rc-alert-additional-content,
@@ -123,14 +101,6 @@
 
 .rc-badges {
   margin: 1rem;
-  .rc-title {
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 700;
-  }
-  .rc-group {
-    margin: 1rem;
-  }
   .rc-badges-basic,
   .rc-badges-button,
   .rc-badges-positioned,
@@ -148,14 +118,6 @@
 
 .rc-breadcrumbs {
   margin: 1rem;
-  .rc-title {
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 700;
-  }
-  .rc-group {
-    margin: 1rem;
-  }
   .rc-breadcrumbs-basic,
   .rc-breadcrumbs-divider,
   .rc-breadcrumbs-no-divider {
