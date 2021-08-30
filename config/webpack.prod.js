@@ -22,9 +22,6 @@ module.exports = {
       cleanStaleWebpackAssets: false,
       cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist')],
     }),
-    new webpack.DefinePlugin({
-      ns: JSON.stringify('c4it'),
-    }),
     new MiniCssExtractPlugin({
       filename: 'index.css',
     }),

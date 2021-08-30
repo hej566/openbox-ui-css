@@ -6,6 +6,7 @@ import Accordion from './examples/Accordion';
 import Alerts from './examples/Alerts';
 import Badges from './examples/Badges';
 import Breadcrumbs from './examples/Breadcrumb';
+import Carousels from './examples/Carousels';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           <li>
             <Link to="/breadcrumbs">Breadcrumbs</Link>
           </li>
+          <li>
+            <Link to="/carousels">Carousels</Link>
+          </li>
         </ul>
         <hr />
         <div className="main bg-light">
@@ -51,6 +55,9 @@ function App() {
             </Route>
             <Route exact path="/breadcrumbs">
               <Breadcrumbs />
+            </Route>
+            <Route exact path="/carousels">
+              <Carousels />
             </Route>
           </Switch>
         </div>

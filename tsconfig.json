@@ -67,9 +67,11 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
   "include": [
-    "src",
+    "src/**/*",
+    "src/declaration/img.d.ts",
     "src/declaration/svg.d.ts",
     "src/declaration/ns.d.ts",
-    "src/declaration/icon.d.ts"
+    "src/declaration/icon.d.ts",
+    "src/declaration/deepClone.d.ts"
   ]
 }

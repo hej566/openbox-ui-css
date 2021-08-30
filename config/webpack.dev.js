@@ -18,7 +18,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     host: '127.0.0.1',
-    port: 8081,
+    port: 3000,
   },
   output: {
     filename: '[name].[chunkhash:8].bundle.js',
@@ -29,9 +29,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:8].css',
-    }),
-    new webpack.DefinePlugin({
-      ns: JSON.stringify('rc'),
     }),
     new BundleAnalyzerPlugin(),
     new ForkTsCheckerWebpackPlugin(),
