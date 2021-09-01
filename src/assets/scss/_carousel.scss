@@ -87,6 +87,7 @@
 
 .carousel-control-prev,
 .carousel-control-next {
+  cursor: pointer;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -176,7 +177,7 @@
   margin-left: $carousel-control-width;
   list-style: none;
 
-  [data-bs-target] {
+  .carousel-indicator {
     box-sizing: content-box;
     flex: 0 1 auto;
     width: $carousel-indicator-width;

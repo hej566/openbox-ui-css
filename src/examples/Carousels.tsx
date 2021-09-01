@@ -25,6 +25,12 @@ function Carousels() {
           <Carousel imgSrc={imgSrc} className="d-block w-100" timing={3000} control />
         </div>
       </section>
+      <section className="rc-carousel-control-indicator">
+        <div className="rc-title">Control carousel</div>
+        <div className="rc-group">
+          <Carousel imgSrc={imgSrc} className="d-block w-100" timing={3000} control indicator />
+        </div>
+      </section>
     </div>
   );
 }

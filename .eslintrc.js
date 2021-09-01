@@ -26,5 +26,6 @@ module.exports = {
     'react/button-has-type': 0,
     'no-lonely-if': 0,
     'no-unused-vars': 0,
+    'no-shadow': 0,
   },
 };
