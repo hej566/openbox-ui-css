@@ -6,9 +6,27 @@ import img3 from '../assets/img/867-600x400.jpeg';
 
 function Carousels() {
   const imgSrc = [
-    { src: img1, active: true, index: '1', title: 'First slide label', content: 'Some representative placeholder content for the first slide.' },
-    { src: img2, active: false, index: '2', title: 'Second slide label', content: 'Some representative placeholder content for the second slide.' },
-    { src: img3, active: false, index: '3', title: 'Third slide label', content: 'Some representative placeholder content for the third slide.' },
+    {
+      src: img1,
+      active: true,
+      index: '1',
+      title: 'First slide label',
+      content: 'Some representative placeholder content for the first slide.',
+    },
+    {
+      src: img2,
+      active: false,
+      index: '2',
+      title: 'Second slide label',
+      content: 'Some representative placeholder content for the second slide.',
+    },
+    {
+      src: img3,
+      active: false,
+      index: '3',
+      title: 'Third slide label',
+      content: 'Some representative placeholder content for the third slide.',
+    },
   ];
 
   return (

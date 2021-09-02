@@ -145,9 +145,9 @@ function ButtonsGroup() {
         <div className="rc-title">Icon button group</div>
         <div className="rc-group">
           <ButtonGroup>
-            <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />} />
-            <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />} />
-            <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />} />
+            <Button variant="primary" PrefixIcon={<Icon Component={Acorn} />} />
+            <Button variant="primary" PrefixIcon={<Icon Component={Acorn} />} />
+            <Button variant="primary" PrefixIcon={<Icon Component={Acorn} />} />
           </ButtonGroup>
         </div>
       </section>
@@ -157,38 +157,38 @@ function ButtonsGroup() {
           <ButtonGroup>
             <Button
               loading={loading1}
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler1}
             />
             <Button
               loading={loading2}
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler2}
             />
             <Button
               loading={loading3}
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler3}
             />
           </ButtonGroup>
           <ButtonGroup>
             <Button
               loading={loading2}
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler2}
             >
               Left
             </Button>
             <Button
               loading={loading3}
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler3}
             >
               Middle
             </Button>
             <Button
               loading={loading4}
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler4}
             >
               Right
@@ -201,7 +201,7 @@ function ButtonsGroup() {
         <div className="rc-group">
           <ButtonGroup>
             <Button
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler5}
               disabled={disabled5}
             >
@@ -210,7 +210,7 @@ function ButtonsGroup() {
             <Button
               disabled={disabled6}
               variant="secondary"
-              ButtonIcon={<Icon Component={Acorn} />}
+              PrefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler6}
             >
               Middle

@@ -131,7 +131,7 @@ function Alerts() {
             <span>
               <strong>Holy guacamole!</strong> You should check in on some of those fields below.
             </span>
-            <Button variant="link" ButtonIcon={<Icon Component={Times} size="lg" />} />
+            <Button variant="link" PrefixIcon={<Icon Component={Times} size="lg" />} />
           </Alert>
         </div>
       </section>

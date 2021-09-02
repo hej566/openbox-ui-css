@@ -10,14 +10,18 @@ interface PropsTypes {
   type?: 'button' | 'reset' | 'submit';
   variant?: string;
   disabled?: boolean;
-  ButtonIcon?: React.ReactNode;
+  PrefixIcon?: React.ReactNode;
+  SuffixIcon?: React.ReactNode;
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   className?: string;
+  refButton: React.Ref<HTMLButtonElement>;
 }
 
 Button.defaultProps = {
   ButtonSpinner: null,
+  PrefixIcon: null,
+  SuffixIcon: null,
   loading: false,
   size: '',
   toggle: false,
@@ -27,6 +31,7 @@ Button.defaultProps = {
   children: null,
   onClick: () => {},
   className: '',
+  refButton: null,
 } as PropsTypes;
 
 function Button(props: PropsTypes) {
@@ -39,13 +44,16 @@ function Button(props: PropsTypes) {
     toggle,
     variant,
     disabled,
-    ButtonIcon,
+    PrefixIcon,
+    SuffixIcon,
     children,
     onClick,
     className,
+    refButton,
   } = props;
 
-  let buttonIcon = ButtonIcon;
+  let prefixIcon = PrefixIcon;
+  let suffixIcon = SuffixIcon;
   let defaultSpinner = null;
   let normalOrToggleButton = null;
   const buttonClasses: Array<String> = [`btn`];
@@ -56,9 +64,9 @@ function Button(props: PropsTypes) {
   if (!children) buttonClasses.push(`btn-icon`);
   if (className) buttonClasses.push(className);
   if (loading && SpinnerIcon) {
-    buttonIcon = SpinnerIcon;
+    prefixIcon = SpinnerIcon;
   } else if (loading && !SpinnerIcon) {
-    buttonIcon = defaultSpinner;
+    prefixIcon = defaultSpinner;
   }
 
   function clickInnerHandler() {
@@ -82,19 +90,22 @@ function Button(props: PropsTypes) {
         aria-pressed={pressed}
         data-toggle="button"
         aria-autocomplete="none"
+        ref={refButton}
       >
         <div className="btn__inner">
-          {buttonIcon && <span className="btn__icon">{buttonIcon}</span>}
+          {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
           {children && <span className="btn__content">{children}</span>}
+          {suffixIcon && <span className="btn__icon">{suffixIcon}</span>}
         </div>
       </button>
     );
   } else {
     normalOrToggleButton = (
-      <button className={buttonClasses.join(' ')} disabled={disabled} onClick={onClick} type={type}>
+      <button className={buttonClasses.join(' ')} disabled={disabled} onClick={onClick} type={type} ref={refButton}>
         <div className="btn__inner">
-          {buttonIcon && <span className="btn__icon">{buttonIcon}</span>}
+          {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
           {children && <span className="btn__content">{children}</span>}
+          {suffixIcon && <span className="btn__icon">{suffixIcon}</span>}
         </div>
       </button>
     );

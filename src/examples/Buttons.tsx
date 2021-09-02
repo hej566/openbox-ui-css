@@ -128,14 +128,22 @@ function Buttons() {
       <section className="rc-button-with-icon">
         <div className="rc-title">Icon button</div>
         <div className="rc-group">
-          <Button variant="primary" ButtonIcon={<Icon Component={Acorn} />}>
+          <Button variant="primary" PrefixIcon={<Icon Component={Acorn} />}>
             Primary
           </Button>
-          <Button variant="outline-success" ButtonIcon={<Icon Component={Acorn} />} />
-          <Button variant="danger" ButtonIcon={<Icon Component={Acorn} />} />
-          <Button variant="warning" ButtonIcon={<Icon Component={Acorn} />} />
-          <Button variant="link" ButtonIcon={<Icon Component={Acorn} />}>
+          <Button variant="outline-success" PrefixIcon={<Icon Component={Acorn} />} />
+          <Button variant="danger" PrefixIcon={<Icon Component={Acorn} />} />
+          <Button variant="warning" PrefixIcon={<Icon Component={Acorn} />} />
+          <Button variant="link" PrefixIcon={<Icon Component={Acorn} />}>
             Link
+          </Button>
+        </div>
+      </section>
+      <section className="rc-button-with-suffix-icon">
+        <div className="rc-title">Suffix icon button</div>
+        <div className="rc-group">
+          <Button variant="primary" SuffixIcon={<Icon Component={Acorn} />}>
+            Primary
           </Button>
         </div>
       </section>
@@ -144,12 +152,12 @@ function Buttons() {
         <div className="rc-group">
           <Button
             loading={loading1}
-            ButtonIcon={<Icon Component={Acorn} />}
+            PrefixIcon={<Icon Component={Acorn} />}
             onClick={clickHandler1}
           />
           <Button
             loading={loading2}
-            ButtonIcon={<Icon Component={Acorn} />}
+            PrefixIcon={<Icon Component={Acorn} />}
             onClick={clickHandler2}
           >
             Button
@@ -170,14 +178,14 @@ function Buttons() {
         <div className="rc-title">Disabled button</div>
         <div className="rc-group">
           <Button
-            ButtonIcon={<Icon Component={Acorn} />}
+            PrefixIcon={<Icon Component={Acorn} />}
             onClick={clickHandler5}
             disabled={disabled5}
           />
           <Button
             disabled={disabled6}
             variant="secondary"
-            ButtonIcon={<Icon Component={Acorn} />}
+            PrefixIcon={<Icon Component={Acorn} />}
             onClick={clickHandler6}
           >
             Button

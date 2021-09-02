@@ -35,6 +35,7 @@
   .rc-button-outline,
   .rc-button-size,
   .rc-button-with-icon,
+  .rc-button-with-suffix-icon,
   .rc-button-with-loading,
   .rc-button-disabled,
   .rc-button-toggle {
@@ -134,6 +135,26 @@
   .rc-carousel-control,
   .rc-carousel-control-indicator,
   .rc-carousel-control-fade {
+    margin: 1rem;
+  }
+}
+
+
+.rc-dropdowns {
+  margin: 1rem;
+  .rc-group {
+    .dropdown {
+      display: inline-block;
+      margin: 1rem;
+    }
+  }
+  .rc-dropdown-basic,
+  .rc-dropdown-variant,
+  .rc-dropdown-split-button,
+  .rc-dropdown-size,
+  .rc-dropdown-dark,
+  .rc-dropdown-item-disabled,
+  .rc-dropdown-disabled {
     margin: 1rem;
   }
 }

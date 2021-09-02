@@ -1,17 +1,17 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AccordionItem from '../components/AccordionItem';
-import AccordionGroup from '../components/AccordionGroup';
+import Accordion from '../components/Accordion';
 import Icon from '../components/Icon';
 import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 
-function Accordion() {
+function Accordions() {
   return (
     <div className="rc-accordions">
       <section className="rc-accordion-only">
         <div className="rc-title">Basic accordion</div>
         <div className="rc-group">
-          <AccordionGroup only>
+          <Accordion only>
             <AccordionItem
               title=" Accordion Item #1"
               open={false}
@@ -41,14 +41,14 @@ function Accordion() {
               our default variables. It's also worth noting that just about any HTML can go within
               the <code>.accordion-body</code>, though the transition does limit overflow.
             </AccordionItem>
-          </AccordionGroup>
+          </Accordion>
         </div>
       </section>
 
       <section className="rc-accordion-flush-only">
         <div className="rc-title">Flush accordion</div>
         <div className="rc-group">
-          <AccordionGroup only flush>
+          <Accordion only flush>
             <AccordionItem
               title=" Accordion Item #1"
               open={false}
@@ -78,14 +78,14 @@ function Accordion() {
               our default variables. It's also worth noting that just about any HTML can go within
               the <code>.accordion-body</code>, though the transition does limit overflow.
             </AccordionItem>
-          </AccordionGroup>
+          </Accordion>
         </div>
       </section>
 
       <section className="rc-accordion-always-open">
         <div className="rc-title">Always open</div>
         <div className="rc-group">
-          <AccordionGroup>
+          <Accordion>
             <AccordionItem
               title=" Accordion Item #1"
               open={false}
@@ -115,11 +115,11 @@ function Accordion() {
               our default variables. It's also worth noting that just about any HTML can go within
               the <code>.accordion-body</code>, though the transition does limit overflow.
             </AccordionItem>
-          </AccordionGroup>
+          </Accordion>
         </div>
       </section>
     </div>
   );
 }
 
-export default Accordion;
+export default Accordions;

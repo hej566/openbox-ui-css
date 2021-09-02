@@ -2,11 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Buttons from './examples/Buttons';
 import ButtonsGroup from './examples/ButtonsGroup';
-import Accordion from './examples/Accordion';
+import Accordions from './examples/Accordions';
 import Alerts from './examples/Alerts';
 import Badges from './examples/Badges';
-import Breadcrumbs from './examples/Breadcrumb';
+import Breadcrumbs from './examples/Breadcrumbs';
 import Carousels from './examples/Carousels';
+import Dropdowns from './examples/Dropdowns';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Link to="/buttons-group">Buttons Group</Link>
           </li>
           <li>
-            <Link to="/accordions">Accordion</Link>
+            <Link to="/accordions">Accordions</Link>
           </li>
           <li>
             <Link to="/alerts">Alerts</Link>
@@ -34,6 +35,9 @@ function App() {
           <li>
             <Link to="/carousels">Carousels</Link>
           </li>
+          <li>
+            <Link to="/dropdowns">Dropdowns</Link>
+          </li>
         </ul>
         <hr />
         <div className="main bg-light">
@@ -45,7 +49,7 @@ function App() {
               <ButtonsGroup />
             </Route>
             <Route exact path="/accordions">
-              <Accordion />
+              <Accordions />
             </Route>
             <Route exact path="/alerts">
               <Alerts />
@@ -58,6 +62,9 @@ function App() {
             </Route>
             <Route exact path="/carousels">
               <Carousels />
+            </Route>
+            <Route exact path="/dropdowns">
+              <Dropdowns />
             </Route>
           </Switch>
         </div>

@@ -24,12 +24,13 @@
   "author": "hej566",
   "license": "ISC",
   "dependencies": {
+    "@tippyjs/react": "^4.2.5",
     "faker": "^5.1.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
-    "tippy.js": "^6.2.6",
+    "tippy.js": "^6.3.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

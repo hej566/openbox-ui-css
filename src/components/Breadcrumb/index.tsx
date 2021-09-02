@@ -9,13 +9,13 @@ interface PropsTypes {
   noDivider?: boolean;
 }
 
-BreadcrumbGroup.defaultProps = {
+Breadcrumb.defaultProps = {
   Divider: <Icon Component={Slash} />,
   className: '',
   noDivider: false,
 } as PropsTypes;
 
-function BreadcrumbGroup(props: PropsTypes) {
+function Breadcrumb(props: PropsTypes) {
   const { children, Divider, className, noDivider } = props;
   const breadcrumbGroupClasses: string[] = ['breadcrumb'];
 
@@ -54,4 +54,4 @@ function BreadcrumbGroup(props: PropsTypes) {
   );
 }
 
-export default BreadcrumbGroup;
+export default Breadcrumb;

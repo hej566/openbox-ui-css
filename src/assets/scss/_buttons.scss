@@ -101,6 +101,12 @@
   }
 }
 
+.btn__content {
+  & + .btn__icon {
+    margin-left: 0.5rem;
+  }
+}
+
 //
 // Alternate buttons
 //

@@ -15,9 +15,7 @@
 
 // The dropdown menu
 .dropdown-menu {
-  position: absolute;
-  z-index: $zindex-dropdown;
-  display: none; // none by default, but block on "open" of the menu
+  margin: 0; 
   min-width: $dropdown-min-width;
   padding: $dropdown-padding-y $dropdown-padding-x;
   margin: 0; // Override default margin of ul
@@ -31,11 +29,30 @@
   @include border-radius($dropdown-border-radius);
   @include box-shadow($dropdown-box-shadow);
 
-  &[data-bs-popper] {
-    top: 100%;
-    left: 0;
-    margin-top: $dropdown-spacer;
-  }
+
+
+
+  // position: absolute;
+  // z-index: $zindex-dropdown;
+  // display: none; // none by default, but block on "open" of the menu
+  // min-width: $dropdown-min-width;
+  // padding: $dropdown-padding-y $dropdown-padding-x;
+  // margin: 0; // Override default margin of ul
+  // @include font-size($dropdown-font-size);
+  // color: $dropdown-color;
+  // text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  // list-style: none;
+  // background-color: $dropdown-bg;
+  // background-clip: padding-box;
+  // border: $dropdown-border-width solid $dropdown-border-color;
+  // @include border-radius($dropdown-border-radius);
+  // @include box-shadow($dropdown-box-shadow);
+
+  // &[data-bs-popper] {
+  //   top: 100%;
+  //   left: 0;
+  //   margin-top: $dropdown-spacer;
+  // }
 }
 
 // scss-docs-start responsive-breakpoints
@@ -169,10 +186,11 @@
   &.disabled,
   &:disabled {
     color: $dropdown-link-disabled-color;
-    pointer-events: none;
+    // pointer-events: none;
     background-color: transparent;
     // Remove CSS gradients if they're enabled
     background-image: if($enable-gradients, none, null);
+    cursor: not-allowed;
   }
 }
 
@@ -222,6 +240,7 @@
     &.disabled,
     &:disabled {
       color: $dropdown-dark-link-disabled-color;
+      cursor: not-allowed;
     }
   }
 

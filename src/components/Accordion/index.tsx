@@ -7,13 +7,13 @@ interface PropsTypes {
   className?: string;
 }
 
-AccordionGroup.defaultProps = {
+Accordion.defaultProps = {
   only: false,
   flush: false,
   className: '',
 } as PropsTypes;
 
-function AccordionGroup(props: PropsTypes) {
+function Accordion(props: PropsTypes) {
   const { children, only, flush, className } = props;
   const initObject: { [key: string]: boolean } = {};
   const [stateMap, setStateMap] = useState(initObject);
@@ -69,4 +69,4 @@ function AccordionGroup(props: PropsTypes) {
   return <div className={accordionGroupClasses.join(' ')}>{accordionList}</div>;
 }
 
-export default AccordionGroup;
+export default Accordion;
