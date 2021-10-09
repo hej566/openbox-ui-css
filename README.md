@@ -10,7 +10,7 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [x] Button group
 - [x] Carousel
 - [x] Dropdowns
-- [ ] List group
+- [x] List group
 - [ ] Modal
 - [ ] Navs & tabs
 - [ ] Navbar
