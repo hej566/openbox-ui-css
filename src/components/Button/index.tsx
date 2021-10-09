@@ -101,7 +101,13 @@ function Button(props: PropsTypes) {
     );
   } else {
     normalOrToggleButton = (
-      <button className={buttonClasses.join(' ')} disabled={disabled} onClick={onClick} type={type} ref={refButton}>
+      <button
+        className={buttonClasses.join(' ')}
+        disabled={disabled}
+        onClick={onClick}
+        type={type}
+        ref={refButton}
+      >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
           {children && <span className="btn__content">{children}</span>}

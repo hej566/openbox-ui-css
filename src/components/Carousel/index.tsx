@@ -42,40 +42,14 @@ function Carousel(props: PropsTypes) {
   const carouselControlNextRef = useRef<HTMLDivElement>(null);
   const carouselIndicatorsRef = useRef<HTMLDivElement>(null);
   const [imgSrcState, setImgSrcState] = useState(imgSrc);
+  const [pause, setPauseState] = useState(false);
   const carouselClasses: string[] = ['carousel', 'slide'];
   let timerId: any = null;
   const indicatorsListenerObj: { [key: number]: EventListenerObject } = {};
 
   if (className) carouselClasses.push(className);
 
-  const listImage = imgSrcState.map((item) => {
-    return (
-      <div
-        className={item.active ? 'carousel-item active' : 'carousel-item'}
-        key={item.index}
-        onTransitionEnd={transitionEndHandler}
-      >
-        <img src={item.src} className={imgClassName} />
-        <div className="carousel-caption d-none d-md-block">
-          {item.title && <h5>{item.title}</h5>}
-          {item.content && <p>{item.content}</p>}
-        </div>
-      </div>
-    );
-  });
-
-  const indicators = imgSrcState.map((item) => {
-    return (
-      <button
-        type="button"
-        className={item.active ? 'active carousel-indicator' : 'carousel-indicator'}
-        aria-current={item.active}
-        key={item.index}
-      />
-    );
-  });
-
-  function freshImgSrcState() {
+  function updateImgState() {
     const carouselInnerDom = carouselInnerRef.current;
     if (carouselInnerDom) {
       const deepCopyImgSrcState = deepClone(imgSrcState);
@@ -97,10 +71,6 @@ function Carousel(props: PropsTypes) {
   // event handler
   function transitionAfterHandler() {
     const carouselDom = carouselRef.current;
-    if (carouselDom && carouselDom.dataset.timerId !== '0') {
-      freshImgSrcState();
-    }
-
     if (control) {
       const carouselControlPrevDom = carouselControlPrevRef.current;
       const carouselControlNextDom = carouselControlNextRef.current;
@@ -109,7 +79,6 @@ function Carousel(props: PropsTypes) {
         carouselControlNextDom.addEventListener('click', nextSlideHandler, false);
       }
     }
-
     if (indicator) {
       const carouselIndicatorsDom = carouselIndicatorsRef.current;
       if (carouselIndicatorsDom) {
@@ -117,6 +86,10 @@ function Carousel(props: PropsTypes) {
           item.addEventListener('click', indicatorsListenerObj[key]);
         });
       }
+    }
+
+    if (carouselDom) {
+      updateImgState();
     }
   }
 
@@ -150,7 +123,6 @@ function Carousel(props: PropsTypes) {
       const carouselInnerDom = carouselInnerRef.current;
       const carouselDom = carouselRef.current;
       if (carouselInnerDom && carouselDom) {
-        carouselDom.dataset.timerId = '0';
         createSlideAnimationByIndicator(carouselInnerDom.children, key);
       }
     }
@@ -159,59 +131,22 @@ function Carousel(props: PropsTypes) {
     };
   }
 
-  function mouseEnterHandler() {
+  function mouseenterHandler() {
     const carouselDom = carouselRef.current;
-    if (indicator) {
-      const carouselIndicatorsDom = carouselIndicatorsRef.current;
-      if (carouselIndicatorsDom) {
-        Array.from(carouselIndicatorsDom.children).forEach((item, key) => {
-          indicatorsListenerObj[key] = indicatorHandler(key);
-          item.addEventListener('click', indicatorsListenerObj[key]);
-        });
-      }
-    }
-    if (control) {
-      const carouselControlPrevDom = carouselControlPrevRef.current;
-      const carouselControlNextDom = carouselControlNextRef.current;
-      if (carouselControlPrevDom && carouselControlNextDom) {
-        carouselControlPrevDom.addEventListener('click', prevSlideHandler);
-        carouselControlNextDom.addEventListener('click', nextSlideHandler);
-      }
-    }
     if (carouselDom) {
       clearTimeout(Number(carouselDom.dataset.timerId));
+      setPauseState(true);
     }
   }
 
-  function mouseLeaveHandler() {
-    const carouselInnerDom = carouselInnerRef.current;
-    const carouselDom = carouselRef.current;
-    if (indicator) {
-      const carouselIndicatorsDom = carouselIndicatorsRef.current;
-      if (carouselIndicatorsDom)
-        Array.from(carouselIndicatorsDom.children).forEach((item, key) => {
-          item.removeEventListener('click', indicatorsListenerObj[key]);
-        });
-    }
-    if (control) {
-      const carouselControlPrevDom = carouselControlPrevRef.current;
-      const carouselControlNextDom = carouselControlNextRef.current;
-      if (carouselControlPrevDom && carouselControlNextDom) {
-        carouselControlPrevDom.removeEventListener('click', prevSlideHandler);
-        carouselControlNextDom.removeEventListener('click', nextSlideHandler);
-      }
-    }
-    if (carouselInnerDom && carouselDom) {
-      timerId = setSlideTimer(carouselInnerDom.children, SlideDirection.RTL);
-      carouselDom.dataset.timerId = String(timerId);
-    }
+  function mouseleaveHandler() {
+    setPauseState(false);
   }
 
   function prevSlideHandler() {
     const carouselInnerDom = carouselInnerRef.current;
     const carouselDom = carouselRef.current;
     if (carouselInnerDom && carouselDom) {
-      carouselDom.dataset.timerId = '0';
       createSlideAnimation(carouselInnerDom.children, SlideDirection.RTL);
     }
   }
@@ -220,7 +155,6 @@ function Carousel(props: PropsTypes) {
     const carouselInnerDom = carouselInnerRef.current;
     const carouselDom = carouselRef.current;
     if (carouselInnerDom && carouselDom) {
-      carouselDom.dataset.timerId = '0';
       createSlideAnimation(carouselInnerDom.children, SlideDirection.LTR);
     }
   }
@@ -229,6 +163,7 @@ function Carousel(props: PropsTypes) {
   function createSlideAnimationByIndicator(items: HTMLCollection, nextIndex: number) {
     let activeIndex = -1;
     let indicators: HTMLCollection;
+
     Array.from(items).forEach((item, key) => {
       if (item.classList.contains('active')) activeIndex = key;
     });
@@ -281,23 +216,27 @@ function Carousel(props: PropsTypes) {
   function createSlideAnimation(items: HTMLCollection, direction: SlideDirection) {
     let activeIndex = -1;
     let indicators: HTMLCollection;
+
     Array.from(items).forEach((item, key) => {
       if (item.classList.contains('active')) activeIndex = key;
     });
 
-    const carouselControlPrevDom = carouselControlPrevRef.current;
-    const carouselControlNextDom = carouselControlNextRef.current;
-    if (carouselControlPrevDom && carouselControlNextDom) {
-      carouselControlPrevDom.removeEventListener('click', prevSlideHandler);
-      carouselControlNextDom.removeEventListener('click', nextSlideHandler);
+    if (control) {
+      const carouselControlPrevDom = carouselControlPrevRef.current;
+      const carouselControlNextDom = carouselControlNextRef.current;
+      if (carouselControlPrevDom && carouselControlNextDom) {
+        carouselControlPrevDom.removeEventListener('click', prevSlideHandler);
+        carouselControlNextDom.removeEventListener('click', nextSlideHandler);
+      }
     }
 
     if (indicator) {
       const carouselIndicatorsDom = carouselIndicatorsRef.current;
       if (carouselIndicatorsDom) {
         indicators = carouselIndicatorsDom.children;
-        Array.from(indicators).forEach((item) => {
+        Array.from(indicators).forEach((item, key) => {
           item.classList.remove('active');
+          item.removeEventListener('click', indicatorsListenerObj[key]);
         });
       }
     }
@@ -345,10 +284,13 @@ function Carousel(props: PropsTypes) {
     }
   }
 
-  function setSlideTimer(items: HTMLCollection, direction: SlideDirection) {
-    return setTimeout(() => {
-      createSlideAnimation(items, direction);
-    }, timing);
+  function setTimer(items: HTMLCollection, direction: SlideDirection) {
+    if (!pause) {
+      return setTimeout(() => {
+        createSlideAnimation(items, direction);
+      }, timing);
+    }
+    return -1;
   }
 
   useEffect(() => {
@@ -357,8 +299,25 @@ function Carousel(props: PropsTypes) {
     const carouselControlNextDom = carouselControlNextRef.current;
     const carouselDom = carouselRef.current;
     if (carouselInnerDom && carouselDom) {
-      timerId = setSlideTimer(carouselInnerDom.children, SlideDirection.RTL);
+      timerId = setTimer(carouselInnerDom.children, SlideDirection.RTL);
       carouselDom.dataset.timerId = String(timerId);
+    }
+    if (indicator) {
+      const carouselIndicatorsDom = carouselIndicatorsRef.current;
+      if (carouselIndicatorsDom) {
+        Array.from(carouselIndicatorsDom.children).forEach((item, key) => {
+          indicatorsListenerObj[key] = indicatorHandler(key);
+          item.addEventListener('click', indicatorsListenerObj[key]);
+        });
+      }
+    }
+    if (control) {
+      const carouselControlPrevDom = carouselControlPrevRef.current;
+      const carouselControlNextDom = carouselControlNextRef.current;
+      if (carouselControlPrevDom && carouselControlNextDom) {
+        carouselControlPrevDom.addEventListener('click', prevSlideHandler);
+        carouselControlNextDom.addEventListener('click', nextSlideHandler);
+      }
     }
     return () => {
       clearTimeout(timerId);
@@ -366,16 +325,60 @@ function Carousel(props: PropsTypes) {
         carouselControlPrevDom.removeEventListener('click', prevSlideHandler);
         carouselControlNextDom.removeEventListener('click', nextSlideHandler);
       }
+      if (indicator) {
+        const carouselIndicatorsDom = carouselIndicatorsRef.current;
+        if (carouselIndicatorsDom) {
+          Array.from(carouselIndicatorsDom.children).forEach((item, key) => {
+            indicatorsListenerObj[key] = indicatorHandler(key);
+            item.removeEventListener('click', indicatorsListenerObj[key]);
+          });
+        }
+      }
+      if (control) {
+        const carouselControlPrevDom = carouselControlPrevRef.current;
+        const carouselControlNextDom = carouselControlNextRef.current;
+        if (carouselControlPrevDom && carouselControlNextDom) {
+          carouselControlPrevDom.removeEventListener('click', prevSlideHandler);
+          carouselControlNextDom.removeEventListener('click', nextSlideHandler);
+        }
+      }
     };
-  }, [imgSrcState]);
+  }, [imgSrcState, pause]);
+
+  const listImage = imgSrcState.map((item) => {
+    return (
+      <div
+        className={item.active ? 'carousel-item active' : 'carousel-item'}
+        key={item.index}
+        onTransitionEnd={transitionEndHandler}
+      >
+        <img src={item.src} className={imgClassName} />
+        <div className="carousel-caption d-none d-md-block">
+          {item.title && <h5>{item.title}</h5>}
+          {item.content && <p>{item.content}</p>}
+        </div>
+      </div>
+    );
+  });
+
+  const indicators = imgSrcState.map((item) => {
+    return (
+      <button
+        type="button"
+        className={item.active ? 'active carousel-indicator' : 'carousel-indicator'}
+        aria-current={item.active}
+        key={item.index}
+      />
+    );
+  });
 
   return (
     <div
       className={carouselClasses.join(' ')}
       data-ride="carousel"
       ref={carouselRef}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={mouseenterHandler}
+      onMouseLeave={mouseleaveHandler}
     >
       {indicator && (
         <div className="carousel-indicators" ref={carouselIndicatorsRef}>
