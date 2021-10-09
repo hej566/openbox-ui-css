@@ -8,6 +8,7 @@ import Badges from './examples/Badges';
 import Breadcrumbs from './examples/Breadcrumbs';
 import Carousels from './examples/Carousels';
 import Dropdowns from './examples/Dropdowns';
+import ListGroups from './examples/ListGroups';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
             <Link to="/buttons">Buttons</Link>
           </li>
           <li>
-            <Link to="/buttons-group">Buttons Group</Link>
+            <Link to="/buttons-group">Buttons group</Link>
           </li>
           <li>
             <Link to="/accordions">Accordions</Link>
@@ -37,6 +38,9 @@ function App() {
           </li>
           <li>
             <Link to="/dropdowns">Dropdowns</Link>
+          </li>
+          <li>
+            <Link to="/list-group">List group</Link>
           </li>
         </ul>
         <hr />
@@ -65,6 +69,9 @@ function App() {
             </Route>
             <Route exact path="/dropdowns">
               <Dropdowns />
+            </Route>
+            <Route exact path="/list-group">
+              <ListGroups />
             </Route>
           </Switch>
         </div>

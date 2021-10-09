@@ -33,7 +33,8 @@ Dropdown.defaultProps = {
 } as PropsTypes;
 
 function Dropdown(props: PropsTypes) {
-  const { children, SuffixIcon, variant, buttonName, split, size, theme, disabled } = props;
+  const { children, SuffixIcon, variant, buttonName, split, size, theme, disabled, className } =
+    props;
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownMenuRef = useRef<HTMLUListElement>(null);
   const dropdownMenuClasses: string[] = ['dropdown-menu'];
@@ -43,6 +44,8 @@ function Dropdown(props: PropsTypes) {
   if (theme === 'dark') {
     dropdownMenuClasses.push('dropdown-menu-dark');
   }
+
+  if (className) dropdownMenuClasses.push(className);
 
   if (SuffixIcon) {
     suffixIcon = React.cloneElement(SuffixIcon, {
