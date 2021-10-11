@@ -3,11 +3,11 @@
 // .modal-dialog    - positioning shell for the actual modal
 // .modal-content   - actual modal w/ bg and corners and stuff
 
-// Container that the modal scrolls within
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translate(-50%);
   z-index: $zindex-modal;
   display: none;
   width: 100%;
@@ -85,6 +85,7 @@
 // Modal background
 .modal-backdrop {
   @include overlay-backdrop($zindex-modal-backdrop, $modal-backdrop-bg, $modal-backdrop-opacity);
+  display: none;
 }
 
 // Modal header

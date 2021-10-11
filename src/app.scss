@@ -92,7 +92,7 @@
       align-items: center;
       position: relative;
       .btn-link {
-        color: currentColor;
+        //color: currentColor;
         position: absolute;
         right: 0.5rem;
       }
@@ -169,6 +169,18 @@
   .rc-list-group-contextual,
   .rc-list-group-badges,
   .rc-list-group-custom {
+    margin: 1rem;
+  }
+}
+
+.rc-modals {
+  margin: 1rem;
+  .rc-group {
+  }
+  .rc-modal-basic,
+  .rc-modal-scrollable,
+  .rc-modal-centered,
+  .rc-modal-custom-footer {
     margin: 1rem;
   }
 }

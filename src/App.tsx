@@ -9,6 +9,7 @@ import Breadcrumbs from './examples/Breadcrumbs';
 import Carousels from './examples/Carousels';
 import Dropdowns from './examples/Dropdowns';
 import ListGroups from './examples/ListGroups';
+import Modals from './examples/Modals';
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
           <li>
             <Link to="/list-group">List group</Link>
           </li>
+          <li>
+            <Link to="/modals">Modals</Link>
+          </li>
         </ul>
         <hr />
         <div className="main bg-light">
@@ -72,6 +76,9 @@ function App() {
             </Route>
             <Route exact path="/list-group">
               <ListGroups />
+            </Route>
+            <Route exact path="/modals">
+              <Modals />
             </Route>
           </Switch>
         </div>

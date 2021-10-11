@@ -27,5 +27,7 @@ module.exports = {
     'no-lonely-if': 0,
     'no-unused-vars': 0,
     'no-shadow': 0,
+    'react/jsx-no-bind': 0,
+    'no-param-reassign': 0,
   },
 };
