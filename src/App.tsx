@@ -10,6 +10,7 @@ import Carousels from './examples/Carousels';
 import Dropdowns from './examples/Dropdowns';
 import ListGroups from './examples/ListGroups';
 import Modals from './examples/Modals';
+import Navs from './examples/Navs';
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
           <li>
             <Link to="/modals">Modals</Link>
           </li>
+          <li>
+            <Link to="/navs">Navs</Link>
+          </li>
         </ul>
         <hr />
         <div className="main bg-light">
@@ -79,6 +83,9 @@ function App() {
             </Route>
             <Route exact path="/modals">
               <Modals />
+            </Route>
+            <Route exact path="/navs">
+              <Navs />
             </Route>
           </Switch>
         </div>
