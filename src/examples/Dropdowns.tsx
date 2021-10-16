@@ -1,6 +1,8 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Dropdown from '../components/Dropdown';
 import Icon from '../components/Icon';
+import DropdownItem from '../components/DropdownItem';
 
 function Dropdowns() {
   return (
@@ -9,9 +11,17 @@ function Dropdowns() {
         <div className="rc-title">Basic dropdown</div>
         <div className="rc-group">
           <Dropdown buttonName="Dropdown button">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -19,9 +29,17 @@ function Dropdowns() {
         <div className="rc-title">Link dropdown</div>
         <div className="rc-group">
           <Dropdown variant="link" link buttonName="Dropdown button">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -29,34 +47,82 @@ function Dropdowns() {
         <div className="rc-title">Variant dropdown</div>
         <div className="rc-group">
           <Dropdown variant="primary" buttonName="Primary">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Secondary">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="success" buttonName="Success">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="info" buttonName="Info">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="warning" buttonName="Warning">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="danger" buttonName="Danger">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -64,9 +130,17 @@ function Dropdowns() {
         <div className="rc-title">Split dropdown</div>
         <div className="rc-group">
           <Dropdown variant="primary" buttonName="Split button" split>
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -74,24 +148,56 @@ function Dropdowns() {
         <div className="rc-title">Size dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Small button" size="sm">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Small split button" split size="sm">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Large button" size="lg">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Large split button" split size="lg">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -99,9 +205,17 @@ function Dropdowns() {
         <div className="rc-title">Dark dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Dropdown button" theme="dark">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -109,9 +223,17 @@ function Dropdowns() {
         <div className="rc-title">Disabled item dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Dropdown button" theme="dark">
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>
@@ -119,9 +241,17 @@ function Dropdowns() {
         <div className="rc-title">Disabled item dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Dropdown button" theme="dark" disabled>
-            <div className="dropdown-item">Action</div>
-            <div className="dropdown-item">Another action</div>
-            <div className="dropdown-item">Something else here</div>
+            <DropdownItem active key={uuidv4()}>
+              Action
+            </DropdownItem>
+            <DropdownItem disabled key={uuidv4()}>
+              Another action
+            </DropdownItem>
+            <DropdownItem key={uuidv4()}>
+              <a>Something else here</a>
+            </DropdownItem>
+            <hr className="dropdown-divider" />
+            <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
           </Dropdown>
         </div>
       </section>

@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Nav from '../components/Nav';
 import NavItem from '../components/NavItem';
 import Dropdown from '../components/Dropdown';
+import DropdownItem from '../components/DropdownItem';
 
 function Navs() {
   return (
@@ -90,22 +91,18 @@ function Navs() {
               Active
             </NavItem>
             <NavItem key={uuidv4()} dropdown>
-              <Dropdown variant="link" link buttonName="Dropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
+              <Dropdown variant="link" link buttonName="Dropdown" offset={[-16, 10]}>
+                <DropdownItem active key={uuidv4()}>
+                  Action
+                </DropdownItem>
+                <DropdownItem disabled key={uuidv4()}>
+                  Another action
+                </DropdownItem>
+                <DropdownItem key={uuidv4()}>
+                  <a>Something else here</a>
+                </DropdownItem>
+                <hr className="dropdown-divider" />
+                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
               </Dropdown>
             </NavItem>
             <NavItem key={uuidv4()}>Link</NavItem>
@@ -124,21 +121,17 @@ function Navs() {
             </NavItem>
             <NavItem key={uuidv4()} dropdown>
               <Dropdown variant="link" link buttonName="Dropdown">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
+                <DropdownItem active key={uuidv4()}>
+                  Action
+                </DropdownItem>
+                <DropdownItem disabled key={uuidv4()}>
+                  Another action
+                </DropdownItem>
+                <DropdownItem key={uuidv4()}>
+                  <a>Something else here</a>
+                </DropdownItem>
+                <hr className="dropdown-divider" />
+                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
               </Dropdown>
             </NavItem>
             <NavItem key={uuidv4()}>Link</NavItem>
