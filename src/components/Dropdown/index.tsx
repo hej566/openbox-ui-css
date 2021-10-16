@@ -134,7 +134,7 @@ function Dropdown(props: PropsTypes) {
         arrow: false,
         content: dropdownMenuDom,
         trigger: 'manual',
-        appendTo: 'parent',
+        appendTo: dropdownButtonDom,
         plugins: [animateFill, sticky],
         maxWidth: 'none',
         offset,
