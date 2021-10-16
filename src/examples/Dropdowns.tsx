@@ -9,21 +9,19 @@ function Dropdowns() {
         <div className="rc-title">Basic dropdown</div>
         <div className="rc-group">
           <Dropdown buttonName="Dropdown button">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
+          </Dropdown>
+        </div>
+      </section>
+      <section className="rc-dropdown-link">
+        <div className="rc-title">Link dropdown</div>
+        <div className="rc-group">
+          <Dropdown variant="link" link buttonName="Dropdown button">
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
         </div>
       </section>
@@ -31,154 +29,34 @@ function Dropdowns() {
         <div className="rc-title">Variant dropdown</div>
         <div className="rc-group">
           <Dropdown variant="primary" buttonName="Primary">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Secondary">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="success" buttonName="Success">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="info" buttonName="Info">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="warning" buttonName="Warning">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="danger" buttonName="Danger">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
         </div>
       </section>
@@ -186,29 +64,9 @@ function Dropdowns() {
         <div className="rc-title">Split dropdown</div>
         <div className="rc-group">
           <Dropdown variant="primary" buttonName="Split button" split>
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
         </div>
       </section>
@@ -216,104 +74,24 @@ function Dropdowns() {
         <div className="rc-title">Size dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Small button" size="sm">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Small split button" split size="sm">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Large button" size="lg">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
           <Dropdown variant="secondary" buttonName="Large split button" split size="lg">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
         </div>
       </section>
@@ -321,29 +99,9 @@ function Dropdowns() {
         <div className="rc-title">Dark dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Dropdown button" theme="dark">
-            <li>
-              <a className="dropdown-item" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
         </div>
       </section>
@@ -351,29 +109,9 @@ function Dropdowns() {
         <div className="rc-title">Disabled item dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Dropdown button" theme="dark">
-            <li>
-              <a className="dropdown-item disabled" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
         </div>
       </section>
@@ -381,29 +119,9 @@ function Dropdowns() {
         <div className="rc-title">Disabled item dropdown</div>
         <div className="rc-group">
           <Dropdown variant="secondary" buttonName="Dropdown button" theme="dark" disabled>
-            <li>
-              <a className="dropdown-item disabled" href="#">
-                Action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another action
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Separated link
-              </a>
-            </li>
+            <div className="dropdown-item">Action</div>
+            <div className="dropdown-item">Another action</div>
+            <div className="dropdown-item">Something else here</div>
           </Dropdown>
         </div>
       </section>

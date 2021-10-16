@@ -15,7 +15,8 @@ interface PropsTypes {
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   className?: string;
-  refButton: React.Ref<HTMLButtonElement>;
+  link?: boolean;
+  buttonRef?: any;
 }
 
 Button.defaultProps = {
@@ -31,7 +32,8 @@ Button.defaultProps = {
   children: null,
   onClick: () => {},
   className: '',
-  refButton: null,
+  link: false,
+  buttonRef: null,
 } as PropsTypes;
 
 function Button(props: PropsTypes) {
@@ -49,11 +51,12 @@ function Button(props: PropsTypes) {
     children,
     onClick,
     className,
-    refButton,
+    link,
+    buttonRef,
   } = props;
 
   let prefixIcon = PrefixIcon;
-  let suffixIcon = SuffixIcon;
+  const suffixIcon = SuffixIcon;
   let defaultSpinner = null;
   let normalOrToggleButton = null;
   const buttonClasses: Array<String> = [`btn`];
@@ -90,7 +93,7 @@ function Button(props: PropsTypes) {
         aria-pressed={pressed}
         data-toggle="button"
         aria-autocomplete="none"
-        ref={refButton}
+        ref={buttonRef}
       >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
@@ -100,13 +103,13 @@ function Button(props: PropsTypes) {
       </button>
     );
   } else {
-    normalOrToggleButton = (
+    normalOrToggleButton = !link ? (
       <button
         className={buttonClasses.join(' ')}
         disabled={disabled}
         onClick={onClick}
         type={type}
-        ref={refButton}
+        ref={buttonRef}
       >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
@@ -114,6 +117,14 @@ function Button(props: PropsTypes) {
           {suffixIcon && <span className="btn__icon">{suffixIcon}</span>}
         </div>
       </button>
+    ) : (
+      <a className={buttonClasses.join(' ')} onClick={onClick} role="button" ref={buttonRef}>
+        <div className="btn__inner">
+          {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
+          {children && <span className="btn__content">{children}</span>}
+          {suffixIcon && <span className="btn__icon">{suffixIcon}</span>}
+        </div>
+      </a>
     );
   }
 

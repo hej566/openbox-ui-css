@@ -48,7 +48,7 @@ function App() {
             <Link to="/modals">Modals</Link>
           </li>
           <li>
-            <Link to="/navs">Navs</Link>
+            <Link to="/navs&tabs">Navs & Tabs</Link>
           </li>
         </ul>
         <hr />
@@ -84,7 +84,7 @@ function App() {
             <Route exact path="/modals">
               <Modals />
             </Route>
-            <Route exact path="/navs">
+            <Route exact path="/navs&tabs">
               <Navs />
             </Route>
           </Switch>

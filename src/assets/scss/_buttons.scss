@@ -132,13 +132,11 @@
 // Make a button look and behave like a link
 .btn-link {
   font-weight: $font-weight-normal;
-  //color: $btn-link-color;
   color: currentColor;
   text-decoration: $link-decoration;
 
   &:hover {
     color: currentColor;
-    //color: $btn-link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 
@@ -149,6 +147,14 @@
   &:disabled,
   &.disabled {
     color: $btn-link-disabled-color;
+  }
+
+  &[role="button"] {
+    border: none;
+    text-decoration: none;
+    padding: 0;
+    // baseline align with strut
+    vertical-align: baseline;
   }
 
   // No need for an active state here

@@ -1,37 +1,60 @@
 import React from 'react';
 
 interface PropsTypes {
-  children: React.ReactNode;
+  children: React.ComponentElement<any, any> | string;
   className?: string;
   active?: boolean;
   disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  type?: string;
+  dropdown?: boolean;
 }
 
 NavItem.defaultProps = {
   className: '',
   active: false,
   disabled: false,
+  onClick: () => {},
+  type: 'nav',
+  dropdown: false,
 };
 
 function NavItem(props: PropsTypes) {
-  const { children, className, active, disabled } = props;
-  const navItemClasses: string[] = ['nav-link'];
+  const { children, className, active, disabled, onClick, type, dropdown } = props;
+  const navLinkClasses: string[] = ['nav-link'];
+  const navItemClasses: string[] = ['nav-item'];
   if (className) navItemClasses.push(className);
+  if (dropdown) {
+    navItemClasses.push('dropdown');
+  }
+  if (active) navLinkClasses.push('active');
+  if (disabled) navLinkClasses.push('disabled');
 
-  if (active) navItemClasses.push('active');
-  if (disabled) navItemClasses.push('disabled');
+  const component = React.Children.map(children, (child) => {
+    if (child && typeof child === 'object') {
+      return React.cloneElement(child, {
+        open: active,
+      });
+    }
+    return child;
+  });
 
   return (
-    <li className="nav-item">
+    <div className={navItemClasses.join(' ')} onClickCapture={onClick}>
       <>
-        {active && (
-          <a className={navItemClasses.join(' ')} aria-current="page">
-            {children}
-          </a>
+        {active && type === 'nav' && (
+          <div className={navLinkClasses.join(' ')} aria-current="page">
+            {component}
+          </div>
         )}
-        {!active && <a className={navItemClasses.join(' ')}>{children}</a>}
+        {active && type === 'tab' && (
+          <div className={navLinkClasses.join(' ')} aria-selected="true">
+            {component}
+          </div>
+        )}
+        {!active && <div className={navLinkClasses.join(' ')}>{component}</div>}
       </>
-    </li>
+    </div>
   );
 }
 

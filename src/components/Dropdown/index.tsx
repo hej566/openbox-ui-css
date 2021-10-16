@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState, forwardRef } from 'react';
+import Tippy from '@tippyjs/react';
 import Button from '../Button';
 import Icon from '../Icon';
 import ButtonGroup from '../ButtonGroup';
 import ChevronDown from '../../assets/icons/svg/chevron-down-regular.svg';
-import tippy, { animateFill, sticky } from 'tippy.js';
 import 'tippy.js/animations/shift-away.css';
 
 interface PropsTypes {
@@ -17,6 +17,8 @@ interface PropsTypes {
   size?: string;
   theme?: string;
   disabled?: boolean;
+  link?: boolean;
+  open?: boolean;
 }
 
 Dropdown.defaultProps = {
@@ -30,16 +32,30 @@ Dropdown.defaultProps = {
   size: '',
   theme: '',
   disabled: false,
+  link: false,
+  open: false,
 } as PropsTypes;
 
 function Dropdown(props: PropsTypes) {
-  const { children, SuffixIcon, variant, buttonName, split, size, theme, disabled, className } =
-    props;
-  const dropdownButtonRef = useRef<HTMLButtonElement>(null);
-  const dropdownMenuRef = useRef<HTMLUListElement>(null);
-  const dropdownMenuClasses: string[] = ['dropdown-menu'];
+  const {
+    children,
+    SuffixIcon,
+    variant,
+    buttonName,
+    split,
+    size,
+    theme,
+    disabled,
+    className,
+    link,
+    open,
+  } = props;
 
-  let suffixIcon = null;
+  const dropdownMenuClasses: string[] = ['dropdown-menu'];
+  const [isOpen, setOpenState] = useState(open);
+  const ref = useRef<HTMLButtonElement>(null);
+
+  let suffixIcon: any = null;
 
   if (theme === 'dark') {
     dropdownMenuClasses.push('dropdown-menu-dark');
@@ -53,61 +69,62 @@ function Dropdown(props: PropsTypes) {
     });
   }
 
-  function setupTippy() {
-    const dropdownButtonDom = dropdownButtonRef.current;
-    const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownButtonDom && dropdownMenuDom) {
-      tippy(dropdownButtonDom, {
-        allowHTML: true,
-        animateFill: true,
-        interactive: true,
-        arrow: false,
-        content: dropdownMenuDom,
-        hideOnClick: true,
-        trigger: 'click',
-        appendTo: dropdownButtonDom,
-        plugins: [animateFill, sticky],
-        maxWidth: 'none',
-        offset: [0, 4],
-        placement: 'bottom-start',
-        sticky: true,
-      });
-    }
-  }
+  const show = () => {
+    console.log('click');
+    setOpenState(true);
+  };
+  const hide = () => setOpenState(false);
 
-  useEffect(() => {
-    setupTippy();
-  }, []);
+  const content = <nav className={dropdownMenuClasses.join(' ')}>{children}</nav>;
 
   return (
     <div className="dropdown">
       {split ? (
-        <ButtonGroup>
-          <Button variant={variant} size={size} disabled={disabled}>
-            {buttonName}
-          </Button>
+        <>
+          <ButtonGroup>
+            <Button variant={variant} size={size} disabled={disabled}>
+              {buttonName}
+            </Button>
+            <Button
+              variant={variant}
+              SuffixIcon={suffixIcon}
+              size={size}
+              disabled={disabled}
+              onClick={isOpen ? hide : show}
+              buttonRef={ref}
+              link={link}
+            />
+          </ButtonGroup>
+          <Tippy
+            content={content}
+            placement="bottom-start"
+            visible={isOpen}
+            reference={ref}
+            onClickOutside={hide}
+          />
+        </>
+      ) : (
+        <>
           <Button
             variant={variant}
             SuffixIcon={suffixIcon}
-            refButton={dropdownButtonRef}
             size={size}
             disabled={disabled}
+            onClick={isOpen ? hide : show}
+            buttonRef={ref}
+            link={link}
+          >
+            {buttonName}
+          </Button>
+          <Tippy
+            content={content}
+            placement="bottom-start"
+            visible={isOpen}
+            reference={ref}
+            onClickOutside={hide}
           />
-        </ButtonGroup>
-      ) : (
-        <Button
-          variant={variant}
-          SuffixIcon={suffixIcon}
-          refButton={dropdownButtonRef}
-          size={size}
-          disabled={disabled}
-        >
-          {buttonName}
-        </Button>
+        </>
       )}
-      <ul className={dropdownMenuClasses.join(' ')} ref={dropdownMenuRef}>
-        {children}
-      </ul>
     </div>
   );
 }

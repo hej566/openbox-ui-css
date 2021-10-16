@@ -19,6 +19,7 @@
   color: $nav-link-color;
   text-decoration: if($link-decoration == none, null, none);
   @include transition($nav-link-transition);
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -29,8 +30,7 @@
   // Disabled state lightens text
   &.disabled {
     color: $nav-link-disabled-color;
-    pointer-events: none;
-    cursor: default;
+    cursor: not-allowed;
   }
 }
 
@@ -134,3 +134,9 @@
     display: block;
   }
 }
+
+//.nav-item {
+//  &.dropdown {
+//     height: 24px;
+//  }
+//}

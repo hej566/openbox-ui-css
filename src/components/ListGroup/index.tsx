@@ -50,32 +50,28 @@ function ListGroup(props: PropsTypes) {
         }
         activeStateMap[key] = true;
 
-        setActiveStateMap(() => {
-          return {
-            ...activeStateMap,
-          };
-        });
-        setDisabledStateMap(() => {
-          return {
-            ...disabledStateMap,
-          };
-        });
+        setActiveStateMap(() => ({
+          ...activeStateMap,
+        }));
+        setDisabledStateMap(() => ({
+          ...disabledStateMap,
+        }));
       }
     };
   }
 
-  const List = React.Children.map(children, (child) => {
+  const ListGroupItemList = React.Children.map(children, (child) => {
     const { key } = child;
     if (key) {
       return React.cloneElement(child, {
         active: activeStateMap[key],
         disabled: disabledStateMap[key],
-        onClick: clickHandler(String(key)),
+        onClick: !disabledStateMap[key] ? clickHandler(String(key)) : null,
       });
     }
   });
 
-  return <ul className={listGroupClasses.join(' ')}>{List}</ul>;
+  return <ul className={listGroupClasses.join(' ')}>{ListGroupItemList}</ul>;
 }
 
 export default ListGroup;

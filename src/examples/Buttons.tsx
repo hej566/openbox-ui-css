@@ -84,6 +84,9 @@ function Buttons() {
           <Button variant="light">Light</Button>
           <Button variant="dark">Dark</Button>
           <Button variant="link">Link</Button>
+          <Button variant="link" link className="disabled">
+            Link
+          </Button>
         </div>
       </section>
       <section className="rc-button-type">
@@ -143,6 +146,9 @@ function Buttons() {
         <div className="rc-title">Suffix icon button</div>
         <div className="rc-group">
           <Button variant="primary" SuffixIcon={<Icon Component={Acorn} />}>
+            Primary
+          </Button>
+          <Button link variant="link" SuffixIcon={<Icon Component={Acorn} />}>
             Primary
           </Button>
         </div>

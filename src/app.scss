@@ -148,6 +148,7 @@
     }
   }
   .rc-dropdown-basic,
+  .rc-dropdown-link,
   .rc-dropdown-variant,
   .rc-dropdown-split-button,
   .rc-dropdown-size,
@@ -181,6 +182,23 @@
   .rc-modal-scrollable,
   .rc-modal-centered,
   .rc-modal-custom-footer {
+    margin: 1rem;
+  }
+}
+
+.rc-navs {
+  margin: 1rem;
+  .rc-group {
+  }
+  .rc-nav-basic,
+  .rc-nav-centered,
+  .rc-nav-ended,
+  .rc-nav-vertical,
+  .rc-nav-tabs,
+  .rc-nav-dropdown,
+  .rc-nav-pills,
+  .rc-nav-pills-fill,
+  .rc-nav-pills-justified {
     margin: 1rem;
   }
 }
