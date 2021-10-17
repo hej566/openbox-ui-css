@@ -11,6 +11,7 @@ import Dropdowns from './examples/Dropdowns';
 import ListGroups from './examples/ListGroups';
 import Modals from './examples/Modals';
 import Navs from './examples/Navs';
+import Navbars from './examples/Navbars';
 
 function App() {
   return (
@@ -50,9 +51,12 @@ function App() {
           <li>
             <Link to="/navs&tabs">Navs & Tabs</Link>
           </li>
+          <li>
+            <Link to="/navbars">Navbars</Link>
+          </li>
         </ul>
         <hr />
-        <div className="main bg-light">
+        <div className="main">
           <Switch>
             <Route exact path="/buttons">
               <Buttons />
@@ -86,6 +90,9 @@ function App() {
             </Route>
             <Route exact path="/navs&tabs">
               <Navs />
+            </Route>
+            <Route exact path="/navbars">
+              <Navbars />
             </Route>
           </Switch>
         </div>
