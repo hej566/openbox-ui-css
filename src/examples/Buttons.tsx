@@ -70,6 +70,10 @@ function Buttons() {
     }, 3000);
   }
 
+  function clickHandler9() {
+    console.log('blur');
+  }
+
   return (
     <div className="rc-buttons">
       <section className="rc-button-variant">
@@ -83,7 +87,9 @@ function Buttons() {
           <Button variant="info">Info</Button>
           <Button variant="light">Light</Button>
           <Button variant="dark">Dark</Button>
-          <Button variant="link">Link</Button>
+          <Button variant="link" onBlur={clickHandler9}>
+            Link
+          </Button>
           <Button variant="link" link className="disabled">
             Link
           </Button>

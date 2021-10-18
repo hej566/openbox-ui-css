@@ -17,7 +17,7 @@ function Navbars() {
               Active
             </NavItem>
             <NavItem key={uuidv4()} dropdown>
-              <Dropdown variant="link" link buttonName="Dropdown" offset={[-16, 10]}>
+              <Dropdown variant="link" link buttonName="Dropdown">
                 <DropdownItem active key={uuidv4()}>
                   Action
                 </DropdownItem>

@@ -20,6 +20,7 @@ interface PropsTypes {
   link?: boolean;
   open?: boolean;
   offset?: [number, number];
+  type?: string;
 }
 
 Dropdown.defaultProps = {
@@ -36,6 +37,7 @@ Dropdown.defaultProps = {
   link: false,
   open: false,
   offset: [0, 4],
+  type: 'dropdown',
 } as PropsTypes;
 
 function Dropdown(props: PropsTypes) {
@@ -52,6 +54,7 @@ function Dropdown(props: PropsTypes) {
     link,
     open,
     offset,
+    type,
   } = props;
 
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
@@ -110,6 +113,36 @@ function Dropdown(props: PropsTypes) {
     };
   }
 
+  function toggleHandler(e: any) {
+    const dropdownButtonDom = dropdownButtonRef.current;
+    const dropdownMenuDom = dropdownMenuRef.current;
+    if (dropdownButtonDom && dropdownMenuDom) {
+      if (isOpen) {
+        dropdownButtonDom.classList.remove('show');
+        dropdownMenuDom.classList.remove('show');
+        dropdownMenuDom.style.display = 'none';
+        setOpenState(false);
+      } else {
+        dropdownButtonDom.classList.add('show');
+        dropdownMenuDom.classList.add('show');
+        dropdownMenuDom.style.display = 'block';
+        setOpenState(true);
+      }
+      dropdownButtonDom.focus();
+    }
+  }
+
+  function blurHandler() {
+    const dropdownButtonDom = dropdownButtonRef.current;
+    const dropdownMenuDom = dropdownMenuRef.current;
+    if (dropdownButtonDom && dropdownMenuDom) {
+      dropdownButtonDom.classList.remove('show');
+      dropdownMenuDom.classList.remove('show');
+      dropdownMenuDom.style.display = 'none';
+      setOpenState(false);
+    }
+  }
+
   function setupStateMap() {
     React.Children.forEach(children, (child) => {
       const { active, disabled } = child.props;
@@ -121,6 +154,15 @@ function Dropdown(props: PropsTypes) {
         setDisabledStateMap(() => ({ ...disabledStateMap }));
       }
     });
+  }
+
+  function setupNavDropdown() {
+    const dropdownButtonDom = dropdownButtonRef.current;
+    const dropdownMenuDom = dropdownMenuRef.current;
+    if (dropdownMenuDom && dropdownButtonDom) {
+      if (!isOpen) dropdownMenuDom.style.display = 'none';
+      else dropdownButtonDom.focus();
+    }
   }
 
   function setupTippy() {
@@ -152,7 +194,11 @@ function Dropdown(props: PropsTypes) {
   }
 
   useEffect(() => {
-    setupTippy();
+    if (type === 'dropdown') {
+      setupTippy();
+    } else {
+      setupNavDropdown();
+    }
     setupStateMap();
   }, []);
 
@@ -162,7 +208,7 @@ function Dropdown(props: PropsTypes) {
       return React.cloneElement(child, {
         active: activeStateMap[key],
         disabled: disabledStateMap[key],
-        onClick: !disabledStateMap[key] ? clickHandler(String(key)) : null,
+        onMouseDown: !disabledStateMap[key] ? clickHandler(String(key)) : null,
       });
     }
   });
@@ -173,13 +219,27 @@ function Dropdown(props: PropsTypes) {
     </ul>
   );
 
-  return (
-    <div className="dropdown">
-      {split ? (
-        <ButtonGroup>
-          <Button variant={variant} size={size} disabled={disabled}>
-            {buttonName}
-          </Button>
+  let dropdown = null;
+
+  if (type === 'dropdown') {
+    dropdown = (
+      <div className="dropdown">
+        {split ? (
+          <ButtonGroup>
+            <Button variant={variant} size={size} disabled={disabled}>
+              {buttonName}
+            </Button>
+            <Button
+              variant={variant}
+              SuffixIcon={suffixIcon}
+              size={size}
+              disabled={disabled}
+              onClick={isOpen ? hide : show}
+              buttonRef={dropdownButtonRef}
+              link={link}
+            />
+          </ButtonGroup>
+        ) : (
           <Button
             variant={variant}
             SuffixIcon={suffixIcon}
@@ -188,24 +248,52 @@ function Dropdown(props: PropsTypes) {
             onClick={isOpen ? hide : show}
             buttonRef={dropdownButtonRef}
             link={link}
-          />
-        </ButtonGroup>
-      ) : (
-        <Button
-          variant={variant}
-          SuffixIcon={suffixIcon}
-          size={size}
-          disabled={disabled}
-          onClick={isOpen ? hide : show}
-          buttonRef={dropdownButtonRef}
-          link={link}
-        >
-          {buttonName}
-        </Button>
-      )}
-      {content}
-    </div>
-  );
+          >
+            {buttonName}
+          </Button>
+        )}
+        {content}
+      </div>
+    );
+  } else if (type === 'nav-dropdown') {
+    dropdown = (
+      <div className="dropdown">
+        {split ? (
+          <ButtonGroup>
+            <Button variant={variant} size={size} disabled={disabled}>
+              {buttonName}
+            </Button>
+            <Button
+              variant={variant}
+              SuffixIcon={suffixIcon}
+              size={size}
+              disabled={disabled}
+              onClick={toggleHandler}
+              onBlur={blurHandler}
+              buttonRef={dropdownButtonRef}
+              link={link}
+            />
+          </ButtonGroup>
+        ) : (
+          <Button
+            variant={variant}
+            SuffixIcon={suffixIcon}
+            size={size}
+            disabled={disabled}
+            onClick={toggleHandler}
+            onBlur={blurHandler}
+            buttonRef={dropdownButtonRef}
+            link={link}
+          >
+            {buttonName}
+          </Button>
+        )}
+        <div className="dropdown-menu-wrapper">{content}</div>
+      </div>
+    );
+  }
+
+  return dropdown;
 }
 
 export default Dropdown;

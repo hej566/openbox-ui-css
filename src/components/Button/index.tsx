@@ -14,6 +14,7 @@ interface PropsTypes {
   SuffixIcon?: React.ReactNode;
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  onBlur?: React.FocusEventHandler<HTMLElement>;
   className?: string;
   link?: boolean;
   buttonRef?: any;
@@ -31,6 +32,7 @@ Button.defaultProps = {
   disabled: false,
   children: null,
   onClick: () => {},
+  onBlur: () => {},
   className: '',
   link: false,
   buttonRef: null,
@@ -50,6 +52,7 @@ function Button(props: PropsTypes) {
     SuffixIcon,
     children,
     onClick,
+    onBlur,
     className,
     link,
     buttonRef,
@@ -72,7 +75,7 @@ function Button(props: PropsTypes) {
     prefixIcon = defaultSpinner;
   }
 
-  function clickInnerHandler() {
+  function clickInnerHandler(e: any) {
     setPressedState((curState) => !curState);
   }
 
@@ -88,6 +91,7 @@ function Button(props: PropsTypes) {
         className={buttonClasses.join(' ')}
         disabled={disabled}
         onClick={onClick}
+        onBlur={onBlur}
         onClickCapture={clickInnerHandler}
         type={type}
         aria-pressed={pressed}
@@ -108,6 +112,8 @@ function Button(props: PropsTypes) {
         className={buttonClasses.join(' ')}
         disabled={disabled}
         onClick={onClick}
+        onBlur={onBlur}
+        onClickCapture={clickInnerHandler}
         type={type}
         ref={buttonRef}
       >
@@ -118,7 +124,15 @@ function Button(props: PropsTypes) {
         </div>
       </button>
     ) : (
-      <a className={buttonClasses.join(' ')} onClick={onClick} role="button" ref={buttonRef}>
+      <a
+        className={buttonClasses.join(' ')}
+        onClick={onClick}
+        onBlur={onBlur}
+        onClickCapture={clickInnerHandler}
+        role="button"
+        ref={buttonRef}
+        tabIndex={-1}
+      >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
           {children && <span className="btn__content">{children}</span>}

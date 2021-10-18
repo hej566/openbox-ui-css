@@ -9,6 +9,12 @@
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+
+  .dropdown-menu-wrapper {
+    z-index: $zindex-dropdown;
+    position: absolute;
+  }
+
 }
 
 .nav-link {
