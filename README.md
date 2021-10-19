@@ -12,8 +12,8 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [x] Dropdowns
 - [x] List group
 - [x] Modal
-- [ ] Navs & tabs
-- [ ] Navbar
+- [x] Navs & tabs
+- [x] Navbar
 - [ ] Offcanvas
 - [ ] Pagination
 - [ ] Placeholders
