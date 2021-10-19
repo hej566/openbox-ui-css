@@ -10,7 +10,7 @@ function Dropdowns() {
       <section className="rc-dropdown-basic">
         <div className="rc-title">Basic dropdown</div>
         <div className="rc-group">
-          <Dropdown buttonName="Dropdown button">
+          <Dropdown buttonName="Dropdown button" type="dropdown">
             <DropdownItem active key={uuidv4()}>
               Action
             </DropdownItem>

@@ -79,6 +79,7 @@ function Navbar(props: PropsTypes) {
         navbarCollapseDom.style.display = 'none';
         setOpenState(false);
       }
+      navbarCollapseDom.style.removeProperty('height');
     }
   }
 
@@ -100,7 +101,10 @@ function Navbar(props: PropsTypes) {
 
   function hide() {
     const navbarCollapseDom = navbarCollapseRef.current;
-    if (navbarCollapseDom) {
+    const navbarNavDom = navbarNavRef.current;
+    if (navbarCollapseDom && navbarNavDom) {
+      navbarCollapseDom.style.display = 'block';
+      navbarCollapseDom.style.height = `${navbarNavDom.clientHeight}px`;
       requestAnimationFrame(() => {
         setTimeout(() => {
           navbarCollapseDom.style.height = `0px`;

@@ -142,6 +142,7 @@
 
   &:focus {
     text-decoration: $link-hover-decoration;
+    box-shadow: none;
   }
 
   &:disabled,

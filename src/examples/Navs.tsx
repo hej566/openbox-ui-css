@@ -115,7 +115,7 @@ function Navs() {
       <section className="rc-nav-dropdown">
         <div className="rc-title">Tabs nav with dropdown</div>
         <div className="rc-group">
-          <Nav>
+          <Nav tabs>
             <NavItem active key={uuidv4()}>
               Active
             </NavItem>

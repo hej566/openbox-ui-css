@@ -9,12 +9,6 @@
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-
-  .dropdown-menu-wrapper {
-    z-index: $zindex-dropdown;
-    position: absolute;
-  }
-
 }
 
 .nav-link {
@@ -57,7 +51,7 @@
     &:focus {
       border-color: $nav-tabs-link-hover-border-color;
       // Prevents active .nav-link tab overlapping focus outline of previous/next .nav-link
-      isolation: isolate;
+      //isolation: isolate;
     }
 
     &.disabled {
@@ -74,11 +68,17 @@
     border-color: $nav-tabs-link-active-border-color;
   }
 
-  .dropdown-menu {
+  .nav-item {
+    position: relative;
+  }
+
+  .dropdown-menu-wrapper {
     // Make dropdown border overlap tab border
     margin-top: -$nav-tabs-border-width;
     // Remove the top rounded corners here since there is a hard edge above the menu
     @include border-top-radius(0);
+    left: 0;
+    top: 100%;
   }
 }
 
@@ -97,6 +97,19 @@
   .show > .nav-link {
     color: $nav-pills-link-active-color;
     @include gradient-bg($nav-pills-link-active-bg);
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .dropdown-menu-wrapper {
+    // Make dropdown border overlap tab border
+    margin-top: -$nav-tabs-border-width;
+    // Remove the top rounded corners here since there is a hard edge above the menu
+    @include border-top-radius(0);
+    left: 0;
+    top: 100%;
   }
 }
 

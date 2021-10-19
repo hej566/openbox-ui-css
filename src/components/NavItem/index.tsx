@@ -34,7 +34,7 @@ function NavItem(props: PropsTypes) {
     if (typeof child === 'object' && child.type.name === 'Dropdown') {
       return React.cloneElement(child, {
         open: active,
-        type: dropdown ? 'nav-dropdown' : 'dropdown',
+        type: dropdown ? 'dropdown' : 'tippy',
       });
     }
     return child;

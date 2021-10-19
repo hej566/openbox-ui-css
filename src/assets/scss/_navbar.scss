@@ -82,7 +82,7 @@
     padding-left: 0;
   }
 
-  .dropdown-menu {
+  .dropdown-menu-wrapper {
     position: static;
   }
 }
@@ -184,6 +184,7 @@
         .navbar-collapse {
           display: flex !important; // stylelint-disable-line declaration-no-important
           height: auto !important;
+          min-height: auto !important;
           flex-basis: auto;
         }
 

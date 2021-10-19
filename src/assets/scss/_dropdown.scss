@@ -3,7 +3,7 @@
 .dropend,
 .dropdown,
 .dropstart {
-  position: relative;
+  //position: relative;
 }
 
 .dropdown-toggle {
@@ -11,6 +11,23 @@
 
   // Generate the caret automatically
   @include caret();
+}
+
+.dropdown-menu-wrapper {
+  z-index: 1;
+  position: absolute;
+  .dropdown-menu {
+    opacity: 0;
+    transition: transform 0.15s, opacity 0.15s;
+    transform:translateY(-6px);
+    &.show {
+      transform:translateY(4px);
+      opacity: 1;
+      transition: transform 0.15s, opacity 0.15s;
+      //transition-timing-function: cubic-bezier(0.0, 0.0, 0.58, 1.0);
+      transition-timing-function: ease-in-out;
+    }
+  }
 }
 
 // The dropdown menu
@@ -153,6 +170,7 @@
   white-space: nowrap; // prevent links from randomly breaking onto new lines
   background-color: transparent; // For `<button>`s
   border: 0; // For `<button>`s
+  cursor: pointer;
 
   // Prevent dropdown overflow if there's no padding
   // See https://github.com/twbs/bootstrap/pull/27703
@@ -191,9 +209,9 @@
   }
 }
 
-.dropdown-menu.show {
-  display: block;
-}
+//.dropdown-menu.show {
+//  display: block;
+//}
 
 // Dropdown section headers
 .dropdown-header {

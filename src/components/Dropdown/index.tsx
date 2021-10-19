@@ -37,7 +37,7 @@ Dropdown.defaultProps = {
   link: false,
   open: false,
   offset: [0, 4],
-  type: 'dropdown',
+  type: 'tippy',
 } as PropsTypes;
 
 function Dropdown(props: PropsTypes) {
@@ -81,18 +81,17 @@ function Dropdown(props: PropsTypes) {
     });
   }
 
-  function show() {
-    if (tippyInstance) {
-      tippyInstance.show();
-    }
-    setOpenState(true);
-  }
-
-  function hide() {
-    if (tippyInstance) {
-      tippyInstance.hide();
-    }
-    setOpenState(false);
+  function setupStateMap() {
+    React.Children.forEach(children, (child) => {
+      const { active, disabled } = child.props;
+      const { key, type } = child;
+      if (key && type.name === 'DropdownItem') {
+        activeStateMap[key] = active;
+        disabledStateMap[key] = disabled;
+        setActiveStateMap(() => ({ ...activeStateMap }));
+        setDisabledStateMap(() => ({ ...disabledStateMap }));
+      }
+    });
   }
 
   function clickHandler(key: string) {
@@ -113,22 +112,44 @@ function Dropdown(props: PropsTypes) {
     };
   }
 
-  function toggleHandler(e: any) {
+  function tippyShow() {
+    if (tippyInstance) {
+      tippyInstance.show();
+    }
+    setOpenState(true);
+  }
+
+  function tippyHide() {
+    if (tippyInstance) {
+      tippyInstance.hide();
+    }
+    setOpenState(false);
+  }
+
+  function dropdownShow() {
     const dropdownButtonDom = dropdownButtonRef.current;
     const dropdownMenuDom = dropdownMenuRef.current;
     if (dropdownButtonDom && dropdownMenuDom) {
-      if (isOpen) {
-        dropdownButtonDom.classList.remove('show');
-        dropdownMenuDom.classList.remove('show');
-        dropdownMenuDom.style.display = 'none';
-        setOpenState(false);
-      } else {
+      dropdownButtonDom.setAttribute('aria-expanded', 'true');
+      dropdownMenuDom.style.display = 'block';
+      requestAnimationFrame(() => {
         dropdownButtonDom.classList.add('show');
         dropdownMenuDom.classList.add('show');
-        dropdownMenuDom.style.display = 'block';
-        setOpenState(true);
-      }
-      dropdownButtonDom.focus();
+      });
+      setOpenState(true);
+    }
+  }
+
+  function dropdownHide() {
+    const dropdownButtonDom = dropdownButtonRef.current;
+    const dropdownMenuDom = dropdownMenuRef.current;
+    if (dropdownButtonDom && dropdownMenuDom) {
+      dropdownButtonDom.setAttribute('aria-expanded', 'false');
+      requestAnimationFrame(() => {
+        dropdownButtonDom.classList.remove('show');
+        dropdownMenuDom.classList.remove('show');
+      });
+      setOpenState(false);
     }
   }
 
@@ -138,22 +159,20 @@ function Dropdown(props: PropsTypes) {
     if (dropdownButtonDom && dropdownMenuDom) {
       dropdownButtonDom.classList.remove('show');
       dropdownMenuDom.classList.remove('show');
-      dropdownMenuDom.style.display = 'none';
+      dropdownButtonDom.setAttribute('aria-expanded', 'false');
       setOpenState(false);
     }
   }
 
-  function setupStateMap() {
-    React.Children.forEach(children, (child) => {
-      const { active, disabled } = child.props;
-      const { key, type } = child;
-      if (key && type.name === 'DropdownItem') {
-        activeStateMap[key] = active;
-        disabledStateMap[key] = disabled;
-        setActiveStateMap(() => ({ ...activeStateMap }));
-        setDisabledStateMap(() => ({ ...disabledStateMap }));
+  function transitionEndHandler() {
+    const dropdownMenuDom = dropdownMenuRef.current;
+    if (dropdownMenuDom) {
+      if (!isOpen) {
+        dropdownMenuDom.style.display = 'none';
+      } else {
+        dropdownMenuDom.style.display = 'block';
       }
-    });
+    }
   }
 
   function setupNavDropdown() {
@@ -161,7 +180,14 @@ function Dropdown(props: PropsTypes) {
     const dropdownMenuDom = dropdownMenuRef.current;
     if (dropdownMenuDom && dropdownButtonDom) {
       if (!isOpen) dropdownMenuDom.style.display = 'none';
-      else dropdownButtonDom.focus();
+      else {
+        dropdownMenuDom.style.display = 'block';
+        requestAnimationFrame(() => {
+          dropdownButtonDom.classList.add('show');
+          dropdownMenuDom.classList.add('show');
+        });
+        dropdownButtonDom.focus();
+      }
     }
   }
 
@@ -182,7 +208,7 @@ function Dropdown(props: PropsTypes) {
         offset,
         placement: 'bottom-start',
         sticky: true,
-        onClickOutside: hide,
+        onClickOutside: tippyHide,
       });
       if (isOpen) {
         instance.show();
@@ -194,7 +220,7 @@ function Dropdown(props: PropsTypes) {
   }
 
   useEffect(() => {
-    if (type === 'dropdown') {
+    if (type === 'tippy') {
       setupTippy();
     } else {
       setupNavDropdown();
@@ -214,14 +240,19 @@ function Dropdown(props: PropsTypes) {
   });
 
   const content = (
-    <ul className={dropdownMenuClasses.join(' ')} ref={dropdownMenuRef} onClick={hide}>
+    <ul
+      className={dropdownMenuClasses.join(' ')}
+      ref={dropdownMenuRef}
+      onClick={type === 'tippy' ? tippyHide : () => {}}
+      onTransitionEnd={transitionEndHandler}
+    >
       {DropdownItemList}
     </ul>
   );
 
   let dropdown = null;
 
-  if (type === 'dropdown') {
+  if (type === 'tippy') {
     dropdown = (
       <div className="dropdown">
         {split ? (
@@ -234,7 +265,7 @@ function Dropdown(props: PropsTypes) {
               SuffixIcon={suffixIcon}
               size={size}
               disabled={disabled}
-              onClick={isOpen ? hide : show}
+              onClick={isOpen ? tippyHide : tippyShow}
               buttonRef={dropdownButtonRef}
               link={link}
             />
@@ -245,7 +276,7 @@ function Dropdown(props: PropsTypes) {
             SuffixIcon={suffixIcon}
             size={size}
             disabled={disabled}
-            onClick={isOpen ? hide : show}
+            onClick={isOpen ? tippyHide : tippyShow}
             buttonRef={dropdownButtonRef}
             link={link}
           >
@@ -255,7 +286,7 @@ function Dropdown(props: PropsTypes) {
         {content}
       </div>
     );
-  } else if (type === 'nav-dropdown') {
+  } else if (type === 'dropdown') {
     dropdown = (
       <div className="dropdown">
         {split ? (
@@ -268,7 +299,7 @@ function Dropdown(props: PropsTypes) {
               SuffixIcon={suffixIcon}
               size={size}
               disabled={disabled}
-              onClick={toggleHandler}
+              onClick={isOpen ? dropdownHide : dropdownShow}
               onBlur={blurHandler}
               buttonRef={dropdownButtonRef}
               link={link}
@@ -280,7 +311,7 @@ function Dropdown(props: PropsTypes) {
             SuffixIcon={suffixIcon}
             size={size}
             disabled={disabled}
-            onClick={toggleHandler}
+            onClick={isOpen ? dropdownHide : dropdownShow}
             onBlur={blurHandler}
             buttonRef={dropdownButtonRef}
             link={link}
