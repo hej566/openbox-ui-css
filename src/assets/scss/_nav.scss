@@ -11,6 +11,14 @@
   list-style: none;
 }
 
+//.nav-item {
+// .btn-link {
+//   &:focus {
+//     box-shadow: none;
+//   }
+// }
+//}
+
 .nav-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
@@ -154,8 +162,3 @@
   }
 }
 
-//.nav-item {
-//  &.dropdown {
-//     height: 24px;
-//  }
-//}

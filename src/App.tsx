@@ -12,6 +12,7 @@ import ListGroups from './examples/ListGroups';
 import Modals from './examples/Modals';
 import Navs from './examples/Navs';
 import Navbars from './examples/Navbars';
+import Offcanvases from './examples/Offcanvases';
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
           <li>
             <Link to="/navbars">Navbars</Link>
           </li>
+          <li>
+            <Link to="/offcanvases">Offcanvases</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -93,6 +97,9 @@ function App() {
             </Route>
             <Route exact path="/navbars">
               <Navbars />
+            </Route>
+            <Route exact path="/offcanvases">
+              <Offcanvases />
             </Route>
           </Switch>
         </div>

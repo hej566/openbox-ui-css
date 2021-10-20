@@ -142,7 +142,6 @@
 
   &:focus {
     text-decoration: $link-hover-decoration;
-    box-shadow: none;
   }
 
   &:disabled,
@@ -156,9 +155,10 @@
     padding: 0;
     // baseline align with strut
     vertical-align: baseline;
+    &:focus {
+      box-shadow: none;
+    }
   }
-
-  // No need for an active state here
 }
 
 //
