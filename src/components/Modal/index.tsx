@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import Icon from '../Icon';
 import Times from '../../assets/icons/svg/times-regular.svg';
@@ -26,58 +26,66 @@ function Modal(props: PropsTypes) {
   const dialogClasses: string[] = ['modal-dialog'];
   if (scrollable) dialogClasses.push('modal-dialog-scrollable');
   if (centered) dialogClasses.push('modal-dialog-centered');
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
 
-  const backdropRef = useCallback(
-    (node) => {
-      if (node) {
-        if (visible) {
-          node.style.display = 'block';
-        } else {
-          node.style.display = 'none';
-        }
-      }
-    },
-    [visible]
-  );
-
-  const modalRef = useCallback(
-    (node) => {
-      if (node) {
-        if (visible) {
-          node.style.display = 'block';
-          node.addEventListener('click', onCancel);
-        } else {
-          node.style.display = 'none';
-          node.removeEventListener('click', onCancel);
-        }
-      }
-    },
-    [visible]
-  );
-
-  function mouseEnterHandler() {
-    const dialogDom = dialogRef.current;
-    if (dialogDom && dialogDom.parentNode) {
-      dialogDom.parentNode.removeEventListener('click', onCancel);
+  function setupDialog() {
+    const modalDom = modalRef.current;
+    const backdropDom = backdropRef.current;
+    if (modalDom && backdropDom) {
+      backdropDom.style.visibility = 'visible';
+      modalDom.style.visibility = 'visible';
+      requestAnimationFrame(() => {
+        backdropDom.classList.add('show');
+        modalDom.classList.add('show');
+      });
     }
   }
 
-  function mouseLeaveHandler() {
-    const dialogDom = dialogRef.current;
-    if (dialogDom && dialogDom.parentNode) {
-      dialogDom.parentNode.addEventListener('click', onCancel);
+  function removeDialog() {
+    const modalDom = modalRef.current;
+    const backdropDom = backdropRef.current;
+    if (modalDom && backdropDom) {
+      requestAnimationFrame(() => {
+        backdropDom.classList.remove('show');
+        backdropDom.style.visibility = 'hidden';
+        modalDom.classList.remove('show');
+      });
     }
   }
+
+  function transitionEndHandler(e: any) {
+    const modalDom = modalRef.current;
+    if (modalDom && e.target.classList.contains('modal')) {
+      if (!visible) {
+        modalDom.style.visibility = 'hidden';
+      }
+    }
+  }
+
+  function clickHandler(e: any) {
+    if (e.target.classList.contains('modal')) {
+      onCancel(e);
+    }
+  }
+
+  useEffect(() => {
+    if (visible) {
+      setupDialog();
+    } else {
+      removeDialog();
+    }
+  }, [visible]);
 
   const modal = (
-    <div className="modal" ref={modalRef}>
-      <div
-        className={dialogClasses.join(' ')}
-        ref={dialogRef}
-        onMouseEnter={mouseEnterHandler}
-        onMouseLeave={mouseLeaveHandler}
-      >
+    <div
+      className="modal fade"
+      ref={modalRef}
+      tabIndex={-1}
+      onTransitionEnd={transitionEndHandler}
+      onClick={clickHandler}
+    >
+      <div className={dialogClasses.join(' ')}>
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">{title}</h5>
@@ -112,8 +120,7 @@ function Modal(props: PropsTypes) {
     </>
   );
 
-  if (visible) return ReactDOM.createPortal(Combinaton, document.body);
-  return null;
+  return ReactDOM.createPortal(Combinaton, document.body);
 }
 
 export default Modal;

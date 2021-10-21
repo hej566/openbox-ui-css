@@ -25,7 +25,7 @@ function Offcanvas(props: PropsTypes) {
       backdropDom.style.visibility = 'visible';
       offcanvasDom.style.visibility = 'visible';
       requestAnimationFrame(() => {
-        backdropDom.classList.add('show', 'fade');
+        backdropDom.classList.add('show');
         offcanvasDom.classList.add('show');
       });
     }
@@ -36,7 +36,7 @@ function Offcanvas(props: PropsTypes) {
     const backdropDom = backdropRef.current;
     if (offcanvasDom && backdropDom) {
       requestAnimationFrame(() => {
-        backdropDom.classList.remove('fade', 'show');
+        backdropDom.classList.remove('show');
         offcanvasDom.classList.remove('show');
         backdropDom.style.visibility = 'hidden';
       });

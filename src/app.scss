@@ -1,3 +1,5 @@
+@import './assets/scss/rc.scss';
+
 #app {
   height: 100vh;
 }
@@ -199,6 +201,15 @@
   .rc-nav-pills,
   .rc-nav-pills-fill,
   .rc-nav-pills-justified {
+    margin: 1rem;
+  }
+}
+
+.rc-offcanvases {
+  margin: 1rem;
+  .rc-group {
+  }
+  .rc-offcanvas-basic {
     margin: 1rem;
   }
 }

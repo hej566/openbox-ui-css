@@ -18,8 +18,11 @@
   @include overlay-backdrop(
     $zindex-offcanvas-backdrop,
     $offcanvas-backdrop-bg,
-    $offcanvas-backdrop-opacity
+    0
   );
+  &.show {
+    opacity: $offcanvas-backdrop-opacity;
+  }
 }
 
 .offcanvas-header {
@@ -85,3 +88,4 @@
 .offcanvas.show {
   transform: none;
 }
+
