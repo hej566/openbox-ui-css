@@ -1,6 +1,6 @@
 {
   "name": "@hej566/rb-ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "react bootstrap5 ui",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -8,12 +8,10 @@
     "build": "webpack --config  config/webpack.prod.js",
     "dev": "webpack server --config  config/webpack.dev.js",
     "prepublishOnly": "npm run lint:fix | webpack --config  config/webpack.prod.js",
-    "lint": "eslint --ext .ts,.tsx src",
+    "lint:fix": "eslint --fix --ext .ts,.tsx src",
     "stylelint": "stylelint src/**/*.scss",
     "prettier:fix": "prettier --write src config .eslintrc.js",
-    "test": "jest",
-    "sb": "start-storybook -p 6006",
-    "build-sb": "build-storybook"
+    "test": "jest"
   },
   "prepublishOnly": "webpack --config  config/webpack.prod.js",
   "files": [

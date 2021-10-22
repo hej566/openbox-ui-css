@@ -10,7 +10,7 @@ export { default as Badge } from './components/Badge';
 export { default as Breadcrumb } from './components/Breadcrumb';
 export { default as BreadcrumbItem } from './components/BreadcrumbItem';
 export { default as Carousel } from './components/Carousel';
-export { default as Dropdown } from './components/Carousel';
+export { default as Dropdown } from './components/Dropdown';
 export { default as DropdownItem } from './components/DropdownItem';
 export { default as Icon } from './components/Icon';
 export { default as ListGroup } from './components/ListGroup';
