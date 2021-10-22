@@ -1,131 +1,22 @@
-// export {};
-// import './polyfill';
-// import 'tippy.js/dist/tippy.css';
-import '@/assets/style/custom.scss';
+import 'tippy.js/dist/tippy.css';
+import './assets/scss/rc.scss';
 
-//
-// import Button from '@/components/Button/Index.vue';
-// import BreadcrumbItem from '@/components/BreadcrumbItem/Index.vue';
-// import Checkbox from '@/components/Checkbox/Index.vue';
-// import CheckboxGroup from '@/components/CheckboxGroup/Index.vue';
-// import ProgressCircle from '@/components/Progress/Circle/Index.vue';
-// import ProgressBar from '@/components/Progress/Bar/Index.vue';
-// import RadioGroup from '@/components/RadioGroup/Index.vue';
-// import Radio from '@/components/Radio/Index.vue';
-// import Switch from '@/components/Switch/Index.vue';
-// import RangeSlider from '@/components/RangeSlider/Index.vue';
-// import Input from '@/components/Input/Index.vue';
-// import Dropdown from '@/components/Dropdown/Index.vue';
-// import PopoverDropdown from '@/components/PopoverDropdown/Index.vue';
-// // import DropdownList from '@/components/DropdownList/Index.vue';
-// import Datepicker from '@/components/DatePicker/Index.vue';
-// import Dater from '@/components/Dater/Index.vue';
-// import Timepicker from '@/components/TimePicker/Index.vue';
-// import Timer from '@/components/Timer/Index.vue';
-// import Datetimepicker from '@/components/DatetimePicker/Index.vue';
-// import Datetimer from '@/components/Datetimer/Index.vue';
-// import Scrollbar from '@/components/Scrollbar/Index.vue';
-// import Upload from '@/components/Upload/Index.vue';
-// import AccordionItem from '@/components/AccordionItem/Index.vue';
-// import AccordionGroup from '@/components/AccordionGroup/Index.vue';
-// import Cascader from '@/components/Cascader/Index.vue';
-// // import CascaderList from '@/components/CascaderList/Index.vue';
-// import Nav from '@/components/Nav/Index.vue';
-// import Table from '@/components/Table/Index.vue';
-// import Icon from '@/components/Icon/Index.vue';
-// import Modal from '@/components/Modal/Index.vue';
-// import Tree from '@/components/Tree/Index.vue';
-// import TreeNode from '@/components/TreeNode/Index.vue';
-// import Message from '@/components/Message';
-// import Badge from '@/components/Badge/Index.vue';
-// import Pagination from '@/components/Pagination/Index.vue';
-// import Form from '@/components/Form/Index.vue';
-// import FormItem from '@/components/FormItem/Index.vue';
-// import Textarea from '@/components/Textarea/Index.vue';
-//
-// const components = [
-//   Button,
-//   BreadcrumbItem,
-//   Checkbox,
-//   CheckboxGroup,
-//   ProgressCircle,
-//   ProgressBar,
-//   RadioGroup,
-//   Radio,
-//   Switch,
-//   RangeSlider,
-//   Input,
-//   Dropdown,
-//   PopoverDropdown,
-//   // DropdownList,
-//   Datepicker,
-//   Timepicker,
-//   Datetimepicker,
-//   Timer,
-//   Dater,
-//   Datetimer,
-//   Scrollbar,
-//   Upload,
-//   AccordionItem,
-//   AccordionGroup,
-//   Cascader,
-//   // CascaderList,
-//   Nav,
-//   Table,
-//   Icon,
-//   Modal,
-//   TreeNode,
-//   Tree,
-//   Badge,
-//   Pagination,
-//   Form,
-//   FormItem,
-//   Textarea
-// ];
-//
-// components.forEach(component => {
-//   component.install = Vue => {
-//     Vue.component(component.name, component);
-//   };
-// });
-//
-// export default {
-//   Button,
-//   BreadcrumbItem,
-//   Checkbox,
-//   CheckboxGroup,
-//   ProgressCircle,
-//   ProgressBar,
-//   RadioGroup,
-//   Radio,
-//   Switch,
-//   RangeSlider,
-//   Input,
-//   Dropdown,
-//   PopoverDropdown,
-//   // DropdownList,
-//   Datepicker,
-//   Timepicker,
-//   Datetimepicker,
-//   Datetimer,
-//   Timer,
-//   Dater,
-//   Scrollbar,
-//   Upload,
-//   AccordionItem,
-//   AccordionGroup,
-//   Cascader,
-//   // CascaderList,
-//   Nav,
-//   Table,
-//   Icon,
-//   Modal,
-//   Tree,
-//   TreeNode,
-//   Badge,
-//   Pagination,
-//   Form,
-//   FormItem,
-//   Textarea,
-//   Message
-// };
+export { default as Button } from './components/Button';
+export { default as ButtonGroup } from './components/ButtonGroup';
+export { default as Alert } from './components/Alert';
+export { default as Accordion } from './components/Accordion';
+export { default as AccordionItem } from './components/AccordionItem';
+export { default as Badge } from './components/Badge';
+export { default as Breadcrumb } from './components/Breadcrumb';
+export { default as BreadcrumbItem } from './components/BreadcrumbItem';
+export { default as Carousel } from './components/Carousel';
+export { default as Dropdown } from './components/Carousel';
+export { default as DropdownItem } from './components/DropdownItem';
+export { default as Icon } from './components/Icon';
+export { default as ListGroup } from './components/ListGroup';
+export { default as ListGroupItem } from './components/ListGroupItem';
+export { default as Modal } from './components/Modal';
+export { default as Nav } from './components/Nav';
+export { default as Navbar } from './components/Navbar';
+export { default as NavItem } from './components/NavItem';
+export { default as Offcanvas } from './components/Offcanvas';

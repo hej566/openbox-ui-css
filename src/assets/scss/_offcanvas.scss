@@ -15,11 +15,7 @@
 }
 
 .offcanvas-backdrop {
-  @include overlay-backdrop(
-    $zindex-offcanvas-backdrop,
-    $offcanvas-backdrop-bg,
-    0
-  );
+  @include overlay-backdrop($zindex-offcanvas-backdrop, $offcanvas-backdrop-bg, 0);
   &.show {
     opacity: $offcanvas-backdrop-opacity;
   }
@@ -88,4 +84,3 @@
 .offcanvas.show {
   transform: none;
 }
-

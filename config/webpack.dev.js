@@ -18,7 +18,7 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     host: '127.0.0.1',
-    port: 3000,
+    port: 3001,
   },
   output: {
     filename: '[name].[chunkhash:8].bundle.js',
@@ -38,6 +38,14 @@ module.exports = {
       inject: 'body',
     }),
   ],
+
+  optimization: {
+    usedExports: true,
+    splitChunks: {
+      name: 'vendor',
+      chunks: 'all',
+    },
+  },
 
   ...baseConfig,
 };

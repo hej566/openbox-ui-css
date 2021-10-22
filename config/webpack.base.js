@@ -46,12 +46,4 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     modules: [path.resolve(__dirname, '../node_modules')],
   },
-
-  optimization: {
-    usedExports: true,
-    splitChunks: {
-      name: 'vendor',
-      chunks: 'all',
-    },
-  },
 };

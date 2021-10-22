@@ -79,7 +79,7 @@ function Buttons() {
       <section className="rc-button-variant">
         <div className="rc-title">Basic button</div>
         <div className="rc-group">
-          <Button variant="primary">Primary</Button>
+          <Button variant="primary">xxxxx</Button>
           <Button variant="secondary">Secondary</Button>
           <Button variant="success">Success</Button>
           <Button variant="danger">Danger</Button>

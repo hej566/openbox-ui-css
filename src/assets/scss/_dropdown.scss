@@ -19,9 +19,9 @@
   .dropdown-menu {
     opacity: 0;
     transition: transform 0.15s, opacity 0.15s;
-    transform:translateY(-6px);
+    transform: translateY(-6px);
     &.show {
-      transform:translateY(4px);
+      transform: translateY(4px);
       opacity: 1;
       transition: transform 0.15s, opacity 0.15s;
       //transition-timing-function: cubic-bezier(0.0, 0.0, 0.58, 1.0);

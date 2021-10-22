@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
 const baseConfig = require('./webpack.base');
 
 module.exports = {
@@ -9,14 +10,15 @@ module.exports = {
   target: 'web',
   entry: './src/build.tsx',
   output: {
-    filename: 'index.tsx',
+    filename: 'index.js',
     path: path.resolve(__dirname, '../dist'),
-    library: '@c4it/UI',
+    library: 'UI',
     libraryTarget: 'umd',
     globalObject: 'this',
     umdNamedDefine: true,
   },
-
+  externalsPresets: { node: true },
+  externals: [nodeExternals({ allowlist: ['tippy.js'] })],
   plugins: [
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,

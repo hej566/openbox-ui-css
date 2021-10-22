@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Icon from '../Icon';
 import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 
@@ -23,8 +22,6 @@ AccordionItem.defaultProps = {
 
 function AccordionItem(props: PropsTypes) {
   const { title, children, AccordionIcon, onClick, open, className } = props;
-  const headerUUID = uuidv4();
-  const bodyUUID = uuidv4();
   const [accordionBodyHeight, setAccordionHeight] = useState(0);
   const [initAccordionItemState, setInitAccordionItemState] = useState(true);
   const accordionCollapseRef = useRef<HTMLDivElement>(null);
@@ -107,14 +104,12 @@ function AccordionItem(props: PropsTypes) {
 
   return (
     <div className={accordionItemClasses.join(' ')}>
-      <h2 className="accordion-header" id={headerUUID}>
+      <h2 className="accordion-header">
         <button
           className={accordionButtonClasses.join(' ')}
           type="button"
           data-toggle="collapse"
-          data-target={`#${bodyUUID}`}
           aria-expanded={open}
-          aria-controls={bodyUUID}
           onClick={onClick}
           onClickCapture={initAccordionItemHandler}
         >
@@ -123,9 +118,7 @@ function AccordionItem(props: PropsTypes) {
         {AccordionIcon}
       </h2>
       <div
-        id={bodyUUID}
         className={accordionCollapseClasses.join(' ')}
-        aria-labelledby={headerUUID}
         onTransitionEnd={transitionEndHandler}
         ref={accordionCollapseRef}
       >
