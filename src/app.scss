@@ -130,8 +130,9 @@
 
 .rc-carousels {
   margin: 1rem;
-  .rc-group {
+  .carousel {
     width: 600px;
+    height: auto;
   }
   .rc-carousel-basic,
   .rc-carousel-control,

@@ -34,7 +34,7 @@ function Carousels() {
       <section className="rc-carousel-basic">
         <div className="rc-title">Basic carousel</div>
         <div className="rc-group">
-          <Carousel imgSrc={imgSrc} className="d-block w-100" timing={3000} />
+          <Carousel imgSrc={imgSrc} className="d-block" timing={3000} />
         </div>
       </section>
       <section className="rc-carousel-control">
