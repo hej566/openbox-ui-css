@@ -61,9 +61,7 @@ function Carousel(props: PropsTypes) {
             deepCopyImgSrcState[key].active = false;
           }
         });
-        setImgSrcState(() => {
-          return deepCopyImgSrcState;
-        });
+        setImgSrcState(() => deepCopyImgSrcState);
       }
     }
   }
@@ -345,32 +343,28 @@ function Carousel(props: PropsTypes) {
     };
   }, [imgSrcState, pause]);
 
-  const listImage = imgSrcState.map((item) => {
-    return (
-      <div
-        className={item.active ? 'carousel-item active' : 'carousel-item'}
-        key={item.index}
-        onTransitionEnd={transitionEndHandler}
-      >
-        <img src={item.src} className={imgClassName} />
-        <div className="carousel-caption d-none d-md-block">
-          {item.title && <h5>{item.title}</h5>}
-          {item.content && <p>{item.content}</p>}
-        </div>
+  const listImage = imgSrcState.map((item) => (
+    <div
+      className={item.active ? 'carousel-item active' : 'carousel-item'}
+      key={item.index}
+      onTransitionEnd={transitionEndHandler}
+    >
+      <img src={item.src} className={imgClassName} />
+      <div className="carousel-caption d-none d-md-block">
+        {item.title && <h5>{item.title}</h5>}
+        {item.content && <p>{item.content}</p>}
       </div>
-    );
-  });
+    </div>
+  ));
 
-  const indicators = imgSrcState.map((item) => {
-    return (
-      <button
-        type="button"
-        className={item.active ? 'active carousel-indicator' : 'carousel-indicator'}
-        aria-current={item.active}
-        key={item.index}
-      />
-    );
-  });
+  const indicators = imgSrcState.map((item) => (
+    <button
+      type="button"
+      className={item.active ? 'active carousel-indicator' : 'carousel-indicator'}
+      aria-current={item.active}
+      key={item.index}
+    />
+  ));
 
   return (
     <div

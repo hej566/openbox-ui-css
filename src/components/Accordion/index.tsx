@@ -48,11 +48,9 @@ function Accordion(props: PropsTypes) {
         if (key) stateMap[key] = !stateMap[key];
       }
 
-      setStateMap(() => {
-        return {
-          ...stateMap,
-        };
-      });
+      setStateMap(() => ({
+        ...stateMap,
+      }));
     };
   }
 

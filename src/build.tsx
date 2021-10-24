@@ -1,4 +1,3 @@
-import 'tippy.js/dist/tippy.css';
 import './assets/scss/rc.scss';
 
 export { default as Button } from './components/Button';

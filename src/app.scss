@@ -86,19 +86,19 @@
     margin: 1rem;
   }
   .alert {
-    & > .icon {
-      margin-right: 0.5rem;
-    }
-    &.suffix-btn {
-      display: flex;
-      align-items: center;
-      position: relative;
-      .btn-link {
-        //color: currentColor;
-        position: absolute;
-        right: 0.5rem;
-      }
-    }
+    //& > .icon {
+    //  margin-right: 0.5rem;
+    //}
+    //&.suffix-btn {
+    //  display: flex;
+    //  align-items: center;
+    //  position: relative;
+    //  .btn-link {
+    //    //color: currentColor;
+    //    position: absolute;
+    //    right: 0.5rem;
+    //  }
+    //}
   }
 }
 

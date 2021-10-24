@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, forwardRef } from 'react';
+import React, { useRef, useEffect, useState, forwardRef, Children, cloneElement } from 'react';
 import tippy, { animateFill, sticky } from 'tippy.js';
 import Button from '../Button';
 import Icon from '../Icon';
@@ -27,7 +27,6 @@ Dropdown.defaultProps = {
   className: '',
   SuffixIcon: <Icon Component={ChevronDown} />,
   onClick: (): void => {},
-  children: [],
   variant: 'secondary',
   buttonName: '',
   split: false,
@@ -38,7 +37,7 @@ Dropdown.defaultProps = {
   open: false,
   offset: [0, 4],
   type: 'tippy',
-} as PropsTypes;
+};
 
 function Dropdown(props: PropsTypes) {
   const {
@@ -84,8 +83,8 @@ function Dropdown(props: PropsTypes) {
   function setupStateMap() {
     React.Children.forEach(children, (child) => {
       const { active, disabled } = child.props;
-      const { key, type } = child;
-      if (key && type.name === 'DropdownItem') {
+      const { key } = child;
+      if (key) {
         activeStateMap[key] = active;
         disabledStateMap[key] = disabled;
         setActiveStateMap(() => ({ ...activeStateMap }));
@@ -106,6 +105,8 @@ function Dropdown(props: PropsTypes) {
           ...activeStateMap,
         }));
       }
+
+      // if (tippyInstance) tippyInstance.hide();
       setDisabledStateMap(() => ({
         ...disabledStateMap,
       }));
@@ -228,10 +229,10 @@ function Dropdown(props: PropsTypes) {
     setupStateMap();
   }, []);
 
-  const DropdownItemList = React.Children.map(children, (child) => {
-    const { key, type } = child;
-    if (key && type.name === 'DropdownItem') {
-      return React.cloneElement(child, {
+  const DropdownItemList = Children.map(children, (child) => {
+    const { key } = child;
+    if (key) {
+      return cloneElement(child, {
         active: activeStateMap[key],
         disabled: disabledStateMap[key],
         onMouseDown: !disabledStateMap[key] ? clickHandler(String(key)) : null,
