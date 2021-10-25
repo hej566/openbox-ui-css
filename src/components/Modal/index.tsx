@@ -72,8 +72,10 @@ function Modal(props: PropsTypes) {
   useEffect(() => {
     if (visible) {
       setupDialog();
+      document.body.style.overflow = 'hidden';
     } else {
       removeDialog();
+      document.body.style.overflow = 'auto';
     }
   }, [visible]);
 

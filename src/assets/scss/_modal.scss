@@ -4,7 +4,7 @@
 // .modal-content   - actual modal w/ bg and corners and stuff
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   transform: translate(-50%);
