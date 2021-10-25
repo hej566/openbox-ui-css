@@ -139,40 +139,6 @@ function ListGroups() {
           </ListGroup>
         </div>
       </section>
-      <section className="rc-list-group-contextual">
-        <div className="rc-title">Contextual list group</div>
-        <div className="rc-group">
-          <ListGroup>
-            <ListGroupItem active key={uuidv4()}>
-              A simple default list group item
-            </ListGroupItem>
-            <ListGroupItem variant="primary" key={uuidv4()}>
-              A simple primary list group item
-            </ListGroupItem>
-            <ListGroupItem disabled key={uuidv4()}>
-              A simple disabled list group item
-            </ListGroupItem>
-            <ListGroupItem variant="secondary" key={uuidv4()}>
-              A simple secondary list group item
-            </ListGroupItem>
-            <ListGroupItem variant="success" key={uuidv4()}>
-              A simple success list group item
-            </ListGroupItem>
-            <ListGroupItem variant="danger" key={uuidv4()}>
-              A simple danger list group item
-            </ListGroupItem>
-            <ListGroupItem variant="warning" key={uuidv4()}>
-              A simple warning list group item
-            </ListGroupItem>
-            <ListGroupItem variant="info" key={uuidv4()}>
-              A simple info list group item
-            </ListGroupItem>
-            <ListGroupItem variant="dark" key={uuidv4()}>
-              A simple dark list group item
-            </ListGroupItem>
-          </ListGroup>
-        </div>
-      </section>
       <section className="rc-list-group-badges">
         <div className="rc-title">Badges list group</div>
         <div className="rc-group">
