@@ -35,7 +35,6 @@ function Modal(props: PropsTypes) {
     if (modalDom && backdropDom) {
       document.body.style.overflow = 'hidden';
       document.body.style.paddingRight = '15px';
-      document.body.classList.add('modal-open');
       requestAnimationFrame(() => {
         backdropDom.style.visibility = 'visible';
         backdropDom.classList.add('show');
@@ -56,7 +55,6 @@ function Modal(props: PropsTypes) {
         setTimeout(() => {
           document.body.style.overflow = '';
           document.body.style.paddingRight = '';
-          document.body.classList.remove('modal-open');
         }, 0);
       });
     }

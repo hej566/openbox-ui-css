@@ -30,6 +30,8 @@ function Offcanvas(props: PropsTypes) {
     if (offcanvasDom && backdropDom) {
       backdropDom.style.visibility = 'visible';
       offcanvasDom.style.visibility = 'visible';
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '15px';
       requestAnimationFrame(() => {
         backdropDom.classList.add('show');
         offcanvasDom.classList.add('show');
@@ -45,6 +47,10 @@ function Offcanvas(props: PropsTypes) {
         backdropDom.classList.remove('show');
         offcanvasDom.classList.remove('show');
         backdropDom.style.visibility = 'hidden';
+        setTimeout(() => {
+          document.body.style.overflow = '';
+          document.body.style.paddingRight = '';
+        }, 0);
       });
     }
   }
