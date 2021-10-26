@@ -31,7 +31,7 @@ function NavItem(props: PropsTypes) {
   if (disabled) navLinkClasses.push('disabled');
 
   const component = React.Children.map(children, (child) => {
-    if (typeof child === 'object' && child.type.name === 'Dropdown') {
+    if (typeof child === 'object') {
       return React.cloneElement(child, {
         open: active,
         type: dropdown ? 'dropdown' : 'tippy',
