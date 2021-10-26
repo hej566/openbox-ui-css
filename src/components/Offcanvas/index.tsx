@@ -9,14 +9,20 @@ interface PropsTypes {
   title: string;
   visible: boolean;
   children: any;
+  position?: string;
 }
 
-Offcanvas.defaultProps = {};
+Offcanvas.defaultProps = {
+  position: 'start',
+};
 
 function Offcanvas(props: PropsTypes) {
-  const { onCancel, title, visible, children } = props;
+  const { onCancel, title, visible, children, position } = props;
   const offcanvasRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
+  const offcanvasClasses: string[] = ['offcanvas'];
+
+  if (position) offcanvasClasses.push(`offcanvas-${position}`);
 
   function setupDialog() {
     const offcanvasDom = offcanvasRef.current;
@@ -52,7 +58,7 @@ function Offcanvas(props: PropsTypes) {
   }, [visible]);
 
   const offcanvas = (
-    <div className="offcanvas offcanvas-start" ref={offcanvasRef}>
+    <div className={offcanvasClasses.join(' ')} ref={offcanvasRef}>
       <div className="offcanvas-header">
         <h5 className="offcanvas-title">{title}</h5>
         <Button variant="link" PrefixIcon={<Icon Component={Times} />} onClick={onCancel} />

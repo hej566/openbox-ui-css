@@ -11,19 +11,23 @@ interface PropsTypes {
   theme?: string;
   open?: boolean;
   expand?: boolean;
+  variant?: string;
+  position?: string;
 }
 
 Navbar.defaultProps = {
   className: '',
   title: '',
   Icon: <Icon Component={Bars} />,
-  theme: 'navbar-light bg-light',
+  theme: 'light',
   open: false,
   expand: true,
+  variant: 'light',
+  position: '',
 };
 
 function Navbar(props: PropsTypes) {
-  const { title, Icon, className, children, theme, open, expand } = props;
+  const { title, Icon, className, children, theme, open, expand, variant, position } = props;
   const activeListMap: { [key: string]: boolean } = {};
   const disabledListMap: { [key: string]: boolean } = {};
   const [activeStateMap, setActiveStateMap] = useState(activeListMap);
@@ -35,7 +39,9 @@ function Navbar(props: PropsTypes) {
   const navbarClasses: string[] = ['navbar'];
 
   if (className) navbarClasses.push(className);
-  if (theme) navbarClasses.push(theme);
+  if (theme) navbarClasses.push(`navbar-${theme}`);
+  if (variant) navbarClasses.push(`bg-${variant}`);
+  if (position) navbarClasses.push(position);
 
   if (!Object.keys(activeStateMap).length) {
     React.Children.forEach(children, (child) => {
