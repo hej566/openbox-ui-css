@@ -64,7 +64,7 @@ function Modal(props: PropsTypes) {
   }
 
   function clickHandler(e: any) {
-    if (e.target.classList.contains('modal')) {
+    if (e.target.classList.contains('modal') || e.target.classList.contains('modal-dialog')) {
       onCancel(e);
     }
   }
