@@ -33,16 +33,14 @@ function Modal(props: PropsTypes) {
     const modalDom = modalRef.current;
     const backdropDom = backdropRef.current;
     if (modalDom && backdropDom) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '15px';
+      document.body.classList.add('modal-open');
       requestAnimationFrame(() => {
         backdropDom.style.visibility = 'visible';
         backdropDom.classList.add('show');
         modalDom.style.visibility = 'visible';
         modalDom.classList.add('show');
-        setTimeout(() => {
-          document.body.style.overflow = 'hidden';
-          document.body.style.paddingRight = '15px';
-          document.body.classList.add('modal-open');
-        }, 0);
       });
     }
   }
