@@ -32,7 +32,7 @@
 
 // The dropdown menu
 .dropdown-menu {
-  //z-index: $zindex-dropdown;
+  z-index: $zindex-dropdown;
   min-width: $dropdown-min-width;
   padding: $dropdown-padding-y $dropdown-padding-x;
   margin: 0; // Override default margin of ul
