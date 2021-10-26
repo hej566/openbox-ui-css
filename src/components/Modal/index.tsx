@@ -33,11 +33,16 @@ function Modal(props: PropsTypes) {
     const modalDom = modalRef.current;
     const backdropDom = backdropRef.current;
     if (modalDom && backdropDom) {
-      backdropDom.style.visibility = 'visible';
-      modalDom.style.visibility = 'visible';
       requestAnimationFrame(() => {
+        backdropDom.style.visibility = 'visible';
         backdropDom.classList.add('show');
+        modalDom.style.visibility = 'visible';
         modalDom.classList.add('show');
+        setTimeout(() => {
+          document.body.style.overflow = 'hidden';
+          document.body.style.paddingRight = '15px';
+          document.body.classList.add('modal-open');
+        }, 0);
       });
     }
   }
@@ -47,18 +52,25 @@ function Modal(props: PropsTypes) {
     const backdropDom = backdropRef.current;
     if (modalDom && backdropDom) {
       requestAnimationFrame(() => {
-        backdropDom.classList.remove('show');
-        backdropDom.style.visibility = 'hidden';
         modalDom.classList.remove('show');
+        modalDom.style.visibility = 'hidden';
+        backdropDom.classList.remove('show');
+        setTimeout(() => {
+          document.body.style.overflow = '';
+          document.body.style.paddingRight = '';
+          document.body.classList.remove('modal-open');
+        }, 0);
       });
     }
   }
 
   function transitionEndHandler(e: any) {
     const modalDom = modalRef.current;
-    if (modalDom && e.target.classList.contains('modal')) {
+    const backdropDom = backdropRef.current;
+    if (modalDom && backdropDom && e.target.classList.contains('modal')) {
       if (!visible) {
         modalDom.style.visibility = 'hidden';
+        backdropDom.style.visibility = 'hidden';
       }
     }
   }
@@ -72,12 +84,8 @@ function Modal(props: PropsTypes) {
   useEffect(() => {
     if (visible) {
       setupDialog();
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '15px';
     } else {
       removeDialog();
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
     }
   }, [visible]);
 
