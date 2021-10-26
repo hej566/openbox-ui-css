@@ -73,9 +73,11 @@ function Modal(props: PropsTypes) {
     if (visible) {
       setupDialog();
       document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '15px';
     } else {
       removeDialog();
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     }
   }, [visible]);
 
