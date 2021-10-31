@@ -1,6 +1,5 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Icon from '../components/Icon';
 import Navbar from '../components/Navbar';
 import NavItem from '../components/NavItem';
 import Dropdown from '../components/Dropdown';

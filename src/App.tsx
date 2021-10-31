@@ -13,6 +13,7 @@ import Modals from './examples/Modals';
 import Navs from './examples/Navs';
 import Navbars from './examples/Navbars';
 import Offcanvases from './examples/Offcanvases';
+import Paginations from './examples/Paginations';
 
 function App() {
   return (
@@ -58,6 +59,9 @@ function App() {
           <li>
             <Link to="/offcanvases">Offcanvases</Link>
           </li>
+          <li>
+            <Link to="/paginations">Paginations</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -100,6 +104,9 @@ function App() {
             </Route>
             <Route exact path="/offcanvases">
               <Offcanvases />
+            </Route>
+            <Route exact path="/paginations">
+              <Paginations />
             </Route>
           </Switch>
         </div>

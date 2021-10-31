@@ -18,6 +18,7 @@
     text-decoration: if($link-hover-decoration == underline, none, null);
     background-color: $pagination-hover-bg;
     border-color: $pagination-hover-border-color;
+    cursor: pointer;
   }
 
   &:focus {
@@ -26,6 +27,7 @@
     background-color: $pagination-focus-bg;
     outline: $pagination-focus-outline;
     box-shadow: $pagination-focus-box-shadow;
+    cursor: pointer;
   }
 }
 
@@ -41,12 +43,19 @@
     border-color: $pagination-active-border-color;
   }
 
-  &.disabled .page-link {
-    color: $pagination-disabled-color;
-    pointer-events: none;
-    background-color: $pagination-disabled-bg;
-    border-color: $pagination-disabled-border-color;
+  &.disabled {
+    .page-link {
+      color: $pagination-disabled-color;
+
+      background-color: $pagination-disabled-bg;
+      border-color: $pagination-disabled-border-color;
+      cursor: not-allowed;
+      &:focus {
+        box-shadow: none;
+      }
+    }
   }
+
 }
 
 //
