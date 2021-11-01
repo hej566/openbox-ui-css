@@ -14,9 +14,9 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [x] Modal
 - [x] Navs & tabs
 - [x] Navbar
-- [ ] Offcanvas
-- [ ] Pagination
-- [ ] Placeholders
+- [X] Offcanvas
+- [X] Pagination
+- [X] Placeholders
 - [ ] Popovers
 - [ ] Progress
 - [ ] Toasts

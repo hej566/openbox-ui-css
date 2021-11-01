@@ -21,3 +21,4 @@ export { default as NavItem } from './components/NavItem';
 export { default as Offcanvas } from './components/Offcanvas';
 export { default as Pagination } from './components/Pagination';
 export { default as PaginationItem } from './components/PaginationItem';
+export { default as Placeholder } from './components/Placeholder';

@@ -30,6 +30,7 @@
 
 // Animation
 .placeholder-glow {
+  display: inline;
   .placeholder {
     animation: placeholder-glow 2s ease-in-out infinite;
   }
@@ -42,6 +43,7 @@
 }
 
 .placeholder-wave {
+  display: inline;
   mask-image: linear-gradient(
     130deg,
     $black 55%,
