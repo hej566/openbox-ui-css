@@ -6,9 +6,12 @@
   background-color: currentColor;
   opacity: $placeholder-opacity-max;
 
-  &.btn::before {
+  &.btn {
     display: inline-block;
-    content: '';
+    cursor: wait;
+    * {
+      visibility: hidden;
+    }
   }
 }
 

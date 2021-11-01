@@ -14,6 +14,7 @@ import Navs from './examples/Navs';
 import Navbars from './examples/Navbars';
 import Offcanvases from './examples/Offcanvases';
 import Paginations from './examples/Paginations';
+import Placeholders from './examples/Placeholders';
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
           <li>
             <Link to="/paginations">Paginations</Link>
           </li>
+          <li>
+            <Link to="/placeholders">Placeholders</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -107,6 +111,9 @@ function App() {
             </Route>
             <Route exact path="/paginations">
               <Paginations />
+            </Route>
+            <Route exact path="/placeholders">
+              <Placeholders />
             </Route>
           </Switch>
         </div>
