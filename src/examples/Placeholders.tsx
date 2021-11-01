@@ -10,7 +10,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-7">
-            <span>placeholder</span>
+            <span>X</span>
           </Placeholder>
         </div>
       </section>
@@ -18,7 +18,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-7" animate="glow">
-            <span>placeholder</span>
+            <span>X</span>
           </Placeholder>
         </div>
       </section>
@@ -26,7 +26,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-4">
-            <Button disabled>placeholder</Button>
+            <Button disabled>X</Button>
           </Placeholder>
         </div>
       </section>
@@ -34,7 +34,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-4" animate="glow">
-            <Button disabled>placeholder</Button>
+            <Button disabled>X</Button>
           </Placeholder>
         </div>
       </section>
@@ -42,7 +42,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-12" animate="wave">
-            <span>placeholder</span>
+            <span>X</span>
           </Placeholder>
         </div>
       </section>
@@ -50,7 +50,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-4" animate="glow">
-            <Button disabled>placeholder</Button>
+            <Button disabled>X</Button>
           </Placeholder>
         </div>
       </section>
@@ -65,7 +65,7 @@ function Placeholders() {
       <section className="rc-navbar-basic">
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
-          <Placeholder className="col-12" animate="wave" size="sm">
+          <Placeholder className="col-12 bg-warning" animate="wave" size="sm">
             <span />
           </Placeholder>
         </div>

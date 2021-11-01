@@ -38,7 +38,7 @@ function Paginations() {
           </Pagination>
           <Pagination size="sm">
             <PaginationItem key={uuidv4()}>
-              <span>Previous</span>
+              <span aria-label="Previous">Previous</span>
             </PaginationItem>
             <PaginationItem key={uuidv4()}>1</PaginationItem>
             <PaginationItem key={uuidv4()}>2</PaginationItem>
