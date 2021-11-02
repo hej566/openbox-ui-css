@@ -16,6 +16,7 @@ import Offcanvases from './examples/Offcanvases';
 import Paginations from './examples/Paginations';
 import Placeholders from './examples/Placeholders';
 import Popovers from './examples/Popovers';
+import Progresses from './examples/Progresses';
 
 function App() {
   return (
@@ -70,6 +71,9 @@ function App() {
           <li>
             <Link to="/popovers">Popovers</Link>
           </li>
+          <li>
+            <Link to="/progresses">Progresses</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -121,6 +125,9 @@ function App() {
             </Route>
             <Route exact path="/popovers">
               <Popovers />
+            </Route>
+            <Route exact path="/progresses">
+              <Progresses />
             </Route>
           </Switch>
         </div>
