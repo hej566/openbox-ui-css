@@ -15,6 +15,7 @@ import Navbars from './examples/Navbars';
 import Offcanvases from './examples/Offcanvases';
 import Paginations from './examples/Paginations';
 import Placeholders from './examples/Placeholders';
+import Popovers from './examples/Popovers';
 
 function App() {
   return (
@@ -66,6 +67,9 @@ function App() {
           <li>
             <Link to="/placeholders">Placeholders</Link>
           </li>
+          <li>
+            <Link to="/popovers">Popovers</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -114,6 +118,9 @@ function App() {
             </Route>
             <Route exact path="/placeholders">
               <Placeholders />
+            </Route>
+            <Route exact path="/popovers">
+              <Popovers />
             </Route>
           </Switch>
         </div>

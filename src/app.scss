@@ -214,3 +214,14 @@
     margin: 1rem;
   }
 }
+
+.rc-popover {
+  margin: 1rem;
+  .rc-group {
+    .rc-item {
+      display: inline-block;
+      margin-top: 4rem;
+      margin-left: 6rem;
+    }
+  }
+}

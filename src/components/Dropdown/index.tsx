@@ -5,6 +5,7 @@ import Icon from '../Icon';
 import ButtonGroup from '../ButtonGroup';
 import ChevronDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import 'tippy.js/animations/shift-away.css';
+import 'tippy.js/dist/svg-arrow.css';
 
 interface PropsTypes {
   children: React.ComponentElement<any, any>[];
@@ -209,6 +210,7 @@ function Dropdown(props: PropsTypes) {
         offset,
         placement: 'bottom-start',
         sticky: true,
+        theme: 'rb-dropdown',
         onClickOutside: tippyHide,
       });
       if (isOpen) {
