@@ -8,6 +8,7 @@ interface PropsTypes {
   className?: string;
   template: any;
   placement: any;
+  trigger: string;
 }
 
 Popover.defaultProps = {
@@ -16,12 +17,19 @@ Popover.defaultProps = {
 };
 
 function Popover(props: PropsTypes) {
-  const { children, className, template, placement } = props;
+  const { children, className, template, placement, trigger } = props;
   const popoverTargetRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
   const popoverTargetClasses: string[] = ['popover-target'];
   const popoverClasses: string[] = ['popover'];
+  const triggerMethods: string[] = [''];
+
+  if (trigger === 'click') {
+    triggerMethods.push('click');
+  } else if (trigger === 'hover') {
+    triggerMethods.push('mouseenter');
+  }
 
   if (placement) popoverClasses.push(`popover-${placement}`);
 
@@ -35,7 +43,7 @@ function Popover(props: PropsTypes) {
         interactive: true,
         arrow: true,
         content: popoverDom,
-        trigger: 'click',
+        trigger: triggerMethods.join(' '),
         appendTo: popoverTargetDom,
         plugins: [sticky, animateFill],
         maxWidth: 'none',

@@ -18,62 +18,62 @@ function Popovers() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <div className="rc-item">
-            <Popover template={content} placement="right">
+            <Popover template={content} placement="right" trigger="hover">
               <Button>right</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="top">
+            <Popover template={content} placement="top" trigger="hover">
               <Button>top</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="left">
+            <Popover template={content} placement="left" trigger="hover">
               <Button>left</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="bottom">
+            <Popover template={content} placement="bottom" trigger="click">
               <Button>bottom</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="top-start">
+            <Popover template={content} placement="top-start" trigger="click">
               <Button>top-start</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="top-end">
+            <Popover template={content} placement="top-end" trigger="click">
               <Button>top-end</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="right-start">
+            <Popover template={content} placement="right-start" trigger="click">
               <Button>right-start</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="right-end">
+            <Popover template={content} placement="right-end" trigger="click">
               <Button>right-end</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="bottom-start">
+            <Popover template={content} placement="bottom-start" trigger="click">
               <Button>bottom-start</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="bottom-end">
+            <Popover template={content} placement="bottom-end" trigger="click">
               <Button>bottom-end</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="left-start">
+            <Popover template={content} placement="left-start" trigger="click">
               <Button>left-start</Button>
             </Popover>
           </div>
           <div className="rc-item">
-            <Popover template={content} placement="left-end">
+            <Popover template={content} placement="left-end" trigger="click">
               <Button>left-end</Button>
             </Popover>
           </div>
