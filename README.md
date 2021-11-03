@@ -19,7 +19,7 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [X] Placeholders
 - [X] Popovers
 - [X] Progress
-- [ ] Toasts
+- [X] Toasts
 - [ ] Tooltips
 - [ ] Form control
 - [ ] Select
