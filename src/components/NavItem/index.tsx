@@ -41,7 +41,7 @@ function NavItem(props: PropsTypes) {
   });
 
   return (
-    <div className={navItemClasses.join(' ')} onClickCapture={onClick}>
+    <div className={navItemClasses.join(' ')} onClick={onClick}>
       <>
         {active && type === 'nav' && (
           <div className={navLinkClasses.join(' ')} aria-current="page">

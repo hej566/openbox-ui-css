@@ -17,6 +17,7 @@ import Paginations from './examples/Paginations';
 import Placeholders from './examples/Placeholders';
 import Popovers from './examples/Popovers';
 import Progresses from './examples/Progresses';
+import Toasts from './examples/Toasts';
 
 function App() {
   return (
@@ -74,6 +75,9 @@ function App() {
           <li>
             <Link to="/progresses">Progresses</Link>
           </li>
+          <li>
+            <Link to="/toasts">Toasts</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -128,6 +132,9 @@ function App() {
             </Route>
             <Route exact path="/progresses">
               <Progresses />
+            </Route>
+            <Route exact path="/toasts">
+              <Toasts />
             </Route>
           </Switch>
         </div>

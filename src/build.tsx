@@ -23,3 +23,5 @@ export { default as Pagination } from './components/Pagination';
 export { default as PaginationItem } from './components/PaginationItem';
 export { default as Placeholder } from './components/Placeholder';
 export { default as Popover } from './components/Popover';
+export { default as Progress } from './components/Progress';
+export { default as ProgressBar } from './components/ProgressBar';

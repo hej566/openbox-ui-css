@@ -7,6 +7,7 @@ interface PropsTypes {
   vertical?: boolean;
   className?: string;
   tabs?: boolean;
+  onChange?: any;
 }
 
 Nav.defaultProps = {
@@ -15,10 +16,11 @@ Nav.defaultProps = {
   vertical: false,
   className: '',
   tabs: false,
+  onChange: () => {},
 };
 
 function Nav(props: PropsTypes) {
-  const { children, centered, ended, vertical, className, tabs } = props;
+  const { children, centered, ended, vertical, className, tabs, onChange } = props;
   const activeListMap: { [key: string]: boolean } = {};
   const disabledListMap: { [key: string]: boolean } = {};
   const [activeStateMap, setActiveStateMap] = useState(activeListMap);
@@ -57,6 +59,7 @@ function Nav(props: PropsTypes) {
       setDisabledStateMap(() => ({
         ...disabledStateMap,
       }));
+      if (onChange) onChange(key);
     };
   }
 

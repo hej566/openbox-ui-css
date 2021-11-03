@@ -6,12 +6,15 @@ import Dropdown from '../components/Dropdown';
 import DropdownItem from '../components/DropdownItem';
 
 function Navs() {
+  function changeHandler(key: string) {
+    console.log(key);
+  }
   return (
     <div className="rc-navs">
       <section className="rc-nav-basic">
         <div className="rc-title">Basic nav</div>
         <div className="rc-group">
-          <Nav>
+          <Nav onChange={changeHandler}>
             <NavItem active key={uuidv4()}>
               Active
             </NavItem>
@@ -86,7 +89,7 @@ function Navs() {
       <section className="rc-nav-pills">
         <div className="rc-title">Pills nav</div>
         <div className="rc-group">
-          <Nav className="nav-pills">
+          <Nav className="nav-pills" onChange={changeHandler}>
             <NavItem active key={uuidv4()}>
               Active
             </NavItem>
