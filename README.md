@@ -23,7 +23,8 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [x] Tooltips
 - [ ] Form control
 - [ ] Select
-- [ ] Checks & radios
+- [x] Checks
+- [ ] Radios
 - [ ] Switch
 - [ ] upload
 - [ ] Range
