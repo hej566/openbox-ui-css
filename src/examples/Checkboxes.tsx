@@ -93,6 +93,12 @@ function Checkboxes() {
               onChange={clickHandler4}
               indeterminate={isIndeterminated4}
             />
+            <Checkbox
+              label="Default checkbox"
+              checked={isChecked4}
+              onChange={clickHandler4}
+              indeterminate
+            />
             <CheckboxGroup onChange={updateHandler}>
               {groupStateList.map((item) => (
                 <Checkbox

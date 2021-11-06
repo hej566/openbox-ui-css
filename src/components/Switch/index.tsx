@@ -8,24 +8,20 @@ interface PropsTypes {
   checked?: boolean;
   disabled?: boolean;
   onChange: any;
-  name?: string;
-  value?: string;
 }
 
-Radio.defaultProps = {
+Switch.defaultProps = {
   className: '',
   children: '',
   label: '',
-  value: '',
   checked: false,
   disabled: false,
   onChange: () => {},
-  name: '',
 } as PropsTypes;
 
-function Radio(props: PropsTypes) {
-  const { children, className, label, onChange, checked, disabled, name, value } = props;
-  const radioClasses: string[] = [`form-check`];
+function Switch(props: PropsTypes) {
+  const { children, className, label, onChange, checked, disabled } = props;
+  const radioClasses: string[] = [`form-check`, 'form-switch'];
   if (className) radioClasses.push(className);
 
   const uuid = uuidv4();
@@ -34,10 +30,8 @@ function Radio(props: PropsTypes) {
     <div className={radioClasses.join(' ')}>
       <input
         className="form-check-input"
-        type="radio"
+        type="checkbox"
         id={uuid}
-        name={name}
-        defaultValue={value}
         defaultChecked={checked}
         disabled={disabled}
         onChange={onChange}
@@ -49,4 +43,4 @@ function Radio(props: PropsTypes) {
   );
 }
 
-export default Radio;
+export default Switch;

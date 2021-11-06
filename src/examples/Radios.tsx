@@ -14,6 +14,7 @@ function Radios() {
           <div className="rc-item" onChange={changeHandler}>
             <Radio label="Default checkbox" name="test" value="1" checked />
             <Radio label="Default checkbox" name="test" value="2" />
+            <Radio label="Default checkbox" name="test" value="3" disabled />
           </div>
         </div>
       </section>
