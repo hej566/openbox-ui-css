@@ -19,6 +19,7 @@ import Popovers from './examples/Popovers';
 import Progresses from './examples/Progresses';
 import Toasts from './examples/Toasts';
 import Tooltips from './examples/Tooltips';
+import Checkboxes from './examples/Checkboxes';
 
 function App() {
   return (
@@ -82,6 +83,9 @@ function App() {
           <li>
             <Link to="/tooltips">Tooltips</Link>
           </li>
+          <li>
+            <Link to="/checkboxes">Checkboxes</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -142,6 +146,9 @@ function App() {
             </Route>
             <Route exact path="/tooltips">
               <Tooltips />
+            </Route>
+            <Route exact path="/checkboxes">
+              <Checkboxes />
             </Route>
           </Switch>
         </div>

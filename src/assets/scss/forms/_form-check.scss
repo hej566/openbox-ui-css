@@ -83,7 +83,7 @@
   }
 
   &:disabled {
-    pointer-events: none;
+    cursor: not-allowed;
     filter: none;
     opacity: $form-check-input-disabled-opacity;
   }
@@ -93,6 +93,7 @@
   &[disabled],
   &:disabled {
     ~ .form-check-label {
+      cursor: not-allowed;
       opacity: $form-check-label-disabled-opacity;
     }
   }
