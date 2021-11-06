@@ -20,6 +20,7 @@ import Progresses from './examples/Progresses';
 import Toasts from './examples/Toasts';
 import Tooltips from './examples/Tooltips';
 import Checkboxes from './examples/Checkboxes';
+import Radios from './examples/Radios';
 
 function App() {
   return (
@@ -86,6 +87,9 @@ function App() {
           <li>
             <Link to="/checkboxes">Checkboxes</Link>
           </li>
+          <li>
+            <Link to="/radios">Radios</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -149,6 +153,9 @@ function App() {
             </Route>
             <Route exact path="/checkboxes">
               <Checkboxes />
+            </Route>
+            <Route exact path="/radios">
+              <Radios />
             </Route>
           </Switch>
         </div>

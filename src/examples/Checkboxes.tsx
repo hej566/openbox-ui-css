@@ -4,14 +4,22 @@ import CheckboxGroup from '../components/CheckboxGroup';
 
 function Checkboxes() {
   const [isChecked, setChecked] = useState(false);
-  const [isChecked4, setChecked4] = useState(false);
-  const [isIndeterminated, setIndeterminated] = useState(false);
   const initGroupStateList = [
-    { key: '1', checked: false, disabled: false },
-    { key: '2', checked: false, disabled: false },
-    { key: '3', checked: false, disabled: false },
+    { key: '1', checked: true, disabled: false, value: '1' },
+    { key: '2', checked: true, disabled: false, value: '2' },
+    { key: '3', checked: false, disabled: false, value: '3' },
   ];
   const [groupStateList, setGroupStateList] = useState(initGroupStateList);
+
+  let indeterminated4 = false;
+  const checked4 =
+    initGroupStateList.filter((item) => item.checked).length === initGroupStateList.length;
+  if (!checked4 && initGroupStateList.filter((item) => item.checked).length > 0) {
+    indeterminated4 = true;
+  }
+
+  const [isChecked4, setChecked4] = useState(checked4);
+  const [isIndeterminated4, setIndeterminated4] = useState(indeterminated4);
 
   function clickHandler() {
     setChecked(!isChecked);
@@ -19,42 +27,35 @@ function Checkboxes() {
 
   function clickHandler4(e: any) {
     if (e.currentTarget.checked) {
-      setChecked4(true);
-      setIndeterminated(false);
-      setGroupStateList(() => {
-        for (const checkbox of groupStateList) {
+      for (const checkbox of groupStateList) {
+        if (!checkbox.disabled) {
           checkbox.checked = true;
         }
-        return [...groupStateList];
-      });
+      }
     } else {
-      setChecked4(false);
-      setIndeterminated(false);
-      setGroupStateList(() => {
-        for (const checkbox of groupStateList) {
+      for (const checkbox of groupStateList) {
+        if (!checkbox.disabled) {
           checkbox.checked = false;
         }
-        return [...groupStateList];
-      });
+      }
     }
+    updateHandler(groupStateList);
   }
 
-  function changeHandler(state: any) {
-    const filter = state.filter((item: any) => item.checked);
-    if (!filter.length) {
-      setChecked4(false);
-      setIndeterminated(false);
-    } else if (filter.length === state.length) {
-      setChecked4(true);
-      setIndeterminated(false);
+  function updateHandler(state: any) {
+    const checked = state.filter((item: any) => item.checked);
+    if (!checked.length) {
+      setChecked4(() => false);
+      setIndeterminated4(() => false);
+    } else if (checked.length === state.length) {
+      setChecked4(() => true);
+      setIndeterminated4(() => false);
     } else {
-      setChecked4(false);
-      setIndeterminated(true);
+      setChecked4(() => false);
+      setIndeterminated4(() => true);
     }
     setGroupStateList(() => [...state]);
   }
-
-  console.log(isIndeterminated);
 
   return (
     <div className="rc-navbars">
@@ -90,24 +91,18 @@ function Checkboxes() {
               label="Default checkbox"
               checked={isChecked4}
               onChange={clickHandler4}
-              indeterminate={isIndeterminated}
+              indeterminate={isIndeterminated4}
             />
-            <CheckboxGroup onChange={changeHandler}>
-              <Checkbox
-                label="Default checkbox"
-                checked={groupStateList[0].checked}
-                key={groupStateList[0].key}
-              />
-              <Checkbox
-                label="Default checkbox"
-                checked={groupStateList[1].checked}
-                key={groupStateList[1].key}
-              />
-              <Checkbox
-                label="Default checkbox"
-                checked={groupStateList[2].checked}
-                key={groupStateList[2].key}
-              />
+            <CheckboxGroup onChange={updateHandler}>
+              {groupStateList.map((item) => (
+                <Checkbox
+                  label="Default checkbox"
+                  checked={item.checked}
+                  value={item.value}
+                  disabled={item.disabled}
+                  key={item.key}
+                />
+              ))}
             </CheckboxGroup>
           </div>
         </div>

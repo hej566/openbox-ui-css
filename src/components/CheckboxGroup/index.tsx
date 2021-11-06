@@ -18,17 +18,20 @@ function CheckboxGroup(props: PropsTypes) {
 
   const checkedListMap: { [key: string]: boolean } = {};
   const disabledListMap: { [key: string]: boolean } = {};
+  const valueListMap: { [key: string]: string } = {};
   const [checkedStateMap, setCheckedStateMap] = useState(checkedListMap);
   const [disabledStateMap, setDisabledStateMap] = useState(disabledListMap);
+  const [valueStateMap, setValueStateMap] = useState(valueListMap);
 
   if (className) checkboxGroupClasses.push(className);
 
   React.Children.forEach(children, (child) => {
-    const { checked, disabled } = child.props;
+    const { checked, disabled, value } = child.props;
     const { key } = child;
     if (key) {
       checkedStateMap[key] = checked;
       disabledStateMap[key] = disabled;
+      valueStateMap[key] = value;
     }
   });
 
@@ -47,7 +50,12 @@ function CheckboxGroup(props: PropsTypes) {
       if (onChange) {
         const stateList = [];
         for (const key in checkedStateMap) {
-          const tmp = { key, checked: checkedStateMap[key], disabled: disabledStateMap[key] };
+          const tmp = {
+            key,
+            checked: checkedStateMap[key],
+            disabled: disabledStateMap[key],
+            value: valueStateMap[key],
+          };
           stateList.push(tmp);
         }
         onChange(stateList);

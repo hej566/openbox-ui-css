@@ -9,6 +9,7 @@ interface PropsTypes {
   disabled?: boolean;
   onChange: any;
   indeterminate?: boolean;
+  value?: string;
 }
 
 Checkbox.defaultProps = {
@@ -18,14 +19,21 @@ Checkbox.defaultProps = {
   checked: false,
   disabled: false,
   indeterminate: false,
+  value: '',
   onChange: () => {},
 } as PropsTypes;
 
 function Checkbox(props: PropsTypes) {
-  const { children, className, label, onChange, checked, disabled, indeterminate } = props;
+  const { children, className, label, onChange, checked, disabled, indeterminate, value } = props;
   const checkboxClasses: string[] = [`form-check`];
   const checkboxRef = useRef<HTMLInputElement>(null);
   if (className) checkboxClasses.push(className);
+
+  if (indeterminate) {
+    setupIndeterminate();
+  } else {
+    removeIndeterminate();
+  }
 
   const uuid = uuidv4();
 
@@ -49,16 +57,16 @@ function Checkbox(props: PropsTypes) {
     } else {
       removeIndeterminate();
     }
-  }, [indeterminate]);
+  }, []);
 
   return (
     <div className={checkboxClasses.join(' ')}>
       <input
         className="form-check-input"
         type="checkbox"
-        value=""
         id={uuid}
         checked={checked}
+        value={value}
         disabled={disabled}
         onChange={!disabled ? onChange : () => {}}
         ref={checkboxRef}
