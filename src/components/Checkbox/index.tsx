@@ -25,7 +25,7 @@ Checkbox.defaultProps = {
 
 function Checkbox(props: PropsTypes) {
   const { children, className, label, onChange, checked, disabled, indeterminate, value } = props;
-  const checkboxClasses: string[] = [`form-check`];
+  const checkboxClasses: string[] = [];
   const checkboxRef = useRef<HTMLInputElement>(null);
   if (className) checkboxClasses.push(className);
 

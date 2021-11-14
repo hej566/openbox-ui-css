@@ -63,7 +63,12 @@ function Checkboxes() {
         <div className="rc-title">Basic toast</div>
         <div className="rc-group">
           <div className="rc-item">
-            <Checkbox label="Default checkbox" checked={isChecked} onChange={clickHandler} />
+            <Checkbox
+              label="Default checkbox"
+              checked={isChecked}
+              onChange={clickHandler}
+              className="form-check"
+            />
           </div>
         </div>
       </section>
@@ -76,10 +81,11 @@ function Checkboxes() {
               checked={isChecked}
               onChange={clickHandler}
               disabled
+              className="form-check"
             />
           </div>
           <div className="rc-item">
-            <Checkbox label="Default checkbox" checked disabled />
+            <Checkbox label="Default checkbox" checked disabled className="form-check" />
           </div>
         </div>
       </section>
@@ -92,17 +98,20 @@ function Checkboxes() {
               checked={isChecked4}
               onChange={clickHandler4}
               indeterminate={isIndeterminated4}
+              className="form-check"
             />
             <Checkbox
               label="Default checkbox"
               checked={isChecked4}
               onChange={clickHandler4}
               indeterminate
+              className="form-check"
             />
             <CheckboxGroup onChange={updateHandler}>
               {groupStateList.map((item) => (
                 <Checkbox
                   label="Default checkbox"
+                  className="form-check"
                   checked={item.checked}
                   value={item.value}
                   disabled={item.disabled}

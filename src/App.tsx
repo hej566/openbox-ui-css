@@ -22,6 +22,7 @@ import Tooltips from './examples/Tooltips';
 import Checkboxes from './examples/Checkboxes';
 import Radios from './examples/Radios';
 import Switches from './examples/Switches';
+import InputGroups from './examples/InputGroups';
 
 function App() {
   return (
@@ -94,6 +95,9 @@ function App() {
           <li>
             <Link to="/switches">Switches</Link>
           </li>
+          <li>
+            <Link to="/input-groups">InputGroups</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -163,6 +167,9 @@ function App() {
             </Route>
             <Route exact path="/switches">
               <Switches />
+            </Route>
+            <Route exact path="/input-groups">
+              <InputGroups />
             </Route>
           </Switch>
         </div>

@@ -60,6 +60,7 @@ function Dropdown(props: PropsTypes) {
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownMenuRef = useRef<HTMLUListElement>(null);
   const dropdownMenuClasses: string[] = ['dropdown-menu'];
+  const dropdownClasses: string[] = ['dropdown'];
   const [isOpen, setOpenState] = useState(open);
   const [tippyInstance, setTippyInstance]: [any, any] = useState(null);
   const activeMap: { [key: string]: boolean } = {};
@@ -73,7 +74,7 @@ function Dropdown(props: PropsTypes) {
     dropdownMenuClasses.push('dropdown-menu-dark');
   }
 
-  if (className) dropdownMenuClasses.push(className);
+  if (className) dropdownClasses.push(className);
 
   if (SuffixIcon) {
     suffixIcon = React.cloneElement(SuffixIcon, {
@@ -204,7 +205,7 @@ function Dropdown(props: PropsTypes) {
         arrow: false,
         content: dropdownMenuDom,
         trigger: 'manual',
-        appendTo: dropdownButtonDom,
+        appendTo: document.body,
         plugins: [animateFill, sticky],
         maxWidth: 'none',
         offset,
@@ -257,7 +258,7 @@ function Dropdown(props: PropsTypes) {
 
   if (type === 'tippy') {
     dropdown = (
-      <div className="dropdown">
+      <div className={dropdownClasses.join(' ')}>
         {split ? (
           <ButtonGroup>
             <Button variant={variant} size={size} disabled={disabled}>
@@ -291,7 +292,7 @@ function Dropdown(props: PropsTypes) {
     );
   } else if (type === 'dropdown') {
     dropdown = (
-      <div className="dropdown">
+      <div className={dropdownClasses.join(' ')}>
         {split ? (
           <ButtonGroup>
             <Button variant={variant} size={size} disabled={disabled}>

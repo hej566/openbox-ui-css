@@ -25,7 +25,7 @@ Radio.defaultProps = {
 
 function Radio(props: PropsTypes) {
   const { children, className, label, onChange, checked, disabled, name, value } = props;
-  const radioClasses: string[] = [`form-check`];
+  const radioClasses: string[] = [];
   if (className) radioClasses.push(className);
 
   const uuid = uuidv4();

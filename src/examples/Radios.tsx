@@ -12,9 +12,9 @@ function Radios() {
         <div className="rc-title">Basic toast</div>
         <div className="rc-group">
           <div className="rc-item" onChange={changeHandler}>
-            <Radio label="Default checkbox" name="test" value="1" checked />
-            <Radio label="Default checkbox" name="test" value="2" />
-            <Radio label="Default checkbox" name="test" value="3" disabled />
+            <Radio label="Default checkbox" name="test" value="1" checked className="form-check" />
+            <Radio label="Default checkbox" name="test" value="2" className="form-check" />
+            <Radio label="Default checkbox" name="test" value="3" disabled className="form-check" />
           </div>
         </div>
       </section>
