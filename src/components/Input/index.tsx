@@ -13,6 +13,9 @@ interface PropsTypes {
   size?: string;
   readonly?: boolean;
   plaintext?: boolean;
+  min?: number;
+  max?: number;
+  current?: number;
 }
 
 Input.defaultProps = {
@@ -27,6 +30,9 @@ Input.defaultProps = {
   readonly: false,
   plaintext: false,
   placeholder: '',
+  min: 0,
+  max: 100,
+  current: 40,
 } as PropsTypes;
 
 function Input(props: PropsTypes) {
@@ -42,11 +48,16 @@ function Input(props: PropsTypes) {
     size,
     readonly,
     plaintext,
+    min,
+    max,
+    current,
   } = props;
   const inputClasses: string[] = [];
-
+  let input = null;
   if (plaintext) inputClasses.push('form-control-plaintext');
-  else {
+  else if (type === 'range') {
+    inputClasses.push('form-range');
+  } else {
     inputClasses.push('form-control');
   }
 
@@ -54,20 +65,40 @@ function Input(props: PropsTypes) {
 
   if (size) inputClasses.push(`form-control-${size}`);
 
-  return (
-    <input
-      className={inputClasses.join(' ')}
-      type={type}
-      aria-label={placeholder}
-      placeholder={placeholder}
-      disabled={disabled}
-      onChange={onChange}
-      onInput={onInput}
-      value={value}
-      id={id}
-      readOnly={readonly}
-    />
-  );
+  if (type === 'range') {
+    input = (
+      <input
+        className={inputClasses.join(' ')}
+        type={type}
+        aria-label={placeholder}
+        disabled={disabled}
+        onChange={onChange}
+        onInput={onInput}
+        defaultValue={current}
+        id={id}
+        readOnly={readonly}
+        min={min}
+        max={max}
+      />
+    );
+  } else {
+    input = (
+      <input
+        className={inputClasses.join(' ')}
+        type={type}
+        aria-label={placeholder}
+        placeholder={placeholder}
+        disabled={disabled}
+        onChange={onChange}
+        onInput={onInput}
+        value={value}
+        id={id}
+        readOnly={readonly}
+      />
+    );
+  }
+
+  return input;
 }
 
 export default Input;

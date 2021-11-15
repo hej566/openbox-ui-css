@@ -24,6 +24,7 @@ import Radios from './examples/Radios';
 import Switches from './examples/Switches';
 import InputGroups from './examples/InputGroups';
 import FormControls from './examples/FormControl';
+import Ranges from './examples/Ranges';
 
 function App() {
   return (
@@ -102,6 +103,9 @@ function App() {
           <li>
             <Link to="/form-control">FormControl</Link>
           </li>
+          <li>
+            <Link to="/range">Ranges</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -177,6 +181,9 @@ function App() {
             </Route>
             <Route exact path="/form-control">
               <FormControls />
+            </Route>
+            <Route exact path="/range">
+              <Ranges />
             </Route>
           </Switch>
         </div>
