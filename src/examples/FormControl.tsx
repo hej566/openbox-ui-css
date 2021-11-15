@@ -105,6 +105,10 @@ function FormControl() {
               <Button className="mb-3">Confirm identity</Button>
             </div>
           </form>
+          <div className="mb-3 form-floating">
+            <Input id={uuid6} placeholder="name@example.com" type="email" />
+            <Label htmlFor={uuid6}>Email address</Label>
+          </div>
         </div>
       </section>
     </div>

@@ -30,8 +30,7 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [ ] Range
 - [x] Input
 - [x] Input group
-- [ ] Floating labels
-- [ ] Form layout
+- [x] Floating labels
 - [ ] Table
 - [ ] Datepicker
 - [ ] Timepicker
