@@ -72,6 +72,10 @@
     opacity: 1;
   }
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   // File input buttons theming
   &::file-selector-button {
     padding: $input-padding-y $input-padding-x;

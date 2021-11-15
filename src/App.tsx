@@ -23,6 +23,7 @@ import Checkboxes from './examples/Checkboxes';
 import Radios from './examples/Radios';
 import Switches from './examples/Switches';
 import InputGroups from './examples/InputGroups';
+import FormControls from './examples/FormControl';
 
 function App() {
   return (
@@ -98,6 +99,9 @@ function App() {
           <li>
             <Link to="/input-groups">InputGroups</Link>
           </li>
+          <li>
+            <Link to="/form-control">FormControl</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -170,6 +174,9 @@ function App() {
             </Route>
             <Route exact path="/input-groups">
               <InputGroups />
+            </Route>
+            <Route exact path="/form-control">
+              <FormControls />
             </Route>
           </Switch>
         </div>

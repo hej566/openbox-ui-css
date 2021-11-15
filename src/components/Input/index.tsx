@@ -9,6 +9,10 @@ interface PropsTypes {
   value?: string;
   placeholder?: string;
   type?: string;
+  id?: string;
+  size?: string;
+  readonly?: boolean;
+  plaintext?: boolean;
 }
 
 Input.defaultProps = {
@@ -17,38 +21,52 @@ Input.defaultProps = {
   onChange: () => {},
   onInput: () => {},
   value: '',
+  type: 'text',
+  id: '',
+  size: '',
+  readonly: false,
+  plaintext: false,
   placeholder: '',
-  type: 'input',
 } as PropsTypes;
 
 function Input(props: PropsTypes) {
-  const { className, onChange, onInput, disabled, placeholder, type, value } = props;
+  const {
+    className,
+    onChange,
+    onInput,
+    disabled,
+    placeholder,
+    type,
+    value,
+    id,
+    size,
+    readonly,
+    plaintext,
+  } = props;
+  const inputClasses: string[] = [];
+
+  if (plaintext) inputClasses.push('form-control-plaintext');
+  else {
+    inputClasses.push('form-control');
+  }
+
+  if (className) inputClasses.push(className);
+
+  if (size) inputClasses.push(`form-control-${size}`);
 
   return (
-    <>
-      {type === 'input' ? (
-        <input
-          className="form-control"
-          type="text"
-          aria-label={placeholder}
-          placeholder={placeholder}
-          disabled={disabled}
-          onChange={onChange}
-          onInput={onInput}
-          value={value}
-        />
-      ) : (
-        <textarea
-          className="form-control"
-          aria-label={placeholder}
-          placeholder={placeholder}
-          disabled={disabled}
-          onChange={onChange}
-          onInput={onInput}
-          value={value}
-        />
-      )}
-    </>
+    <input
+      className={inputClasses.join(' ')}
+      type={type}
+      aria-label={placeholder}
+      placeholder={placeholder}
+      disabled={disabled}
+      onChange={onChange}
+      onInput={onInput}
+      value={value}
+      id={id}
+      readOnly={readonly}
+    />
   );
 }
 
