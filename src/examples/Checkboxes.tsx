@@ -65,8 +65,8 @@ function Checkboxes() {
           <div className="rc-item">
             <Checkbox
               label="Default checkbox"
-              checked={isChecked}
-              onChange={clickHandler}
+              checked={false}
+              // onChange={clickHandler}
               className="form-check"
             />
           </div>
@@ -95,21 +95,16 @@ function Checkboxes() {
           <div className="rc-item">
             <Checkbox
               label="Default checkbox"
+              controlled
               checked={isChecked4}
               onChange={clickHandler4}
               indeterminate={isIndeterminated4}
               className="form-check"
             />
-            <Checkbox
-              label="Default checkbox"
-              checked={isChecked4}
-              onChange={clickHandler4}
-              indeterminate
-              className="form-check"
-            />
             <CheckboxGroup onChange={updateHandler}>
               {groupStateList.map((item) => (
                 <Checkbox
+                  controlled
                   label="Default checkbox"
                   className="form-check"
                   checked={item.checked}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
 import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+import Upload from '../components/Upload';
 
 function Buttons() {
   const [loading1, setLoading1] = useState(false);
@@ -72,6 +73,10 @@ function Buttons() {
 
   function clickHandler9() {
     console.log('blur');
+  }
+
+  function uploadHandler(e: any) {
+    console.log(e.currentTarget.files);
   }
 
   return (
@@ -232,6 +237,19 @@ function Buttons() {
           </Button>
           <Button toggle variant="warning">
             Warning
+          </Button>
+        </div>
+      </div>
+      <div className="rc-button-toggle">
+        <div className="rc-title">Toggle button</div>
+        <div className="rc-group">
+          <Button
+            variant="primary"
+            loading={loading1}
+            PrefixIcon={<Icon Component={Acorn} />}
+            onClick={clickHandler1}
+          >
+            <Upload onChange={uploadHandler}>Upload</Upload>
           </Button>
         </div>
       </div>

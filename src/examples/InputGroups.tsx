@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import Dropdown from '../components/Dropdown';
 import DropdownItem from '../components/DropdownItem';
 import Input from '../components/Input';
+import Textarea from '../components/Textarea';
 
 function InputGroups() {
   const [isChecked, setChecked] = useState(false);
@@ -42,7 +43,7 @@ function InputGroups() {
           <div className="rc-item">
             <InputGroup className="mb-3">
               <span className="input-group-text">With textarea</span>
-              <Input value="" className="mb-3" type="textarea" />
+              <Textarea />
             </InputGroup>
           </div>
           <div className="rc-item">

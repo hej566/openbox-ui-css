@@ -205,7 +205,7 @@ function Dropdown(props: PropsTypes) {
         arrow: false,
         content: dropdownMenuDom,
         trigger: 'manual',
-        appendTo: document.body,
+        appendTo: 'parent',
         plugins: [animateFill, sticky],
         maxWidth: 'none',
         offset,

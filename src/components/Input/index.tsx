@@ -75,27 +75,42 @@ function Input(props: PropsTypes) {
         onChange={onChange}
         onInput={onInput}
         defaultValue={current}
-        id={id}
         readOnly={readonly}
         min={min}
         max={max}
       />
     );
   } else {
-    input = (
-      <input
-        className={inputClasses.join(' ')}
-        type={type}
-        aria-label={placeholder}
-        placeholder={placeholder}
-        disabled={disabled}
-        onChange={onChange}
-        onInput={onInput}
-        value={value}
-        id={id}
-        readOnly={readonly}
-      />
-    );
+    if (id) {
+      input = (
+        <input
+          className={inputClasses.join(' ')}
+          type={type}
+          aria-label={placeholder}
+          placeholder={placeholder}
+          disabled={disabled}
+          onChange={onChange}
+          onInput={onInput}
+          value={value}
+          readOnly={readonly}
+          id={id}
+        />
+      );
+    } else {
+      input = (
+        <input
+          className={inputClasses.join(' ')}
+          type={type}
+          aria-label={placeholder}
+          placeholder={placeholder}
+          disabled={disabled}
+          onChange={onChange}
+          onInput={onInput}
+          value={value}
+          readOnly={readonly}
+        />
+      );
+    }
   }
 
   return input;

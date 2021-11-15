@@ -10,6 +10,7 @@ interface PropsTypes {
   onChange: any;
   indeterminate?: boolean;
   value?: string;
+  controlled?: boolean;
 }
 
 Checkbox.defaultProps = {
@@ -20,11 +21,22 @@ Checkbox.defaultProps = {
   disabled: false,
   indeterminate: false,
   value: '',
+  controlled: false,
   onChange: () => {},
 } as PropsTypes;
 
 function Checkbox(props: PropsTypes) {
-  const { children, className, label, onChange, checked, disabled, indeterminate, value } = props;
+  const {
+    children,
+    className,
+    label,
+    onChange,
+    checked,
+    disabled,
+    indeterminate,
+    value,
+    controlled,
+  } = props;
   const checkboxClasses: string[] = [];
   const checkboxRef = useRef<HTMLInputElement>(null);
   if (className) checkboxClasses.push(className);
@@ -61,16 +73,32 @@ function Checkbox(props: PropsTypes) {
 
   return (
     <div className={checkboxClasses.join(' ')}>
-      <input
-        className="form-check-input"
-        type="checkbox"
-        id={uuid}
-        checked={checked}
-        value={value}
-        disabled={disabled}
-        onChange={!disabled ? onChange : () => {}}
-        ref={checkboxRef}
-      />
+      {controlled && (
+        <input
+          className="form-check-input"
+          type="checkbox"
+          id={uuid}
+          checked={checked}
+          value={value}
+          disabled={disabled}
+          onChange={!disabled ? onChange : () => {}}
+          ref={checkboxRef}
+        />
+      )}
+
+      {!controlled && (
+        <input
+          className="form-check-input"
+          type="checkbox"
+          id={uuid}
+          defaultChecked={checked}
+          value={value}
+          disabled={disabled}
+          onChange={!disabled ? onChange : () => {}}
+          ref={checkboxRef}
+        />
+      )}
+
       <label className="form-check-label" htmlFor={uuid}>
         {label}
       </label>

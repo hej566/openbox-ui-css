@@ -25,6 +25,7 @@ import Switches from './examples/Switches';
 import InputGroups from './examples/InputGroups';
 import FormControls from './examples/FormControl';
 import Ranges from './examples/Ranges';
+import Uploads from './examples/Uploads';
 
 function App() {
   return (
@@ -106,6 +107,9 @@ function App() {
           <li>
             <Link to="/range">Ranges</Link>
           </li>
+          <li>
+            <Link to="/uploads">Uploads</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -184,6 +188,9 @@ function App() {
             </Route>
             <Route exact path="/range">
               <Ranges />
+            </Route>
+            <Route exact path="/uploads">
+              <Uploads />
             </Route>
           </Switch>
         </div>
