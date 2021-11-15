@@ -14,22 +14,22 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [x] Modal
 - [x] Navs & tabs
 - [x] Navbar
-- [X] Offcanvas
-- [X] Pagination
-- [X] Placeholders
-- [X] Popovers
-- [X] Progress
-- [X] Toasts
+- [x] Offcanvas
+- [x] Pagination
+- [x] Placeholders
+- [x] Popovers
+- [x] Progress
+- [x] Toasts
 - [x] Tooltips
-- [ ] Form control
+- [x] Form control
 - [ ] Select
 - [x] Checkboxs
 - [x] Radios
 - [x] Switch
 - [ ] upload
 - [ ] Range
-- [X] Input
-- [X] Input group
+- [x] Input
+- [x] Input group
 - [ ] Floating labels
 - [ ] Form layout
 - [ ] Table
