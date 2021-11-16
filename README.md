@@ -22,7 +22,7 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [x] Toasts
 - [x] Tooltips
 - [x] Form control
-- [ ] Select
+- [x] Select
 - [x] Checkboxs
 - [x] Radios
 - [x] Switch

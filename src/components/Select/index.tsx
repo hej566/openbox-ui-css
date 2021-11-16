@@ -15,7 +15,6 @@ interface PropsTypes {
   buttonName?: string;
   split?: boolean;
   onClick?: any;
-  onChange?: any;
   size?: string;
   theme?: string;
   disabled?: boolean;
@@ -23,9 +22,10 @@ interface PropsTypes {
   open?: boolean;
   offset?: [number, number];
   type?: string;
+  onChange?: any;
 }
 
-Dropdown.defaultProps = {
+Select.defaultProps = {
   className: '',
   SuffixIcon: <Icon Component={ChevronDown} />,
   onClick: (): void => {},
@@ -42,7 +42,7 @@ Dropdown.defaultProps = {
   type: 'tippy',
 };
 
-function Dropdown(props: PropsTypes) {
+function Select(props: PropsTypes) {
   const {
     children,
     SuffixIcon,
@@ -58,12 +58,13 @@ function Dropdown(props: PropsTypes) {
     offset,
     type,
     onChange,
+    onClick,
   } = props;
 
-  const dropdownButtonRef = useRef<HTMLButtonElement>(null);
-  const dropdownMenuRef = useRef<HTMLUListElement>(null);
-  const dropdownMenuClasses: string[] = ['dropdown-menu'];
-  const dropdownClasses: string[] = ['dropdown'];
+  const selectButtonRef = useRef<HTMLButtonElement>(null);
+  const selectMenuRef = useRef<HTMLUListElement>(null);
+  const selectMenuClasses: string[] = ['select-menu'];
+  const selectClasses: string[] = ['form-select'];
   const [isOpen, setOpenState] = useState(open);
   const [tippyInstance, setTippyInstance]: [any, any] = useState(null);
   const activeMap: { [key: string]: boolean } = {};
@@ -74,10 +75,12 @@ function Dropdown(props: PropsTypes) {
   let suffixIcon: any = null;
 
   if (theme === 'dark') {
-    dropdownMenuClasses.push('dropdown-menu-dark');
+    selectMenuClasses.push('select-menu-dark');
   }
 
-  if (className) dropdownClasses.push(className);
+  if (size) selectClasses.push(`form-select-${size}`);
+
+  if (className) selectClasses.push(className);
 
   if (SuffixIcon) {
     suffixIcon = React.cloneElement(SuffixIcon, {
@@ -98,7 +101,7 @@ function Dropdown(props: PropsTypes) {
     });
   }
 
-  function clickHandler(key: string) {
+  function clickHandler(key: any) {
     return () => {
       if (!disabledStateMap[key]) {
         for (const id in activeStateMap) {
@@ -110,7 +113,6 @@ function Dropdown(props: PropsTypes) {
           ...activeStateMap,
         }));
       }
-
       setDisabledStateMap(() => ({
         ...disabledStateMap,
       }));
@@ -135,81 +137,81 @@ function Dropdown(props: PropsTypes) {
     setOpenState(false);
   }
 
-  function dropdownShow() {
-    const dropdownButtonDom = dropdownButtonRef.current;
-    const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownButtonDom && dropdownMenuDom) {
-      dropdownButtonDom.setAttribute('aria-expanded', 'true');
-      dropdownMenuDom.style.display = 'block';
+  function selectShow() {
+    const selectButtonDom = selectButtonRef.current;
+    const selectMenuDom = selectMenuRef.current;
+    if (selectButtonDom && selectMenuDom) {
+      selectButtonDom.setAttribute('aria-expanded', 'true');
+      selectMenuDom.style.display = 'block';
       requestAnimationFrame(() => {
-        dropdownButtonDom.classList.add('show');
-        dropdownMenuDom.classList.add('show');
+        selectButtonDom.classList.add('show');
+        selectMenuDom.classList.add('show');
       });
       setOpenState(true);
     }
   }
 
-  function dropdownHide() {
-    const dropdownButtonDom = dropdownButtonRef.current;
-    const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownButtonDom && dropdownMenuDom) {
-      dropdownButtonDom.setAttribute('aria-expanded', 'false');
+  function selectHide() {
+    const selectButtonDom = selectButtonRef.current;
+    const selectMenuDom = selectMenuRef.current;
+    if (selectButtonDom && selectMenuDom) {
+      selectButtonDom.setAttribute('aria-expanded', 'false');
       requestAnimationFrame(() => {
-        dropdownButtonDom.classList.remove('show');
-        dropdownMenuDom.classList.remove('show');
+        selectButtonDom.classList.remove('show');
+        selectMenuDom.classList.remove('show');
       });
       setOpenState(false);
     }
   }
 
   function blurHandler() {
-    const dropdownButtonDom = dropdownButtonRef.current;
-    const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownButtonDom && dropdownMenuDom) {
-      dropdownButtonDom.classList.remove('show');
-      dropdownMenuDom.classList.remove('show');
-      dropdownButtonDom.setAttribute('aria-expanded', 'false');
+    const selectButtonDom = selectButtonRef.current;
+    const selectMenuDom = selectMenuRef.current;
+    if (selectButtonDom && selectMenuDom) {
+      selectButtonDom.classList.remove('show');
+      selectMenuDom.classList.remove('show');
+      selectButtonDom.setAttribute('aria-expanded', 'false');
       setOpenState(false);
     }
   }
 
   function transitionEndHandler() {
-    const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownMenuDom) {
+    const selectMenuDom = selectMenuRef.current;
+    if (selectMenuDom) {
       if (!isOpen) {
-        dropdownMenuDom.style.display = 'none';
+        selectMenuDom.style.display = 'none';
       } else {
-        dropdownMenuDom.style.display = 'block';
+        selectMenuDom.style.display = 'block';
       }
     }
   }
 
-  function setupNavDropdown() {
-    const dropdownButtonDom = dropdownButtonRef.current;
-    const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownMenuDom && dropdownButtonDom) {
-      if (!isOpen) dropdownMenuDom.style.display = 'none';
+  function setupNavSelect() {
+    const selectButtonDom = selectButtonRef.current;
+    const selectMenuDom = selectMenuRef.current;
+    if (selectMenuDom && selectButtonDom) {
+      if (!isOpen) selectMenuDom.style.display = 'none';
       else {
-        dropdownMenuDom.style.display = 'block';
+        selectMenuDom.style.display = 'block';
         requestAnimationFrame(() => {
-          dropdownButtonDom.classList.add('show');
-          dropdownMenuDom.classList.add('show');
+          selectButtonDom.classList.add('show');
+          selectMenuDom.classList.add('show');
         });
-        dropdownButtonDom.focus();
+        selectButtonDom.focus();
       }
     }
   }
 
   function setupTippy() {
-    const dropdownButtonDom = dropdownButtonRef.current;
-    const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownButtonDom && dropdownMenuDom) {
-      const instance = tippy(dropdownButtonDom, {
+    const selectButtonDom = selectButtonRef.current;
+    const selectMenuDom = selectMenuRef.current;
+    if (selectButtonDom && selectMenuDom) {
+      const instance = tippy(selectButtonDom, {
         allowHTML: true,
         animateFill: true,
         interactive: true,
         arrow: false,
-        content: dropdownMenuDom,
+        content: selectMenuDom,
         trigger: 'manual',
         appendTo: 'parent',
         plugins: [animateFill, sticky],
@@ -217,7 +219,8 @@ function Dropdown(props: PropsTypes) {
         offset,
         placement: 'bottom-start',
         sticky: true,
-        theme: 'rb-dropdown',
+        theme: 'rb-select',
+        duration: 100,
         onClickOutside: tippyHide,
       });
       if (isOpen) {
@@ -233,38 +236,38 @@ function Dropdown(props: PropsTypes) {
     if (type === 'tippy') {
       setupTippy();
     } else {
-      setupNavDropdown();
+      setupNavSelect();
     }
     setupStateMap();
   }, []);
 
-  const DropdownItemList = Children.map(children, (child) => {
+  const SelectItemList = Children.map(children, (child) => {
     const { key } = child;
     if (key) {
       return cloneElement(child, {
         active: activeStateMap[key],
         disabled: disabledStateMap[key],
-        onMouseDown: !disabledStateMap[key] ? clickHandler(String(key)) : null,
+        onFocus: !disabledStateMap[key] ? clickHandler(String(key)) : null,
       });
     }
   });
 
   const content = (
     <ul
-      className={dropdownMenuClasses.join(' ')}
-      ref={dropdownMenuRef}
+      className={selectMenuClasses.join(' ')}
+      ref={selectMenuRef}
       onClick={type === 'tippy' ? tippyHide : () => {}}
       onTransitionEnd={transitionEndHandler}
     >
-      {DropdownItemList}
+      {SelectItemList}
     </ul>
   );
 
-  let dropdown = null;
+  let select = null;
 
   if (type === 'tippy') {
-    dropdown = (
-      <div className={dropdownClasses.join(' ')}>
+    select = (
+      <div className={selectClasses.join(' ')}>
         {split ? (
           <ButtonGroup>
             <Button variant={variant} size={size} disabled={disabled}>
@@ -276,7 +279,7 @@ function Dropdown(props: PropsTypes) {
               size={size}
               disabled={disabled}
               onClick={isOpen ? tippyHide : tippyShow}
-              buttonRef={dropdownButtonRef}
+              buttonRef={selectButtonRef}
               link={link}
             />
           </ButtonGroup>
@@ -287,7 +290,7 @@ function Dropdown(props: PropsTypes) {
             size={size}
             disabled={disabled}
             onClick={isOpen ? tippyHide : tippyShow}
-            buttonRef={dropdownButtonRef}
+            buttonRef={selectButtonRef}
             link={link}
           >
             {buttonName}
@@ -296,9 +299,9 @@ function Dropdown(props: PropsTypes) {
         {content}
       </div>
     );
-  } else if (type === 'dropdown') {
-    dropdown = (
-      <div className={dropdownClasses.join(' ')}>
+  } else if (type === 'select') {
+    select = (
+      <div className={selectClasses.join(' ')}>
         {split ? (
           <ButtonGroup>
             <Button variant={variant} size={size} disabled={disabled}>
@@ -309,9 +312,9 @@ function Dropdown(props: PropsTypes) {
               SuffixIcon={suffixIcon}
               size={size}
               disabled={disabled}
-              onClick={isOpen ? dropdownHide : dropdownShow}
+              onClick={isOpen ? selectHide : selectShow}
               onBlur={blurHandler}
-              buttonRef={dropdownButtonRef}
+              buttonRef={selectButtonRef}
               link={link}
             />
           </ButtonGroup>
@@ -321,20 +324,20 @@ function Dropdown(props: PropsTypes) {
             SuffixIcon={suffixIcon}
             size={size}
             disabled={disabled}
-            onClick={isOpen ? dropdownHide : dropdownShow}
+            onClick={isOpen ? selectHide : selectShow}
             onBlur={blurHandler}
-            buttonRef={dropdownButtonRef}
+            buttonRef={selectButtonRef}
             link={link}
           >
             {buttonName}
           </Button>
         )}
-        <div className="dropdown-menu-wrapper">{content}</div>
+        <div className="select-menu-wrapper">{content}</div>
       </div>
     );
   }
 
-  return dropdown;
+  return select;
 }
 
-export default Dropdown;
+export default Select;

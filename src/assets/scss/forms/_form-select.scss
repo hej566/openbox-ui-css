@@ -6,69 +6,177 @@
 .form-select {
   display: block;
   width: 100%;
-  padding: $form-select-padding-y $form-select-indicator-padding $form-select-padding-y
-    $form-select-padding-x;
-  // stylelint-disable-next-line property-no-vendor-prefix
-  -moz-padding-start: subtract(
-    $form-select-padding-x,
-    3px
-  ); // See https://github.com/twbs/bootstrap/issues/32636
-  font-family: $form-select-font-family;
-  @include font-size($form-select-font-size);
-  font-weight: $form-select-font-weight;
-  line-height: $form-select-line-height;
-  color: $form-select-color;
-  background-color: $form-select-bg;
-  background-image: escape-svg($form-select-indicator);
-  background-repeat: no-repeat;
-  background-position: $form-select-bg-position;
-  background-size: $form-select-bg-size;
-  border: $form-select-border-width solid $form-select-border-color;
-  @include border-radius($form-select-border-radius, 0);
-  @include box-shadow($form-select-box-shadow);
-  @include transition($form-select-transition);
-  appearance: none;
-
-  &:focus {
-    border-color: $form-select-focus-border-color;
-    outline: 0;
-    @if $enable-shadows {
-      @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
-    } @else {
-      // Avoid using mixin so we can pass custom focus shadow properly
-      box-shadow: $form-select-focus-box-shadow;
+  position: relative;
+  .btn {
+    width: 100%;
+    border: $form-select-border-width solid $form-select-border-color;
+    .btn__inner {
+      justify-content: space-between;
     }
-  }
-
-  &[multiple],
-  &[size]:not([size='1']) {
-    padding-right: $form-select-padding-x;
-    background-image: none;
-  }
-
-  &:disabled {
-    color: $form-select-disabled-color;
-    background-color: $form-select-disabled-bg;
-    border-color: $form-select-disabled-border-color;
-  }
-
-  // Remove outline from select box in FF
-  &:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 $form-select-color;
   }
 }
 
 .form-select-sm {
-  padding-top: $form-select-padding-y-sm;
-  padding-bottom: $form-select-padding-y-sm;
-  padding-left: $form-select-padding-x-sm;
   @include font-size($form-select-font-size-sm);
 }
 
 .form-select-lg {
-  padding-top: $form-select-padding-y-lg;
-  padding-bottom: $form-select-padding-y-lg;
-  padding-left: $form-select-padding-x-lg;
   @include font-size($form-select-font-size-lg);
 }
+
+//
+.select-menu-wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  .select-menu {
+    opacity: 0;
+    transition: transform 0.1s, opacity 0.1s;
+    transform: translateY(-6px);
+    &.show {
+      transform: translateY(4px);
+      opacity: 1;
+      transition: transform 0.1s, opacity 0.1s;
+      transition-timing-function: ease-in-out;
+    }
+  }
+}
+
+// The select menu
+.select-menu {
+  z-index: $zindex-dropdown;
+  min-width: $dropdown-min-width;
+  padding: $dropdown-padding-y $dropdown-padding-x;
+  margin: 0; // Override default margin of ul
+  @include font-size($dropdown-font-size);
+  color: $dropdown-color;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  list-style: none;
+  background-color: $dropdown-bg;
+  background-clip: padding-box;
+  border: $dropdown-border-width solid $dropdown-border-color;
+  @include border-radius($dropdown-border-radius);
+  @include box-shadow($dropdown-box-shadow);
+}
+
+// Dividers (basically an `<hr>`) within the dropdown
+.select-divider {
+  height: 0;
+  margin: $dropdown-divider-margin-y 0;
+  overflow: hidden;
+  border-top: 1px solid $dropdown-divider-bg;
+}
+
+// Links, buttons, and more within the dropdown menu
+//
+// `<button>`-specific styles are denoted with `// For <button>s`
+.select-item {
+  display: block;
+  width: 100%; // For `<button>`s
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  clear: both;
+  font-weight: $font-weight-normal;
+  color: $dropdown-link-color;
+  text-align: inherit; // For `<button>`s
+  text-decoration: if($link-decoration == none, null, none);
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+  background-color: transparent; // For `<button>`s
+  border: 0; // For `<button>`s
+  cursor: pointer;
+
+  // Prevent dropdown overflow if there's no padding
+  // See https://github.com/twbs/bootstrap/pull/27703
+  @if $dropdown-padding-y == 0 {
+    &:first-child {
+      @include border-top-radius($dropdown-inner-border-radius);
+    }
+
+    &:last-child {
+      @include border-bottom-radius($dropdown-inner-border-radius);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $dropdown-link-hover-color;
+    text-decoration: if($link-hover-decoration == underline, none, null);
+    @include gradient-bg($dropdown-link-hover-bg);
+  }
+
+  &.active,
+  &:active {
+    color: $dropdown-link-active-color;
+    text-decoration: none;
+    @include gradient-bg($dropdown-link-active-bg);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $dropdown-link-disabled-color;
+    // pointer-events: none;
+    background-color: transparent;
+    // Remove CSS gradients if they're enabled
+    background-image: if($enable-gradients, none, null);
+    cursor: not-allowed;
+  }
+}
+
+// Dropdown section headers
+.select-header {
+  display: block;
+  padding: $dropdown-header-padding;
+  margin-bottom: 0; // for use with heading elements
+  @include font-size($font-size-sm);
+  color: $dropdown-header-color;
+  white-space: nowrap; // as with > li > a
+}
+
+// Dropdown text
+.select-item-text {
+  display: block;
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  color: $dropdown-link-color;
+}
+
+// Dark dropdowns
+.select-menu-dark {
+  color: $dropdown-dark-color;
+  background-color: $dropdown-dark-bg;
+  border-color: $dropdown-dark-border-color;
+  @include box-shadow($dropdown-dark-box-shadow);
+
+  .select-item {
+    color: $dropdown-dark-link-color;
+
+    &:hover,
+    &:focus {
+      color: $dropdown-dark-link-hover-color;
+      @include gradient-bg($dropdown-dark-link-hover-bg);
+    }
+
+    &.active,
+    &:active {
+      color: $dropdown-dark-link-active-color;
+      @include gradient-bg($dropdown-dark-link-active-bg);
+    }
+
+    &.disabled,
+    &:disabled {
+      color: $dropdown-dark-link-disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  .select-divider {
+    border-color: $dropdown-dark-divider-bg;
+  }
+
+  .select-item-text {
+    color: $dropdown-dark-link-color;
+  }
+
+  .select-header {
+    color: $dropdown-dark-header-color;
+  }
+}
+

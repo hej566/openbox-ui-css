@@ -79,3 +79,12 @@
 .tippy-box[data-theme="rb-tooltip"] {
   color: #ffffff;
 }
+
+.tippy-box[data-theme="rb-select"] {
+  background-color: transparent;
+  color: inherit;
+  width: 100%;
+  .tippy-content {
+    padding: 0;
+  }
+}

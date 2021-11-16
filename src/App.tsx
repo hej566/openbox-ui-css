@@ -26,6 +26,7 @@ import InputGroups from './examples/InputGroups';
 import FormControls from './examples/FormControl';
 import Ranges from './examples/Ranges';
 import Uploads from './examples/Uploads';
+import Selects from './examples/Selects';
 
 function App() {
   return (
@@ -110,6 +111,9 @@ function App() {
           <li>
             <Link to="/uploads">Uploads</Link>
           </li>
+          <li>
+            <Link to="/selects">Selects</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -191,6 +195,9 @@ function App() {
             </Route>
             <Route exact path="/uploads">
               <Uploads />
+            </Route>
+            <Route exact path="/selects">
+              <Selects />
             </Route>
           </Switch>
         </div>

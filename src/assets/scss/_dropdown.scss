@@ -1,19 +1,3 @@
-// The dropdown wrapper (`<div>`)
-//.dropup,
-//.dropend,
-.dropdown {
-  //.btn {
-  //  border-radius: 0;
-  //  //border: none;
-  //}
-  //border-radius: 0.25rem;
-  //border-color: red;
-  //border: 1px solid;
-}
-//.dropstart {
-//  //position: relative;
-//}
-
 .dropdown-toggle {
   white-space: nowrap;
 
@@ -32,7 +16,6 @@
       transform: translateY(4px);
       opacity: 1;
       transition: transform 0.15s, opacity 0.15s;
-      //transition-timing-function: cubic-bezier(0.0, 0.0, 0.58, 1.0);
       transition-timing-function: ease-in-out;
     }
   }
@@ -53,107 +36,7 @@
   border: $dropdown-border-width solid $dropdown-border-color;
   @include border-radius($dropdown-border-radius);
   @include box-shadow($dropdown-box-shadow);
-
-  //position: absolute;
-  //z-index: $zindex-dropdown;
-  //display: none; // none by default, but block on "open" of the menu
-  //min-width: $dropdown-min-width;
-  //padding: $dropdown-padding-y $dropdown-padding-x;
-  //margin: 0; // Override default margin of ul
-  //@include font-size($dropdown-font-size);
-  //color: $dropdown-color;
-  //text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
-  //list-style: none;
-  //background-color: $dropdown-bg;
-  //background-clip: padding-box;
-  //border: $dropdown-border-width solid $dropdown-border-color;
-  //@include border-radius($dropdown-border-radius);
-  //@include box-shadow($dropdown-box-shadow);
-
-  // &[data-bs-popper] {
-  //   top: 100%;
-  //   left: 0;
-  //   margin-top: $dropdown-spacer;
-  // }
 }
-
-// scss-docs-start responsive-breakpoints
-// We deliberately hardcode the `bs-` prefix because we check
-// this custom property in JS to determine Popper's positioning
-
-//@each $breakpoint in map-keys($grid-breakpoints) {
-//  @include media-breakpoint-up($breakpoint) {
-//    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-//
-//    .dropdown-menu#{$infix}-start {
-//      --bs-position: start;
-//
-//      &[data-bs-popper] {
-//        right: auto;
-//        left: 0;
-//      }
-//    }
-//
-//    .dropdown-menu#{$infix}-end {
-//      --bs-position: end;
-//
-//      &[data-bs-popper] {
-//        right: 0;
-//        left: auto;
-//      }
-//    }
-//  }
-//}
-// scss-docs-end responsive-breakpoints
-
-// Allow for dropdowns to go bottom up (aka, dropup-menu)
-// Just add .dropup after the standard .dropdown class and you're set.
-//.dropup {
-//  .dropdown-menu[data-bs-popper] {
-//    top: auto;
-//    bottom: 100%;
-//    margin-top: 0;
-//    margin-bottom: $dropdown-spacer;
-//  }
-//
-//  .dropdown-toggle {
-//    @include caret(up);
-//  }
-//}
-
-//.dropend {
-//  .dropdown-menu[data-bs-popper] {
-//    top: 0;
-//    right: auto;
-//    left: 100%;
-//    margin-top: 0;
-//    margin-left: $dropdown-spacer;
-//  }
-//
-//  .dropdown-toggle {
-//    @include caret(end);
-//    &::after {
-//      vertical-align: 0;
-//    }
-//  }
-//}
-
-//.dropstart {
-//  .dropdown-menu[data-bs-popper] {
-//    top: 0;
-//    right: 100%;
-//    left: auto;
-//    margin-top: 0;
-//    margin-right: $dropdown-spacer;
-//  }
-//
-//  .dropdown-toggle {
-//    @include caret(start);
-//    &::before {
-//      vertical-align: 0;
-//    }
-//  }
-//}
 
 // Dividers (basically an `<hr>`) within the dropdown
 .dropdown-divider {
@@ -217,9 +100,6 @@
   }
 }
 
-//.dropdown-menu.show {
-//  display: block;
-//}
 
 // Dropdown section headers
 .dropdown-header {
