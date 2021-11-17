@@ -1,0 +1,122 @@
+// Base class
+
+.menu {
+  padding-left: 0;
+  width: $menu-width;
+  @include gradient-bg();
+}
+
+.submenu {
+  > .submenu__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $submenu-padding-y 0  $submenu-padding-y 0;
+    &:hover,
+    &:focus {
+      color: $menu-item-hover-color;
+      text-decoration: if($link-hover-decoration == underline, none, null);
+      @include gradient-bg($menu-item-hover-bg);
+      cursor: pointer;
+    }
+
+    &.active,
+    &:active {
+      color: $menu-item-active-color;
+      text-decoration: none;
+      @include gradient-bg($menu-item-active-bg);
+      cursor: pointer;
+    }
+
+    &.disabled,
+    &:disabled {
+      color: $menu-item-disabled-color;
+      // pointer-events: none;
+      background-color: transparent;
+      // Remove CSS gradients if they're enabled
+      background-image: if($enable-gradients, none, null);
+      cursor: not-allowed;
+    }
+    > .submenu__wrapper {
+      display: flex;
+      align-items: center;
+      > .submenu__prefix {
+        margin-right: $submenu-padding-x;
+      }
+    }
+    > .submenu__suffix {
+      padding-right: $submenu-padding-x;
+      > .icon {
+        @include transition($submenu-icon-transition);
+      }
+    }
+  }
+  > .submenu__body {
+    //padding: 0 0 0 $submenu-padding-x;
+  }
+
+  &.show {
+    > .submenu__header {
+      > .submenu__suffix {
+        > .icon {
+          transform: rotate(180deg);
+          @include transition($submenu-icon-transition);
+        }
+      }
+    }
+  }
+}
+
+.menu-item {
+  padding: $menu-item-padding-y 0 $menu-item-padding-y 0;
+
+  &:hover,
+  &:focus {
+    color: $menu-item-hover-color;
+    text-decoration: if($link-hover-decoration == underline, none, null);
+    @include gradient-bg($menu-item-hover-bg);
+    cursor: pointer;
+  }
+
+  &.active,
+  &:active {
+    color: $menu-item-active-color;
+    text-decoration: none;
+    @include gradient-bg($menu-item-active-bg);
+    cursor: pointer;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $menu-item-disabled-color;
+    // pointer-events: none;
+    background-color: transparent;
+    // Remove CSS gradients if they're enabled
+    background-image: if($enable-gradients, none, null);
+    cursor: not-allowed;
+  }
+
+  .menu-item__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .menu-item__prefix {
+      margin-right: $menu-item-padding-x;
+    }
+    .menu-item__suffix {
+      padding-right: $menu-item-padding-x;
+    }
+    .menu-item__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.menu-group {
+  .menu-group__header {
+    padding: $menu-item-padding-y 0 $menu-item-padding-y 0;
+    color: $menu-item-disabled-color;
+  }
+}

@@ -27,6 +27,7 @@ import FormControls from './examples/FormControl';
 import Ranges from './examples/Ranges';
 import Uploads from './examples/Uploads';
 import Selects from './examples/Selects';
+import Menus from './examples/Menus';
 
 function App() {
   return (
@@ -114,6 +115,9 @@ function App() {
           <li>
             <Link to="/selects">Selects</Link>
           </li>
+          <li>
+            <Link to="/menus">Menus</Link>
+          </li>
         </ul>
         <hr />
         <div className="main">
@@ -198,6 +202,9 @@ function App() {
             </Route>
             <Route exact path="/selects">
               <Selects />
+            </Route>
+            <Route exact path="/menus">
+              <Menus />
             </Route>
           </Switch>
         </div>

@@ -1136,6 +1136,18 @@ $nav-pills-link-active-color: $component-active-color !default;
 $nav-pills-link-active-bg: $component-active-bg !default;
 // scss-docs-end nav-variables
 
+// Menu
+$menu-item-padding-y: 0.5rem !default;
+$menu-item-padding-x: 1rem !default;
+$submenu-padding-y: 0.5rem !default;
+$submenu-padding-x: 1rem !default;
+$menu-width: 16rem !default;
+$submenu-icon-transition: transform 0.15s ease-in-out !default;
+$menu-item-hover-color: shade-color($gray-900, 10%) !default;
+$menu-item-hover-bg: $gray-200 !default;
+$menu-item-active-color: $component-active-color !default;
+$menu-item-disabled-color: $gray-500 !default;
+$menu-item-active-bg: $component-active-bg !default;
 // Navbar
 
 // scss-docs-start navbar-variables
