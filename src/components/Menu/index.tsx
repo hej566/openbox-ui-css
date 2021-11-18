@@ -6,20 +6,26 @@ interface PropsTypes {
   className?: string;
   onChange?: any;
   disabled?: boolean;
+  defaultActiveId?: string;
+  defaultOpenKey?: string[];
 }
 
 Menu.defaultProps = {
   className: '',
   onChange: () => {},
   disabled: false,
+  defaultActiveId: '',
+  defaultOpenKey: [''],
 };
 
 function Menu(props: PropsTypes) {
-  const { children, className, onChange, disabled } = props;
-  const activeListMap: { [key: string]: boolean } = {};
-  const disabledListMap: { [key: string]: boolean } = {};
-  const [activeStateMap, setActiveStateMap] = useState(activeListMap);
-  const [disabledStateMap, setDisabledStateMap] = useState(disabledListMap);
+  const { children, className, onChange, disabled, defaultActiveId, defaultOpenKey } = props;
+  const activeMap: { [key: string]: boolean } = {};
+  const disabledMap: { [key: string]: boolean } = {};
+  const openMap: { [key: string]: boolean } = {};
+  const [activeStateMap, setActiveStateMap] = useState(activeMap);
+  const [disabledStateMap, setDisabledStateMap] = useState(disabledMap);
+  const [openStateMap, setOpenStateMap] = useState(openMap);
   const menuClasses: string[] = ['menu'];
   const collection: React.ComponentElement<any, any>[] = [];
   const map: { [key: string]: React.ComponentElement<any, any> } = {};
@@ -48,14 +54,26 @@ function Menu(props: PropsTypes) {
 
   if (!Object.keys(activeStateMap).length) {
     for (const key in componentsMap) {
-      const { active, disabled } = componentsMap[key].props;
-      if (active !== null && disabled !== null) {
+      const { active, disabled, open } = componentsMap[key].props;
+      if (active !== null && disabled !== null && open !== null) {
         activeStateMap[key] = active;
         disabledStateMap[key] = disabled;
+        openStateMap[key] = open;
+      }
+      if (defaultActiveId) {
+        activeStateMap[defaultActiveId] = true;
+      }
+      if (defaultOpenKey) {
+        for (let i = 0; i < defaultOpenKey.length; i += 1) {
+          openStateMap[defaultOpenKey[i]] = true;
+        }
       }
     }
     setActiveStateMap(() => ({
       ...activeStateMap,
+    }));
+    setOpenStateMap(() => ({
+      ...openStateMap,
     }));
   }
 
@@ -115,6 +133,7 @@ function Menu(props: PropsTypes) {
           onClick: clickHandler,
           activeStateMap,
           disabledStateMap,
+          openStateMap,
         }}
       >
         {children}

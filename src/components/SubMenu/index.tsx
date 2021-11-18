@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Icon from '../Icon';
 import Chevron from '../../assets/icons/svg/chevron-down-regular.svg';
+import MenuContext from '../MenuContext';
 
 interface PropsTypes {
   children: React.ComponentElement<any, any>[] | React.ComponentElement<any, any>;
@@ -31,23 +32,17 @@ function SubMenu(props: PropsTypes) {
   const submenuBodyRef = useRef<HTMLDivElement>(null);
   const submenuHeaderRef = useRef<HTMLDivElement>(null);
   const submenuRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setOpenState] = useState(open);
-  const [initSubmenu, setInitSubmenuState] = useState(true);
+  const ctx = useContext(MenuContext);
+  const [isOpen, setOpenState] = useState(ctx.openStateMap[menuId]);
 
   function getSubmenuHeight() {
     const submenuBodyDom = submenuBodyRef.current;
     const submenuDom = submenuRef.current;
     if (submenuBodyDom && submenuDom) {
       submenuDom.setAttribute('data-height', String(submenuBodyDom.offsetHeight));
-      if (!isOpen) {
+      if (!submenuDom.classList.contains('show')) {
         submenuBodyDom.style.display = 'none';
       }
-    }
-  }
-
-  function updateSubmenuState() {
-    if (initSubmenu) {
-      setInitSubmenuState(false);
     }
   }
 
@@ -68,10 +63,21 @@ function SubMenu(props: PropsTypes) {
     }
   }
 
-  function updateSubmenuBodyClass() {
-    if (isOpen && !initSubmenu) {
-      const submenuBodyDom = submenuBodyRef.current;
-      const submenuDom = submenuRef.current;
+  function toggleHandler(e: any) {
+    e.stopPropagation();
+    setOpenState(!isOpen);
+    const submenuBodyDom = submenuBodyRef.current;
+    const submenuDom = submenuRef.current;
+    if (e.currentTarget.classList.contains('show')) {
+      if (submenuBodyDom && submenuDom) {
+        submenuBodyDom.style.height = `${submenuDom.dataset.height}px`;
+        requestAnimationFrame(() => {
+          submenuBodyDom.style.height = `0px`;
+        });
+        submenuBodyDom.classList.add('collapsing');
+        submenuDom.classList.remove('show');
+      }
+    } else {
       if (submenuBodyDom && submenuDom) {
         submenuBodyDom.style.display = 'block';
         submenuBodyDom.style.height = '0px';
@@ -80,17 +86,6 @@ function SubMenu(props: PropsTypes) {
         });
         submenuBodyDom.classList.add('collapsing');
         submenuDom.classList.add('show');
-      }
-    } else if (!isOpen && !initSubmenu) {
-      const submenuBodyDom = submenuBodyRef.current;
-      const submenuDom = submenuRef.current;
-      if (submenuBodyDom && submenuDom) {
-        submenuBodyDom.style.height = `${submenuDom.dataset.height}px`;
-        requestAnimationFrame(() => {
-          submenuBodyDom.style.height = `0px`;
-        });
-        submenuBodyDom.classList.add('collapsing');
-        submenuDom.classList.remove('show');
       }
     }
   }
@@ -105,13 +100,8 @@ function SubMenu(props: PropsTypes) {
 
   function clickHandler(e: any) {
     e.stopPropagation();
-    setOpenState(!isOpen);
-    updateSubmenuState();
+    toggleHandler(e);
   }
-
-  useEffect(() => {
-    updateSubmenuBodyClass();
-  }, [isOpen]);
 
   useEffect(() => {
     getSubmenuHeight();
@@ -119,18 +109,44 @@ function SubMenu(props: PropsTypes) {
   }, []);
 
   return (
-    <div className="submenu" ref={submenuRef} onClick={clickHandler}>
-      <div className="submenu__header" ref={submenuHeaderRef} onClick={onChange}>
-        <div className="submenu__wrapper">
-          <div className="submenu__prefix">{prefix}</div>
-          <div className="submenu__content">{label}</div>
+    <>
+      {ctx.openStateMap[menuId] && (
+        <div className="submenu show" ref={submenuRef} onClick={clickHandler}>
+          <div className="submenu__header" ref={submenuHeaderRef} onClick={onChange}>
+            <div className="submenu__wrapper">
+              <div className="submenu__prefix">{prefix}</div>
+              <div className="submenu__content">{label}</div>
+            </div>
+            <div className="submenu__suffix">{suffix}</div>
+          </div>
+          <div
+            className="submenu__body collapse show"
+            ref={submenuBodyRef}
+            onTransitionEnd={transitionEndHandler}
+          >
+            {children}
+          </div>
         </div>
-        <div className="submenu__suffix">{suffix}</div>
-      </div>
-      <div className="submenu__body" ref={submenuBodyRef} onTransitionEnd={transitionEndHandler}>
-        {children}
-      </div>
-    </div>
+      )}
+      {!ctx.openStateMap[menuId] && (
+        <div className="submenu" ref={submenuRef} onClick={clickHandler}>
+          <div className="submenu__header" ref={submenuHeaderRef} onClick={onChange}>
+            <div className="submenu__wrapper">
+              <div className="submenu__prefix">{prefix}</div>
+              <div className="submenu__content">{label}</div>
+            </div>
+            <div className="submenu__suffix">{suffix}</div>
+          </div>
+          <div
+            className="submenu__body"
+            ref={submenuBodyRef}
+            onTransitionEnd={transitionEndHandler}
+          >
+            {children}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
