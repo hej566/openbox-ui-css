@@ -35,7 +35,7 @@ This is augmented bootstrap style UI library which in favor of building bootstra
 - [ ] Datepicker
 - [ ] Timepicker
 - [ ] Datetimepicker
-- [ ] Menu
+- [x] Menu
 - [ ] Tree
 - [ ] Cascader
 - [ ] Scrollbar
