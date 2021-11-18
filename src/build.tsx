@@ -1,4 +1,4 @@
-import './assets/scss/rc.scss';
+import './assets/scss/rb.scss';
 
 export { default as Button } from './components/Button';
 export { default as ButtonGroup } from './components/ButtonGroup';

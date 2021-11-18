@@ -3,7 +3,7 @@
 .menu {
   padding-left: 0;
   width: $menu-width;
-  @include gradient-bg();
+  background-color: $light;
 }
 
 .submenu {

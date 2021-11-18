@@ -11,7 +11,7 @@ function Menus() {
   return (
     <div>
       <div>
-        <Menu className="bg-light" defaultActiveId="1" defaultOpenKey={['4', '5', '5-3']}>
+        <Menu defaultActiveId="1" defaultOpenKey={['4', '5', '5-3']}>
           <MenuItem key="1" menuId="1" prefix={<Icon Component={Acorn} />}>
             Option 1
           </MenuItem>
@@ -51,7 +51,7 @@ function Menus() {
         </Menu>
       </div>
       <div>
-        <Menu className="bg-light">
+        <Menu>
           <MenuItem key="1" menuId="1" prefix={<Icon Component={Acorn} />}>
             Option 1
           </MenuItem>

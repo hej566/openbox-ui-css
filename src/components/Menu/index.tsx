@@ -97,35 +97,6 @@ function Menu(props: PropsTypes) {
     };
   }
 
-  // const MenuContext = React.createContext(clickHandler);
-
-  // const AllComponentsList = Object.entries(componentsMap).map((component) =>
-  //   React.cloneElement(component[1], {
-  //     active: activeStateMap[component[0]],
-  //     disabled: disabledStateMap[component[0]],
-  //     // onClick: !disabledStateMap[component[0]] ? clickHandler(String(component[0])) : null,
-  //   })
-  // );
-  //
-  // const MenuItemList = AllComponentsList.filter((component) => {
-  //   const { key } = component;
-  //   if (key) return String(key).split('-').length === 1;
-  // });
-
-  // const MenuItemList = React.Children.map(children, (child) => {
-  //   const { key } = child;
-  //   if (key) {
-  //
-  //     return React.cloneElement(child, {
-  //       active: activeStateMap[key],
-  //       disabled: disabledStateMap[key],
-  //       // onClick: !disabledStateMap[key] ? clickHandler(key)) : null,
-  //     });
-  //   }
-  // });
-  // console.log(MenuItemList[0] === componentsMap['1']);
-  // MenuItemList[0] === componentsMap['4-1'];
-
   return (
     <menu className={menuClasses.join(' ')} role="navigation">
       <MenuContext.Provider
