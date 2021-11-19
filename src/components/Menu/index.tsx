@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Children, useEffect, useState } from 'react';
 import MenuContext from '../MenuContext';
 
 interface PropsTypes {
@@ -8,6 +8,7 @@ interface PropsTypes {
   disabled?: boolean;
   defaultActiveId?: string;
   defaultOpenKey?: string[];
+  collapsed?: boolean;
 }
 
 Menu.defaultProps = {
@@ -16,10 +17,12 @@ Menu.defaultProps = {
   disabled: false,
   defaultActiveId: '',
   defaultOpenKey: [''],
+  collapsed: false,
 };
 
 function Menu(props: PropsTypes) {
-  const { children, className, onChange, disabled, defaultActiveId, defaultOpenKey } = props;
+  const { children, className, onChange, disabled, defaultActiveId, defaultOpenKey, collapsed } =
+    props;
   const activeMap: { [key: string]: boolean } = {};
   const disabledMap: { [key: string]: boolean } = {};
   const openMap: { [key: string]: boolean } = {};
@@ -97,6 +100,14 @@ function Menu(props: PropsTypes) {
     };
   }
 
+  if (collapsed) {
+    menuClasses.push('horizontal-collapse');
+    // for (const key in openStateMap) {
+    //   openStateMap[key] = false;
+    // }
+    // setOpenStateMap(() => ({ ...openStateMap }));
+  }
+
   return (
     <menu className={menuClasses.join(' ')} role="navigation">
       <MenuContext.Provider
@@ -105,6 +116,7 @@ function Menu(props: PropsTypes) {
           activeStateMap,
           disabledStateMap,
           openStateMap,
+          collapsed: collapsed !== undefined ? collapsed : false,
         }}
       >
         {children}

@@ -90,3 +90,16 @@
     padding: 0;
   }
 }
+
+.tippy-box[data-theme="rb-submenu"] {
+  //background-color: transparent;
+  color: inherit;
+  width: 100%;
+  background-color: $light;
+  .tippy-content {
+    padding: 0;
+    .submenu__body {
+      //width:
+    }
+  }
+}

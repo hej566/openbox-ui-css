@@ -9,6 +9,7 @@ const MenuContext = React.createContext({
   activeStateMap,
   disabledStateMap,
   openStateMap,
+  collapsed: false,
 });
 
 export default MenuContext;
