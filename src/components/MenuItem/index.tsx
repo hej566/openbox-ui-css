@@ -1,7 +1,35 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext } from 'react';
 import MenuContext from '../MenuContext';
 
-interface PropsTypes {
+const MenuItem = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, ref) => {
+  const { className, children, onClick, prefix, menuId, indent } = props;
+  const menuItemIndent = Number(indent) * menuId.split('-').length;
+  const ctx = useContext(MenuContext);
+  const menuItemClasses: string[] = ['menu-item'];
+  const isActive = ctx.activeStateMap[menuId];
+
+  if (isActive) {
+    menuItemClasses.push('active');
+  }
+
+  return (
+    <div
+      className={menuItemClasses.join(' ')}
+      style={{ paddingLeft: `${menuItemIndent}px` }}
+      ref={ref}
+      onClick={ctx.onClick(menuId)}
+    >
+      <div className="menu-item__inner">
+        <div className="menu-item__wrapper">
+          <div className="menu-item__prefix">{prefix}</div>
+          <div className="menu-item__content">{children}</div>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+type PropsTypes = {
   children: any;
   className?: string;
   onClick?: any;
@@ -10,7 +38,8 @@ interface PropsTypes {
   indent?: string;
   active?: boolean;
   disabled?: boolean;
-}
+  ref?: any;
+};
 
 MenuItem.defaultProps = {
   className: '',
@@ -19,50 +48,7 @@ MenuItem.defaultProps = {
   onClick: () => {},
   active: false,
   disabled: false,
+  ref: null,
 };
-
-function MenuItem(props: PropsTypes) {
-  const { className, children, onClick, prefix, menuId, indent } = props;
-  const menuItemRef = useRef<HTMLDivElement>(null);
-  const menuItemIndent = Number(indent) * menuId.split('-').length;
-  const ctx = useContext(MenuContext);
-
-  console.log('recreated menu-item');
-
-  return (
-    <>
-      {ctx.activeStateMap[menuId] && (
-        <div
-          className="menu-item active"
-          style={{ paddingLeft: `${menuItemIndent}px` }}
-          ref={menuItemRef}
-          onClick={ctx.onClick(menuId)}
-        >
-          <div className="menu-item__inner">
-            <div className="menu-item__wrapper">
-              <div className="menu-item__prefix">{prefix}</div>
-              <div className="menu-item__content">{children}</div>
-            </div>
-          </div>
-        </div>
-      )}
-      {!ctx.activeStateMap[menuId] && (
-        <div
-          className="menu-item"
-          ref={menuItemRef}
-          style={{ paddingLeft: `${menuItemIndent}px` }}
-          onClick={ctx.onClick(menuId)}
-        >
-          <div className="menu-item__inner">
-            <div className="menu-item__wrapper">
-              <div className="menu-item__prefix">{prefix}</div>
-              <div className="menu-item__content">{children}</div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-}
 
 export default MenuItem;

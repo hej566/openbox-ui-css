@@ -1,4 +1,5 @@
-import React, { Children, useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import tippy, { sticky } from 'tippy.js';
 import MenuContext from '../MenuContext';
 
 interface PropsTypes {
@@ -33,6 +34,8 @@ function Menu(props: PropsTypes) {
   const collection: React.ComponentElement<any, any>[] = [];
   const map: { [key: string]: React.ComponentElement<any, any> } = {};
   const [componentsMap, setComponentsMap] = useState(map);
+  const testArray: any[] = [];
+  const [tippyArray, setTippyState] = useState(testArray);
   if (className) menuClasses.push(className);
 
   if (!Object.keys(activeStateMap).length) {
@@ -100,12 +103,43 @@ function Menu(props: PropsTypes) {
     };
   }
 
+  function setupTippy(component: any, content: string) {
+    const tippyInstance = tippy(component, {
+      allowHTML: true,
+      interactive: true,
+      arrow: true,
+      trigger: 'mouseenter',
+      content: `<div>${content}</div>`,
+      appendTo: component,
+      plugins: [sticky],
+      maxWidth: 'none',
+      placement: 'right',
+      sticky: true,
+      theme: 'rb-tooltip',
+    });
+    tippyArray.push(tippyInstance);
+  }
+
+  function destoryTippys() {
+    for (const instance of tippyArray) {
+      instance.destroy();
+    }
+    setTippyState(() => []);
+  }
+
+  useEffect(() => {
+    if (collapsed) {
+      Array.from(document.querySelectorAll('menu .menu-item')).map((item) => {
+        if (item.textContent) setupTippy(item, item.textContent);
+        setTippyState(() => [...tippyArray]);
+      });
+    } else {
+      destoryTippys();
+    }
+  }, [collapsed]);
+
   if (collapsed) {
     menuClasses.push('horizontal-collapse');
-    // for (const key in openStateMap) {
-    //   openStateMap[key] = false;
-    // }
-    // setOpenStateMap(() => ({ ...openStateMap }));
   }
 
   return (
