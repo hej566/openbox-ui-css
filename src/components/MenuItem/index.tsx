@@ -17,7 +17,7 @@ const MenuItem = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes
       className={menuItemClasses.join(' ')}
       style={{ paddingLeft: `${menuItemIndent}px` }}
       ref={ref}
-      onClick={ctx.onClick(menuId, 'leaf')}
+      onMouseDown={ctx.onClick(menuId, 'leaf')}
     >
       <div className="menu-item__inner">
         <div className="menu-item__wrapper">

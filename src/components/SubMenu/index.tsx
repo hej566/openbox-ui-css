@@ -69,7 +69,6 @@ function SubMenu(props: PropsTypes) {
   }
 
   function toggleHandler(e: any) {
-    // e.stopPropagation();
     setOpenState(!isOpen);
     const submenuBodyDom = submenuBodyRef.current;
     const submenuDom = submenuRef.current;
@@ -169,7 +168,7 @@ function SubMenu(props: PropsTypes) {
   if (!ctx.collapsed) {
     if (ctx.openStateMap[menuId]) {
       submenu = (
-        <div className="submenu show" ref={submenuRef} onClick={clickHandler}>
+        <div className="submenu show" ref={submenuRef} onMouseDown={clickHandler}>
           <div className="submenu__header" ref={submenuHeaderRef} onClick={onChange}>
             <div className="submenu__wrapper">
               <div className="submenu__prefix">{prefix}</div>
@@ -188,7 +187,7 @@ function SubMenu(props: PropsTypes) {
       );
     } else {
       submenu = (
-        <div className="submenu" ref={submenuRef} onClick={clickHandler}>
+        <div className="submenu" ref={submenuRef} onMouseDown={clickHandler}>
           <div className="submenu__header" ref={submenuHeaderRef} onClick={onChange}>
             <div className="submenu__wrapper">
               <div className="submenu__prefix">{prefix}</div>

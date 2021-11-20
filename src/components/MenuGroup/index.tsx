@@ -46,7 +46,7 @@ function MenuGroup(props: PropsTypes) {
   }, []);
 
   return (
-    <div className="menu-group" onClick={clickHandler}>
+    <div className="menu-group" onMouseDown={clickHandler}>
       <div className="menu-group__header" ref={menuGroupHeaderRef}>
         <div className="menu-group__prefix">{prefix}</div>
         <div className="menu-group__content">{label}</div>
