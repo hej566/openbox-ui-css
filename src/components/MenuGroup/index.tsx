@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Icon from '../Icon';
 import Chevron from '../../assets/icons/svg/chevron-down-regular.svg';
+import MenuContext from '../MenuContext';
 
 interface PropsTypes {
   children: React.ComponentElement<any, any>[];
@@ -24,9 +25,12 @@ MenuGroup.defaultProps = {
 function MenuGroup(props: PropsTypes) {
   const { className, children, onChange, prefix, suffix, label, menuId, indent } = props;
   const menuGroupHeaderRef = useRef<HTMLDivElement>(null);
+  const ctx = useContext(MenuContext);
 
   function clickHandler(e: any) {
-    e.stopPropagation();
+    if (!ctx.collapsed) {
+      e.stopPropagation();
+    }
   }
 
   function setupIndent() {

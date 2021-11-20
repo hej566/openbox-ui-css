@@ -36,6 +36,7 @@ function Menu(props: PropsTypes) {
   const [componentsMap, setComponentsMap] = useState(map);
   const testArray: any[] = [];
   const [tippyArray, setTippyState] = useState(testArray);
+  const [deleteBranch, setDeleteBranch] = useState(false);
   if (className) menuClasses.push(className);
 
   if (!Object.keys(activeStateMap).length) {
@@ -83,23 +84,30 @@ function Menu(props: PropsTypes) {
     }));
   }
 
-  function clickHandler(key: string) {
+  function resetCollapseTippy() {
+    setDeleteBranch(false);
+  }
+
+  function clickHandler(key: string, type: string) {
     return (e: any) => {
       e.stopPropagation();
-      if (!disabledStateMap[key]) {
-        for (const id in activeStateMap) {
-          activeStateMap[id] = false;
-        }
-        activeStateMap[key] = true;
+      if (type === 'leaf') {
+        setDeleteBranch(true);
+        if (!disabledStateMap[key]) {
+          for (const id in activeStateMap) {
+            activeStateMap[id] = false;
+          }
+          activeStateMap[key] = true;
 
-        setActiveStateMap(() => ({
-          ...activeStateMap,
+          setActiveStateMap(() => ({
+            ...activeStateMap,
+          }));
+        }
+        setDisabledStateMap(() => ({
+          ...disabledStateMap,
         }));
+        if (onChange) onChange(key);
       }
-      setDisabledStateMap(() => ({
-        ...disabledStateMap,
-      }));
-      if (onChange) onChange(key);
     };
   }
 
@@ -151,6 +159,8 @@ function Menu(props: PropsTypes) {
           disabledStateMap,
           openStateMap,
           collapsed: collapsed !== undefined ? collapsed : false,
+          deleteBranch,
+          resetCollapseTippy,
         }}
       >
         {children}

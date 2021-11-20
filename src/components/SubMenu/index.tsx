@@ -69,7 +69,7 @@ function SubMenu(props: PropsTypes) {
   }
 
   function toggleHandler(e: any) {
-    e.stopPropagation();
+    // e.stopPropagation();
     setOpenState(!isOpen);
     const submenuBodyDom = submenuBodyRef.current;
     const submenuDom = submenuRef.current;
@@ -123,6 +123,15 @@ function SubMenu(props: PropsTypes) {
     }
   }, [ctx.collapsed]);
 
+  useEffect(() => {
+    if (ctx.deleteBranch) {
+      if (tippyInstance && ctx.collapsed) {
+        tippyInstance.hide();
+      }
+      ctx.resetCollapseTippy();
+    }
+  }, [ctx.deleteBranch]);
+
   function setupTippy() {
     const submenuDom = submenuRef.current;
     const submenuBodyDom = submenuBodyRef.current;
@@ -133,7 +142,7 @@ function SubMenu(props: PropsTypes) {
         allowHTML: true,
         interactive: true,
         arrow: false,
-        trigger: 'mouseenter',
+        trigger: 'mouseenter click',
         content: submenuBodyDom,
         appendTo: submenuDom,
         plugins: [sticky],
@@ -141,6 +150,7 @@ function SubMenu(props: PropsTypes) {
         placement: 'left-start',
         sticky: true,
         theme: 'rb-submenu',
+        hideOnClick: false,
         onDestroy: (instance) => {
           if (isOpen) {
             submenuDom.classList.add('show');
@@ -198,7 +208,7 @@ function SubMenu(props: PropsTypes) {
     }
   } else {
     submenu = (
-      <div className="submenu" ref={submenuRef}>
+      <div className="submenu" ref={submenuRef} onClick={ctx.onClick(menuId, 'node')}>
         <div className="submenu__header" ref={submenuHeaderRef}>
           <div className="submenu__wrapper">
             <div className="submenu__prefix">{prefix}</div>
