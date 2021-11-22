@@ -103,23 +103,6 @@
       cursor: pointer;
     }
 
-    &.active,
-    &:active {
-      color: $menu-item-active-color;
-      text-decoration: none;
-      @include gradient-bg($menu-item-active-bg);
-      cursor: pointer;
-    }
-
-    &.disabled,
-    &:disabled {
-      color: $menu-item-disabled-color;
-      // pointer-events: none;
-      background-color: transparent;
-      // Remove CSS gradients if they're enabled
-      background-image: if($enable-gradients, none, null);
-      cursor: not-allowed;
-    }
     > .submenu__wrapper {
       display: flex;
       align-items: center;

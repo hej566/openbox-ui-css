@@ -6,7 +6,6 @@ import MenuContext from '../MenuContext';
 interface PropsTypes {
   children: React.ComponentElement<any, any>[];
   className?: string;
-  onChange?: any;
   prefix?: any;
   suffix?: any;
   label: string;
@@ -16,14 +15,13 @@ interface PropsTypes {
 
 MenuGroup.defaultProps = {
   className: '',
-  onChange: () => {},
   prefix: null,
   suffix: <Icon Component={Chevron} />,
   indent: '16',
 };
 
 function MenuGroup(props: PropsTypes) {
-  const { className, children, onChange, prefix, suffix, label, menuId, indent } = props;
+  const { className, children, prefix, label, menuId, indent } = props;
   const menuGroupHeaderRef = useRef<HTMLDivElement>(null);
   const ctx = useContext(MenuContext);
 
