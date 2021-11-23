@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import tippy, { sticky } from 'tippy.js';
 import MenuContext from '../MenuContext';
 
@@ -32,36 +32,35 @@ function Menu(props: PropsTypes) {
   const [openStateMap, setOpenStateMap] = useState(openMap);
   const menuClasses: string[] = ['menu'];
   const collection: React.ComponentElement<any, any>[] = [];
-  const map: { [key: string]: React.ComponentElement<any, any> } = {};
-  const [componentsMap, setComponentsMap] = useState(map);
+  const componentMap: { [key: string]: React.ComponentElement<any, any> } = {};
   const testArray: any[] = [];
   const [tippyArray, setTippyState] = useState(testArray);
-  const [deleteBranch, setDeleteBranch] = useState(false);
+  const [hideTippy, setHideTippy] = useState(false);
   if (className) menuClasses.push(className);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  if (collapsed) menuClasses.push('horizontal-collapse');
+
+  const getAllComponents = (map: any, component: any) => {
+    if (typeof component === 'object' && component instanceof Array) {
+      for (const subcomponent of component) {
+        map[subcomponent.key] = subcomponent;
+        getAllComponents(map, subcomponent.props.children);
+      }
+    } else if (typeof component === 'object' && component instanceof Object) {
+      map[component.key] = component;
+      getAllComponents(map, component.props.children);
+    }
+  };
 
   if (!Object.keys(activeStateMap).length) {
     React.Children.map(children, (child) => {
       collection.push(child);
     });
-    allComponents(componentsMap, collection);
-    setComponentsMap(() => ({ ...componentsMap }));
-  }
+    getAllComponents(componentMap, collection);
 
-  function allComponents(map: any, component: any) {
-    if (typeof component === 'object' && component instanceof Array) {
-      for (const subcomponent of component) {
-        map[subcomponent.key] = subcomponent;
-        allComponents(map, subcomponent.props.children);
-      }
-    } else if (typeof component === 'object' && component instanceof Object) {
-      map[component.key] = component;
-      allComponents(map, component.props.children);
-    }
-  }
-
-  if (!Object.keys(activeStateMap).length) {
-    for (const key in componentsMap) {
-      const { active, disabled, open } = componentsMap[key].props;
+    for (const key in componentMap) {
+      const { active, disabled, open } = componentMap[key].props;
       if (active !== null && disabled !== null && open !== null) {
         activeStateMap[key] = active;
         disabledStateMap[key] = disabled;
@@ -76,42 +75,33 @@ function Menu(props: PropsTypes) {
         }
       }
     }
-    setActiveStateMap(() => ({
-      ...activeStateMap,
-    }));
-    setOpenStateMap(() => ({
-      ...openStateMap,
-    }));
   }
 
-  function resetCollapseTippy() {
-    setDeleteBranch(false);
-  }
+  const resetHideTippy = () => {
+    setHideTippy(false);
+  };
 
-  function clickHandler(key: string, type: string) {
-    return (e: any) => {
-      e.stopPropagation();
-      if (type === 'leaf') {
-        setDeleteBranch(true);
-        if (!disabledStateMap[key]) {
-          for (const id in activeStateMap) {
-            activeStateMap[id] = false;
-          }
-          activeStateMap[key] = true;
-
-          setActiveStateMap(() => ({
-            ...activeStateMap,
-          }));
+  const clickHandler = (key: string, type: string) => (e: any) => {
+    e.stopPropagation();
+    if (type === 'leaf') {
+      if (collapsed) setHideTippy(true);
+      if (!disabledStateMap[key]) {
+        for (const id in activeStateMap) {
+          activeStateMap[id] = false;
         }
-        setDisabledStateMap(() => ({
-          ...disabledStateMap,
-        }));
-        if (onChange) onChange(key);
+        activeStateMap[key] = true;
       }
-    };
-  }
+      setDisabledStateMap(() => ({
+        ...disabledStateMap,
+      }));
+      setActiveStateMap(() => ({
+        ...activeStateMap,
+      }));
+      if (onChange) onChange(key);
+    }
+  };
 
-  function setupTippy(component: any, content: string) {
+  const setupTippy = (component: any, content: string) => {
     const tippyInstance = tippy(component, {
       allowHTML: true,
       interactive: true,
@@ -126,32 +116,31 @@ function Menu(props: PropsTypes) {
       theme: 'rb-tooltip',
     });
     tippyArray.push(tippyInstance);
-  }
+  };
 
-  function destoryTippys() {
+  const destroyTippys = () => {
     for (const instance of tippyArray) {
       instance.destroy();
     }
     setTippyState(() => []);
-  }
+  };
 
   useEffect(() => {
     if (collapsed) {
-      Array.from(document.querySelectorAll('menu .menu-item')).map((item) => {
-        if (item.textContent) setupTippy(item, item.textContent);
-        setTippyState(() => [...tippyArray]);
-      });
+      const menuDom = menuRef.current;
+      if (menuDom) {
+        Array.from(menuDom.querySelectorAll(':scope > .menu-item')).map((item) => {
+          if (item.textContent) setupTippy(item, item.textContent);
+          setTippyState(() => [...tippyArray]);
+        });
+      }
     } else {
-      destoryTippys();
+      if (tippyArray.length) destroyTippys();
     }
   }, [collapsed]);
 
-  if (collapsed) {
-    menuClasses.push('horizontal-collapse');
-  }
-
   return (
-    <menu className={menuClasses.join(' ')} role="navigation">
+    <menu className={menuClasses.join(' ')} role="navigation" ref={menuRef}>
       <MenuContext.Provider
         value={{
           onClick: clickHandler,
@@ -159,8 +148,8 @@ function Menu(props: PropsTypes) {
           disabledStateMap,
           openStateMap,
           collapsed: collapsed !== undefined ? collapsed : false,
-          deleteBranch,
-          resetCollapseTippy,
+          hideTippy,
+          resetHideTippy,
         }}
       >
         {children}
@@ -169,4 +158,4 @@ function Menu(props: PropsTypes) {
   );
 }
 
-export default Menu;
+export default React.memo(Menu);

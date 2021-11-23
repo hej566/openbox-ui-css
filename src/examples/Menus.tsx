@@ -9,12 +9,13 @@ import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 import Button from '../components/Button';
 
 function Menus() {
-  const defaultActiveId = '1';
-  const defaultOpenKey = ['4', '5', '5-3'];
+  const defaultActiveId = '';
+  let defaultOpenKey = ['5-3'];
   const [isCollapsed, setCollapsedState] = useState(true);
 
   function clickHandler() {
     setCollapsedState(!isCollapsed);
+    defaultOpenKey = ['5'];
   }
 
   return (
@@ -107,7 +108,11 @@ function Menus() {
       {/*  </Menu> */}
       {/* </div> */}
       <div>
-        <Menu collapsed={isCollapsed}>
+        <Menu
+          collapsed={isCollapsed}
+          defaultActiveId={defaultActiveId}
+          defaultOpenKey={defaultOpenKey}
+        >
           <MenuItem key="1" menuId="1" prefix={<Icon Component={Acorn} />}>
             Option 1
           </MenuItem>

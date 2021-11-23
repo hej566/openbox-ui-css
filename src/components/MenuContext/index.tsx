@@ -10,8 +10,8 @@ const MenuContext = React.createContext({
   disabledStateMap,
   openStateMap,
   collapsed: false,
-  deleteBranch: false,
-  resetCollapseTippy: () => {},
+  hideTippy: false,
+  resetHideTippy: () => {},
 });
 
 export default MenuContext;

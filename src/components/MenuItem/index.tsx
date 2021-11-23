@@ -39,6 +39,7 @@ type PropsTypes = {
   active?: boolean;
   disabled?: boolean;
   ref?: any;
+  type?: string;
 };
 
 MenuItem.defaultProps = {
@@ -49,6 +50,7 @@ MenuItem.defaultProps = {
   active: false,
   disabled: false,
   ref: null,
+  type: 'leaf',
 };
 
 export default MenuItem;

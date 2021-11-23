@@ -1,5 +1,12 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import tippy, { animateFill, sticky } from 'tippy.js';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  useLayoutEffect,
+  useCallback,
+} from 'react';
+import tippy, { sticky } from 'tippy.js';
 import Icon from '../Icon';
 import Chevron from '../../assets/icons/svg/chevron-down-regular.svg';
 import MenuContext from '../MenuContext';
@@ -15,6 +22,7 @@ interface PropsTypes {
   menuId: string;
   indent?: string;
   onClick?: any;
+  type?: string;
 }
 
 SubMenu.defaultProps = {
@@ -25,50 +33,40 @@ SubMenu.defaultProps = {
   open: false,
   indent: '16',
   onClick: () => {},
+  type: 'node',
 };
 
 function SubMenu(props: PropsTypes) {
-  const { className, children, onChange, prefix, suffix, label, open, menuId, indent, onClick } =
+  const { className, children, onChange, prefix, suffix, label, menuId, indent, onClick, type } =
     props;
+  const ctx = useContext(MenuContext);
   const submenuBodyRef = useRef<HTMLDivElement>(null);
   const submenuHeaderRef = useRef<HTMLDivElement>(null);
   const submenuRef = useRef<HTMLDivElement>(null);
-  const ctx = useContext(MenuContext);
   const [isOpen, setOpenState] = useState(ctx.openStateMap[menuId]);
-  let submenu = null;
   const [tippyInstance, setTippyInstance]: [any, any] = useState(null);
 
-  function initSubmenuHeight() {
-    const submenuBodyDom = submenuBodyRef.current;
-    const submenuDom = submenuRef.current;
-    if (submenuBodyDom && submenuDom) {
-      submenuDom.setAttribute('data-height', String(submenuBodyDom.offsetHeight));
-      if (!ctx.collapsed) {
-        if (!submenuDom.classList.contains('show')) {
+  const transitionEndHandler = useCallback(
+    (e: any) => {
+      e.stopPropagation();
+      const submenuBodyDom = submenuBodyRef.current;
+      if (submenuBodyDom) {
+        if (isOpen) {
+          submenuBodyDom.style.height = '';
+          submenuBodyDom.classList.remove('collapsing');
+          submenuBodyDom.classList.add('collapse', 'show');
+        } else {
+          submenuBodyDom.style.height = '';
+          submenuBodyDom.classList.remove('collapsing', 'show');
+          submenuBodyDom.classList.add('collapse');
           submenuBodyDom.style.display = 'none';
         }
       }
-    }
-  }
+    },
+    [isOpen]
+  );
 
-  function transitionEndHandler(e: any) {
-    e.stopPropagation();
-    const submenuBodyDom = submenuBodyRef.current;
-    if (submenuBodyDom) {
-      if (isOpen) {
-        submenuBodyDom.style.height = '';
-        submenuBodyDom.classList.remove('collapsing');
-        submenuBodyDom.classList.add('collapse', 'show');
-      } else {
-        submenuBodyDom.style.height = '';
-        submenuBodyDom.classList.remove('collapsing', 'show');
-        submenuBodyDom.classList.add('collapse');
-        submenuBodyDom.style.display = 'none';
-      }
-    }
-  }
-
-  function toggleHandler(e: any) {
+  const toggleHandler = (e: any) => {
     setOpenState(!isOpen);
     const submenuBodyDom = submenuBodyRef.current;
     const submenuDom = submenuRef.current;
@@ -92,137 +90,143 @@ function SubMenu(props: PropsTypes) {
         submenuDom.classList.add('show');
       }
     }
-  }
+  };
 
-  function setupIndent() {
+  const mouseDownHandler = useCallback(
+    (e: any) => {
+      e.stopPropagation();
+      toggleHandler(e);
+    },
+    [isOpen]
+  );
+
+  const clickHandler = useCallback((e: any) => {
+    ctx.onClick(menuId, 'node');
+  }, []);
+
+  const setupHeight = () => {
+    const submenuBodyDom = submenuBodyRef.current;
+    const submenuDom = submenuRef.current;
+    if (submenuBodyDom && submenuDom) {
+      submenuDom.setAttribute('data-height', String(submenuBodyDom.offsetHeight));
+    }
+  };
+
+  const setupIndent = () => {
     const submenuHeaderDom = submenuHeaderRef.current;
     if (submenuHeaderDom) {
       const submenuIndent = Number(indent) * menuId.split('-').length;
       submenuHeaderDom.style.paddingLeft = `${submenuIndent}px`;
     }
-  }
+  };
 
-  function clickHandler(e: any) {
-    e.stopPropagation();
-    toggleHandler(e);
-  }
-
-  useEffect(() => {
-    initSubmenuHeight();
-    setupIndent();
-  }, []);
-
-  useEffect(() => {
-    if (ctx.collapsed) {
-      setupTippy();
-    } else {
-      if (tippyInstance) {
-        tippyInstance.destroy();
+  const setupVisibility = () => {
+    const submenuBodyDom = submenuBodyRef.current;
+    const submenuDom = submenuRef.current;
+    if (submenuBodyDom && submenuDom) {
+      if (!ctx.collapsed) {
+        if (isOpen) {
+          submenuDom.classList.add('show');
+          submenuBodyDom.classList.add('collapse', 'show');
+          submenuBodyDom.style.display = 'block';
+        } else {
+          submenuBodyDom.style.display = 'none';
+        }
+      } else {
+        submenuDom.classList.remove('show');
+        submenuBodyDom.style.display = 'block';
       }
     }
-  }, [ctx.collapsed]);
+  };
 
-  useEffect(() => {
-    if (ctx.deleteBranch) {
-      if (tippyInstance && ctx.collapsed) {
-        tippyInstance.hide();
-      }
-      ctx.resetCollapseTippy();
-    }
-  }, [ctx.deleteBranch]);
-
-  function setupTippy() {
+  const setupTippy = () => {
     const submenuDom = submenuRef.current;
     const submenuBodyDom = submenuBodyRef.current;
 
     if (submenuDom && submenuBodyDom) {
-      submenuDom.classList.remove('show');
-      const instance = tippy(submenuDom, {
-        allowHTML: true,
-        interactive: true,
-        arrow: false,
-        trigger: 'mouseenter click',
-        content: submenuBodyDom,
-        appendTo: submenuDom,
-        plugins: [sticky],
-        maxWidth: 'none',
-        placement: 'left-start',
-        sticky: true,
-        theme: 'rb-submenu',
-        hideOnClick: false,
-        onDestroy: (instance) => {
-          if (isOpen) {
-            submenuDom.classList.add('show');
-            submenuBodyDom.classList.add('collapse', 'show');
-            submenuBodyDom.style.display = 'block';
-          } else {
-            submenuBodyDom.style.display = 'none';
-          }
-          submenuDom.appendChild(submenuBodyDom);
-        },
-      });
-      setTippyInstance(() => instance);
-    }
-  }
+      if (!tippyInstance) {
+        const instance = tippy(submenuDom, {
+          allowHTML: true,
+          interactive: true,
+          arrow: false,
+          trigger: 'mouseenter',
+          content: submenuBodyDom,
+          appendTo: submenuDom,
+          plugins: [sticky],
+          maxWidth: 'none',
+          placement: 'left-start',
+          sticky: true,
+          theme: 'rb-submenu',
+          hideOnClick: false,
+          onDestroy: () => {
+            submenuDom.appendChild(submenuBodyDom);
+            setTippyInstance(null);
+          },
+        });
 
-  if (!ctx.collapsed) {
-    if (ctx.openStateMap[menuId]) {
-      submenu = (
-        <div className="submenu show" ref={submenuRef} onMouseDown={clickHandler}>
-          <div className="submenu__header" ref={submenuHeaderRef} onClick={onChange}>
-            <div className="submenu__wrapper">
-              <div className="submenu__prefix">{prefix}</div>
-              <div className="submenu__content">{label}</div>
-            </div>
-            <div className="submenu__suffix">{suffix}</div>
-          </div>
-          <div
-            className="submenu__body collapse show"
-            ref={submenuBodyRef}
-            onTransitionEnd={transitionEndHandler}
-          >
-            {children}
-          </div>
-        </div>
-      );
-    } else {
-      submenu = (
-        <div className="submenu" ref={submenuRef} onMouseDown={clickHandler}>
-          <div className="submenu__header" ref={submenuHeaderRef} onClick={onChange}>
-            <div className="submenu__wrapper">
-              <div className="submenu__prefix">{prefix}</div>
-              <div className="submenu__content">{label}</div>
-            </div>
-            <div className="submenu__suffix">{suffix}</div>
-          </div>
-          <div
-            className="submenu__body"
-            ref={submenuBodyRef}
-            onTransitionEnd={transitionEndHandler}
-          >
-            {children}
-          </div>
-        </div>
-      );
+        setTippyInstance(() => instance);
+      }
     }
-  } else {
-    submenu = (
-      <div className="submenu" ref={submenuRef} onClick={ctx.onClick(menuId, 'node')}>
-        <div className="submenu__header" ref={submenuHeaderRef}>
-          <div className="submenu__wrapper">
-            <div className="submenu__prefix">{prefix}</div>
-            <div className="submenu__content">{label}</div>
-          </div>
-          <div className="submenu__suffix">{suffix}</div>
+  };
+
+  const initHeightAndIndent = () => {
+    setupHeight();
+    setupIndent();
+  };
+
+  useEffect(() => {
+    if (ctx.hideTippy) {
+      if (tippyInstance && ctx.collapsed) {
+        tippyInstance.hide();
+      }
+      ctx.resetHideTippy();
+    }
+  }, [ctx.hideTippy]);
+
+  useEffect(() => {
+    if (ctx.collapsed && !tippyInstance) {
+      setupTippy();
+    }
+    if (!ctx.collapsed && tippyInstance) {
+      tippyInstance.destroy();
+    }
+    setupVisibility();
+  }, [ctx.collapsed]);
+
+  useLayoutEffect(() => {
+    initHeightAndIndent();
+    if (ctx.collapsed && !tippyInstance) {
+      setupTippy();
+    }
+    if (!ctx.collapsed && tippyInstance) {
+      tippyInstance.destroy();
+    }
+    setupVisibility();
+  }, []);
+
+  return (
+    <div
+      className="submenu"
+      ref={submenuRef}
+      onClick={ctx.collapsed ? clickHandler : () => {}}
+      onMouseDown={!ctx.collapsed ? mouseDownHandler : () => {}}
+    >
+      <div className="submenu__header" ref={submenuHeaderRef}>
+        <div className="submenu__wrapper">
+          <div className="submenu__prefix">{prefix}</div>
+          <div className="submenu__content">{label}</div>
         </div>
-        <div className="submenu__body" ref={submenuBodyRef} style={{ display: 'block' }}>
-          {children}
-        </div>
+        <div className="submenu__suffix">{suffix}</div>
       </div>
-    );
-  }
-
-  return submenu;
+      <div
+        className="submenu__body"
+        ref={submenuBodyRef}
+        onTransitionEnd={!ctx.collapsed ? transitionEndHandler : () => {}}
+      >
+        {children}
+      </div>
+    </div>
+  );
 }
 
 export default SubMenu;
