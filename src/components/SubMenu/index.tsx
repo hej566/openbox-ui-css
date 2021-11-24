@@ -45,6 +45,7 @@ function SubMenu(props: PropsTypes) {
   const submenuRef = useRef<HTMLDivElement>(null);
   const [isOpen, setOpenState] = useState(ctx.openStateMap[menuId]);
   const [tippyInstance, setTippyInstance]: [any, any] = useState(null);
+  const submenuIndent = Number(indent) * menuId.split('-').length;
 
   const transitionEndHandler = useCallback(
     (e: any) => {
@@ -112,14 +113,6 @@ function SubMenu(props: PropsTypes) {
     }
   };
 
-  const setupIndent = () => {
-    const submenuHeaderDom = submenuHeaderRef.current;
-    if (submenuHeaderDom) {
-      const submenuIndent = Number(indent) * menuId.split('-').length;
-      submenuHeaderDom.style.paddingLeft = `${submenuIndent}px`;
-    }
-  };
-
   const setupVisibility = () => {
     const submenuBodyDom = submenuBodyRef.current;
     const submenuDom = submenuRef.current;
@@ -158,6 +151,7 @@ function SubMenu(props: PropsTypes) {
           sticky: true,
           theme: 'rb-submenu',
           hideOnClick: false,
+          offset: [-8, 8],
           onDestroy: () => {
             submenuDom.appendChild(submenuBodyDom);
             setTippyInstance(null);
@@ -169,9 +163,8 @@ function SubMenu(props: PropsTypes) {
     }
   };
 
-  const initHeightAndIndent = () => {
+  const initHeight = () => {
     setupHeight();
-    setupIndent();
   };
 
   useEffect(() => {
@@ -194,7 +187,7 @@ function SubMenu(props: PropsTypes) {
   }, [ctx.collapsed]);
 
   useLayoutEffect(() => {
-    initHeightAndIndent();
+    initHeight();
     if (ctx.collapsed && !tippyInstance) {
       setupTippy();
     }
@@ -211,15 +204,20 @@ function SubMenu(props: PropsTypes) {
       onClick={ctx.collapsed ? clickHandler : () => {}}
       onMouseDown={!ctx.collapsed ? mouseDownHandler : () => {}}
     >
-      <div className="submenu__header" ref={submenuHeaderRef}>
-        <div className="submenu__wrapper">
-          <div className="submenu__prefix">{prefix}</div>
-          <div className="submenu__content">{label}</div>
+      <div className="submenu-header" ref={submenuHeaderRef}>
+        <div
+          className="submenu-header__inner"
+          style={{ paddingLeft: `${submenuIndent}px`, paddingRight: `${indent}px` }}
+        >
+          <div className="submenu-header__wrapper">
+            <div className="submenu-header__prefix">{prefix}</div>
+            <div className="submenu-header__content">{label}</div>
+          </div>
+          <div className="submenu-header__suffix">{suffix}</div>
         </div>
-        <div className="submenu__suffix">{suffix}</div>
       </div>
       <div
-        className="submenu__body"
+        className="submenu-body"
         ref={submenuBodyRef}
         onTransitionEnd={!ctx.collapsed ? transitionEndHandler : () => {}}
       >

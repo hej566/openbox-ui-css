@@ -9,7 +9,6 @@ interface PropsTypes {
   prefix?: any;
   suffix?: any;
   label: string;
-  menuId: string;
   indent?: string;
 }
 
@@ -21,8 +20,9 @@ MenuGroup.defaultProps = {
 };
 
 function MenuGroup(props: PropsTypes) {
-  const { className, children, prefix, label, menuId, indent } = props;
+  const { className, children, prefix, label, indent } = props;
   const menuGroupHeaderRef = useRef<HTMLDivElement>(null);
+  const menuGroupBodyRef = useRef<HTMLDivElement>(null);
   const ctx = useContext(MenuContext);
 
   function clickHandler(e: any) {
@@ -33,9 +33,15 @@ function MenuGroup(props: PropsTypes) {
 
   function setupIndent() {
     const menuGroupHeaderDom = menuGroupHeaderRef.current;
-    if (menuGroupHeaderDom) {
-      const menuGroupHeaderIndent = Number(indent) * menuId.split('-').length;
-      menuGroupHeaderDom.style.paddingLeft = `${menuGroupHeaderIndent}px`;
+    const menuGroupBodyDom = menuGroupBodyRef.current;
+    if (menuGroupHeaderDom && menuGroupBodyDom) {
+      const targetDom = menuGroupBodyDom.querySelector<HTMLElement>(
+        '.menu-item__inner, .submenu-header__inner'
+      );
+      if (targetDom) {
+        const { paddingLeft } = targetDom.style;
+        menuGroupHeaderDom.style.paddingLeft = `${parseInt(paddingLeft, 10)}px`;
+      }
     }
   }
 
@@ -45,11 +51,13 @@ function MenuGroup(props: PropsTypes) {
 
   return (
     <div className="menu-group" onMouseDown={clickHandler}>
-      <div className="menu-group__header" ref={menuGroupHeaderRef}>
+      <div className="menu-group-header" ref={menuGroupHeaderRef}>
         <div className="menu-group__prefix">{prefix}</div>
         <div className="menu-group__content">{label}</div>
       </div>
-      <div className="menu-group__body">{children}</div>
+      <div className="menu-group-body" ref={menuGroupBodyRef}>
+        {children}
+      </div>
     </div>
   );
 }

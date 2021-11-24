@@ -1,27 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import tippy, { sticky } from 'tippy.js';
 import MenuContext from '../MenuContext';
 
-interface PropsTypes {
-  children: React.ComponentElement<any, any>[];
-  className?: string;
-  onChange?: any;
-  disabled?: boolean;
-  defaultActiveId?: string;
-  defaultOpenKey?: string[];
-  collapsed?: boolean;
-}
-
-Menu.defaultProps = {
-  className: '',
-  onChange: () => {},
-  disabled: false,
-  defaultActiveId: '',
-  defaultOpenKey: [''],
-  collapsed: false,
-};
-
-function Menu(props: PropsTypes) {
+const Menu = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, ref) => {
   const { children, className, onChange, disabled, defaultActiveId, defaultOpenKey, collapsed } =
     props;
   const activeMap: { [key: string]: boolean } = {};
@@ -156,6 +137,25 @@ function Menu(props: PropsTypes) {
       </MenuContext.Provider>
     </menu>
   );
-}
+});
+
+type PropsTypes = {
+  children: React.ComponentElement<any, any>[];
+  className?: string;
+  onChange?: any;
+  disabled?: boolean;
+  defaultActiveId?: string;
+  defaultOpenKey?: string[];
+  collapsed?: boolean;
+};
+
+Menu.defaultProps = {
+  className: '',
+  onChange: () => {},
+  disabled: false,
+  defaultActiveId: '',
+  defaultOpenKey: [''],
+  collapsed: false,
+};
 
 export default React.memo(Menu);

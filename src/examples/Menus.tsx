@@ -108,6 +108,7 @@ function Menus() {
       {/*  </Menu> */}
       {/* </div> */}
       <div>
+        <Button onClick={clickHandler}>toggle</Button>
         <Menu
           collapsed={isCollapsed}
           defaultActiveId={defaultActiveId}
@@ -123,19 +124,19 @@ function Menus() {
             Option 3
           </MenuItem>
           <SubMenu key="4" menuId="4" label="Navigation One" prefix={<Icon Component={Acorn} />}>
-            <MenuGroup key="4-1" menuId="4-1" label="group1">
-              <MenuItem key="4-1-1" menuId="4-1-1">
+            <MenuGroup label="group1">
+              <MenuItem key="4-1" menuId="4-1">
                 Option 5
               </MenuItem>
-              <MenuItem key="4-1-2" menuId="4-1-2">
+              <MenuItem key="4-2" menuId="4-2">
                 Option 6
               </MenuItem>
             </MenuGroup>
-            <MenuGroup key="4-2" menuId="4-2" label="group2">
-              <MenuItem key="4-2-1" menuId="4-2-1">
+            <MenuGroup label="group2">
+              <MenuItem key="4-3" menuId="4-3">
                 Option 7
               </MenuItem>
-              <MenuItem key="4-2-2" menuId="4-2-2">
+              <MenuItem key="4-4" menuId="4-4">
                 Option 8
               </MenuItem>
             </MenuGroup>
@@ -158,8 +159,6 @@ function Menus() {
           </SubMenu>
         </Menu>
       </div>
-
-      <Button onClick={clickHandler}>toggle</Button>
     </div>
   );
 }

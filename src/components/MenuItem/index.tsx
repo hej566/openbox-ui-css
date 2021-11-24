@@ -13,13 +13,11 @@ const MenuItem = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes
   }
 
   return (
-    <div
-      className={menuItemClasses.join(' ')}
-      style={{ paddingLeft: `${menuItemIndent}px` }}
-      ref={ref}
-      onMouseDown={ctx.onClick(menuId, 'leaf')}
-    >
-      <div className="menu-item__inner">
+    <div className={menuItemClasses.join(' ')} ref={ref} onMouseDown={ctx.onClick(menuId, 'leaf')}>
+      <div
+        className="menu-item__inner"
+        style={{ paddingLeft: `${menuItemIndent}px`, paddingRight: `${indent}px` }}
+      >
         <div className="menu-item__wrapper">
           <div className="menu-item__prefix">{prefix}</div>
           <div className="menu-item__content">{children}</div>
