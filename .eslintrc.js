@@ -29,5 +29,6 @@ module.exports = {
     'no-shadow': 0,
     'react/jsx-no-bind': 0,
     'no-param-reassign': 0,
+    'jsx-a11y/no-noninteractive-tabindex': 0,
   },
 };

@@ -18,6 +18,7 @@ interface PropsTypes {
   className?: string;
   link?: boolean;
   buttonRef?: any;
+  onKeyDown?: any;
 }
 
 Button.defaultProps = {
@@ -33,6 +34,7 @@ Button.defaultProps = {
   children: null,
   onClick: () => {},
   onBlur: () => {},
+  onKeyDown: () => {},
   className: '',
   link: false,
   buttonRef: null,
@@ -56,6 +58,7 @@ function Button(props: PropsTypes) {
     className,
     link,
     buttonRef,
+    onKeyDown,
   } = props;
 
   let prefixIcon = PrefixIcon;
@@ -98,6 +101,7 @@ function Button(props: PropsTypes) {
         data-toggle="button"
         aria-autocomplete="none"
         ref={buttonRef}
+        onKeyDown={onKeyDown}
       >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
@@ -116,6 +120,7 @@ function Button(props: PropsTypes) {
         onClickCapture={clickInnerHandler}
         type={type}
         ref={buttonRef}
+        onKeyDown={onKeyDown}
       >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
@@ -131,7 +136,8 @@ function Button(props: PropsTypes) {
         onClickCapture={clickInnerHandler}
         role="button"
         ref={buttonRef}
-        tabIndex={-1}
+        onKeyDown={onKeyDown}
+        tabIndex={0}
       >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}

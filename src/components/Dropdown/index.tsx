@@ -99,7 +99,7 @@ function Dropdown(props: PropsTypes) {
   }
 
   function clickHandler(key: string) {
-    return () => {
+    return (e: any) => {
       if (!disabledStateMap[key]) {
         for (const id in activeStateMap) {
           activeStateMap[id] = false;
@@ -118,6 +118,9 @@ function Dropdown(props: PropsTypes) {
       if (typeof onChange === 'function') {
         onChange(key);
       }
+
+      if (type === 'dropdown') dropdownHide();
+      else tippyHide();
     };
   }
 
@@ -133,6 +136,10 @@ function Dropdown(props: PropsTypes) {
       tippyInstance.hide();
     }
     setOpenState(false);
+    const dropdownButtonDom = dropdownButtonRef.current;
+    if (dropdownButtonDom) {
+      dropdownButtonDom.focus();
+    }
   }
 
   function dropdownShow() {
@@ -159,19 +166,37 @@ function Dropdown(props: PropsTypes) {
         dropdownMenuDom.classList.remove('show');
       });
       setOpenState(false);
+      dropdownButtonDom.focus();
     }
   }
 
-  function blurHandler() {
-    const dropdownButtonDom = dropdownButtonRef.current;
+  const keyDownHandler = (e: any) => {
     const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownButtonDom && dropdownMenuDom) {
-      dropdownButtonDom.classList.remove('show');
-      dropdownMenuDom.classList.remove('show');
-      dropdownButtonDom.setAttribute('aria-expanded', 'false');
-      setOpenState(false);
+    if (dropdownMenuDom) {
+      if (e.keyCode === 40) {
+        e.preventDefault();
+        // todo
+        const nextFocus = dropdownMenuDom.querySelector<HTMLElement>(`.dropdown-item`);
+        if (nextFocus) nextFocus.focus();
+      } else if (e.keyCode === 27) {
+        e.preventDefault();
+        if (type === 'tippy') {
+          tippyHide();
+        } else dropdownHide();
+      } else if (e.keyCode === 13) {
+        e.preventDefault();
+        if (type === 'tippy') {
+          if (isOpen) tippyHide();
+          else tippyShow();
+        } else {
+          if (isOpen) dropdownHide();
+          else dropdownShow();
+        }
+      } else if (e.keyCode === 38) {
+        e.preventDefault();
+      }
     }
-  }
+  };
 
   function transitionEndHandler() {
     const dropdownMenuDom = dropdownMenuRef.current;
@@ -245,6 +270,7 @@ function Dropdown(props: PropsTypes) {
         active: activeStateMap[key],
         disabled: disabledStateMap[key],
         onMouseDown: !disabledStateMap[key] ? clickHandler(String(key)) : null,
+        onEsc: type === 'tippy' ? tippyHide : dropdownHide,
       });
     }
   });
@@ -278,6 +304,7 @@ function Dropdown(props: PropsTypes) {
               onClick={isOpen ? tippyHide : tippyShow}
               buttonRef={dropdownButtonRef}
               link={link}
+              onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
@@ -289,6 +316,7 @@ function Dropdown(props: PropsTypes) {
             onClick={isOpen ? tippyHide : tippyShow}
             buttonRef={dropdownButtonRef}
             link={link}
+            onKeyDown={keyDownHandler}
           >
             {buttonName}
           </Button>
@@ -310,9 +338,9 @@ function Dropdown(props: PropsTypes) {
               size={size}
               disabled={disabled}
               onClick={isOpen ? dropdownHide : dropdownShow}
-              onBlur={blurHandler}
               buttonRef={dropdownButtonRef}
               link={link}
+              onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
@@ -322,8 +350,8 @@ function Dropdown(props: PropsTypes) {
             size={size}
             disabled={disabled}
             onClick={isOpen ? dropdownHide : dropdownShow}
-            onBlur={blurHandler}
             buttonRef={dropdownButtonRef}
+            onKeyDown={keyDownHandler}
             link={link}
           >
             {buttonName}
