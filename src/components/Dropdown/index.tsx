@@ -7,41 +7,6 @@ import ChevronDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/dist/svg-arrow.css';
 
-interface PropsTypes {
-  children: React.ComponentElement<any, any>[];
-  className?: string;
-  SuffixIcon?: React.ComponentElement<any, any>;
-  variant?: string;
-  buttonName?: string;
-  split?: boolean;
-  onClick?: any;
-  onChange?: any;
-  size?: string;
-  theme?: string;
-  disabled?: boolean;
-  link?: boolean;
-  open?: boolean;
-  offset?: [number, number];
-  type?: string;
-}
-
-Dropdown.defaultProps = {
-  className: '',
-  SuffixIcon: <Icon Component={ChevronDown} />,
-  onClick: (): void => {},
-  onChange: () => {},
-  variant: 'secondary',
-  buttonName: '',
-  split: false,
-  size: '',
-  theme: '',
-  disabled: false,
-  link: false,
-  open: false,
-  offset: [0, 4],
-  type: 'tippy',
-};
-
 function Dropdown(props: PropsTypes) {
   const {
     children,
@@ -62,14 +27,12 @@ function Dropdown(props: PropsTypes) {
 
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownMenuRef = useRef<HTMLUListElement>(null);
+  const [isOpen, setOpenState] = useState<boolean | undefined>(open);
+  const [tippyInstance, setTippyInstance] = useState<any>(null);
+  const [activeStateMap, setActiveStateMap] = useState<{ [key: string]: boolean }>({});
+  const [disabledStateMap, setDisabledStateMap] = useState<{ [key: string]: boolean }>({});
   const dropdownMenuClasses: string[] = ['dropdown-menu'];
   const dropdownClasses: string[] = ['dropdown'];
-  const [isOpen, setOpenState] = useState(open);
-  const [tippyInstance, setTippyInstance]: [any, any] = useState(null);
-  const activeMap: { [key: string]: boolean } = {};
-  const disabledMap: { [key: string]: boolean } = {};
-  const [activeStateMap, setActiveStateMap] = useState(activeMap);
-  const [disabledStateMap, setDisabledStateMap] = useState(disabledMap);
 
   let suffixIcon: any = null;
 
@@ -364,5 +327,40 @@ function Dropdown(props: PropsTypes) {
 
   return dropdown;
 }
+
+type PropsTypes = {
+  children: React.ComponentElement<any, any>[];
+  className?: string;
+  SuffixIcon?: React.ComponentElement<any, any>;
+  variant?: string;
+  buttonName?: string;
+  split?: boolean;
+  onClick?: any;
+  onChange?: any;
+  size?: string;
+  theme?: string;
+  disabled?: boolean;
+  link?: boolean;
+  open?: boolean;
+  offset?: [number, number];
+  type?: string;
+};
+
+Dropdown.defaultProps = {
+  className: '',
+  SuffixIcon: <Icon Component={ChevronDown} />,
+  onClick: (): void => {},
+  onChange: () => {},
+  variant: 'secondary',
+  buttonName: '',
+  split: false,
+  size: '',
+  theme: '',
+  disabled: false,
+  link: false,
+  open: false,
+  offset: [0, 4],
+  type: 'tippy',
+};
 
 export default Dropdown;

@@ -1,17 +1,23 @@
 import React from 'react';
 
-const activeStateMap: { [key: string]: boolean } = {};
-const disabledStateMap: { [key: string]: boolean } = {};
-const openStateMap: { [key: string]: boolean } = {};
-
-const MenuContext = React.createContext({
-  onClick: (key: string, type: string): any => {},
-  activeStateMap,
-  disabledStateMap,
-  openStateMap,
+const MenuContext = React.createContext<propsType>({
+  onClick: () => () => {},
+  activeStateMap: {},
+  disabledStateMap: {},
+  openStateMap: {},
   collapsed: false,
   hideTippy: false,
   resetHideTippy: () => {},
 });
+
+type propsType = {
+  onClick: (key: string, type: string) => (e: any) => void;
+  activeStateMap: { [key: string]: boolean };
+  disabledStateMap: { [key: string]: boolean };
+  openStateMap: { [key: string]: boolean };
+  collapsed: boolean;
+  hideTippy: boolean;
+  resetHideTippy: () => void;
+};
 
 export default MenuContext;

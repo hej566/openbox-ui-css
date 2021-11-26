@@ -1,29 +1,16 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import Icon from '../Icon';
 import Chevron from '../../assets/icons/svg/chevron-down-regular.svg';
 import MenuContext from '../MenuContext';
 
-interface PropsTypes {
-  children: React.ComponentElement<any, any>[];
-  className?: string;
-  prefix?: any;
-  suffix?: any;
-  label: string;
-  indent?: string;
-}
-
-MenuGroup.defaultProps = {
-  className: '',
-  prefix: null,
-  suffix: <Icon Component={Chevron} />,
-  indent: '16',
-};
-
-function MenuGroup(props: PropsTypes) {
-  const { className, children, prefix, label, indent } = props;
+const MenuGroup: React.FunctionComponent<propTypes> = (props) => {
+  const { className, children, prefix, label, id } = props;
   const menuGroupHeaderRef = useRef<HTMLDivElement>(null);
   const menuGroupBodyRef = useRef<HTMLDivElement>(null);
   const ctx = useContext(MenuContext);
+  const menuGroupClasses: string[] = ['menu-group'];
+
+  if (className) menuGroupClasses.push(className);
 
   function clickHandler(e: any) {
     if (!ctx.collapsed) {
@@ -50,7 +37,7 @@ function MenuGroup(props: PropsTypes) {
   }, []);
 
   return (
-    <div className="menu-group" onMouseDown={clickHandler}>
+    <div className={menuGroupClasses.join(' ')} onMouseDown={clickHandler} id={id}>
       <div className="menu-group-header" ref={menuGroupHeaderRef}>
         <div className="menu-group__prefix">{prefix}</div>
         <div className="menu-group__content">{label}</div>
@@ -60,6 +47,21 @@ function MenuGroup(props: PropsTypes) {
       </div>
     </div>
   );
-}
+};
+
+type propTypes = {
+  className?: string;
+  prefix?: any;
+  suffix?: any;
+  label: string;
+  id?: string;
+};
+
+MenuGroup.defaultProps = {
+  className: '',
+  prefix: null,
+  suffix: <Icon Component={Chevron} />,
+  id: '',
+};
 
 export default MenuGroup;

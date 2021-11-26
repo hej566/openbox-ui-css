@@ -2,15 +2,14 @@ import React, { useContext } from 'react';
 import MenuContext from '../MenuContext';
 
 const MenuItem = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, ref) => {
-  const { className, children, onClick, prefix, menuId, indent } = props;
+  const { className, children, prefix, menuId, indent } = props;
   const menuItemIndent = Number(indent) * menuId.split('-').length;
   const ctx = useContext(MenuContext);
   const menuItemClasses: string[] = ['menu-item'];
   const isActive = ctx.activeStateMap[menuId];
 
-  if (isActive) {
-    menuItemClasses.push('active');
-  }
+  if (isActive) menuItemClasses.push('active');
+  if (className) menuItemClasses.push(className);
 
   return (
     <div className={menuItemClasses.join(' ')} ref={ref} onMouseDown={ctx.onClick(menuId, 'leaf')}>

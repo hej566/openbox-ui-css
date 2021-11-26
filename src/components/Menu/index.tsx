@@ -2,24 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import tippy, { sticky } from 'tippy.js';
 import MenuContext from '../MenuContext';
 
-const Menu = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, ref) => {
-  const { children, className, onChange, disabled, defaultActiveId, defaultOpenKey, collapsed } =
+const Menu = React.forwardRef<HTMLMenuElement, propTypes>((props: propTypes, ref) => {
+  const { className, onChange, disabled, defaultActiveId, defaultOpenKey, collapsed, children } =
     props;
-  const activeMap: { [key: string]: boolean } = {};
-  const disabledMap: { [key: string]: boolean } = {};
-  const openMap: { [key: string]: boolean } = {};
-  const [activeStateMap, setActiveStateMap] = useState(activeMap);
-  const [disabledStateMap, setDisabledStateMap] = useState(disabledMap);
-  const [openStateMap, setOpenStateMap] = useState(openMap);
-  const menuClasses: string[] = ['menu'];
+  const [activeStateMap, setActiveStateMap] = useState<{ [key: string]: boolean }>({});
+  const [disabledStateMap, setDisabledStateMap] = useState<{ [key: string]: boolean }>({});
+  const [tippysArray, setTippyState] = useState<any[]>([]);
+  const [hideTippy, setHideTippy] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
   const collection: React.ComponentElement<any, any>[] = [];
   const componentMap: { [key: string]: React.ComponentElement<any, any> } = {};
-  const testArray: any[] = [];
-  const [tippyArray, setTippyState] = useState(testArray);
-  const [hideTippy, setHideTippy] = useState(false);
-  if (className) menuClasses.push(className);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const openStateMap: { [key: string]: boolean } = {};
+  const menuClasses: string[] = ['menu'];
 
+  if (className) menuClasses.push(className);
   if (collapsed) menuClasses.push('horizontal-collapse');
 
   const getAllComponents = (map: any, component: any) => {
@@ -96,11 +92,11 @@ const Menu = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, re
       sticky: true,
       theme: 'rb-tooltip',
     });
-    tippyArray.push(tippyInstance);
+    tippysArray.push(tippyInstance);
   };
 
   const destroyTippys = () => {
-    for (const instance of tippyArray) {
+    for (const instance of tippysArray) {
       instance.destroy();
     }
     setTippyState(() => []);
@@ -112,11 +108,11 @@ const Menu = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, re
       if (menuDom) {
         Array.from(menuDom.querySelectorAll(':scope > .menu-item')).map((item) => {
           if (item.textContent) setupTippy(item, item.textContent);
-          setTippyState(() => [...tippyArray]);
+          setTippyState(() => [...tippysArray]);
         });
       }
     } else {
-      if (tippyArray.length) destroyTippys();
+      if (tippysArray.length) destroyTippys();
     }
   }, [collapsed]);
 
@@ -139,8 +135,8 @@ const Menu = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, re
   );
 });
 
-type PropsTypes = {
-  children: React.ComponentElement<any, any>[];
+type propTypes = {
+  children: any;
   className?: string;
   onChange?: any;
   disabled?: boolean;
