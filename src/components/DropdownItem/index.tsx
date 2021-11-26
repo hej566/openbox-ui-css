@@ -1,30 +1,13 @@
 import React from 'react';
 
-interface PropsTypes {
-  children: any;
-  className?: string;
-  onMouseDown?: React.MouseEventHandler<HTMLElement>;
-  disabled?: boolean;
-  active?: boolean;
-  onEsc?: React.MouseEventHandler<HTMLElement>;
-}
-
-DropdownItem.defaultProps = {
-  className: '',
-  onMouseDown: () => {},
-  onEsc: () => {},
-  disabled: false,
-  active: false,
-};
-
-function DropdownItem(props: PropsTypes) {
+const DropdownItem: React.FC<PropsTypes> = (props) => {
   const { children, className, onMouseDown, onEsc, disabled, active } = props;
   const dropdownItemClasses: string[] = ['dropdown-item'];
   if (className) dropdownItemClasses.push(className);
   if (disabled) dropdownItemClasses.push('disabled');
   if (active) dropdownItemClasses.push('active');
 
-  const keyPressHandler = (e: any) => {
+  const keyDownHandler = (e: any) => {
     const { currentTarget } = e;
     if (currentTarget) {
       if (e.keyCode === 40) {
@@ -64,11 +47,28 @@ function DropdownItem(props: PropsTypes) {
       className={dropdownItemClasses.join(' ')}
       onMouseDown={onMouseDown}
       tabIndex={0}
-      onKeyDown={keyPressHandler}
+      onKeyDown={keyDownHandler}
     >
       {children}
     </li>
   );
-}
+};
+
+type PropsTypes = {
+  children: any;
+  className?: string;
+  onMouseDown?: React.MouseEventHandler<HTMLElement>;
+  disabled?: boolean;
+  active?: boolean;
+  onEsc?: React.MouseEventHandler<HTMLElement>;
+};
+
+DropdownItem.defaultProps = {
+  className: '',
+  onMouseDown: () => {},
+  onEsc: () => {},
+  disabled: false,
+  active: false,
+};
 
 export default DropdownItem;
