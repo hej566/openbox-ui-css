@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import MenuContext from '../MenuContext';
 
-const MenuItem = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes, ref) => {
+const MenuItem = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, ref) => {
   const { className, children, prefix, menuId, indent } = props;
   const menuItemIndent = Number(indent) * menuId.split('-').length;
   const ctx = useContext(MenuContext);
@@ -26,7 +26,7 @@ const MenuItem = React.forwardRef<HTMLDivElement, PropsTypes>((props: PropsTypes
   );
 });
 
-type PropsTypes = {
+type propTypes = {
   children: any;
   className?: string;
   onClick?: any;
