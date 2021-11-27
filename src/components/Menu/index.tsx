@@ -117,7 +117,7 @@ const Menu = React.forwardRef<HTMLMenuElement, propTypes>((props: propTypes, ref
   }, [collapsed]);
 
   return (
-    <menu className={menuClasses.join(' ')} role="navigation" ref={menuRef}>
+    <div className={menuClasses.join(' ')} role="navigation" ref={menuRef}>
       <MenuContext.Provider
         value={{
           onClick: clickHandler,
@@ -131,7 +131,7 @@ const Menu = React.forwardRef<HTMLMenuElement, propTypes>((props: propTypes, ref
       >
         {children}
       </MenuContext.Provider>
-    </menu>
+    </div>
   );
 });
 
