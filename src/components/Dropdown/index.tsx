@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, forwardRef, Children, cloneElement } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import tippy, { animateFill, sticky } from 'tippy.js';
 import Button from '../Button';
 import Icon from '../Icon';
@@ -92,17 +92,24 @@ function Dropdown(props: PropsTypes) {
       tippyInstance.show();
     }
     setOpenState(true);
+    requestAnimationFrame(() => {
+      const dropdownMenuDom = dropdownMenuRef.current;
+      if (dropdownMenuDom) {
+        const nextFocus = dropdownMenuDom.querySelector<HTMLElement>(`.dropdown-item.active`);
+        if (nextFocus) nextFocus.focus();
+      }
+    });
   }
 
   function tippyHide() {
     if (tippyInstance) {
       tippyInstance.hide();
     }
-    setOpenState(false);
     const dropdownButtonDom = dropdownButtonRef.current;
     if (dropdownButtonDom) {
       dropdownButtonDom.focus();
     }
+    setOpenState(false);
   }
 
   function dropdownShow() {
@@ -114,6 +121,10 @@ function Dropdown(props: PropsTypes) {
       requestAnimationFrame(() => {
         dropdownButtonDom.classList.add('show');
         dropdownMenuDom.classList.add('show');
+        requestAnimationFrame(() => {
+          const nextFocus = dropdownMenuDom.querySelector<HTMLElement>(`.dropdown-item.active`);
+          if (nextFocus) nextFocus.focus();
+        });
       });
       setOpenState(true);
     }
@@ -135,28 +146,26 @@ function Dropdown(props: PropsTypes) {
 
   const keyDownHandler = (e: any) => {
     const dropdownMenuDom = dropdownMenuRef.current;
-    if (dropdownMenuDom) {
+    const dropdownButtonDom = dropdownButtonRef.current;
+    if (dropdownMenuDom && dropdownButtonDom) {
       if (e.keyCode === 40) {
         e.preventDefault();
-        // todo
-        const nextFocus = dropdownMenuDom.querySelector<HTMLElement>(`.dropdown-item`);
-        if (nextFocus) nextFocus.focus();
+        if (type === 'tippy') {
+          if (!isOpen) tippyShow();
+        } else {
+          if (!isOpen) dropdownShow();
+        }
       } else if (e.keyCode === 27) {
         e.preventDefault();
         if (type === 'tippy') {
           tippyHide();
         } else dropdownHide();
-      } else if (e.keyCode === 13) {
-        e.preventDefault();
-        if (type === 'tippy') {
-          if (isOpen) tippyHide();
-          else tippyShow();
-        } else {
-          if (isOpen) dropdownHide();
-          else dropdownShow();
-        }
       } else if (e.keyCode === 38) {
         e.preventDefault();
+      } else if (e.keyCode === 13) {
+        if (e.currentTarget.tagName === 'A') {
+          tippyShow();
+        }
       }
     }
   };
@@ -199,7 +208,7 @@ function Dropdown(props: PropsTypes) {
         arrow: false,
         content: dropdownMenuDom,
         trigger: 'manual',
-        appendTo: 'parent',
+        appendTo: dropdownButtonDom,
         plugins: [animateFill, sticky],
         maxWidth: 'none',
         offset,
@@ -226,10 +235,10 @@ function Dropdown(props: PropsTypes) {
     setupStateMap();
   }, []);
 
-  const DropdownItemList = Children.map(children, (child) => {
+  const DropdownItemList = React.Children.map(children, (child) => {
     const { key } = child;
     if (key) {
-      return cloneElement(child, {
+      return React.cloneElement(child, {
         active: activeStateMap[key],
         disabled: disabledStateMap[key],
         onMouseDown: !disabledStateMap[key] ? clickHandler(String(key)) : null,
@@ -314,8 +323,8 @@ function Dropdown(props: PropsTypes) {
             disabled={disabled}
             onClick={isOpen ? dropdownHide : dropdownShow}
             buttonRef={dropdownButtonRef}
-            onKeyDown={keyDownHandler}
             link={link}
+            onKeyDown={keyDownHandler}
           >
             {buttonName}
           </Button>

@@ -14,6 +14,7 @@ interface PropsTypes {
   SuffixIcon?: React.ReactNode;
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  onMouseDown?: React.MouseEventHandler<HTMLElement>;
   onBlur?: React.FocusEventHandler<HTMLElement>;
   className?: string;
   link?: boolean;
@@ -34,6 +35,7 @@ Button.defaultProps = {
   children: null,
   onClick: () => {},
   onBlur: () => {},
+  onMouseDown: () => {},
   onKeyDown: () => {},
   className: '',
   link: false,
@@ -59,6 +61,7 @@ function Button(props: PropsTypes) {
     link,
     buttonRef,
     onKeyDown,
+    onMouseDown,
   } = props;
 
   let prefixIcon = PrefixIcon;
@@ -102,6 +105,7 @@ function Button(props: PropsTypes) {
         aria-autocomplete="none"
         ref={buttonRef}
         onKeyDown={onKeyDown}
+        onMouseDown={onMouseDown}
       >
         <div className="btn__inner">
           {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, forwardRef, Children, cloneElement } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import tippy, { animateFill, sticky } from 'tippy.js';
 import Button from '../Button';
 import Icon from '../Icon';
@@ -7,42 +7,7 @@ import ChevronDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/dist/svg-arrow.css';
 
-interface PropsTypes {
-  children: React.ComponentElement<any, any>[];
-  className?: string;
-  SuffixIcon?: React.ComponentElement<any, any>;
-  variant?: string;
-  buttonName?: string;
-  split?: boolean;
-  onClick?: any;
-  size?: string;
-  theme?: string;
-  disabled?: boolean;
-  link?: boolean;
-  open?: boolean;
-  offset?: [number, number];
-  type?: string;
-  onChange?: any;
-}
-
-Select.defaultProps = {
-  className: '',
-  SuffixIcon: <Icon Component={ChevronDown} />,
-  onClick: (): void => {},
-  onChange: () => {},
-  variant: 'secondary',
-  buttonName: '',
-  split: false,
-  size: '',
-  theme: '',
-  disabled: false,
-  link: false,
-  open: false,
-  offset: [0, 4],
-  type: 'tippy',
-};
-
-function Select(props: PropsTypes) {
+const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, ref) => {
   const {
     children,
     SuffixIcon,
@@ -58,19 +23,16 @@ function Select(props: PropsTypes) {
     offset,
     type,
     onChange,
-    onClick,
   } = props;
 
   const selectButtonRef = useRef<HTMLButtonElement>(null);
   const selectMenuRef = useRef<HTMLUListElement>(null);
+  const [isOpen, setOpenState] = useState<boolean | undefined>(open);
+  const [tippyInstance, setTippyInstance] = useState<any>(null);
+  const [activeStateMap, setActiveStateMap] = useState<{ [key: string]: boolean }>({});
+  const [disabledStateMap, setDisabledStateMap] = useState<{ [key: string]: boolean }>({});
   const selectMenuClasses: string[] = ['select-menu'];
   const selectClasses: string[] = ['form-select'];
-  const [isOpen, setOpenState] = useState(open);
-  const [tippyInstance, setTippyInstance]: [any, any] = useState(null);
-  const activeMap: { [key: string]: boolean } = {};
-  const disabledMap: { [key: string]: boolean } = {};
-  const [activeStateMap, setActiveStateMap] = useState(activeMap);
-  const [disabledStateMap, setDisabledStateMap] = useState(disabledMap);
 
   let suffixIcon: any = null;
 
@@ -88,7 +50,7 @@ function Select(props: PropsTypes) {
     });
   }
 
-  function setupStateMap() {
+  const setupStateMap = () => {
     React.Children.forEach(children, (child) => {
       const { active, disabled } = child.props;
       const { key } = child;
@@ -99,35 +61,63 @@ function Select(props: PropsTypes) {
         setDisabledStateMap(() => ({ ...disabledStateMap }));
       }
     });
-  }
+  };
 
-  function clickHandler(key: any) {
-    return () => {
-      if (!disabledStateMap[key]) {
-        for (const id in activeStateMap) {
-          activeStateMap[id] = false;
+  const keyDownHandler = (e: any) => {
+    const selectMenuDom = selectMenuRef.current;
+    if (selectMenuDom) {
+      if (e.keyCode === 40) {
+        e.preventDefault();
+        if (type === 'tippy') {
+          if (!isOpen) tippyShow();
+        } else {
+          if (!isOpen) selectShow();
         }
-        activeStateMap[key] = true;
-
-        setActiveStateMap(() => ({
-          ...activeStateMap,
-        }));
+      } else if (e.keyCode === 27) {
+        e.preventDefault();
+        if (type === 'tippy') {
+          tippyHide();
+        } else selectHide();
+      } else if (e.keyCode === 38) {
+        e.preventDefault();
       }
-      setDisabledStateMap(() => ({
-        ...disabledStateMap,
+    }
+  };
+
+  const clickHandler = (key: any) => () => {
+    if (!disabledStateMap[key]) {
+      for (const id in activeStateMap) {
+        activeStateMap[id] = false;
+      }
+      activeStateMap[key] = true;
+
+      setActiveStateMap(() => ({
+        ...activeStateMap,
       }));
+    }
+    setDisabledStateMap(() => ({
+      ...disabledStateMap,
+    }));
 
-      if (typeof onChange === 'function') {
-        onChange(key);
-      }
-    };
-  }
+    if (typeof onChange === 'function') {
+      onChange(key);
+    }
+    if (type === 'select') selectHide();
+    else tippyHide();
+  };
 
   function tippyShow() {
     if (tippyInstance) {
       tippyInstance.show();
     }
     setOpenState(true);
+    requestAnimationFrame(() => {
+      const selectMenuDom = selectMenuRef.current;
+      if (selectMenuDom) {
+        const nextFocus = selectMenuDom.querySelector<HTMLElement>(`.select-item.active`);
+        if (nextFocus) nextFocus.focus();
+      }
+    });
   }
 
   function tippyHide() {
@@ -135,6 +125,12 @@ function Select(props: PropsTypes) {
       tippyInstance.hide();
     }
     setOpenState(false);
+    requestAnimationFrame(() => {
+      const selectButtonDom = selectButtonRef.current;
+      if (selectButtonDom) {
+        selectButtonDom.focus();
+      }
+    });
   }
 
   function selectShow() {
@@ -146,6 +142,10 @@ function Select(props: PropsTypes) {
       requestAnimationFrame(() => {
         selectButtonDom.classList.add('show');
         selectMenuDom.classList.add('show');
+        requestAnimationFrame(() => {
+          const nextFocus = selectMenuDom.querySelector<HTMLElement>(`.select-item.active`);
+          if (nextFocus) nextFocus.focus();
+        });
       });
       setOpenState(true);
     }
@@ -161,17 +161,7 @@ function Select(props: PropsTypes) {
         selectMenuDom.classList.remove('show');
       });
       setOpenState(false);
-    }
-  }
-
-  function blurHandler() {
-    const selectButtonDom = selectButtonRef.current;
-    const selectMenuDom = selectMenuRef.current;
-    if (selectButtonDom && selectMenuDom) {
-      selectButtonDom.classList.remove('show');
-      selectMenuDom.classList.remove('show');
-      selectButtonDom.setAttribute('aria-expanded', 'false');
-      setOpenState(false);
+      selectButtonDom.focus();
     }
   }
 
@@ -241,13 +231,14 @@ function Select(props: PropsTypes) {
     setupStateMap();
   }, []);
 
-  const SelectItemList = Children.map(children, (child) => {
+  const SelectItemList = React.Children.map(children, (child) => {
     const { key } = child;
     if (key) {
-      return cloneElement(child, {
+      return React.cloneElement(child, {
         active: activeStateMap[key],
         disabled: disabledStateMap[key],
-        onFocus: !disabledStateMap[key] ? clickHandler(String(key)) : null,
+        onMouseDown: !disabledStateMap[key] ? clickHandler(String(key)) : null,
+        onEsc: type === 'tippy' ? tippyHide : selectHide,
       });
     }
   });
@@ -267,7 +258,7 @@ function Select(props: PropsTypes) {
 
   if (type === 'tippy') {
     select = (
-      <div className={selectClasses.join(' ')}>
+      <div className={selectClasses.join(' ')} ref={ref}>
         {split ? (
           <ButtonGroup>
             <Button variant={variant} size={size} disabled={disabled}>
@@ -281,6 +272,7 @@ function Select(props: PropsTypes) {
               onClick={isOpen ? tippyHide : tippyShow}
               buttonRef={selectButtonRef}
               link={link}
+              onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
@@ -292,6 +284,7 @@ function Select(props: PropsTypes) {
             onClick={isOpen ? tippyHide : tippyShow}
             buttonRef={selectButtonRef}
             link={link}
+            onKeyDown={keyDownHandler}
           >
             {buttonName}
           </Button>
@@ -313,9 +306,9 @@ function Select(props: PropsTypes) {
               size={size}
               disabled={disabled}
               onClick={isOpen ? selectHide : selectShow}
-              onBlur={blurHandler}
               buttonRef={selectButtonRef}
               link={link}
+              onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
@@ -325,9 +318,9 @@ function Select(props: PropsTypes) {
             size={size}
             disabled={disabled}
             onClick={isOpen ? selectHide : selectShow}
-            onBlur={blurHandler}
             buttonRef={selectButtonRef}
             link={link}
+            onKeyDown={keyDownHandler}
           >
             {buttonName}
           </Button>
@@ -338,6 +331,41 @@ function Select(props: PropsTypes) {
   }
 
   return select;
-}
+});
+
+type propTypes = {
+  children: React.ComponentElement<any, any>[];
+  className?: string;
+  SuffixIcon?: React.ComponentElement<any, any>;
+  variant?: string;
+  buttonName?: string;
+  split?: boolean;
+  onClick?: () => void;
+  size?: string;
+  theme?: string;
+  disabled?: boolean;
+  link?: boolean;
+  open?: boolean;
+  offset?: [number, number];
+  type?: string;
+  onChange?: (itemKey: any) => void;
+};
+
+Select.defaultProps = {
+  className: '',
+  SuffixIcon: <Icon Component={ChevronDown} />,
+  onClick: () => {},
+  onChange: () => {},
+  variant: 'secondary',
+  buttonName: '',
+  split: false,
+  size: '',
+  theme: '',
+  disabled: false,
+  link: false,
+  open: false,
+  offset: [0, 4],
+  type: 'tippy',
+};
 
 export default Select;

@@ -12,6 +12,7 @@ const DropdownItem: React.FC<PropsTypes> = (props) => {
     if (currentTarget) {
       if (e.keyCode === 40) {
         e.preventDefault();
+        e.stopPropagation();
         let nextSibling = currentTarget.nextElementSibling;
         while (nextSibling) {
           if (nextSibling.getAttribute('disabled')) {
@@ -23,6 +24,7 @@ const DropdownItem: React.FC<PropsTypes> = (props) => {
         }
       } else if (e.keyCode === 38) {
         e.preventDefault();
+        e.stopPropagation();
         let previousSibling = currentTarget.previousElementSibling;
         while (previousSibling) {
           if (previousSibling.getAttribute('disabled')) {
@@ -34,9 +36,11 @@ const DropdownItem: React.FC<PropsTypes> = (props) => {
         }
       } else if (e.keyCode === 13) {
         e.preventDefault();
+        e.stopPropagation();
         if (onMouseDown) onMouseDown(e);
       } else if (e.keyCode === 27) {
         e.preventDefault();
+        e.stopPropagation();
         if (onEsc) onEsc(e);
       }
     }

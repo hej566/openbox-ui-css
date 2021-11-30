@@ -39,13 +39,7 @@ function Selects() {
           </Select>
         </div>
         <div className="rc-group">
-          <Select
-            buttonName={selectName}
-            onChange={changeHandler}
-            variant="link"
-            type="select"
-            size="lg"
-          >
+          <Select buttonName={selectName} onChange={changeHandler} variant="link" size="lg">
             <SelectItem active key={selectList[0].key}>
               {selectList[0].name}
             </SelectItem>
@@ -60,13 +54,7 @@ function Selects() {
           </Select>
         </div>
         <div className="rc-group">
-          <Select
-            buttonName={selectName}
-            onChange={changeHandler}
-            variant="primary"
-            type="select"
-            size="sm"
-          >
+          <Select buttonName={selectName} onChange={changeHandler} variant="primary" size="sm">
             <SelectItem active key={selectList[0].key}>
               {selectList[0].name}
             </SelectItem>

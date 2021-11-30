@@ -1,24 +1,23 @@
 @import 'assets/scss/rb';
 
 #app {
-  height: 100vh;
+  height: 100%;
 }
 
 .layout {
   height: inherit;
   display: flex;
-  flex-direction: column;
+  .layout-sidebar {
+    flex: 1;
+    .menu {
+      height: 100%;
+    }
+  }
+  .layout-main {
+    flex: 3;
+  }
 }
 
-.top-nav {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.main {
-  flex: 1;
-}
 
 .rc-title {
   font-size: 1rem;

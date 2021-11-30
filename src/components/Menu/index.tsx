@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import tippy, { sticky } from 'tippy.js';
 import MenuContext from '../MenuContext';
 
-const Menu = React.forwardRef<HTMLMenuElement, propTypes>((props: propTypes, ref) => {
+const Menu = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, ref) => {
   const { className, onChange, disabled, defaultActiveId, defaultOpenKey, collapsed, children } =
     props;
   const [activeStateMap, setActiveStateMap] = useState<{ [key: string]: boolean }>({});
