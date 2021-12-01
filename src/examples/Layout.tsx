@@ -93,6 +93,9 @@ const Layout = (props: any) => {
           <MenuItem key="26" menuId="26" prefix={<Icon Component={Acorn} />}>
             <LinkRoot to="/menus">Menus</LinkRoot>
           </MenuItem>
+          <MenuItem key="27" menuId="27" prefix={<Icon Component={Acorn} />}>
+            <LinkRoot to="/images">Images</LinkRoot>
+          </MenuItem>
         </Menu>
       </div>
       <div className="layout-main">{children}</div>

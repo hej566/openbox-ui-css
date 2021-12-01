@@ -28,6 +28,7 @@ import Ranges from './examples/Ranges';
 import Uploads from './examples/Uploads';
 import Selects from './examples/Selects';
 import Menus from './examples/Menus';
+import Images from './examples/Images';
 import Layout from './examples/Layout';
 
 function App() {
@@ -118,6 +119,9 @@ function App() {
           </Route>
           <Route exact path="/menus">
             <Menus />
+          </Route>
+          <Route exact path="/images">
+            <Images />
           </Route>
         </Switch>
       </Layout>
