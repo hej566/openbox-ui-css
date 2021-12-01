@@ -29,6 +29,7 @@ import Uploads from './examples/Uploads';
 import Selects from './examples/Selects';
 import Menus from './examples/Menus';
 import Images from './examples/Images';
+import Figures from './examples/Figures';
 import Layout from './examples/Layout';
 
 function App() {
@@ -122,6 +123,9 @@ function App() {
           </Route>
           <Route exact path="/images">
             <Images />
+          </Route>
+          <Route exact path="/figures">
+            <Figures />
           </Route>
         </Switch>
       </Layout>
