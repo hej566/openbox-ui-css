@@ -18,9 +18,9 @@ function Accordion(props: PropsTypes) {
   const initObject: { [key: string]: boolean } = {};
   const [stateMap, setStateMap] = useState(initObject);
 
-  const accordionGroupClasses: Array<string> = [`accordion-group`];
+  const accordionGroupClasses: Array<string> = [`${NS}-accordion-group`];
 
-  if (flush) accordionGroupClasses.push(`accordion-flush`);
+  if (flush) accordionGroupClasses.push(`${NS}-accordion-flush`);
   if (className) accordionGroupClasses.push(className);
 
   if (!Object.keys(stateMap).length) {

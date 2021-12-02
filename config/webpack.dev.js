@@ -27,6 +27,9 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      NS: JSON.stringify('rb')
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:8].css',
     }),

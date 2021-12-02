@@ -19,11 +19,11 @@ Icon.defaultProps = {
 
 function Icon(props: PropsTypes) {
   const { rotating, Component, name, size, onClick, className } = props;
-  const iconClasses: Array<string> = [`icon`];
+  const iconClasses: Array<string> = [`${NS}-icon`];
 
-  if (rotating) iconClasses.push(`rotating`);
-  if (name) iconClasses.push(`${name}`);
-  if (size) iconClasses.push(`icon-${size}`);
+  if (rotating) iconClasses.push(`${NS}-rotating`);
+  if (name) iconClasses.push(`${NS}-${name}`);
+  if (size) iconClasses.push(`${NS}-icon-${size}`);
   if (className) iconClasses.push(className);
 
   return (

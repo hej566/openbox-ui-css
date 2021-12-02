@@ -1,4 +1,6 @@
-.icon {
+@import 'namespace';
+
+.#{$NS}-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,19 +9,21 @@
     @include icon-size($btn-font-size);
   }
 
-  &.rotating {
+  &.#{$NS}-rotating {
     animation: rotating 0.5s linear infinite;
   }
 }
 
-.icon-lg {
+.#{$NS}-icon-lg {
   & > svg {
     @include icon-size($btn-font-size-lg);
   }
 }
 
-.icon-sm {
+.#{$NS}-icon-sm {
   & > svg {
     @include icon-size($btn-font-size-sm);
   }
 }
+
+

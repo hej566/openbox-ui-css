@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
+import React from 'react';
 import Icon from '../Icon';
 import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
+import Button from '../Button';
 
 interface PropsTypes {
   title: string;
@@ -22,39 +23,35 @@ AccordionItem.defaultProps = {
 
 function AccordionItem(props: PropsTypes) {
   const { title, children, AccordionIcon, onClick, isOpen, className } = props;
-  const accordionButtonClasses: Array<string> = ['accordion-button'];
-  const accordionClasses: Array<string> = ['accordion-collapse'];
-  const accordionItemClasses: Array<string> = ['accordion-item'];
+  const accordionItemClasses: Array<string> = [`${NS}-accordion-item`];
+  const accordionItemButtonClasses: Array<string> = [`${NS}-accordion-item__button`];
+  const accordionItemBodyClasses: Array<string> = [`${NS}-accordion-item__body`];
+
 
   if (className) accordionItemClasses.push(className);
 
   if (isOpen) {
-    accordionButtonClasses.push('show');
-    accordionClasses.push('show');
+    accordionItemButtonClasses.push(`${NS}-accordion-item__button--show`);
+    accordionItemBodyClasses.push(`${NS}-accordion-item__body--show`);
   } else {
-    accordionButtonClasses.push('collapsed');
-    accordionClasses.push('collapsed');
+    accordionItemButtonClasses.push(`${NS}-accordion-item__button--collapsed`);
+    accordionItemBodyClasses.push(`${NS}-accordion-item__body--collapsed`);
   }
 
   return (
     <div className={accordionItemClasses.join(' ')}>
-      <h2 className="accordion-header">
-        <button
-          className={accordionButtonClasses.join(' ')}
-          type="button"
-          data-toggle="collapse"
+      <h2 className={`${NS}-accordion-item__header`}>
+        <Button
+          className={accordionItemButtonClasses.join(' ')}
           aria-expanded={isOpen}
           onClick={onClick}
+          SuffixIcon={AccordionIcon}
+          variant="link"
         >
           {title}
-        </button>
-        {AccordionIcon}
+        </Button>
       </h2>
-      <div
-        className={accordionClasses.join(' ')}
-      >
-        <div className="accordion-body">{children}</div>
-      </div>
+      <div className={accordionItemBodyClasses.join(' ')}>{children}</div>
     </div>
   );
 }
