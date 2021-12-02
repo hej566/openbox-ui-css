@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Icon from '../Icon';
 import Spinner from '../../assets/icons/svg/spinner-third-duotone.svg';
 
@@ -20,6 +20,7 @@ interface PropsTypes {
   link?: boolean;
   buttonRef?: any;
   onKeyDown?: any;
+  ariaExpanded?: boolean;
 }
 
 Button.defaultProps = {
@@ -40,6 +41,7 @@ Button.defaultProps = {
   className: '',
   link: false,
   buttonRef: null,
+  ariaExpanded: false,
 } as PropsTypes;
 
 function Button(props: PropsTypes) {
@@ -62,6 +64,7 @@ function Button(props: PropsTypes) {
     buttonRef,
     onKeyDown,
     onMouseDown,
+    ariaExpanded,
   } = props;
 
   let prefixIcon = PrefixIcon;
@@ -103,6 +106,7 @@ function Button(props: PropsTypes) {
         aria-pressed={pressed}
         data-toggle="button"
         aria-autocomplete="none"
+        aria-expanded={ariaExpanded}
         ref={buttonRef}
         onKeyDown={onKeyDown}
         onMouseDown={onMouseDown}
@@ -124,6 +128,7 @@ function Button(props: PropsTypes) {
         onClickCapture={clickInnerHandler}
         type={type}
         ref={buttonRef}
+        aria-expanded={ariaExpanded}
         onKeyDown={onKeyDown}
       >
         <div className="btn__inner">
@@ -141,6 +146,7 @@ function Button(props: PropsTypes) {
         role="button"
         ref={buttonRef}
         onKeyDown={onKeyDown}
+        aria-expanded={ariaExpanded}
         tabIndex={0}
       >
         <div className="btn__inner">

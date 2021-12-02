@@ -1,23 +1,8 @@
 import React, { useState } from 'react';
 
-interface PropsTypes {
-  children: React.ComponentElement<any, any>[] | React.ComponentElement<any, any>;
-  only?: boolean;
-  flush?: boolean;
-  className?: string;
-}
-
-Accordion.defaultProps = {
-  only: false,
-  flush: false,
-  className: '',
-} as PropsTypes;
-
-function Accordion(props: PropsTypes) {
+const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, ref) => {
   const { children, only, flush, className } = props;
-  const initObject: { [key: string]: boolean } = {};
-  const [stateMap, setStateMap] = useState(initObject);
-
+  const [stateMap, setStateMap] = useState<{ [key: string]: boolean }>({});
   const accordionGroupClasses: Array<string> = [`${NS}-accordion-group`];
 
   if (flush) accordionGroupClasses.push(`${NS}-accordion-flush`);
@@ -31,8 +16,9 @@ function Accordion(props: PropsTypes) {
     });
   }
 
-  function accordionHandler(child: React.ComponentElement<any, any>, mode: undefined | boolean) {
-    return (e: React.MouseEvent<HTMLElement>) => {
+  const accordionHandler =
+    (child: React.ComponentElement<any, any>, mode: undefined | boolean) =>
+    (e: React.MouseEvent<HTMLElement>) => {
       const { key } = child;
       if (mode) {
         if (key) {
@@ -52,7 +38,6 @@ function Accordion(props: PropsTypes) {
         ...stateMap,
       }));
     };
-  }
 
   const accordionList = React.Children.map(children, (child) => {
     const { key } = child;
@@ -65,6 +50,19 @@ function Accordion(props: PropsTypes) {
   });
 
   return <div className={accordionGroupClasses.join(' ')}>{accordionList}</div>;
-}
+});
+
+type propTypes = {
+  children: React.ComponentElement<any, any>[] | React.ComponentElement<any, any>;
+  only?: boolean;
+  flush?: boolean;
+  className?: string;
+};
+
+Accordion.defaultProps = {
+  only: false,
+  flush: false,
+  className: '',
+};
 
 export default Accordion;

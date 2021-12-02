@@ -3,30 +3,12 @@ import Icon from '../Icon';
 import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import Button from '../Button';
 
-interface PropsTypes {
-  title: string;
-  children: any;
-  AccordionIcon?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLElement>;
-  isOpen?: boolean;
-  className?: string;
-}
-
-AccordionItem.defaultProps = {
-  AccordionIcon: <Icon Component={ChervonDown} />,
-  onClick: () => {},
-  isOpen: false,
-  title: '',
-  children: '',
-  className: '',
-} as PropsTypes;
-
-function AccordionItem(props: PropsTypes) {
+function AccordionItem(props: propTypes) {
   const { title, children, AccordionIcon, onClick, isOpen, className } = props;
   const accordionItemClasses: Array<string> = [`${NS}-accordion-item`];
   const accordionItemButtonClasses: Array<string> = [`${NS}-accordion-item__button`];
   const accordionItemBodyClasses: Array<string> = [`${NS}-accordion-item__body`];
-
+  const accordionItemHeaderClasses: Array<string> = [`${NS}-accordion-item__header`];
 
   if (className) accordionItemClasses.push(className);
 
@@ -40,13 +22,14 @@ function AccordionItem(props: PropsTypes) {
 
   return (
     <div className={accordionItemClasses.join(' ')}>
-      <h2 className={`${NS}-accordion-item__header`}>
+      <h2 className={accordionItemHeaderClasses.join(' ')}>
         <Button
           className={accordionItemButtonClasses.join(' ')}
-          aria-expanded={isOpen}
+          ariaExpanded={isOpen}
           onClick={onClick}
           SuffixIcon={AccordionIcon}
           variant="link"
+          toggle
         >
           {title}
         </Button>
@@ -55,5 +38,21 @@ function AccordionItem(props: PropsTypes) {
     </div>
   );
 }
+
+type propTypes = {
+  title: string;
+  children: any;
+  AccordionIcon?: React.ReactComponentElement<any>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  isOpen?: boolean;
+  className?: string;
+};
+
+AccordionItem.defaultProps = {
+  AccordionIcon: <Icon Component={ChervonDown} />,
+  onClick: () => {},
+  isOpen: false,
+  className: '',
+};
 
 export default AccordionItem;
