@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import MenuContext from '../MenuContext';
 
 const MenuItem = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, ref) => {
@@ -7,19 +7,31 @@ const MenuItem = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   const ctx = useContext(MenuContext);
   const menuItemClasses: string[] = ['menu-item'];
   const isActive = ctx.activeStateMap[menuId];
+  const menuItemContentRef = useRef<HTMLDivElement>(null);
 
   if (isActive) menuItemClasses.push('active');
   if (className) menuItemClasses.push(className);
 
+  const clickHandler = (e: any) => {
+    const menuItemContentDom = menuItemContentRef.current;
+    if (menuItemContentDom) {
+      const linkElm = menuItemContentDom.querySelector('a');
+      if (linkElm) linkElm.click();
+    }
+    ctx.onClick(menuId, 'leaf')(e);
+  };
+
   return (
-    <div className={menuItemClasses.join(' ')} ref={ref} onMouseDown={ctx.onClick(menuId, 'leaf')}>
+    <div className={menuItemClasses.join(' ')} ref={ref} onMouseDown={clickHandler}>
       <div
         className="menu-item__inner"
         style={{ paddingLeft: `${menuItemIndent}px`, paddingRight: `${indent}px` }}
       >
         <div className="menu-item__wrapper">
           <div className="menu-item__prefix">{prefix}</div>
-          <div className="menu-item__content">{children}</div>
+          <div className="menu-item__content" ref={menuItemContentRef}>
+            {children}
+          </div>
         </div>
       </div>
     </div>

@@ -6,221 +6,236 @@
 
 .layout {
   height: inherit;
-  display: flex;
+
+  .layout-topbar {
+    display: none;
+  }
+
+  .menu {
+    height: 100%;
+  }
+}
+
+
+//.rc-title {
+//  font-size: 1rem;
+//  text-align: start;
+//  font-weight: 700;
+//  margin-left: 2rem;
+//}
+//.rc-group {
+//  margin: 1rem;
+//}
+//
+//.rc-buttons {
+//  margin: 1rem;
+//  .rc-button-variant,
+//  .rc-button-type,
+//  .rc-button-outline,
+//  .rc-button-size,
+//  .rc-button-with-icon,
+//  .rc-button-with-suffix-icon,
+//  .rc-button-with-loading,
+//  .rc-button-disabled,
+//  .rc-button-toggle {
+//    margin: 1rem;
+//    .btn {
+//      margin: 1rem;
+//    }
+//  }
+//}
+//
+//.rc-button-groups {
+//  margin: 1rem;
+//  .rc-button-groups-basic,
+//  .rc-button-groups-mixed,
+//  .rc-button-groups-outline,
+//  .rc-button-groups-size,
+//  .rc-button-group-with-icon,
+//  .rc-button-group-with-loading,
+//  .rc-button-group-disabled,
+//  .rc-button-group-toggle,
+//  .rc-button-group-vertical {
+//    margin: 1rem;
+//    .btn-group,
+//    .btn-group-vertical {
+//      margin: 1rem;
+//    }
+//  }
+//}
+//
+//.rc-accordions {
+//  margin: 1rem;
+//  .rc-accordion-only,
+//  .rc-accordion-flush-only,
+//  .rc-accordion-always-open {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-alerts {
+//  margin: 1rem;
+//  .rc-alert-variant,
+//  .rc-alert-link-content,
+//  .rc-alert-additional-content,
+//  .rc-alert-prefix-icon,
+//  .rc-alert-button {
+//    margin: 1rem;
+//  }
+//  .alert {
+//    //& > .icon {
+//    //  margin-right: 0.5rem;
+//    //}
+//    //&.suffix-btn {
+//    //  display: flex;
+//    //  align-items: center;
+//    //  position: relative;
+//    //  .btn-link {
+//    //    //color: currentColor;
+//    //    position: absolute;
+//    //    right: 0.5rem;
+//    //  }
+//    //}
+//  }
+//}
+//
+//.rc-badges {
+//  margin: 1rem;
+//  .rc-badges-basic,
+//  .rc-badges-button,
+//  .rc-badges-positioned,
+//  .rc-badges-bg-color,
+//  .rc-badges-pill {
+//    margin: 1rem;
+//    .btn {
+//      margin-right: 2rem;
+//      .rc-badge-content {
+//        margin-right: 0.5rem;
+//      }
+//    }
+//  }
+//}
+//
+//.rc-breadcrumbs {
+//  margin: 1rem;
+//  .rc-breadcrumbs-basic,
+//  .rc-breadcrumbs-divider,
+//  .rc-breadcrumbs-no-divider {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-carousels {
+//  margin: 1rem;
+//  .carousel {
+//    width: 600px;
+//    height: auto;
+//  }
+//  .rc-carousel-basic,
+//  .rc-carousel-control,
+//  .rc-carousel-control-indicator,
+//  .rc-carousel-control-fade {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-dropdowns {
+//  margin: 1rem;
+//  .rc-group {
+//    .dropdown {
+//      display: inline-block;
+//      margin: 1rem;
+//    }
+//  }
+//  .rc-dropdown-basic,
+//  .rc-dropdown-link,
+//  .rc-dropdown-variant,
+//  .rc-dropdown-split-button,
+//  .rc-dropdown-size,
+//  .rc-dropdown-dark,
+//  .rc-dropdown-item-disabled,
+//  .rc-dropdown-disabled {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-list-groups {
+//  margin: 1rem;
+//  .rc-group {
+//  }
+//  .rc-list-group-basic,
+//  .rc-list-group-flush,
+//  .rc-list-group-numbered,
+//  .rc-list-group-horizontal,
+//  .rc-list-group-contextual,
+//  .rc-list-group-badges,
+//  .rc-list-group-custom {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-modals {
+//  margin: 1rem;
+//  .rc-group {
+//  }
+//  .rc-modal-basic,
+//  .rc-modal-scrollable,
+//  .rc-modal-centered,
+//  .rc-modal-custom-footer {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-navs {
+//  margin: 1rem;
+//  .rc-group {
+//  }
+//  .rc-nav-basic,
+//  .rc-nav-centered,
+//  .rc-nav-ended,
+//  .rc-nav-vertical,
+//  .rc-nav-tabs,
+//  .rc-nav-dropdown,
+//  .rc-nav-pills,
+//  .rc-nav-pills-fill,
+//  .rc-nav-pills-justified {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-offcanvases {
+//  margin: 1rem;
+//  .rc-group {
+//  }
+//  .rc-offcanvas-basic {
+//    margin: 1rem;
+//  }
+//}
+//
+//.rc-popover {
+//  margin: 1rem;
+//  .rc-group {
+//    .rc-item {
+//      display: inline-block;
+//      margin-top: 4rem;
+//      margin-left: 6rem;
+//    }
+//  }
+//}
+
+@include media-breakpoint-down(lg) {
   .layout-sidebar {
-    flex: 1;
-    .menu {
-      height: 100%;
-    }
+    display: none;
   }
-  .layout-main {
-    flex: 3;
+  .layout-topbar {
+    display: block !important;
   }
 }
 
+//@include media-breakpoint-up(lg) {
+//  .layout-topbar {
+//    display: none;
+//  }
+//}
 
-.rc-title {
-  font-size: 1rem;
-  text-align: start;
-  font-weight: 700;
-  margin-left: 2rem;
-}
-.rc-group {
-  margin: 1rem;
-}
 
-.rc-buttons {
-  margin: 1rem;
-  .rc-button-variant,
-  .rc-button-type,
-  .rc-button-outline,
-  .rc-button-size,
-  .rc-button-with-icon,
-  .rc-button-with-suffix-icon,
-  .rc-button-with-loading,
-  .rc-button-disabled,
-  .rc-button-toggle {
-    margin: 1rem;
-    .btn {
-      margin: 1rem;
-    }
-  }
-}
-
-.rc-button-groups {
-  margin: 1rem;
-  .rc-button-groups-basic,
-  .rc-button-groups-mixed,
-  .rc-button-groups-outline,
-  .rc-button-groups-size,
-  .rc-button-group-with-icon,
-  .rc-button-group-with-loading,
-  .rc-button-group-disabled,
-  .rc-button-group-toggle,
-  .rc-button-group-vertical {
-    margin: 1rem;
-    .btn-group,
-    .btn-group-vertical {
-      margin: 1rem;
-    }
-  }
-}
-
-.rc-accordions {
-  margin: 1rem;
-  .rc-accordion-only,
-  .rc-accordion-flush-only,
-  .rc-accordion-always-open {
-    margin: 1rem;
-  }
-}
-
-.rc-alerts {
-  margin: 1rem;
-  .rc-alert-variant,
-  .rc-alert-link-content,
-  .rc-alert-additional-content,
-  .rc-alert-prefix-icon,
-  .rc-alert-button {
-    margin: 1rem;
-  }
-  .alert {
-    //& > .icon {
-    //  margin-right: 0.5rem;
-    //}
-    //&.suffix-btn {
-    //  display: flex;
-    //  align-items: center;
-    //  position: relative;
-    //  .btn-link {
-    //    //color: currentColor;
-    //    position: absolute;
-    //    right: 0.5rem;
-    //  }
-    //}
-  }
-}
-
-.rc-badges {
-  margin: 1rem;
-  .rc-badges-basic,
-  .rc-badges-button,
-  .rc-badges-positioned,
-  .rc-badges-bg-color,
-  .rc-badges-pill {
-    margin: 1rem;
-    .btn {
-      margin-right: 2rem;
-      .rc-badge-content {
-        margin-right: 0.5rem;
-      }
-    }
-  }
-}
-
-.rc-breadcrumbs {
-  margin: 1rem;
-  .rc-breadcrumbs-basic,
-  .rc-breadcrumbs-divider,
-  .rc-breadcrumbs-no-divider {
-    margin: 1rem;
-  }
-}
-
-.rc-carousels {
-  margin: 1rem;
-  .carousel {
-    width: 600px;
-    height: auto;
-  }
-  .rc-carousel-basic,
-  .rc-carousel-control,
-  .rc-carousel-control-indicator,
-  .rc-carousel-control-fade {
-    margin: 1rem;
-  }
-}
-
-.rc-dropdowns {
-  margin: 1rem;
-  .rc-group {
-    .dropdown {
-      display: inline-block;
-      margin: 1rem;
-    }
-  }
-  .rc-dropdown-basic,
-  .rc-dropdown-link,
-  .rc-dropdown-variant,
-  .rc-dropdown-split-button,
-  .rc-dropdown-size,
-  .rc-dropdown-dark,
-  .rc-dropdown-item-disabled,
-  .rc-dropdown-disabled {
-    margin: 1rem;
-  }
-}
-
-.rc-list-groups {
-  margin: 1rem;
-  .rc-group {
-  }
-  .rc-list-group-basic,
-  .rc-list-group-flush,
-  .rc-list-group-numbered,
-  .rc-list-group-horizontal,
-  .rc-list-group-contextual,
-  .rc-list-group-badges,
-  .rc-list-group-custom {
-    margin: 1rem;
-  }
-}
-
-.rc-modals {
-  margin: 1rem;
-  .rc-group {
-  }
-  .rc-modal-basic,
-  .rc-modal-scrollable,
-  .rc-modal-centered,
-  .rc-modal-custom-footer {
-    margin: 1rem;
-  }
-}
-
-.rc-navs {
-  margin: 1rem;
-  .rc-group {
-  }
-  .rc-nav-basic,
-  .rc-nav-centered,
-  .rc-nav-ended,
-  .rc-nav-vertical,
-  .rc-nav-tabs,
-  .rc-nav-dropdown,
-  .rc-nav-pills,
-  .rc-nav-pills-fill,
-  .rc-nav-pills-justified {
-    margin: 1rem;
-  }
-}
-
-.rc-offcanvases {
-  margin: 1rem;
-  .rc-group {
-  }
-  .rc-offcanvas-basic {
-    margin: 1rem;
-  }
-}
-
-.rc-popover {
-  margin: 1rem;
-  .rc-group {
-    .rc-item {
-      display: inline-block;
-      margin-top: 4rem;
-      margin-left: 6rem;
-    }
-  }
-}

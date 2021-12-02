@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface PropsTypes {
-  children: React.ComponentElement<any, any>[];
+  children: React.ComponentElement<any, any>[] | React.ComponentElement<any, any>;
   only?: boolean;
   flush?: boolean;
   className?: string;
@@ -58,7 +58,7 @@ function Accordion(props: PropsTypes) {
     const { key } = child;
     if (key) {
       return React.cloneElement(child, {
-        open: stateMap[key],
+        isOpen: stateMap[key],
         onClick: accordionHandler(child, only),
       });
     }

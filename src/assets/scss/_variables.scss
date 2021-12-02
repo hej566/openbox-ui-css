@@ -1134,8 +1134,8 @@ $nav-pills-link-active-bg: $component-active-bg !default;
 // scss-docs-end nav-variables
 
 // Menu
-$menu-width: 16rem !default;
-$menu-collapse-width: 5rem !default;
+$menu-width: 100% !default;
+$menu-collapse-width: 100% !default;
 $menu-padding-y: 0.5rem !default;
 $menu-item-padding-y: 0.5rem !default;
 $menu-item-padding-x: 1rem !default;

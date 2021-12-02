@@ -10,7 +10,7 @@ function Dropdowns() {
       <section className="rc-dropdown-basic">
         <div className="rc-title">Basic dropdown</div>
         <div className="rc-group">
-          <Dropdown buttonName="Dropdown button" type="dropdown">
+          <Dropdown buttonName="Dropdown button">
             <DropdownItem active key={uuidv4()}>
               Action
             </DropdownItem>
@@ -46,7 +46,7 @@ function Dropdowns() {
       <section className="rc-dropdown-variant">
         <div className="rc-title">Variant dropdown</div>
         <div className="rc-group">
-          <Dropdown variant="primary" buttonName="Primary" type="dropdown">
+          <Dropdown variant="primary" buttonName="Primary">
             <DropdownItem active key={uuidv4()}>
               Action
             </DropdownItem>
