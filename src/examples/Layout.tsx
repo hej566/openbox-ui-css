@@ -132,7 +132,7 @@ const Layout = (props: any) => {
         </Accordion>
       </div>
       <div className="layout-body d-flex">
-        <div className="layout-sidebar col-2">
+        <div className="layout-sidebar col-lg-2 col-12">
           <Menu collapsed={false} defaultActiveId={defaultActiveId}>
             <MenuItem key="1" menuId="1" prefix={<Icon Component={Acorn} />}>
               <LinkRoot to="/buttons">Buttons</LinkRoot>
@@ -220,7 +220,7 @@ const Layout = (props: any) => {
             </MenuItem>
           </Menu>
         </div>
-        <div className="layout-main col-10">{children}</div>
+        <div className="layout-main col-lg-10 col-12">{children}</div>
       </div>
     </div>
   );

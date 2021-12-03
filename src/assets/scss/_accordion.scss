@@ -1,8 +1,4 @@
-//
-// Base styles
-//
 @import 'namespace';
-
 
 .#{$NS}-accordion-item__button {
   position: relative;
@@ -15,7 +11,6 @@
   background-color: $accordion-button-bg;
   border: 0;
   @include border-radius(0);
-  overflow-anchor: none;
   @include transition($accordion-transition);
 
   &--show {
@@ -32,7 +27,7 @@
       background-color: $accordion-button-bg;
   }
 
-  .btn__inner {
+  .#{$NS}-btn__inner {
     width: 100%;
     justify-content: space-between;
   }
@@ -81,12 +76,20 @@
 }
 
 .#{$NS}-accordion-item__body {
-  padding: $accordion-body-padding-y $accordion-body-padding-x;
+  margin: $accordion-body-padding-y $accordion-body-padding-x;
+  transition: all 0.15s ease-in-out;
   &--collapsed {
-    display: none;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    margin: 0 $accordion-body-padding-x;
   }
   &--show {
     display: block;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
   }
 }
 

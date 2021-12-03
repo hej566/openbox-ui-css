@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import Icon from '../Icon';
 import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import Button from '../Button';
 
-function AccordionItem(props: propTypes) {
+const AccordionItem = (props: propTypes) => {
   const { title, children, AccordionIcon, onClick, isOpen, className } = props;
   const accordionItemClasses: Array<string> = [`${NS}-accordion-item`];
   const accordionItemButtonClasses: Array<string> = [`${NS}-accordion-item__button`];
   const accordionItemBodyClasses: Array<string> = [`${NS}-accordion-item__body`];
   const accordionItemHeaderClasses: Array<string> = [`${NS}-accordion-item__header`];
+  const accordionItemBodyRef = useRef<HTMLDivElement>(null);
 
   if (className) accordionItemClasses.push(className);
 
@@ -19,6 +20,46 @@ function AccordionItem(props: propTypes) {
     accordionItemButtonClasses.push(`${NS}-accordion-item__button--collapsed`);
     accordionItemBodyClasses.push(`${NS}-accordion-item__body--collapsed`);
   }
+
+  const openTransition = () => {
+    const accordionItemBodyElm = accordionItemBodyRef.current;
+    if (accordionItemBodyElm) {
+      accordionItemBodyElm.classList.add('transitioning');
+      requestAnimationFrame(() => {
+        accordionItemBodyElm.style.height = `${accordionItemBodyElm.scrollHeight}px`;
+      });
+    }
+  };
+
+  const closeTransition = () => {
+    const accordionItemBodyElm = accordionItemBodyRef.current;
+    if (accordionItemBodyElm) {
+      accordionItemBodyElm.classList.add('transitioning');
+      requestAnimationFrame(() => {
+        accordionItemBodyElm.style.height = `0px`;
+      });
+    }
+  };
+
+  const transitionEndHandler = (e: any) => {
+    const accordionItemBodyElm = accordionItemBodyRef.current;
+    if (accordionItemBodyElm) {
+      if (isOpen) {
+        accordionItemBodyElm.classList.remove('transitioning');
+        accordionItemBodyElm.style.height = `auto`;
+      } else {
+        accordionItemBodyElm.classList.remove('transitioning');
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      openTransition();
+    } else {
+      closeTransition();
+    }
+  }, [isOpen]);
 
   return (
     <div className={accordionItemClasses.join(' ')}>
@@ -34,10 +75,16 @@ function AccordionItem(props: propTypes) {
           {title}
         </Button>
       </h2>
-      <div className={accordionItemBodyClasses.join(' ')}>{children}</div>
+      <div
+        className={accordionItemBodyClasses.join(' ')}
+        ref={accordionItemBodyRef}
+        onTransitionEnd={transitionEndHandler}
+      >
+        {children}
+      </div>
     </div>
   );
-}
+};
 
 type propTypes = {
   title: string;

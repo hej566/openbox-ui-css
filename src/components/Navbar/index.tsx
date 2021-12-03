@@ -74,13 +74,13 @@ function Navbar(props: PropsTypes) {
 
   function transitionEndHandler() {
     const navbarCollapseDom = navbarCollapseRef.current;
-    if (navbarCollapseDom && navbarCollapseDom.classList.contains('collapsing')) {
+    if (navbarCollapseDom && navbarCollapseDom.classList.contains('transitioning')) {
       if (!isOpen) {
-        navbarCollapseDom.classList.remove('collapsing');
+        navbarCollapseDom.classList.remove('transitioning');
         navbarCollapseDom.classList.add('collapse', 'show');
         setOpenState(true);
       } else {
-        navbarCollapseDom.classList.remove('collapsing');
+        navbarCollapseDom.classList.remove('transitioning');
         navbarCollapseDom.classList.add('collapse');
         navbarCollapseDom.style.display = 'none';
         setOpenState(false);
@@ -100,7 +100,7 @@ function Navbar(props: PropsTypes) {
           navbarCollapseDom.style.height = `${navbarNavDom.clientHeight}px`;
         }, 0);
         navbarCollapseDom.classList.remove('collapse');
-        navbarCollapseDom.classList.add('collapsing');
+        navbarCollapseDom.classList.add('transitioning');
       });
     }
   }
@@ -116,7 +116,7 @@ function Navbar(props: PropsTypes) {
           navbarCollapseDom.style.height = `0px`;
         }, 0);
         navbarCollapseDom.classList.remove('collapse', 'show');
-        navbarCollapseDom.classList.add('collapsing');
+        navbarCollapseDom.classList.add('transitioning');
       });
     }
   }

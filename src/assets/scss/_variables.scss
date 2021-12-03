@@ -546,11 +546,11 @@ $caret-vertical-align: $caret-width * 0.85 !default;
 $caret-spacing: $caret-width * 0.85 !default;
 // scss-docs-end caret-variables
 
-$transition-base: all 0.1s ease-in-out !default;
-$transition-fade: opacity 0.1s ease-in-out !default;
+$transition-base: all 0.15s ease-in-out !default;
+$transition-fade: opacity 0.15s ease-in-out !default;
 // scss-docs-start collapse-transition
-$transition-collapse: height 0.1s ease !default;
-$transition-collapse-width: width 0.1s ease !default;
+$transition-collapse: height 0.15s ease !default;
+$transition-collapse-width: width 0.15s ease !default;
 // scss-docs-end collapse-transition
 
 // stylelint-disable function-disallowed-list

@@ -1,8 +1,6 @@
-    //
-// Base styles
-//
+@import 'namespace';
 
-.btn {
+.#{$NS}-btn {
   display: inline-block;
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
@@ -23,15 +21,12 @@
     color: $body-color;
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
-  //
-  .btn-check:focus + &,
+
   &:focus {
     outline: 0;
     box-shadow: $btn-focus-box-shadow;
   }
-  //
-  .btn-check:checked + &,
-  .btn-check:active + &,
+
   &:active,
   &.active {
     @include box-shadow($btn-active-box-shadow);
@@ -40,17 +35,16 @@
       @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
     }
   }
-  //
+
   &:disabled,
   &.disabled,
   fieldset:disabled & {
-    //pointer-events: none;
     cursor: not-allowed;
     opacity: $btn-disabled-opacity;
     @include box-shadow(none);
   }
-  //
-  &.btn-icon {
+
+  &.#{$NS}-btn-icon {
     @include button-size(
       $btn-icon-padding-y,
       $btn-icon-padding-x,
@@ -60,20 +54,15 @@
   }
 }
 
-.btn__inner {
+.#{$NS}-btn__inner {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.btn__content {
-  // display: flex;
-  // align-items: center;
-}
-
-.btn-lg {
-  &.btn-icon {
-    .btn__icon {
+.#{$NS}-btn-lg {
+  &.#{$NS}-btn-icon {
+    .#{$NS}-btn__icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,9 +72,9 @@
   }
 }
 
-.btn-sm {
-  &.btn-icon {
-    .btn__icon {
+.#{$NS}-btn-sm {
+  &.#{$NS}-btn-icon {
+    .#{$NS}-btn__icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,45 +84,33 @@
   }
 }
 
-.btn__icon {
-  & + .btn__content {
+.#{$NS}-btn__icon {
+  & + .#{$NS}-btn__content {
     margin-left: 0.5rem;
   }
 }
 
-.btn__content {
+.#{$NS}-btn__content {
   & + .btn__icon {
     margin-left: 0.5rem;
   }
 }
 
-//
-// Alternate buttons
-//
-
-// scss-docs-start btn-variant-loops
 @each $color, $value in $theme-colors {
-  .btn-#{$color} {
+  .#{$NS}-btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
 @each $color, $value in $theme-colors {
-  .btn-outline-#{$color} {
+  .#{$NS}-btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
-// scss-docs-end btn-variant-loops
 
-//
-// Link buttons
-//
-
-// Make a button look and behave like a link
-.btn-link {
+.#{$NS}-btn-link {
   font-weight: $font-weight-normal;
   color: currentColor;
-  //text-decoration: $link-decoration;
 
   &:hover {
     color: currentColor;
@@ -153,20 +130,12 @@
     border: none;
     text-decoration: none;
     padding: 0;
-    // baseline align with strut
     vertical-align: baseline;
-    &:focus {
-      //box-shadow: none;
-    }
   }
 }
 
-//
-// Icon Buttons size
-//
-
-.btn-lg {
-  &.btn-icon {
+.#{$NS}-btn-lg {
+  &.#{$NS}-btn-icon {
     @include button-size(
       $btn-icon-padding-y-lg,
       $btn-icon-padding-x-lg,
@@ -176,8 +145,8 @@
   }
 }
 
-.btn-sm {
-  &.btn-icon {
+.#{$NS}-btn-sm {
+  &.#{$NS}-btn-icon {
     @include button-size(
       $btn-icon-padding-y-sm,
       $btn-icon-padding-x-sm,
@@ -187,12 +156,8 @@
   }
 }
 
-//
-// Button Sizes
-//
-
-.btn-lg {
-  &:not(.btn-icon) {
+.#{$NS}-btn-lg {
+  &:not(.#{$NS}-btn-icon) {
     @include button-size(
       $btn-padding-y-lg,
       $btn-padding-x-lg,
@@ -202,8 +167,8 @@
   }
 }
 
-.btn-sm {
-  &:not(.btn-icon) {
+.#{$NS}-btn-sm {
+  &:not(.#{$NS}-btn-icon) {
     @include button-size(
       $btn-padding-y-sm,
       $btn-padding-x-sm,

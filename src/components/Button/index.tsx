@@ -71,12 +71,12 @@ function Button(props: PropsTypes) {
   const suffixIcon = SuffixIcon;
   let defaultSpinner = null;
   let normalOrToggleButton = null;
-  const buttonClasses: Array<String> = [`btn`];
+  const buttonClasses: Array<String> = [`${NS}-btn`];
 
-  if (size) buttonClasses.push(`btn-${size}`);
+  if (size) buttonClasses.push(`${NS}-btn-${size}`);
   if (!SpinnerIcon) defaultSpinner = <Icon Component={Spinner} rotating size={size} />;
-  if (variant) buttonClasses.push(`btn-${variant}`);
-  if (!children) buttonClasses.push(`btn-icon`);
+  if (variant) buttonClasses.push(`${NS}-btn-${variant}`);
+  if (!children) buttonClasses.push(`${NS}-btn-icon`);
   if (className) buttonClasses.push(className);
   if (loading && SpinnerIcon) {
     prefixIcon = SpinnerIcon;
@@ -111,10 +111,10 @@ function Button(props: PropsTypes) {
         onKeyDown={onKeyDown}
         onMouseDown={onMouseDown}
       >
-        <div className="btn__inner">
-          {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
-          {children && <span className="btn__content">{children}</span>}
-          {suffixIcon && <span className="btn__icon">{suffixIcon}</span>}
+        <div className={`${NS}-btn__inner`}>
+          {prefixIcon && <span className={`${NS}-btn__icon`}>{prefixIcon}</span>}
+          {children && <span className={`${NS}-btn__content`}>{children}</span>}
+          {suffixIcon && <span className={`${NS}-btn__icon`}>{suffixIcon}</span>}
         </div>
       </button>
     );
@@ -131,10 +131,10 @@ function Button(props: PropsTypes) {
         aria-expanded={ariaExpanded}
         onKeyDown={onKeyDown}
       >
-        <div className="btn__inner">
-          {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
-          {children && <span className="btn__content">{children}</span>}
-          {suffixIcon && <span className="btn__icon">{suffixIcon}</span>}
+        <div className={`${NS}-btn__inner`}>
+          {prefixIcon && <span className={`${NS}-btn__icon`}>{prefixIcon}</span>}
+          {children && <span className={`${NS}-btn__content`}>{children}</span>}
+          {suffixIcon && <span className={`${NS}-btn__icon`}>{suffixIcon}</span>}
         </div>
       </button>
     ) : (
@@ -149,10 +149,10 @@ function Button(props: PropsTypes) {
         aria-expanded={ariaExpanded}
         tabIndex={0}
       >
-        <div className="btn__inner">
-          {prefixIcon && <span className="btn__icon">{prefixIcon}</span>}
-          {children && <span className="btn__content">{children}</span>}
-          {suffixIcon && <span className="btn__icon">{suffixIcon}</span>}
+        <div className={`${NS}-btn__inner`}>
+          {prefixIcon && <span className={`${NS}-btn__icon`}>{prefixIcon}</span>}
+          {children && <span className={`${NS}-btn__content`}>{children}</span>}
+          {suffixIcon && <span className={`${NS}-btn__icon`}>{suffixIcon}</span>}
         </div>
       </a>
     );

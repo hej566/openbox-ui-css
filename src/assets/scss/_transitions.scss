@@ -13,8 +13,7 @@
   }
 }
 
-.collapsing {
-  height: 0;
+.transitioning {
   overflow: hidden;
   @include transition($transition-collapse);
 

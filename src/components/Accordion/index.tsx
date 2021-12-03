@@ -10,9 +10,9 @@ const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes,
 
   if (!Object.keys(stateMap).length) {
     React.Children.forEach(children, (child) => {
-      const { open } = child.props;
+      const { isOpen } = child.props;
       const { key } = child;
-      if (key) stateMap[key] = open;
+      if (key) stateMap[key] = isOpen;
     });
   }
 
