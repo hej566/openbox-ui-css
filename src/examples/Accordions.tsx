@@ -15,7 +15,7 @@ function Accordions() {
             <AccordionItem
               title="Accordion Item #1"
               key={uuidv4()}
-              AccordionIcon={<Icon Component={Acorn} />}
+              AccordionIcon={<Icon component={Acorn} />}
             >
               <strong>This is the first item's accordion body.</strong> It is shown by default,
               until the collapse plugin adds the appropriate classes that we use to style each
@@ -51,7 +51,7 @@ function Accordions() {
             <AccordionItem
               title="Accordion Item #1"
               key={uuidv4()}
-              AccordionIcon={<Icon Component={Acorn} />}
+              AccordionIcon={<Icon component={Acorn} />}
             >
               <strong>This is the first item's accordion body.</strong> It is shown by default,
               until the collapse plugin adds the appropriate classes that we use to style each
@@ -87,7 +87,7 @@ function Accordions() {
             <AccordionItem
               title="Accordion Item #1"
               key={uuidv4()}
-              AccordionIcon={<Icon Component={Acorn} />}
+              AccordionIcon={<Icon component={Acorn} />}
             >
               <Accordion>
                 <AccordionItem title="Accordion Item #2" key={uuidv4()}>

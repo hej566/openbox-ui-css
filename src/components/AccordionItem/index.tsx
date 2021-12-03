@@ -110,7 +110,7 @@ type propTypes = {
 };
 
 AccordionItem.defaultProps = {
-  AccordionIcon: <Icon Component={ChervonDown} />,
+  AccordionIcon: <Icon component={ChervonDown} />,
   onClick: () => {},
   isOpen: false,
   className: '',

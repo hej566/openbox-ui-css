@@ -18,7 +18,7 @@ interface PropsTypes {
 Navbar.defaultProps = {
   className: '',
   title: '',
-  Icon: <Icon Component={Bars} />,
+  Icon: <Icon component={Bars} />,
   theme: 'light',
   open: false,
   expand: true,

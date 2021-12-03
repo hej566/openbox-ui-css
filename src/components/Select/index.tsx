@@ -349,7 +349,7 @@ type propTypes = {
 
 Select.defaultProps = {
   className: '',
-  SuffixIcon: <Icon Component={ChevronDown} />,
+  SuffixIcon: <Icon component={ChevronDown} />,
   onClick: () => {},
   onChange: () => {},
   variant: 'secondary',

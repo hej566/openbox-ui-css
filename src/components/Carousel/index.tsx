@@ -385,10 +385,10 @@ function Carousel(props: PropsTypes) {
       {control && (
         <>
           <div className="carousel-control-prev" ref={carouselControlPrevRef}>
-            <Icon Component={ChevronLeft} />
+            <Icon component={ChevronLeft} />
           </div>
           <div className="carousel-control-next" ref={carouselControlNextRef}>
-            <Icon Component={ChevronRight} />
+            <Icon component={ChevronRight} />
           </div>
         </>
       )}

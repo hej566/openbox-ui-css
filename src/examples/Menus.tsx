@@ -114,16 +114,16 @@ function Menus() {
           defaultActiveId={defaultActiveId}
           defaultOpenKey={defaultOpenKey}
         >
-          <MenuItem key="1" menuId="1" prefix={<Icon Component={Acorn} />}>
+          <MenuItem key="1" menuId="1" prefix={<Icon component={Acorn} />}>
             Option 1
           </MenuItem>
-          <MenuItem key="2" menuId="2" prefix={<Icon Component={Acorn} />}>
+          <MenuItem key="2" menuId="2" prefix={<Icon component={Acorn} />}>
             Option 2
           </MenuItem>
-          <MenuItem key="3" menuId="3" prefix={<Icon Component={Acorn} />}>
+          <MenuItem key="3" menuId="3" prefix={<Icon component={Acorn} />}>
             Option 3
           </MenuItem>
-          <SubMenu key="4" menuId="4" label="Navigation One" prefix={<Icon Component={Acorn} />}>
+          <SubMenu key="4" menuId="4" label="Navigation One" prefix={<Icon component={Acorn} />}>
             <MenuGroup label="group1">
               <MenuItem key="4-1" menuId="4-1">
                 Option 5
@@ -141,7 +141,7 @@ function Menus() {
               </MenuItem>
             </MenuGroup>
           </SubMenu>
-          <SubMenu key="5" menuId="5" label="Navigation Two" prefix={<Icon Component={Acorn} />}>
+          <SubMenu key="5" menuId="5" label="Navigation Two" prefix={<Icon component={Acorn} />}>
             <MenuItem key="5-1" menuId="5-1">
               Option 9
             </MenuItem>

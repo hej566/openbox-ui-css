@@ -29,7 +29,7 @@ SubMenu.defaultProps = {
   className: '',
   onChange: () => {},
   prefix: null,
-  suffix: <Icon Component={Chevron} />,
+  suffix: <Icon component={Chevron} />,
   open: false,
   indent: '16',
   onClick: () => {},

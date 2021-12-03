@@ -353,7 +353,7 @@ type PropsTypes = {
 
 Dropdown.defaultProps = {
   className: '',
-  SuffixIcon: <Icon Component={ChevronDown} />,
+  SuffixIcon: <Icon component={ChevronDown} />,
   onClick: (): void => {},
   onChange: () => {},
   variant: 'secondary',

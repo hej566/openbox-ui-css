@@ -10,7 +10,7 @@ interface PropsTypes {
 }
 
 Breadcrumb.defaultProps = {
-  Divider: <Icon Component={Slash} />,
+  Divider: <Icon component={Slash} />,
   className: '',
   noDivider: false,
 } as PropsTypes;

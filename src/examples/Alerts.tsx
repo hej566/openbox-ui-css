@@ -111,15 +111,15 @@ function Alerts() {
         <div className="rc-title">Icon alert</div>
         <div className="rc-group">
           <Alert className="d-flex align-items-center">
-            <Icon Component={Acorn} size="lg" />
+            <Icon component={Acorn} size="lg" />
             <div>An example alert with an icon</div>
           </Alert>
           <Alert className="d-flex align-items-center" variant="success">
-            <Icon Component={Acorn} size="lg" />
+            <Icon component={Acorn} size="lg" />
             <div>An example alert with an icon</div>
           </Alert>
           <Alert className="d-flex align-items-center" variant="warning">
-            <Icon Component={Acorn} size="lg" />
+            <Icon component={Acorn} size="lg" />
             <div>An example alert with an icon</div>
           </Alert>
         </div>
@@ -131,7 +131,7 @@ function Alerts() {
             <span>
               <strong>Holy guacamole!</strong> You should check in on some of those fields below.
             </span>
-            <Button variant="link" prefixIcon={<Icon Component={Times} size="lg" />} />
+            <Button variant="link" prefixIcon={<Icon component={Times} size="lg" />} />
           </Alert>
         </div>
       </section>

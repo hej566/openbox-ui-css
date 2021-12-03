@@ -139,13 +139,13 @@ function Buttons() {
       <section className="rc-button-with-icon">
         <div className="rc-title">Icon button</div>
         <div className="rc-group">
-          <Button variant="primary" prefixIcon={<Icon Component={Acorn} />}>
+          <Button variant="primary" prefixIcon={<Icon component={Acorn} />}>
             Primary
           </Button>
-          <Button variant="outline-success" prefixIcon={<Icon Component={Acorn} />} />
-          <Button variant="danger" prefixIcon={<Icon Component={Acorn} />} />
-          <Button variant="warning" prefixIcon={<Icon Component={Acorn} />} />
-          <Button variant="link" prefixIcon={<Icon Component={Acorn} />}>
+          <Button variant="outline-success" prefixIcon={<Icon component={Acorn} />} />
+          <Button variant="danger" prefixIcon={<Icon component={Acorn} />} />
+          <Button variant="warning" prefixIcon={<Icon component={Acorn} />} />
+          <Button variant="link" prefixIcon={<Icon component={Acorn} />}>
             Link
           </Button>
         </div>
@@ -153,7 +153,7 @@ function Buttons() {
       <section className="rc-button-with-suffix-icon">
         <div className="rc-title">Suffix icon button</div>
         <div className="rc-group">
-          <Button variant="primary" suffixIcon={<Icon Component={Acorn} />}>
+          <Button variant="primary" suffixIcon={<Icon component={Acorn} />}>
             Primary
           </Button>
         </div>
@@ -163,12 +163,12 @@ function Buttons() {
         <div className="rc-group">
           <Button
             loading={loading1}
-            prefixIcon={<Icon Component={Acorn} />}
+            prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler1}
           />
           <Button
             loading={loading2}
-            prefixIcon={<Icon Component={Acorn} />}
+            prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler2}
           >
             Button
@@ -178,7 +178,7 @@ function Buttons() {
           </Button>
           <Button
             loading={loading4}
-            spinnerIcon={<Icon Component={Acorn} rotating />}
+            spinnerIcon={<Icon component={Acorn} rotating />}
             onClick={clickHandler4}
           >
             Button
@@ -189,14 +189,14 @@ function Buttons() {
         <div className="rc-title">Disabled button</div>
         <div className="rc-group">
           <Button
-            prefixIcon={<Icon Component={Acorn} />}
+            prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler5}
             disabled={disabled5}
           />
           <Button
             disabled={disabled6}
             variant="secondary"
-            prefixIcon={<Icon Component={Acorn} />}
+            prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler6}
           >
             Button
@@ -207,7 +207,7 @@ function Buttons() {
           <Button
             disabled={disabled8}
             variant="danger"
-            spinnerIcon={<Icon Component={Acorn} rotating />}
+            spinnerIcon={<Icon component={Acorn} rotating />}
             onClick={clickHandler8}
           >
             Button
@@ -220,7 +220,7 @@ function Buttons() {
           <Button
             variant="primary"
             loading={loading1}
-            prefixIcon={<Icon Component={Acorn} />}
+            prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler1}
           >
             <Upload onChange={uploadHandler}>Upload</Upload>

@@ -11,16 +11,16 @@ function Breadcrumbs() {
       <section className="rc-breadcrumbs-basic">
         <div className="rc-title">Basic breadcrumb</div>
         <div className="rc-group">
-          <Breadcrumb Divider={<Icon Component={Slash} className="divider" />}>
+          <Breadcrumb Divider={<Icon component={Slash} className="divider" />}>
             <BreadcrumbItem current>Home</BreadcrumbItem>
           </Breadcrumb>
-          <Breadcrumb Divider={<Icon Component={Slash} className="divider" />}>
+          <Breadcrumb Divider={<Icon component={Slash} className="divider" />}>
             <BreadcrumbItem>
               <a href="#">Home</a>
             </BreadcrumbItem>
             <BreadcrumbItem current>Library</BreadcrumbItem>
           </Breadcrumb>
-          <Breadcrumb Divider={<Icon Component={Slash} className="divider" />}>
+          <Breadcrumb Divider={<Icon component={Slash} className="divider" />}>
             <BreadcrumbItem>
               <a href="#">Home</a>
             </BreadcrumbItem>
@@ -34,7 +34,7 @@ function Breadcrumbs() {
       <section className="rc-breadcrumbs-divider">
         <div className="rc-title">Divider breadcrumb</div>
         <div className="rc-group">
-          <Breadcrumb Divider={<Icon Component={Divider} className="divider" />}>
+          <Breadcrumb Divider={<Icon component={Divider} className="divider" />}>
             <BreadcrumbItem>
               <a href="#">Home</a>
             </BreadcrumbItem>

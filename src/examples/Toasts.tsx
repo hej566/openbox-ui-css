@@ -14,7 +14,7 @@ function Toasts() {
       <div className="toast-header">
         <strong className="me-auto">Bootstrap</strong>
         <small>11 mins ago</small>
-        <Button variant="link" prefixIcon={<Icon Component={Times} />} onClick={closeHandler} />
+        <Button variant="link" prefixIcon={<Icon component={Times} />} onClick={closeHandler} />
       </div>
       <div className="toast-body">Hello, world! This is a toast message.</div>
     </>
@@ -25,7 +25,7 @@ function Toasts() {
       <div className="toast-header">
         <strong className="me-auto">Bootstrap</strong>
         <small>11 mins ago</small>
-        <Button variant="link" prefixIcon={<Icon Component={Times} />} onClick={closeHandler1} />
+        <Button variant="link" prefixIcon={<Icon component={Times} />} onClick={closeHandler1} />
       </div>
       <div className="toast-body">See? Just like this.</div>
     </>
@@ -35,7 +35,7 @@ function Toasts() {
     <>
       <div className="d-flex justify-content-between">
         <div className="toast-body">See? Just like this.</div>
-        <Button variant="link" prefixIcon={<Icon Component={Times} />} onClick={closeHandler2} />
+        <Button variant="link" prefixIcon={<Icon component={Times} />} onClick={closeHandler2} />
       </div>
     </>
   );

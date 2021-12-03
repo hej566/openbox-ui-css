@@ -23,7 +23,7 @@ const Button = React.forwardRef<HTMLButtonElement, propTypes>((props: propTypes,
 
   // let prefixIcon = PrefixIcon;
   // const suffixIcon = SuffixIcon;
-  const defaultSpinner = spinnerIcon || <Icon Component={Spinner} rotating size={size} />;
+  const defaultSpinner = spinnerIcon || <Icon component={Spinner} rotating size={size} />;
   const buttonClasses: string[] = [`${NS}-btn`];
   const buttonInnerClasses: string[] = [`${NS}-btn__inner`];
   if (variant) buttonClasses.push(`${NS}-btn--${variant}`);

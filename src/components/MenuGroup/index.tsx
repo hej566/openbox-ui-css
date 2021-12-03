@@ -39,7 +39,7 @@ const MenuGroup: React.FunctionComponent<propTypes> = (props) => {
   return (
     <div className={menuGroupClasses.join(' ')} onMouseDown={clickHandler} id={id}>
       <div className="menu-group-header" ref={menuGroupHeaderRef}>
-        <div className="menu-group__prefix">{prefix}</div>
+        {/* <div className="menu-group__prefix">{prefix}</div> */}
         <div className="menu-group__content">{label}</div>
       </div>
       <div className="menu-group-body" ref={menuGroupBodyRef}>
@@ -60,7 +60,7 @@ type propTypes = {
 MenuGroup.defaultProps = {
   className: '',
   prefix: null,
-  suffix: <Icon Component={Chevron} />,
+  suffix: <Icon component={Chevron} />,
   id: '',
 };
 
