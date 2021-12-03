@@ -266,24 +266,22 @@ const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, re
             </Button>
             <Button
               variant={variant}
-              SuffixIcon={suffixIcon}
+              suffixIcon={suffixIcon}
               size={size}
               disabled={disabled}
               onClick={isOpen ? tippyHide : tippyShow}
-              buttonRef={selectButtonRef}
-              link={link}
+              ref={selectButtonRef}
               onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
           <Button
             variant={variant}
-            SuffixIcon={suffixIcon}
+            suffixIcon={suffixIcon}
             size={size}
             disabled={disabled}
             onClick={isOpen ? tippyHide : tippyShow}
-            buttonRef={selectButtonRef}
-            link={link}
+            ref={selectButtonRef}
             onKeyDown={keyDownHandler}
           >
             {buttonName}
@@ -302,24 +300,22 @@ const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, re
             </Button>
             <Button
               variant={variant}
-              SuffixIcon={suffixIcon}
+              suffixIcon={suffixIcon}
               size={size}
               disabled={disabled}
               onClick={isOpen ? selectHide : selectShow}
-              buttonRef={selectButtonRef}
-              link={link}
+              ref={selectButtonRef}
               onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
           <Button
             variant={variant}
-            SuffixIcon={suffixIcon}
+            suffixIcon={suffixIcon}
             size={size}
             disabled={disabled}
             onClick={isOpen ? selectHide : selectShow}
-            buttonRef={selectButtonRef}
-            link={link}
+            ref={selectButtonRef}
             onKeyDown={keyDownHandler}
           >
             {buttonName}

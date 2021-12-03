@@ -139,9 +139,9 @@ function Navbar(props: PropsTypes) {
         <Button
           className="navbar-toggler"
           variant="link"
-          PrefixIcon={Icon}
+          prefixIcon={Icon}
           onClick={isOpen ? hide : show}
-          buttonRef={toggleButtonRef}
+          ref={toggleButtonRef}
         />
         <div
           className="navbar-collapse collapse"

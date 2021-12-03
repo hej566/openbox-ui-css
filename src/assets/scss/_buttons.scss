@@ -1,6 +1,7 @@
 @import 'namespace';
 
 .#{$NS}-btn {
+  position: relative;
   display: inline-block;
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
@@ -44,7 +45,8 @@
     @include box-shadow(none);
   }
 
-  &.#{$NS}-btn-icon {
+  &.#{$NS}-btn__icon {
+    //position: relative;
     @include button-size(
       $btn-icon-padding-y,
       $btn-icon-padding-x,
@@ -58,11 +60,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  &--loading {
+    visibility: hidden;
+  }
 }
 
-.#{$NS}-btn-lg {
-  &.#{$NS}-btn-icon {
-    .#{$NS}-btn__icon {
+.#{$NS}-btn__loading-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.#{$NS}-btn--lg {
+  &.#{$NS}-btn__icon {
+    .#{$NS}-btn__prefix-icon,
+    .#{$NS}-btn__suffix-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -72,9 +85,10 @@
   }
 }
 
-.#{$NS}-btn-sm {
-  &.#{$NS}-btn-icon {
-    .#{$NS}-btn__icon {
+.#{$NS}-btn--sm {
+  &.#{$NS}-btn__icon {
+    .#{$NS}-btn__prefix-icon,
+    .#{$NS}-btn__suffix-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -84,31 +98,31 @@
   }
 }
 
-.#{$NS}-btn__icon {
+.#{$NS}-btn__prefix-icon {
   & + .#{$NS}-btn__content {
     margin-left: 0.5rem;
   }
 }
 
 .#{$NS}-btn__content {
-  & + .btn__icon {
+  & + .#{$NS}-btn__suffix-icon {
     margin-left: 0.5rem;
   }
 }
 
 @each $color, $value in $theme-colors {
-  .#{$NS}-btn-#{$color} {
+  .#{$NS}-btn--#{$color} {
     @include button-variant($value, $value);
   }
 }
 
 @each $color, $value in $theme-colors {
-  .#{$NS}-btn-outline-#{$color} {
+  .#{$NS}-btn--outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
 
-.#{$NS}-btn-link {
+.#{$NS}-btn--link {
   font-weight: $font-weight-normal;
   color: currentColor;
 
@@ -134,8 +148,8 @@
   }
 }
 
-.#{$NS}-btn-lg {
-  &.#{$NS}-btn-icon {
+.#{$NS}-btn--lg {
+  &.#{$NS}-btn__icon {
     @include button-size(
       $btn-icon-padding-y-lg,
       $btn-icon-padding-x-lg,
@@ -145,8 +159,8 @@
   }
 }
 
-.#{$NS}-btn-sm {
-  &.#{$NS}-btn-icon {
+.#{$NS}-btn--sm {
+  &.#{$NS}-btn__icon {
     @include button-size(
       $btn-icon-padding-y-sm,
       $btn-icon-padding-x-sm,
@@ -156,8 +170,8 @@
   }
 }
 
-.#{$NS}-btn-lg {
-  &:not(.#{$NS}-btn-icon) {
+.#{$NS}-btn--lg {
+  &:not(.#{$NS}-btn__icon) {
     @include button-size(
       $btn-padding-y-lg,
       $btn-padding-x-lg,
@@ -167,8 +181,8 @@
   }
 }
 
-.#{$NS}-btn-sm {
-  &:not(.#{$NS}-btn-icon) {
+.#{$NS}-btn--sm {
+  &:not(.#{$NS}-btn__icon) {
     @include button-size(
       $btn-padding-y-sm,
       $btn-padding-x-sm,

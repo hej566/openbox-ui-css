@@ -9,18 +9,18 @@
     @include icon-size($btn-font-size);
   }
 
-  &.#{$NS}-rotating {
+  &--rotating {
     animation: rotating 0.5s linear infinite;
   }
 }
 
-.#{$NS}-icon-lg {
+.#{$NS}-icon--lg {
   & > svg {
     @include icon-size($btn-font-size-lg);
   }
 }
 
-.#{$NS}-icon-sm {
+.#{$NS}-icon--sm {
   & > svg {
     @include icon-size($btn-font-size-sm);
   }

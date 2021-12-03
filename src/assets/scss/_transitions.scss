@@ -14,7 +14,7 @@
 }
 
 .transitioning {
-  overflow: hidden;
+  //overflow: hidden;
   @include transition($transition-collapse);
 
   &.collapse-horizontal {

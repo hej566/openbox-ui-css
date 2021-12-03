@@ -66,7 +66,7 @@
     @include border-bottom-radius($accordion-border-radius);
 
     .#{$NS}-accordion-item__button--collapse {
-        @include border-bottom-radius($accordion-inner-border-radius);
+      @include border-bottom-radius($accordion-inner-border-radius);
     }
 
     .#{$NS}-accordion-item__body {
@@ -76,21 +76,13 @@
 }
 
 .#{$NS}-accordion-item__body {
-  margin: $accordion-body-padding-y $accordion-body-padding-x;
-  transition: all 0.15s ease-in-out;
-  &--collapsed {
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    opacity: 0;
-    margin: 0 $accordion-body-padding-x;
-  }
-  &--show {
-    display: block;
-    visibility: visible;
-    opacity: 1;
-    height: auto;
-  }
+  overflow: hidden;
+  @include transition($transition-collapse);
+}
+
+.#{$NS}-accordion-item__body__inner {
+  box-sizing: border-box;
+  padding: $accordion-body-padding-y $accordion-body-padding-x;
 }
 
 .#{$NS}-accordion-flush {

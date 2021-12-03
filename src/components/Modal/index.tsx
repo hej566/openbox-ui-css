@@ -97,7 +97,7 @@ function Modal(props: PropsTypes) {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">{title}</h5>
-            <Button variant="link" PrefixIcon={<Icon Component={Times} />} onClick={onCancel} />
+            <Button variant="link" prefixIcon={<Icon Component={Times} />} onClick={onCancel} />
           </div>
           <div className="modal-body">{children}</div>
           <div className="modal-footer">

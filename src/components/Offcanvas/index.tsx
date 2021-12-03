@@ -67,7 +67,7 @@ function Offcanvas(props: PropsTypes) {
     <div className={offcanvasClasses.join(' ')} ref={offcanvasRef}>
       <div className="offcanvas-header">
         <h5 className="offcanvas-title">{title}</h5>
-        <Button variant="link" PrefixIcon={<Icon Component={Times} />} onClick={onCancel} />
+        <Button variant="link" prefixIcon={<Icon Component={Times} />} onClick={onCancel} />
       </div>
       <div className="offcanvas-body">{children}</div>
     </div>

@@ -270,24 +270,22 @@ function Dropdown(props: PropsTypes) {
             </Button>
             <Button
               variant={variant}
-              SuffixIcon={suffixIcon}
+              suffixIcon={suffixIcon}
               size={size}
               disabled={disabled}
               onClick={isOpen ? tippyHide : tippyShow}
-              buttonRef={dropdownButtonRef}
-              link={link}
+              ref={dropdownButtonRef}
               onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
           <Button
             variant={variant}
-            SuffixIcon={suffixIcon}
+            suffixIcon={suffixIcon}
             size={size}
             disabled={disabled}
             onClick={isOpen ? tippyHide : tippyShow}
-            buttonRef={dropdownButtonRef}
-            link={link}
+            ref={dropdownButtonRef}
             onKeyDown={keyDownHandler}
           >
             {buttonName}
@@ -306,24 +304,22 @@ function Dropdown(props: PropsTypes) {
             </Button>
             <Button
               variant={variant}
-              SuffixIcon={suffixIcon}
+              suffixIcon={suffixIcon}
               size={size}
               disabled={disabled}
               onClick={isOpen ? dropdownHide : dropdownShow}
-              buttonRef={dropdownButtonRef}
-              link={link}
+              ref={dropdownButtonRef}
               onKeyDown={keyDownHandler}
             />
           </ButtonGroup>
         ) : (
           <Button
             variant={variant}
-            SuffixIcon={suffixIcon}
+            suffixIcon={suffixIcon}
             size={size}
             disabled={disabled}
             onClick={isOpen ? dropdownHide : dropdownShow}
-            buttonRef={dropdownButtonRef}
-            link={link}
+            ref={dropdownButtonRef}
             onKeyDown={keyDownHandler}
           >
             {buttonName}

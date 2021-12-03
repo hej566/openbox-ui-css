@@ -145,9 +145,9 @@ function ButtonsGroup() {
         <div className="rc-title">Icon button group</div>
         <div className="rc-group">
           <ButtonGroup>
-            <Button variant="primary" PrefixIcon={<Icon Component={Acorn} />} />
-            <Button variant="primary" PrefixIcon={<Icon Component={Acorn} />} />
-            <Button variant="primary" PrefixIcon={<Icon Component={Acorn} />} />
+            <Button variant="primary" prefixIcon={<Icon Component={Acorn} />} />
+            <Button variant="primary" prefixIcon={<Icon Component={Acorn} />} />
+            <Button variant="primary" prefixIcon={<Icon Component={Acorn} />} />
           </ButtonGroup>
         </div>
       </section>
@@ -157,38 +157,38 @@ function ButtonsGroup() {
           <ButtonGroup>
             <Button
               loading={loading1}
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler1}
             />
             <Button
               loading={loading2}
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler2}
             />
             <Button
               loading={loading3}
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler3}
             />
           </ButtonGroup>
           <ButtonGroup>
             <Button
               loading={loading2}
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler2}
             >
               Left
             </Button>
             <Button
               loading={loading3}
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler3}
             >
               Middle
             </Button>
             <Button
               loading={loading4}
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler4}
             >
               Right
@@ -201,7 +201,7 @@ function ButtonsGroup() {
         <div className="rc-group">
           <ButtonGroup>
             <Button
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler5}
               disabled={disabled5}
             >
@@ -210,7 +210,7 @@ function ButtonsGroup() {
             <Button
               disabled={disabled6}
               variant="secondary"
-              PrefixIcon={<Icon Component={Acorn} />}
+              prefixIcon={<Icon Component={Acorn} />}
               onClick={clickHandler6}
             >
               Middle
@@ -225,15 +225,9 @@ function ButtonsGroup() {
         <div className="rc-title">Toggle button group</div>
         <div className="rc-group">
           <ButtonGroup>
-            <Button toggle variant="primary">
-              Left
-            </Button>
-            <Button toggle variant="secondary">
-              Middle
-            </Button>
-            <Button toggle variant="success">
-              Right
-            </Button>
+            <Button variant="primary">Left</Button>
+            <Button variant="secondary">Middle</Button>
+            <Button variant="success">Right</Button>
           </ButtonGroup>
         </div>
       </section>
@@ -241,15 +235,9 @@ function ButtonsGroup() {
         <div className="rc-title">Vertical button group</div>
         <div className="rc-group">
           <ButtonGroup direct="vertical">
-            <Button toggle variant="primary">
-              Left
-            </Button>
-            <Button toggle variant="secondary">
-              Middle
-            </Button>
-            <Button toggle variant="success">
-              Right
-            </Button>
+            <Button variant="primary">Left</Button>
+            <Button variant="secondary">Middle</Button>
+            <Button variant="success">Right</Button>
           </ButtonGroup>
         </div>
       </section>

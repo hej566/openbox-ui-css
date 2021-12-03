@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Icon from '../Icon';
 import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import Button from '../Button';
@@ -10,6 +10,7 @@ const AccordionItem = (props: propTypes) => {
   const accordionItemBodyClasses: Array<string> = [`${NS}-accordion-item__body`];
   const accordionItemHeaderClasses: Array<string> = [`${NS}-accordion-item__header`];
   const accordionItemBodyRef = useRef<HTMLDivElement>(null);
+  const [isInit, setInitState] = useState<boolean>(true);
 
   if (className) accordionItemClasses.push(className);
 
@@ -22,22 +23,41 @@ const AccordionItem = (props: propTypes) => {
   }
 
   const openTransition = () => {
-    const accordionItemBodyElm = accordionItemBodyRef.current;
-    if (accordionItemBodyElm) {
-      accordionItemBodyElm.classList.add('transitioning');
-      requestAnimationFrame(() => {
+    if (!isInit) {
+      const accordionItemBodyElm = accordionItemBodyRef.current;
+      if (accordionItemBodyElm) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            accordionItemBodyElm.style.height = `${accordionItemBodyElm.scrollHeight}px`;
+          });
+        });
+      }
+    } else {
+      const accordionItemBodyElm = accordionItemBodyRef.current;
+      if (accordionItemBodyElm) {
         accordionItemBodyElm.style.height = `${accordionItemBodyElm.scrollHeight}px`;
-      });
+      }
+      setInitState(false);
     }
   };
 
   const closeTransition = () => {
-    const accordionItemBodyElm = accordionItemBodyRef.current;
-    if (accordionItemBodyElm) {
-      accordionItemBodyElm.classList.add('transitioning');
-      requestAnimationFrame(() => {
+    if (!isInit) {
+      const accordionItemBodyElm = accordionItemBodyRef.current;
+      if (accordionItemBodyElm) {
+        requestAnimationFrame(() => {
+          accordionItemBodyElm.style.height = `${accordionItemBodyElm.scrollHeight}px`;
+          requestAnimationFrame(() => {
+            accordionItemBodyElm.style.height = `0px`;
+          });
+        });
+      }
+    } else {
+      const accordionItemBodyElm = accordionItemBodyRef.current;
+      if (accordionItemBodyElm) {
         accordionItemBodyElm.style.height = `0px`;
-      });
+      }
+      setInitState(false);
     }
   };
 
@@ -45,20 +65,16 @@ const AccordionItem = (props: propTypes) => {
     const accordionItemBodyElm = accordionItemBodyRef.current;
     if (accordionItemBodyElm) {
       if (isOpen) {
-        accordionItemBodyElm.classList.remove('transitioning');
         accordionItemBodyElm.style.height = `auto`;
       } else {
-        accordionItemBodyElm.classList.remove('transitioning');
+        accordionItemBodyElm.style.height = `0px`;
       }
     }
   };
 
   useEffect(() => {
-    if (isOpen) {
-      openTransition();
-    } else {
-      closeTransition();
-    }
+    if (isOpen) openTransition();
+    else closeTransition();
   }, [isOpen]);
 
   return (
@@ -66,11 +82,9 @@ const AccordionItem = (props: propTypes) => {
       <h2 className={accordionItemHeaderClasses.join(' ')}>
         <Button
           className={accordionItemButtonClasses.join(' ')}
-          ariaExpanded={isOpen}
           onClick={onClick}
-          SuffixIcon={AccordionIcon}
+          suffixIcon={AccordionIcon}
           variant="link"
-          toggle
         >
           {title}
         </Button>
@@ -80,7 +94,7 @@ const AccordionItem = (props: propTypes) => {
         ref={accordionItemBodyRef}
         onTransitionEnd={transitionEndHandler}
       >
-        {children}
+        <div className={`${NS}-accordion-item__body__inner`}>{children}</div>
       </div>
     </div>
   );
