@@ -1,25 +1,8 @@
 import React from 'react';
 
-interface PropsTypes {
-  rotating?: boolean;
-  name?: string;
-  size?: string;
-  Component: React.FunctionComponent<React.SVGProps<SVGElement>>;
-  onClick?: React.MouseEventHandler<HTMLElement>;
-  className?: string;
-}
-
-Icon.defaultProps = {
-  rotating: false,
-  name: '',
-  size: '',
-  onClick: () => {},
-  className: '',
-};
-
-function Icon(props: PropsTypes) {
+const Icon = (props: propTypes) => {
   const { rotating, Component, name, size, onClick, className } = props;
-  const iconClasses: Array<string> = [`${NS}-icon`];
+  const iconClasses: string[] = [`${NS}-icon`];
 
   if (rotating) iconClasses.push(`${NS}-icon--rotating`);
   if (name) iconClasses.push(`${NS}-${name}`);
@@ -31,6 +14,23 @@ function Icon(props: PropsTypes) {
       <Component />
     </i>
   );
-}
+};
+
+type propTypes = {
+  rotating?: boolean;
+  name?: string;
+  size?: string;
+  Component: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  className?: string;
+};
+
+Icon.defaultProps = {
+  rotating: false,
+  name: '',
+  size: '',
+  onClick: () => {},
+  className: '',
+};
 
 export default Icon;
