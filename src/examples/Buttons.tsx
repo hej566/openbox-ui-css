@@ -5,7 +5,7 @@ import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 import Upload from '../components/Upload';
 
 function Buttons() {
-  const [loading1, setLoading1] = useState(false);
+  const [loading1, setLoading1] = useState(true);
   const [loading2, setLoading2] = useState(false);
   const [loading3, setLoading3] = useState(false);
   const [loading4, setLoading4] = useState(false);
@@ -17,9 +17,9 @@ function Buttons() {
 
   function clickHandler1() {
     setLoading1(true);
-    setTimeout(() => {
-      setLoading1(false);
-    }, 10000);
+    // setTimeout(() => {
+    //   setLoading1(false);
+    // }, 10000);
   }
 
   function clickHandler2() {
@@ -148,6 +148,14 @@ function Buttons() {
           <Button variant="link" prefixIcon={<Icon component={Acorn} />}>
             Link
           </Button>
+          <Button variant="primary" size="lg" prefixIcon={<Icon component={Acorn} size="lg" />}>
+            Primary
+          </Button>
+          <Button
+            variant="outline-success"
+            size="sm"
+            prefixIcon={<Icon component={Acorn} size="sm" />}
+          />
         </div>
       </section>
       <section className="rc-button-with-suffix-icon">
@@ -162,23 +170,23 @@ function Buttons() {
         <div className="rc-title">Loading button</div>
         <div className="rc-group">
           <Button
-            loading={loading1}
+            isLoading={loading1}
             prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler1}
           />
           <Button
-            loading={loading2}
+            isLoading={loading2}
             prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler2}
           >
             Button
           </Button>
-          <Button loading={loading3} onClick={clickHandler3}>
+          <Button isLoading={loading3} onClick={clickHandler3}>
             Button
           </Button>
           <Button
-            loading={loading4}
-            spinnerIcon={<Icon component={Acorn} rotating />}
+            isLoading={loading4}
+            spinnerIcon={<Icon component={Acorn} isRotating />}
             onClick={clickHandler4}
           >
             Button
@@ -191,23 +199,23 @@ function Buttons() {
           <Button
             prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler5}
-            disabled={disabled5}
+            isDisabled={disabled5}
           />
           <Button
-            disabled={disabled6}
+            isDisabled={disabled6}
             variant="secondary"
             prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler6}
           >
             Button
           </Button>
-          <Button disabled={disabled7} variant="success" onClick={clickHandler7}>
+          <Button isDisabled={disabled7} variant="success" onClick={clickHandler7}>
             Button
           </Button>
           <Button
-            disabled={disabled8}
+            isDisabled={disabled8}
             variant="danger"
-            spinnerIcon={<Icon component={Acorn} rotating />}
+            spinnerIcon={<Icon component={Acorn} isRotating />}
             onClick={clickHandler8}
           >
             Button
@@ -219,7 +227,7 @@ function Buttons() {
         <div className="rc-group">
           <Button
             variant="primary"
-            loading={loading1}
+            isLoading={loading1}
             prefixIcon={<Icon component={Acorn} />}
             onClick={clickHandler1}
           >

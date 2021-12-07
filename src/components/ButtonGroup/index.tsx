@@ -15,15 +15,15 @@ ButtonGroup.defaultProps = {
 
 function ButtonGroup(props: PropsTypes) {
   const { children, size, direct, className } = props;
-  const buttonGroupClasses: string[] = ['btn-group'];
-  if (size) buttonGroupClasses.push(`btn-group-${size}`);
+  const buttonGroupClasses: string[] = [`${NS}-btn__group`];
+  if (size) buttonGroupClasses.push(`${NS}-btn__group--${size}`);
   if (direct) {
     buttonGroupClasses.shift();
-    buttonGroupClasses.push(`btn-group-${direct}`);
+    buttonGroupClasses.push(`${NS}-btn__group--${direct}`);
   }
   if (className) buttonGroupClasses.push(className);
   return (
-    <div className={buttonGroupClasses.join(' ')} role="group" aria-label="btn-group">
+    <div className={buttonGroupClasses.join(' ')} role="group" aria-label={`${NS}-btn-group`}>
       {children}
     </div>
   );

@@ -204,24 +204,31 @@
       }
     }
   }
+}
 
-  .menu-item__inner {
-    display: flex;
-    margin: 0 $menu-item-padding-y;
-    padding: $menu-item-padding-y 0;
-    border-radius: $menu-item-border-radius;
-    align-items: center;
-    .menu-item__prefix {
-      margin-right: $menu-item-padding-x;
-    }
-    .menu-item__wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      a {
-        text-decoration: none !important;
-      }
-    }
+.menu-item__inner {
+  display: flex;
+  margin: 0 $menu-item-padding-y;
+  padding: $menu-item-padding-y 0;
+  border-radius: $menu-item-border-radius;
+  align-items: center;
+}
+
+.menu-item__prefix {
+  margin-right: $menu-item-padding-x;
+}
+.menu-item__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  a {
+    text-decoration: none !important;
+  }
+}
+
+.menu-item__content {
+  a {
+    color: $menu-item-color !important;
   }
 }
 

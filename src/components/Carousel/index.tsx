@@ -1,48 +1,18 @@
-import React, { EventHandler, MouseEventHandler, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import deepClone from '../../utils/deepClone';
 import Icon from '../Icon';
 import ChevronRight from '../../assets/icons/svg/chevron-right-regular.svg';
 import ChevronLeft from '../../assets/icons/svg/chevron-left-regular.svg';
 
-interface imgObject {
-  src: string;
-  active: boolean;
-  index: string;
-  title: string;
-  content: string;
-}
-
-enum SlideDirection {
-  RTL = 1,
-  LTR = 2,
-}
-
-interface PropsTypes {
-  imgSrc: imgObject[];
-  className?: string;
-  timing?: number;
-  control?: boolean;
-  indicator?: boolean;
-  imgClassName?: string;
-}
-
-Carousel.defaultProps = {
-  className: '',
-  timing: 3000,
-  control: false,
-  indicator: false,
-  imgClassName: '',
-} as PropsTypes;
-
-function Carousel(props: PropsTypes) {
+const Carousel = (props: propTypes) => {
   const { imgSrc, className, timing, control, indicator, imgClassName } = props;
   const carouselRef = useRef<HTMLDivElement>(null);
   const carouselInnerRef = useRef<HTMLDivElement>(null);
   const carouselControlPrevRef = useRef<HTMLDivElement>(null);
   const carouselControlNextRef = useRef<HTMLDivElement>(null);
   const carouselIndicatorsRef = useRef<HTMLDivElement>(null);
-  const [imgSrcState, setImgSrcState] = useState(imgSrc);
-  const [pause, setPauseState] = useState(false);
+  const [imgSrcState, setImgSrcState] = useState<imgObject[]>(imgSrc);
+  const [pause, setPauseState] = useState<boolean>(false);
   const carouselClasses: string[] = ['carousel', 'slide'];
   let timerId: any = null;
   const indicatorsListenerObj: { [key: number]: EventListenerObject } = {};
@@ -132,7 +102,7 @@ function Carousel(props: PropsTypes) {
   function mouseenterHandler() {
     const carouselDom = carouselRef.current;
     if (carouselDom) {
-      clearTimeout(Number(carouselDom.dataset.timerId));
+      clearTimeout(parseInt(carouselDom.dataset.timerId!, 10));
       setPauseState(true);
     }
   }
@@ -145,7 +115,7 @@ function Carousel(props: PropsTypes) {
     const carouselInnerDom = carouselInnerRef.current;
     const carouselDom = carouselRef.current;
     if (carouselInnerDom && carouselDom) {
-      createSlideAnimation(carouselInnerDom.children, SlideDirection.RTL);
+      createSlideAnimation(carouselInnerDom.children, slideDirection.RTL);
     }
   }
 
@@ -153,7 +123,7 @@ function Carousel(props: PropsTypes) {
     const carouselInnerDom = carouselInnerRef.current;
     const carouselDom = carouselRef.current;
     if (carouselInnerDom && carouselDom) {
-      createSlideAnimation(carouselInnerDom.children, SlideDirection.LTR);
+      createSlideAnimation(carouselInnerDom.children, slideDirection.LTR);
     }
   }
 
@@ -211,7 +181,7 @@ function Carousel(props: PropsTypes) {
     });
   }
 
-  function createSlideAnimation(items: HTMLCollection, direction: SlideDirection) {
+  function createSlideAnimation(items: HTMLCollection, direction: slideDirection) {
     let activeIndex = -1;
     let indicators: HTMLCollection;
 
@@ -282,7 +252,7 @@ function Carousel(props: PropsTypes) {
     }
   }
 
-  function setTimer(items: HTMLCollection, direction: SlideDirection) {
+  function setTimer(items: HTMLCollection, direction: slideDirection) {
     if (!pause) {
       return setTimeout(() => {
         createSlideAnimation(items, direction);
@@ -297,7 +267,7 @@ function Carousel(props: PropsTypes) {
     const carouselControlNextDom = carouselControlNextRef.current;
     const carouselDom = carouselRef.current;
     if (carouselInnerDom && carouselDom) {
-      timerId = setTimer(carouselInnerDom.children, SlideDirection.RTL);
+      timerId = setTimer(carouselInnerDom.children, slideDirection.RTL);
       carouselDom.dataset.timerId = String(timerId);
     }
     if (indicator) {
@@ -394,6 +364,36 @@ function Carousel(props: PropsTypes) {
       )}
     </div>
   );
+};
+
+type imgObject = {
+  src: string;
+  active: boolean;
+  index: string;
+  title: string;
+  content: string;
+};
+
+enum slideDirection {
+  RTL = 1,
+  LTR = 2,
 }
+
+type propTypes = {
+  imgSrc: imgObject[];
+  className?: string;
+  timing?: number;
+  control?: boolean;
+  indicator?: boolean;
+  imgClassName?: string;
+};
+
+Carousel.defaultProps = {
+  className: '',
+  timing: 3000,
+  control: false,
+  indicator: false,
+  imgClassName: '',
+};
 
 export default Carousel;

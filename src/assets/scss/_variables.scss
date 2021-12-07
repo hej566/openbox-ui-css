@@ -1139,6 +1139,7 @@ $menu-collapse-width: 100% !default;
 $menu-padding-y: 0.5rem !default;
 $menu-item-padding-y: 0.5rem !default;
 $menu-item-padding-x: 1rem !default;
+$menu-item-color: shade-color($gray-900, 10%) !default;
 $menu-item-border-radius: 4px !default;
 $menu-item-collapse-padding-x: 1.5rem !default;
 $menu-item-collapse-padding-y: 0.25rem !default;
@@ -1184,15 +1185,15 @@ $navbar-toggler-transition: box-shadow 0.15s ease-in-out !default;
 // scss-docs-end navbar-variables
 
 // scss-docs-start navbar-theme-variables
-$navbar-dark-color: rgba($white, 0.55) !default;
-$navbar-dark-hover-color: rgba($white, 0.75) !default;
+$navbar-dark-color: rgba($white, 0.8) !default;
+$navbar-dark-hover-color: rgba($white, 0.85) !default;
 $navbar-dark-active-color: $white !default;
 $navbar-dark-disabled-color: rgba($white, 0.25) !default;
 $navbar-dark-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
 $navbar-dark-toggler-border-color: rgba($white, 0.1) !default;
 
-$navbar-light-color: rgba($black, 0.55) !default;
-$navbar-light-hover-color: rgba($black, 0.7) !default;
+$navbar-light-color: rgba($black, 0.7) !default;
+$navbar-light-hover-color: rgba($black, 0.77) !default;
 $navbar-light-active-color: rgba($black, 0.9) !default;
 $navbar-light-disabled-color: rgba($black, 0.3) !default;
 $navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;

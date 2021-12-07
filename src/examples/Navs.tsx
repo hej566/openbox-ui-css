@@ -94,18 +94,18 @@ function Navs() {
               Active
             </NavItem>
             <NavItem key={uuidv4()} dropdown>
-              <Dropdown variant="link" link buttonName="Dropdown">
-                <DropdownItem active key={uuidv4()}>
-                  Action
-                </DropdownItem>
-                <DropdownItem disabled key={uuidv4()}>
-                  Another action
-                </DropdownItem>
-                <DropdownItem key={uuidv4()}>
-                  <a>Something else here</a>
-                </DropdownItem>
-                <hr className="dropdown-divider" />
-                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+              <Dropdown variant="link" buttonName="Dropdown">
+                {/* <DropdownItem active key={uuidv4()}> */}
+                {/*  Action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem disabled key={uuidv4()}> */}
+                {/*  Another action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem key={uuidv4()}> */}
+                {/*  <a>Something else here</a> */}
+                {/* </DropdownItem> */}
+                {/* <hr className="dropdown-divider" /> */}
+                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
               </Dropdown>
             </NavItem>
             <NavItem key={uuidv4()}>Link</NavItem>
@@ -123,18 +123,18 @@ function Navs() {
               Active
             </NavItem>
             <NavItem key={uuidv4()} dropdown>
-              <Dropdown variant="link" link buttonName="Dropdown">
-                <DropdownItem active key={uuidv4()}>
-                  Action
-                </DropdownItem>
-                <DropdownItem disabled key={uuidv4()}>
-                  Another action
-                </DropdownItem>
-                <DropdownItem key={uuidv4()}>
-                  <a>Something else here</a>
-                </DropdownItem>
-                <hr className="dropdown-divider" />
-                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+              <Dropdown variant="link" buttonName="Dropdown">
+                {/* <DropdownItem active key={uuidv4()}> */}
+                {/*  Action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem disabled key={uuidv4()}> */}
+                {/*  Another action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem key={uuidv4()}> */}
+                {/*  <a>Something else here</a> */}
+                {/* </DropdownItem> */}
+                {/* <hr className="dropdown-divider" /> */}
+                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
               </Dropdown>
             </NavItem>
             <NavItem key={uuidv4()}>Link</NavItem>

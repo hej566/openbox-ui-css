@@ -17,41 +17,6 @@ function Badges() {
           <h3>
             Example heading <Badge className="bg-secondary">New</Badge>
           </h3>
-          <h4>
-            Example heading <Badge className="bg-secondary">New</Badge>
-          </h4>
-          <h5>
-            Example heading <Badge className="bg-secondary">New</Badge>
-          </h5>
-          <h6>
-            Example heading <Badge className="bg-secondary">New</Badge>
-          </h6>
-        </div>
-      </section>
-      <section className="rc-badges-button">
-        <div className="rc-title">Button badge</div>
-        <div className="rc-group">
-          <Button variant="primary">
-            <span className="rc-badge-content">Notifications</span>
-            <Badge className="bg-secondary">4</Badge>
-          </Button>
-        </div>
-      </section>
-      <section className="rc-badges-positioned">
-        <div className="rc-title">Positioned badge</div>
-        <div className="rc-group">
-          <Button variant="primary" className="position-relative">
-            Inbox
-            <Badge className="position-absolute top-0 start-100 translate-middle rounded-pill bg-danger">
-              99+<span className="visually-hidden">unread messages</span>
-            </Badge>
-          </Button>
-          <Button variant="primary" className="position-relative">
-            Profile
-            <Badge className="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-              <span className="visually-hidden">New alerts</span>
-            </Badge>
-          </Button>
         </div>
       </section>
       <section className="rc-badges-bg-color">

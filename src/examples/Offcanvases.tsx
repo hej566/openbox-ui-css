@@ -51,17 +51,17 @@ function Offcanvases() {
           <Button onClick={showHandler}>Launch demo offcanvas</Button>
           <Offcanvas title="Basic offcanvas" visible={isVisible} onCancel={cancelHandler}>
             <Dropdown buttonName="Dropdown button" type="tippy">
-              <DropdownItem active key={uuidv4()}>
-                Action
-              </DropdownItem>
-              <DropdownItem disabled key={uuidv4()}>
-                Another action
-              </DropdownItem>
-              <DropdownItem key={uuidv4()}>
-                <a>Something else here</a>
-              </DropdownItem>
-              <hr className="dropdown-divider" />
-              <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+              {/* <DropdownItem active key={uuidv4()}> */}
+              {/*  Action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem disabled key={uuidv4()}> */}
+              {/*  Another action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem key={uuidv4()}> */}
+              {/*  <a>Something else here</a> */}
+              {/* </DropdownItem> */}
+              {/* <hr className="dropdown-divider" /> */}
+              {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
             </Dropdown>
           </Offcanvas>
         </div>
@@ -77,17 +77,17 @@ function Offcanvases() {
             position="top"
           >
             <Dropdown buttonName="Dropdown button" type="tippy">
-              <DropdownItem active key={uuidv4()}>
-                Action
-              </DropdownItem>
-              <DropdownItem disabled key={uuidv4()}>
-                Another action
-              </DropdownItem>
-              <DropdownItem key={uuidv4()}>
-                <a>Something else here</a>
-              </DropdownItem>
-              <hr className="dropdown-divider" />
-              <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+              {/* <DropdownItem active key={uuidv4()}> */}
+              {/*  Action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem disabled key={uuidv4()}> */}
+              {/*  Another action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem key={uuidv4()}> */}
+              {/*  <a>Something else here</a> */}
+              {/* </DropdownItem> */}
+              {/* <hr className="dropdown-divider" /> */}
+              {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
             </Dropdown>
           </Offcanvas>
         </div>
@@ -100,17 +100,17 @@ function Offcanvases() {
             position="end"
           >
             <Dropdown buttonName="Dropdown button" type="tippy">
-              <DropdownItem active key={uuidv4()}>
-                Action
-              </DropdownItem>
-              <DropdownItem disabled key={uuidv4()}>
-                Another action
-              </DropdownItem>
-              <DropdownItem key={uuidv4()}>
-                <a>Something else here</a>
-              </DropdownItem>
-              <hr className="dropdown-divider" />
-              <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+              {/* <DropdownItem active key={uuidv4()}> */}
+              {/*  Action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem disabled key={uuidv4()}> */}
+              {/*  Another action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem key={uuidv4()}> */}
+              {/*  <a>Something else here</a> */}
+              {/* </DropdownItem> */}
+              {/* <hr className="dropdown-divider" /> */}
+              {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
             </Dropdown>
           </Offcanvas>
         </div>
@@ -123,17 +123,17 @@ function Offcanvases() {
             position="bottom"
           >
             <Dropdown buttonName="Dropdown button" type="tippy">
-              <DropdownItem active key={uuidv4()}>
-                Action
-              </DropdownItem>
-              <DropdownItem disabled key={uuidv4()}>
-                Another action
-              </DropdownItem>
-              <DropdownItem key={uuidv4()}>
-                <a>Something else here</a>
-              </DropdownItem>
-              <hr className="dropdown-divider" />
-              <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+              {/* <DropdownItem active key={uuidv4()}> */}
+              {/*  Action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem disabled key={uuidv4()}> */}
+              {/*  Another action */}
+              {/* </DropdownItem> */}
+              {/* <DropdownItem key={uuidv4()}> */}
+              {/*  <a>Something else here</a> */}
+              {/* </DropdownItem> */}
+              {/* <hr className="dropdown-divider" /> */}
+              {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
             </Dropdown>
           </Offcanvas>
         </div>

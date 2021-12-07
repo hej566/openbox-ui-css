@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 
 const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, ref) => {
   const { children, only, flush, className } = props;
-  const [stateMap, setStateMap] = useState<{ [key: string]: boolean }>({});
-  const accordionGroupClasses: Array<string> = [`${NS}-accordion-group`];
+  const [openStateMap, setStateMap] = useState<{ [key: string]: boolean }>({});
+  const accordionGroupClasses: string[] = [`${NS}-accordion-group`];
 
-  if (flush) accordionGroupClasses.push(`${NS}-accordion-flush`);
+  if (flush) accordionGroupClasses.push(`${NS}-accordion--flush`);
   if (className) accordionGroupClasses.push(className);
 
-  if (!Object.keys(stateMap).length) {
+  if (!Object.keys(openStateMap).length) {
     React.Children.forEach(children, (child) => {
       const { isOpen } = child.props;
       const { key } = child;
-      if (key) stateMap[key] = isOpen;
+      if (key) openStateMap[key] = isOpen;
     });
   }
 
@@ -22,20 +22,20 @@ const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes,
       const { key } = child;
       if (mode) {
         if (key) {
-          if (stateMap[key]) stateMap[key] = false;
+          if (openStateMap[key]) openStateMap[key] = false;
           else {
-            for (const mapKey in stateMap) {
-              stateMap[mapKey] = false;
+            for (const mapKey in openStateMap) {
+              openStateMap[mapKey] = false;
             }
-            stateMap[key] = true;
+            openStateMap[key] = true;
           }
         }
       } else {
-        if (key) stateMap[key] = !stateMap[key];
+        if (key) openStateMap[key] = !openStateMap[key];
       }
 
       setStateMap(() => ({
-        ...stateMap,
+        ...openStateMap,
       }));
     };
 
@@ -43,7 +43,7 @@ const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes,
     const { key } = child;
     if (key) {
       return React.cloneElement(child, {
-        isOpen: stateMap[key],
+        isOpen: openStateMap[key],
         onClick: accordionHandler(child, only),
       });
     }

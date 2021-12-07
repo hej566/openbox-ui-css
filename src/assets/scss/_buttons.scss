@@ -110,6 +110,11 @@
   }
 }
 
+.#{$NS}-btn__content {
+  display: flex;
+  align-items: center;
+}
+
 @each $color, $value in $theme-colors {
   .#{$NS}-btn--#{$color} {
     @include button-variant($value, $value);

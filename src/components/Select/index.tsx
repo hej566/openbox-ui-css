@@ -219,6 +219,9 @@ const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, re
         instance.hide();
       }
       setTippyInstance(() => instance);
+
+      console.log(instance);
+      instance.popper.style.width = '100%';
     }
   }
 
@@ -261,14 +264,14 @@ const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, re
       <div className={selectClasses.join(' ')} ref={ref}>
         {split ? (
           <ButtonGroup>
-            <Button variant={variant} size={size} disabled={disabled}>
+            <Button variant={variant} size={size} isDisabled={disabled}>
               {buttonName}
             </Button>
             <Button
               variant={variant}
               suffixIcon={suffixIcon}
               size={size}
-              disabled={disabled}
+              isDisabled={disabled}
               onClick={isOpen ? tippyHide : tippyShow}
               ref={selectButtonRef}
               onKeyDown={keyDownHandler}
@@ -279,7 +282,7 @@ const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, re
             variant={variant}
             suffixIcon={suffixIcon}
             size={size}
-            disabled={disabled}
+            isDisabled={disabled}
             onClick={isOpen ? tippyHide : tippyShow}
             ref={selectButtonRef}
             onKeyDown={keyDownHandler}
@@ -295,14 +298,14 @@ const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, re
       <div className={selectClasses.join(' ')}>
         {split ? (
           <ButtonGroup>
-            <Button variant={variant} size={size} disabled={disabled}>
+            <Button variant={variant} size={size} isDisabled={disabled}>
               {buttonName}
             </Button>
             <Button
               variant={variant}
               suffixIcon={suffixIcon}
               size={size}
-              disabled={disabled}
+              isDisabled={disabled}
               onClick={isOpen ? selectHide : selectShow}
               ref={selectButtonRef}
               onKeyDown={keyDownHandler}
@@ -313,7 +316,7 @@ const Select = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, re
             variant={variant}
             suffixIcon={suffixIcon}
             size={size}
-            disabled={disabled}
+            isDisabled={disabled}
             onClick={isOpen ? selectHide : selectShow}
             ref={selectButtonRef}
             onKeyDown={keyDownHandler}

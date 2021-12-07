@@ -74,7 +74,7 @@ function Popovers() {
           </div>
           <div className="rc-item">
             <Popover template={content} placement="left-end" trigger="hover">
-              <Button disabled>left-end</Button>
+              <Button isDisabled>left-end</Button>
             </Popover>
           </div>
         </div>

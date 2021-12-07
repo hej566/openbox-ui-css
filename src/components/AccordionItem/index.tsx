@@ -4,7 +4,17 @@ import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import Button from '../Button';
 
 const AccordionItem = (props: propTypes) => {
-  const { title, children, AccordionIcon, onClick, isOpen, className } = props;
+  const {
+    title,
+    children,
+    AccordionIcon,
+    onClick,
+    isOpen,
+    className,
+    ariaLevel,
+    itemId,
+    isDisabled,
+  } = props;
   const accordionItemClasses: Array<string> = [`${NS}-accordion-item`];
   const accordionItemButtonClasses: Array<string> = [`${NS}-accordion-item__button`];
   const accordionItemBodyClasses: Array<string> = [`${NS}-accordion-item__body`];
@@ -79,12 +89,15 @@ const AccordionItem = (props: propTypes) => {
 
   return (
     <div className={accordionItemClasses.join(' ')}>
-      <h2 className={accordionItemHeaderClasses.join(' ')}>
+      <h2 className={accordionItemHeaderClasses.join(' ')} role="heading" aria-level={ariaLevel}>
         <Button
           className={accordionItemButtonClasses.join(' ')}
           onClick={onClick}
           suffixIcon={AccordionIcon}
           variant="link"
+          expanded={isOpen}
+          controls={itemId}
+          isDisabled={isDisabled}
         >
           {title}
         </Button>
@@ -93,8 +106,9 @@ const AccordionItem = (props: propTypes) => {
         className={accordionItemBodyClasses.join(' ')}
         ref={accordionItemBodyRef}
         onTransitionEnd={transitionEndHandler}
+        id={itemId}
       >
-        <div className={`${NS}-accordion-item__body__inner`}>{children}</div>
+        <div className={`${NS}-accordion-item__body-inner`}>{children}</div>
       </div>
     </div>
   );
@@ -107,6 +121,9 @@ type propTypes = {
   onClick?: React.MouseEventHandler<HTMLElement>;
   isOpen?: boolean;
   className?: string;
+  ariaLevel?: number;
+  itemId: string;
+  isDisabled?: boolean;
 };
 
 AccordionItem.defaultProps = {
@@ -114,6 +131,8 @@ AccordionItem.defaultProps = {
   onClick: () => {},
   isOpen: false,
   className: '',
+  ariaLevel: 1,
+  isDisabled: false,
 };
 
 export default AccordionItem;

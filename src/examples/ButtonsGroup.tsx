@@ -156,38 +156,38 @@ function ButtonsGroup() {
         <div className="rc-group">
           <ButtonGroup>
             <Button
-              loading={loading1}
+              isLoading={loading1}
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler1}
             />
             <Button
-              loading={loading2}
+              isLoading={loading2}
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler2}
             />
             <Button
-              loading={loading3}
+              isLoading={loading3}
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler3}
             />
           </ButtonGroup>
           <ButtonGroup>
             <Button
-              loading={loading2}
+              isLoading={loading2}
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler2}
             >
               Left
             </Button>
             <Button
-              loading={loading3}
+              isLoading={loading3}
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler3}
             >
               Middle
             </Button>
             <Button
-              loading={loading4}
+              isLoading={loading4}
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler4}
             >
@@ -203,19 +203,19 @@ function ButtonsGroup() {
             <Button
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler5}
-              disabled={disabled5}
+              isDisabled={disabled5}
             >
               Left
             </Button>
             <Button
-              disabled={disabled6}
+              isDisabled={disabled6}
               variant="secondary"
               prefixIcon={<Icon component={Acorn} />}
               onClick={clickHandler6}
             >
               Middle
             </Button>
-            <Button disabled={disabled7} variant="success" onClick={clickHandler7}>
+            <Button isDisabled={disabled7} variant="success" onClick={clickHandler7}>
               Right
             </Button>
           </ButtonGroup>

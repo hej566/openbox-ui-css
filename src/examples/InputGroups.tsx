@@ -128,17 +128,17 @@ function InputGroups() {
           <div className="rc-item">
             <InputGroup className="mb-3">
               <Dropdown variant="outline-secondary" buttonName="Dropdown">
-                <DropdownItem active key={uuidv4()}>
-                  Action
-                </DropdownItem>
-                <DropdownItem disabled key={uuidv4()}>
-                  Another action
-                </DropdownItem>
-                <DropdownItem key={uuidv4()}>
-                  <a>Something else here</a>
-                </DropdownItem>
-                <hr className="dropdown-divider" />
-                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+                {/* <DropdownItem active key={uuidv4()}> */}
+                {/*  Action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem disabled key={uuidv4()}> */}
+                {/*  Another action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem key={uuidv4()}> */}
+                {/*  <a>Something else here</a> */}
+                {/* </DropdownItem> */}
+                {/* <hr className="dropdown-divider" /> */}
+                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
               </Dropdown>
               <Input value="" />
             </InputGroup>
@@ -146,50 +146,50 @@ function InputGroups() {
           <div className="rc-item">
             <InputGroup className="mb-3">
               <Dropdown variant="outline-secondary" buttonName="Dropdown" split>
-                <DropdownItem active key={uuidv4()}>
-                  Action
-                </DropdownItem>
-                <DropdownItem disabled key={uuidv4()}>
-                  Another action
-                </DropdownItem>
-                <DropdownItem key={uuidv4()}>
-                  <a>Something else here</a>
-                </DropdownItem>
-                <hr className="dropdown-divider" />
-                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+                {/* <DropdownItem active key={uuidv4()}> */}
+                {/*  Action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem disabled key={uuidv4()}> */}
+                {/*  Another action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem key={uuidv4()}> */}
+                {/*  <a>Something else here</a> */}
+                {/* </DropdownItem> */}
+                {/* <hr className="dropdown-divider" /> */}
+                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
               </Dropdown>
               <Input value="" />
             </InputGroup>
             <InputGroup className="mb-3">
               <Input value="" />
               <Dropdown variant="outline-secondary" buttonName="Dropdown" split>
-                <DropdownItem active key={uuidv4()}>
-                  Action
-                </DropdownItem>
-                <DropdownItem disabled key={uuidv4()}>
-                  Another action
-                </DropdownItem>
-                <DropdownItem key={uuidv4()}>
-                  <a>Something else here</a>
-                </DropdownItem>
-                <hr className="dropdown-divider" />
-                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+                {/* <DropdownItem active key={uuidv4()}> */}
+                {/*  Action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem disabled key={uuidv4()}> */}
+                {/*  Another action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem key={uuidv4()}> */}
+                {/*  <a>Something else here</a> */}
+                {/* </DropdownItem> */}
+                {/* <hr className="dropdown-divider" /> */}
+                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
               </Dropdown>
             </InputGroup>
             <InputGroup className="mb-3">
               <Input value="" />
               <Dropdown variant="outline-secondary" buttonName="Dropdown">
-                <DropdownItem active key={uuidv4()}>
-                  Action
-                </DropdownItem>
-                <DropdownItem disabled key={uuidv4()}>
-                  Another action
-                </DropdownItem>
-                <DropdownItem key={uuidv4()}>
-                  <a>Something else here</a>
-                </DropdownItem>
-                <hr className="dropdown-divider" />
-                <DropdownItem key={uuidv4()}>Separated link</DropdownItem>
+                {/* <DropdownItem active key={uuidv4()}> */}
+                {/*  Action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem disabled key={uuidv4()}> */}
+                {/*  Another action */}
+                {/* </DropdownItem> */}
+                {/* <DropdownItem key={uuidv4()}> */}
+                {/*  <a>Something else here</a> */}
+                {/* </DropdownItem> */}
+                {/* <hr className="dropdown-divider" /> */}
+                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
               </Dropdown>
             </InputGroup>
           </div>

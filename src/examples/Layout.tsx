@@ -39,7 +39,8 @@ const Layout = (props: any) => {
         <Accordion only>
           <AccordionItem
             title=" Accordion Item #1"
-            key={uuidv4()}
+            key="1"
+            itemId="1"
             AccordionIcon={<Icon component={Acorn} />}
           >
             <Menu collapsed={false} onChange={clickHandler} defaultActiveId={defaultActiveId}>

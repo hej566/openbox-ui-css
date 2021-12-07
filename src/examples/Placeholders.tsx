@@ -26,7 +26,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-4">
-            <Button disabled>&nbsp;</Button>
+            <Button isDisabled>&nbsp;</Button>
           </Placeholder>
         </div>
       </section>
@@ -34,7 +34,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-4" animate="glow">
-            <Button disabled>&nbsp;</Button>
+            <Button isDisabled>&nbsp;</Button>
           </Placeholder>
         </div>
       </section>
@@ -50,7 +50,7 @@ function Placeholders() {
         <div className="rc-title">Basic pagination</div>
         <div className="rc-group">
           <Placeholder className="col-4" animate="glow">
-            <Button disabled>&nbsp;</Button>
+            <Button isDisabled>&nbsp;</Button>
           </Placeholder>
         </div>
       </section>
