@@ -99,7 +99,8 @@
     > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
     > .dropdown-toggle:nth-last-child(n + 3) {
       @include border-end-radius(0);
-      .btn, .btn-icon {
+      .btn,
+      .btn-icon {
         @include border-end-radius(0);
       }
     }
@@ -109,7 +110,8 @@
     > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu),
     > .dropdown-toggle:nth-last-child(n + 4) {
       @include border-end-radius(0);
-      .btn, .btn-icon {
+      .btn,
+      .btn-icon {
         @include border-end-radius(0);
       }
     }
@@ -129,7 +131,8 @@
   > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
     margin-left: -$input-border-width;
     @include border-start-radius(0);
-    .btn, .btn-icon {
+    .btn,
+    .btn-icon {
       @include border-start-radius(0);
     }
   }

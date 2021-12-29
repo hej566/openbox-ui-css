@@ -16,56 +16,41 @@
   }
 }
 
-.rc-group {
+.rb-group {
   margin: 1rem;
 }
 
-//.rc-title {
-//  font-size: 1rem;
-//  text-align: start;
-//  font-weight: 700;
-//  margin-left: 2rem;
-//}
-//.rc-group {
-//  margin: 1rem;
-//}
+.rb-title {
+  font-size: 2rem;
+  text-align: start;
+}
+
+.rb-buttons {
+  margin: 1rem;
+  .rb-button {
+    display: inline-block;
+    margin: 1rem;
+  }
+}
 //
-//.rc-buttons {
-//  margin: 1rem;
-//  .rc-button-variant,
-//  .rc-button-type,
-//  .rc-button-outline,
-//  .rc-button-size,
-//  .rc-button-with-icon,
-//  .rc-button-with-suffix-icon,
-//  .rc-button-with-loading,
-//  .rc-button-disabled,
-//  .rc-button-toggle {
-//    margin: 1rem;
-//    .btn {
-//      margin: 1rem;
-//    }
-//  }
-//}
-//
-//.rc-button-groups {
-//  margin: 1rem;
-//  .rc-button-groups-basic,
-//  .rc-button-groups-mixed,
-//  .rc-button-groups-outline,
-//  .rc-button-groups-size,
-//  .rc-button-group-with-icon,
-//  .rc-button-group-with-loading,
-//  .rc-button-group-disabled,
-//  .rc-button-group-toggle,
-//  .rc-button-group-vertical {
-//    margin: 1rem;
-//    .btn-group,
-//    .btn-group-vertical {
-//      margin: 1rem;
-//    }
-//  }
-//}
+.rb-button-groups {
+  margin: 1rem;
+  .rb-button-groups-basic,
+  .rb-button-groups-mixed,
+  .rb-button-groups-outline,
+  .rb-button-groups-size,
+  .rb-button-group-with-icon,
+  .rb-button-group-with-loading,
+  .rb-button-group-disabled,
+  .rb-button-group-toggle,
+  .rb-button-group-vertical {
+    margin: 1rem;
+    .btn-group,
+    .btn-group-vertical {
+      margin: 1rem;
+    }
+  }
+}
 //
 //.rc-accordions {
 //  margin: 1rem;
@@ -240,5 +225,3 @@
 //    display: none;
 //  }
 //}
-
-

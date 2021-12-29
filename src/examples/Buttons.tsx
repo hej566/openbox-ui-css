@@ -1,240 +1,312 @@
 import React, { useState } from 'react';
+// @ts-ignore
+import SyntaxHighlighter from 'react-syntax-highlighter';
+// @ts-ignore
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Button from '../components/Button';
 import Icon from '../components/Icon';
 import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 import Upload from '../components/Upload';
 
 function Buttons() {
-  const [loading1, setLoading1] = useState(true);
-  const [loading2, setLoading2] = useState(false);
-  const [loading3, setLoading3] = useState(false);
-  const [loading4, setLoading4] = useState(false);
+  const buttons = `
+    <Button variant="primary">Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="success">Success</Button>
+    <Button variant="danger">Danger</Button>
+    <Button variant="warning">Warning</Button>
+    <Button variant="info">Info</Button>
+    <Button variant="light">Light</Button>
+    <Button variant="link">Link</Button>
+  `;
 
-  const [disabled5, setDisabled5] = useState(false);
-  const [disabled6, setDisabled6] = useState(false);
-  const [disabled7, setDisabled7] = useState(false);
-  const [disabled8, setDisabled8] = useState(false);
+  const buttonTypes = `
+    <Button variant="primary" type="button">Button</Button>
+    <Button variant="primary" type="reset">Reset</Button>
+    <Button variant="primary" type="submit">Submit</Button>
+  `;
 
-  function clickHandler1() {
-    setLoading1(true);
-    // setTimeout(() => {
-    //   setLoading1(false);
-    // }, 10000);
-  }
+  const outlineButtons = `
+    <Button variant="outline-primary">Primary</Button>
+    <Button variant="outline-secondary">Secondary</Button>
+    <Button variant="outline-success">Success</Button>
+    <Button variant="outline-danger">Danger</Button>
+    <Button variant="outline-warning">Warning</Button>
+    <Button variant="outline-info">Info</Button>
+    <Button variant="outline-light">Light</Button>
+    <Button variant="outline-dark">Dark</Button>
+  `;
 
-  function clickHandler2() {
-    setLoading2(true);
-    setTimeout(() => {
-      setLoading2(false);
-    }, 10000);
-  }
+  const sizes = `
+    <Button variant="primary" size="sm">Small button</Button>
+    <Button variant="primary">Normal button</Button>
+    <Button variant="primary" size="lg">Large button</Button>
+  `;
 
-  function clickHandler3() {
-    setLoading3(true);
-    setTimeout(() => {
-      setLoading3(false);
-    }, 3000);
-  }
+  const buttonsIcon = `
+    <Button variant="primary" prefixIcon={<Icon component={Acorn} />}>Primary</Button>
+    <Button variant="outline-success" prefixIcon={<Icon component={Acorn} />} />
+    <Button variant="danger" prefixIcon={<Icon component={Acorn} />} />
+    <Button variant="warning" prefixIcon={<Icon component={Acorn} />} />
+    <Button variant="link" prefixIcon={<Icon component={Acorn} />}>Link</Button>
+    <Button variant="secondary" prefixIcon={<Icon component={Acorn} />} suffixIcon={<Icon component={Acorn} />}>Link</Button>
+    <Button variant="primary" size="lg" prefixIcon={<Icon component={Acorn} size="lg" />}>Primary</Button>
+    <Button variant="outline-success" size="sm" prefixIcon={<Icon component={Acorn} size="sm" />} />
+  `;
 
-  function clickHandler4() {
-    setLoading4(true);
-    setTimeout(() => {
-      setLoading4(false);
-    }, 3000);
-  }
+  const loading = `
+     <Button isLoading prefixIcon={<Icon component={Acorn} />}>Button</Button>
+     <Button isLoading>Button</Button>
+     <Button isLoading spinnerIcon={<Icon component={Acorn} isRotating />}>Button</Button>
+  `;
 
-  function clickHandler5() {
-    setDisabled5(true);
-    setTimeout(() => {
-      setDisabled5(false);
-    }, 3000);
-  }
-
-  function clickHandler6() {
-    setDisabled6(true);
-    setTimeout(() => {
-      setDisabled6(false);
-    }, 3000);
-  }
-
-  function clickHandler7() {
-    setDisabled7(true);
-    setTimeout(() => {
-      setDisabled7(false);
-    }, 3000);
-  }
-
-  function clickHandler8() {
-    setDisabled8(true);
-    setTimeout(() => {
-      setDisabled8(false);
-    }, 3000);
-  }
-
-  function clickHandler9() {
-    console.log('blur');
-  }
+  const disabledButtons = `
+    <Button prefixIcon={<Icon component={Acorn} />} isDisabled />
+    <Button isDisabled variant="secondary" prefixIcon={<Icon component={Acorn} />}>Button</Button>
+    <Button isDisabled variant="success">Button</Button>
+    <Button isDisabled variant="danger" isLoading>Button</Button>
+  `;
 
   function uploadHandler(e: any) {
     console.log(e.currentTarget.files);
   }
 
   return (
-    <div className="rc-buttons">
-      <section className="rc-button-variant">
-        <div className="rc-title">Basic button</div>
-        <div className="rc-group">
-          <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="success">Success</Button>
-          <Button variant="danger">Danger</Button>
-          <Button variant="warning">Warning</Button>
-          <Button variant="info">Info</Button>
-          <Button variant="light">Light</Button>
-          <Button variant="dark">Dark</Button>
-          <Button variant="link" onBlur={clickHandler9}>
-            Link
-          </Button>
+    <div className="rb-buttons">
+      <section className="rb-button-variant">
+        <h1 className="rb-title">Buttons</h1>
+        <div className="rb-group">
+          <div className="rb-button">
+            <Button variant="primary">Primary</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="secondary">Secondary</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="success">Success</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="danger">Danger</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="warning">Warning</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="info">Info</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="light">Light</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="dark">Dark</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="link">Link</Button>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {buttons}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-type">
-        <div className="rc-title">Types button</div>
-        <div className="rc-group">
-          <Button variant="primary" type="button">
-            Button
-          </Button>
-          <Button variant="primary" type="reset">
-            Reset
-          </Button>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+      <section className="rb-button-type">
+        <h1 className="rb-title">Button types</h1>
+        <div className="rb-group">
+          <div className="rb-button">
+            <Button variant="primary" type="button">
+              Button
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="primary" type="reset">
+              Reset
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {buttonTypes}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-outline">
-        <div className="rc-title">Outline button</div>
-        <div className="rc-group">
-          <Button variant="outline-primary">Primary</Button>
-          <Button variant="outline-secondary">Secondary</Button>
-          <Button variant="outline-success">Success</Button>
-          <Button variant="outline-danger">Danger</Button>
-          <Button variant="outline-warning">Warning</Button>
-          <Button variant="outline-info">Info</Button>
-          <Button variant="outline-light">Light</Button>
-          <Button variant="outline-dark">Dark</Button>
+      <section className="rb-button-outline">
+        <h1 className="rb-title">Outline buttons</h1>
+        <div className="rb-group">
+          <div className="rb-button">
+            <Button variant="outline-primary">Primary</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-secondary">Secondary</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-success">Success</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-danger">Danger</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-warning">Warning</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-info">Info</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-light">Light</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-dark">Dark</Button>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {outlineButtons}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-size">
-        <div className="rc-title">Size button</div>
-        <div className="rc-group">
-          <Button variant="primary" size="sm">
-            Small button
-          </Button>
-          <Button variant="primary">Normal button</Button>
-          <Button variant="primary" size="lg">
-            Large button
-          </Button>
+      <section className="rb-button-size">
+        <h1 className="rb-title">Sizes</h1>
+        <div className="rb-group">
+          <div className="rb-button">
+            <Button variant="primary" size="sm">
+              Small button
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="primary">Normal button</Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="primary" size="lg">
+              Large button
+            </Button>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {sizes}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-with-icon">
-        <div className="rc-title">Icon button</div>
-        <div className="rc-group">
-          <Button variant="primary" prefixIcon={<Icon component={Acorn} />}>
-            Primary
-          </Button>
-          <Button variant="outline-success" prefixIcon={<Icon component={Acorn} />} />
-          <Button variant="danger" prefixIcon={<Icon component={Acorn} />} />
-          <Button variant="warning" prefixIcon={<Icon component={Acorn} />} />
-          <Button variant="link" prefixIcon={<Icon component={Acorn} />}>
-            Link
-          </Button>
-          <Button variant="primary" size="lg" prefixIcon={<Icon component={Acorn} size="lg" />}>
-            Primary
-          </Button>
-          <Button
-            variant="outline-success"
-            size="sm"
-            prefixIcon={<Icon component={Acorn} size="sm" />}
-          />
+      <section className="rb-button-with-icon">
+        <h1 className="rb-title">Buttons with icon</h1>
+        <div className="rb-group">
+          <div className="rb-button">
+            <Button variant="primary" prefixIcon={<Icon component={Acorn} />}>
+              Primary
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="outline-success" prefixIcon={<Icon component={Acorn} />} />
+          </div>
+          <div className="rb-button">
+            <Button variant="danger" prefixIcon={<Icon component={Acorn} />} />
+          </div>
+          <div className="rb-button">
+            <Button variant="warning" prefixIcon={<Icon component={Acorn} />} />
+          </div>
+          <div className="rb-button">
+            <Button variant="link" prefixIcon={<Icon component={Acorn} />}>
+              Link
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button
+              variant="secondary"
+              prefixIcon={<Icon component={Acorn} />}
+              suffixIcon={<Icon component={Acorn} />}
+            >
+              Link
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button variant="primary" size="lg" prefixIcon={<Icon component={Acorn} size="lg" />}>
+              Primary
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button
+              variant="outline-success"
+              size="sm"
+              prefixIcon={<Icon component={Acorn} size="sm" />}
+            />
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {buttonsIcon}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-with-suffix-icon">
-        <div className="rc-title">Suffix icon button</div>
-        <div className="rc-group">
-          <Button variant="primary" suffixIcon={<Icon component={Acorn} />}>
-            Primary
-          </Button>
+
+      <section className="rb-button-with-loading">
+        <h1 className="rb-title">Loading</h1>
+        <div className="rb-group">
+          <div className="rb-button">
+            <Button isLoading prefixIcon={<Icon component={Acorn} />}>
+              Button
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button isLoading>Button</Button>
+          </div>
+          <div className="rb-button">
+            <Button isLoading spinnerIcon={<Icon component={Acorn} isRotating />}>
+              Button
+            </Button>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {loading}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-with-loading">
-        <div className="rc-title">Loading button</div>
-        <div className="rc-group">
-          <Button
-            isLoading={loading1}
-            prefixIcon={<Icon component={Acorn} />}
-            onClick={clickHandler1}
-          />
-          <Button
-            isLoading={loading2}
-            prefixIcon={<Icon component={Acorn} />}
-            onClick={clickHandler2}
-          >
-            Button
-          </Button>
-          <Button isLoading={loading3} onClick={clickHandler3}>
-            Button
-          </Button>
-          <Button
-            isLoading={loading4}
-            spinnerIcon={<Icon component={Acorn} isRotating />}
-            onClick={clickHandler4}
-          >
-            Button
-          </Button>
+      <section className="rb-button-disabled">
+        <h1 className="rb-title">Disabled buttons</h1>
+        <div className="rb-group">
+          <div className="rb-button">
+            <Button prefixIcon={<Icon component={Acorn} />} isDisabled />
+          </div>
+          <div className="rb-button">
+            <Button isDisabled variant="secondary" prefixIcon={<Icon component={Acorn} />}>
+              Button
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button isDisabled variant="success">
+              Button
+            </Button>
+          </div>
+          <div className="rb-button">
+            <Button isDisabled variant="danger" isLoading>
+              Button
+            </Button>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {disabledButtons}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-disabled">
-        <div className="rc-title">Disabled button</div>
-        <div className="rc-group">
-          <Button
-            prefixIcon={<Icon component={Acorn} />}
-            onClick={clickHandler5}
-            isDisabled={disabled5}
-          />
-          <Button
-            isDisabled={disabled6}
-            variant="secondary"
-            prefixIcon={<Icon component={Acorn} />}
-            onClick={clickHandler6}
-          >
-            Button
-          </Button>
-          <Button isDisabled={disabled7} variant="success" onClick={clickHandler7}>
-            Button
-          </Button>
-          <Button
-            isDisabled={disabled8}
-            variant="danger"
-            spinnerIcon={<Icon component={Acorn} isRotating />}
-            onClick={clickHandler8}
-          >
-            Button
-          </Button>
-        </div>
-      </section>
-      <div className="rc-button-toggle">
-        <div className="rc-title">Toggle button</div>
-        <div className="rc-group">
-          <Button
-            variant="primary"
-            isLoading={loading1}
-            prefixIcon={<Icon component={Acorn} />}
-            onClick={clickHandler1}
-          >
-            <Upload onChange={uploadHandler}>Upload</Upload>
-          </Button>
-        </div>
-      </div>
+      {/*<div className="rb-button-toggle">*/}
+      {/*  <div className="rb-title">Toggle button</div>*/}
+      {/*  <div className="rb-group">*/}
+      {/*    <Button*/}
+      {/*      variant="primary"*/}
+      {/*      isLoading={loading1}*/}
+      {/*      prefixIcon={<Icon component={Acorn} />}*/}
+      {/*      onClick={clickHandler1}*/}
+      {/*    >*/}
+      {/*      <Upload onChange={uploadHandler}>Upload</Upload>*/}
+      {/*    </Button>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </div>
   );
 }

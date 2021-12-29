@@ -28,7 +28,7 @@ const MenuItem = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
         style={{ paddingLeft: `${menuItemIndent}px`, paddingRight: `${indent}px` }}
       >
         <div className="menu-item__wrapper">
-          <div className="menu-item__prefix">{prefix}</div>
+          {prefix && <div className="menu-item__prefix">{prefix}</div>}
           <div className="menu-item__content" ref={menuItemContentRef}>
             {children}
           </div>
