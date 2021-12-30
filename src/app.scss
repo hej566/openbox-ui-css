@@ -35,31 +35,17 @@
 //
 .rb-button-groups {
   margin: 1rem;
-  .rb-button-groups-basic,
-  .rb-button-groups-mixed,
-  .rb-button-groups-outline,
-  .rb-button-groups-size,
-  .rb-button-group-with-icon,
-  .rb-button-group-with-loading,
-  .rb-button-group-disabled,
-  .rb-button-group-toggle,
-  .rb-button-group-vertical {
+  .rb-button-group {
     margin: 1rem;
-    .btn-group,
-    .btn-group-vertical {
-      margin: 1rem;
-    }
   }
 }
 //
-//.rc-accordions {
-//  margin: 1rem;
-//  .rc-accordion-only,
-//  .rc-accordion-flush-only,
-//  .rc-accordion-always-open {
-//    margin: 1rem;
-//  }
-//}
+.rb-accordions {
+  margin: 1rem;
+  .rb-accordion {
+    margin: 1rem;
+  }
+}
 //
 //.rc-alerts {
 //  margin: 1rem;

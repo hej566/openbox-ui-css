@@ -1,244 +1,231 @@
 import React, { useState } from 'react';
+// @ts-ignore
+import SyntaxHighlighter from 'react-syntax-highlighter';
+// @ts-ignore
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Button from '../components/Button';
 import ButtonGroup from '../components/ButtonGroup';
 import Icon from '../components/Icon';
 import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 
 function ButtonsGroup() {
-  const [loading1, setLoading1] = useState(false);
-  const [loading2, setLoading2] = useState(false);
-  const [loading3, setLoading3] = useState(false);
-  const [loading4, setLoading4] = useState(false);
-
-  const [disabled5, setDisabled5] = useState(false);
-  const [disabled6, setDisabled6] = useState(false);
-  const [disabled7, setDisabled7] = useState(false);
-  const [disabled8, setDisabled8] = useState(false);
-
-  function clickHandler1() {
-    setLoading1(true);
-    setTimeout(() => {
-      setLoading1(false);
-    }, 3000);
-  }
-
-  function clickHandler2() {
-    setLoading2(true);
-    setTimeout(() => {
-      setLoading2(false);
-    }, 3000);
-  }
-
-  function clickHandler3() {
-    setLoading3(true);
-    setTimeout(() => {
-      setLoading3(false);
-    }, 3000);
-  }
-
-  function clickHandler4() {
-    setLoading4(true);
-    setTimeout(() => {
-      setLoading4(false);
-    }, 3000);
-  }
-
-  function clickHandler5() {
-    setDisabled5(true);
-    setTimeout(() => {
-      setDisabled5(false);
-    }, 3000);
-  }
-
-  function clickHandler6() {
-    setDisabled6(true);
-    setTimeout(() => {
-      setDisabled6(false);
-    }, 3000);
-  }
-
-  function clickHandler7() {
-    setDisabled7(true);
-    setTimeout(() => {
-      setDisabled7(false);
-    }, 3000);
-  }
-
-  function clickHandler8() {
-    setDisabled8(true);
-    setTimeout(() => {
-      setDisabled8(false);
-    }, 3000);
-  }
+  const buttonGroup = `
+    <ButtonGroup>
+      <Button variant="primary">Left</Button>
+      <Button variant="primary">Middle</Button>
+      <Button variant="primary">Right</Button>
+    </ButtonGroup>
+  `;
+  const mixedButtonGroup = `
+    <ButtonGroup>
+      <Button variant="danger" type="button">Left</Button>
+      <Button variant="warning" type="reset">Middle</Button>
+      <Button variant="success" type="submit">Right</Button>
+    </ButtonGroup> 
+  `;
+  const outlineButtonGroup = `
+    <ButtonGroup>
+      <Button variant="outline-primary">Left</Button>
+      <Button variant="outline-primary">Middle</Button>
+      <Button variant="outline-primary">Right</Button>
+    </ButtonGroup>
+  `;
+  const iconButtonGroup = `
+    <ButtonGroup>
+      <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
+      <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
+      <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
+    </ButtonGroup>
+  `;
+  const sizeButtonGroup = `
+    <ButtonGroup size="sm">
+      <Button variant="primary" size="sm">Left</Button>
+      <Button variant="primary" size="sm">Middle</Button>
+      <Button variant="primary" size="sm">Right</Button>
+    </ButtonGroup> 
+    <ButtonGroup>
+      <Button variant="primary">Left</Button>
+      <Button variant="primary">Middle</Button>
+      <Button variant="primary">Right</Button>
+    </ButtonGroup>
+    <ButtonGroup size="lg">
+      <Button variant="primary" size="lg">Left</Button>
+      <Button variant="primary" size="lg">Middle</Button>
+      <Button variant="primary" size="lg">Right</Button>
+    </ButtonGroup>
+  `;
+  const disabledButtonGroup = `
+    <ButtonGroup>
+      <Button prefixIcon={<Icon component={Acorn} />} isDisabled>Left</Button>
+      <Button isDisabled variant="secondary" prefixIcon={<Icon component={Acorn} />}>Middle</Button>
+      <Button isDisabled variant="success">Right</Button>
+    </ButtonGroup> 
+  `;
+  const verticalButtonGroup = `
+    <ButtonGroup direct="vertical">
+      <Button variant="primary">Left</Button>
+      <Button variant="secondary">Middle</Button>
+      <Button variant="success">Right</Button>
+    </ButtonGroup>
+  `;
 
   return (
-    <div className="rc-button-groups">
-      <section className="rc-button-groups-basic">
-        <div className="rc-title">Basic button group</div>
-        <div className="rc-group">
-          <ButtonGroup>
-            <Button variant="primary">Left</Button>
-            <Button variant="primary">Middle</Button>
-            <Button variant="primary">Right</Button>
-          </ButtonGroup>
+    <div className="rb-button-groups">
+      <section className="rb-button-groups-basic">
+        <h1 className="rb-title">Button group</h1>
+        <div className="rb-group">
+          <div className="rb-button-group">
+            <ButtonGroup>
+              <Button variant="primary">Left</Button>
+              <Button variant="primary">Middle</Button>
+              <Button variant="primary">Right</Button>
+            </ButtonGroup>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {buttonGroup}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-groups-mixed">
-        <div className="rc-title">Mixed variant button group</div>
-        <div className="rc-group">
-          <ButtonGroup>
-            <Button variant="danger" type="button">
-              Left
-            </Button>
-            <Button variant="warning" type="reset">
-              Middle
-            </Button>
-            <Button variant="success" type="submit">
-              Right
-            </Button>
-          </ButtonGroup>
+      <section className="rb-button-groups-mixed">
+        <h1 className="rb-title">Mixed styles</h1>
+        <div className="rb-group">
+          <div className="rb-button-group">
+            <ButtonGroup>
+              <Button variant="danger" type="button">
+                Left
+              </Button>
+              <Button variant="warning" type="reset">
+                Middle
+              </Button>
+              <Button variant="success" type="submit">
+                Right
+              </Button>
+            </ButtonGroup>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {mixedButtonGroup}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-groups-outline">
-        <div className="rc-title">Outlined button group</div>
-        <div className="rc-group">
-          <ButtonGroup>
-            <Button variant="outline-primary">Left</Button>
-            <Button variant="outline-primary">Middle</Button>
-            <Button variant="outline-primary">Right</Button>
-          </ButtonGroup>
+      <section className="rb-button-groups-outline">
+        <h1 className="rb-title">Outlined styles</h1>
+        <div className="rb-group">
+          <div className="rb-button-group">
+            <ButtonGroup>
+              <Button variant="outline-primary">Left</Button>
+              <Button variant="outline-primary">Middle</Button>
+              <Button variant="outline-primary">Right</Button>
+            </ButtonGroup>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {outlineButtonGroup}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-groups-size">
-        <div className="rc-title">Different size button group</div>
-        <div className="rc-group">
-          <ButtonGroup size="sm">
-            <Button variant="primary" size="sm">
-              Left
-            </Button>
-            <Button variant="primary" size="sm">
-              Middle
-            </Button>
-            <Button variant="primary" size="sm">
-              Right
-            </Button>
-          </ButtonGroup>
-          <ButtonGroup>
-            <Button variant="primary">Left</Button>
-            <Button variant="primary">Middle</Button>
-            <Button variant="primary">Right</Button>
-          </ButtonGroup>
-          <ButtonGroup size="lg">
-            <Button variant="primary" size="lg">
-              Left
-            </Button>
-            <Button variant="primary" size="lg">
-              Middle
-            </Button>
-            <Button variant="primary" size="lg">
-              Right
-            </Button>
-          </ButtonGroup>
+      <section className="rb-button-groups-size">
+        <h1 className="rb-title">Sizing</h1>
+        <div className="rb-group">
+          <div className="rb-button-group">
+            <ButtonGroup size="sm">
+              <Button variant="primary" size="sm">
+                Left
+              </Button>
+              <Button variant="primary" size="sm">
+                Middle
+              </Button>
+              <Button variant="primary" size="sm">
+                Right
+              </Button>
+            </ButtonGroup>
+          </div>
+          <div className="rb-button-group">
+            <ButtonGroup>
+              <Button variant="primary">Left</Button>
+              <Button variant="primary">Middle</Button>
+              <Button variant="primary">Right</Button>
+            </ButtonGroup>
+          </div>
+          <div className="rb-button-group">
+            <ButtonGroup size="lg">
+              <Button variant="primary" size="lg">
+                Left
+              </Button>
+              <Button variant="primary" size="lg">
+                Middle
+              </Button>
+              <Button variant="primary" size="lg">
+                Right
+              </Button>
+            </ButtonGroup>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {sizeButtonGroup}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-group-with-icon">
-        <div className="rc-title">Icon button group</div>
-        <div className="rc-group">
-          <ButtonGroup>
-            <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
-            <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
-            <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
-          </ButtonGroup>
+      <section className="rb-button-group-with-icon">
+        <h1 className="rb-title">Icon styles</h1>
+        <div className="rb-group">
+          <div className="rb-button-group">
+            <ButtonGroup>
+              <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
+              <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
+              <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
+            </ButtonGroup>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {iconButtonGroup}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-group-with-loading">
-        <div className="rc-title">Loading button group</div>
-        <div className="rc-group">
-          <ButtonGroup>
-            <Button
-              isLoading={loading1}
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler1}
-            />
-            <Button
-              isLoading={loading2}
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler2}
-            />
-            <Button
-              isLoading={loading3}
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler3}
-            />
-          </ButtonGroup>
-          <ButtonGroup>
-            <Button
-              isLoading={loading2}
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler2}
-            >
-              Left
-            </Button>
-            <Button
-              isLoading={loading3}
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler3}
-            >
-              Middle
-            </Button>
-            <Button
-              isLoading={loading4}
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler4}
-            >
-              Right
-            </Button>
-          </ButtonGroup>
+      <section className="rb-button-group-disabled">
+        <h1 className="rb-title">Disabled styles</h1>
+        <div className="rb-group">
+          <div className="rb-button-group">
+            <ButtonGroup>
+              <Button prefixIcon={<Icon component={Acorn} />} isDisabled>
+                Left
+              </Button>
+              <Button isDisabled variant="secondary" prefixIcon={<Icon component={Acorn} />}>
+                Middle
+              </Button>
+              <Button isDisabled variant="success">
+                Right
+              </Button>
+            </ButtonGroup>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {disabledButtonGroup}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-button-group-disabled">
-        <div className="rc-title">Disabled button group</div>
-        <div className="rc-group">
-          <ButtonGroup>
-            <Button
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler5}
-              isDisabled={disabled5}
-            >
-              Left
-            </Button>
-            <Button
-              isDisabled={disabled6}
-              variant="secondary"
-              prefixIcon={<Icon component={Acorn} />}
-              onClick={clickHandler6}
-            >
-              Middle
-            </Button>
-            <Button isDisabled={disabled7} variant="success" onClick={clickHandler7}>
-              Right
-            </Button>
-          </ButtonGroup>
+      <section className="rb-button-group-vertical">
+        <h1 className="rb-title">Vertical styles</h1>
+        <div className="rb-group">
+          <div className="rb-button-group">
+            <ButtonGroup direct="vertical">
+              <Button variant="primary">Left</Button>
+              <Button variant="secondary">Middle</Button>
+              <Button variant="success">Right</Button>
+            </ButtonGroup>
+          </div>
         </div>
-      </section>
-      <section className="rc-button-group-toggle">
-        <div className="rc-title">Toggle button group</div>
-        <div className="rc-group">
-          <ButtonGroup>
-            <Button variant="primary">Left</Button>
-            <Button variant="secondary">Middle</Button>
-            <Button variant="success">Right</Button>
-          </ButtonGroup>
-        </div>
-      </section>
-      <section className="rc-button-group-vertical">
-        <div className="rc-title">Vertical button group</div>
-        <div className="rc-group">
-          <ButtonGroup direct="vertical">
-            <Button variant="primary">Left</Button>
-            <Button variant="secondary">Middle</Button>
-            <Button variant="success">Right</Button>
-          </ButtonGroup>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {verticalButtonGroup}
+          </SyntaxHighlighter>
         </div>
       </section>
     </div>
