@@ -8,6 +8,8 @@ import Badge from '../components/Badge';
 
 function Badges() {
   const heading = `
+    import Badge from '../components/Badge';
+
     <h2>Example heading <Badge className="bg-secondary">New</Badge></h2> 
     <h3>Example heading <Badge className="bg-secondary">New</Badge></h3> 
     <h4>Example heading <Badge className="bg-secondary">New</Badge></h4> 
@@ -15,6 +17,8 @@ function Badges() {
   `;
 
   const background = `
+    import Badge from '../components/Badge';
+    
     <Badge className="bg-primary">Primary</Badge>
     <Badge className="bg-secondary">Secondary</Badge>
     <Badge className="bg-success">Success</Badge>
@@ -26,6 +30,8 @@ function Badges() {
   `;
 
   const pill = `
+    import Badge from '../components/Badge';
+
     <Badge className="bg-primary rounded-pill">Primary</Badge>
     <Badge className="bg-secondary rounded-pill">Secondary</Badge>
     <Badge className="bg-success rounded-pill">Success</Badge>
@@ -37,6 +43,9 @@ function Badges() {
   `;
 
   const positioned = `
+    import Button from '../components/Button';
+    import Badge from '../components/Badge';
+
     <Button>
       inbox
       <Badge className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -53,6 +62,9 @@ function Badges() {
   `;
 
   const buttons = `
+    import Button from '../components/Button';
+    import Badge from '../components/Badge';
+
     <Button>
       Notification
       <Badge className="bg-secondary">4</Badge>

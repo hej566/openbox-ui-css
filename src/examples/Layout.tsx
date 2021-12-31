@@ -40,22 +40,24 @@ const Layout = (props: any) => {
         <Accordion only>
           <AccordionItem
             title=" Accordion Item #1"
-            key="1"
             itemId="1"
-            AccordionIcon={<Icon component={Acorn} />}
+            suffixIcon={<Icon component={Acorn} />}
           >
             <Menu collapsed={false} onChange={clickHandler} defaultActiveId={defaultActiveId}>
+              <MenuItem key="3" menuId="3">
+                <LinkRoot to="/accordions">Accordions</LinkRoot>
+              </MenuItem>
+              <MenuItem key="4" menuId="4">
+                <LinkRoot to="/alerts">Alerts</LinkRoot>
+              </MenuItem>
               <MenuItem key="1" menuId="1">
                 <LinkRoot to="/buttons">Buttons</LinkRoot>
               </MenuItem>
               <MenuItem key="2" menuId="2">
                 <LinkRoot to="/buttons-group">Buttons Group</LinkRoot>
               </MenuItem>
-              <MenuItem key="3" menuId="3">
-                <LinkRoot to="/accordions">Accordions</LinkRoot>
-              </MenuItem>
-              <MenuItem key="4" menuId="4">
-                <LinkRoot to="/alerts">Alerts</LinkRoot>
+              <MenuItem key="29" menuId="29">
+                <LinkRoot to="/breadcrumb">Breadcrumb</LinkRoot>
               </MenuItem>
               <MenuItem key="5" menuId="5">
                 <LinkRoot to="/badges">Badges</LinkRoot>
@@ -129,9 +131,7 @@ const Layout = (props: any) => {
               <MenuItem key="28" menuId="28">
                 <LinkRoot to="/figures">Figures</LinkRoot>
               </MenuItem>
-              <MenuItem key="29" menuId="29">
-                <LinkRoot to="/breadcrumb">Breadcrumb</LinkRoot>
-              </MenuItem>
+
             </Menu>
           </AccordionItem>
         </Accordion>
@@ -139,17 +139,20 @@ const Layout = (props: any) => {
       <div className="layout-body d-flex">
         <div className="layout-sidebar col-lg-2 col-12">
           <Menu collapsed={false} defaultActiveId={defaultActiveId}>
+            <MenuItem key="3" menuId="3">
+              <LinkRoot to="/accordions">Accordions</LinkRoot>
+            </MenuItem>
+            <MenuItem key="4" menuId="4">
+              <LinkRoot to="/alerts">Alerts</LinkRoot>
+            </MenuItem>
             <MenuItem key="1" menuId="1">
               <LinkRoot to="/buttons">Buttons</LinkRoot>
             </MenuItem>
             <MenuItem key="2" menuId="2">
               <LinkRoot to="/buttons-group">Buttons Group</LinkRoot>
             </MenuItem>
-            <MenuItem key="3" menuId="3">
-              <LinkRoot to="/accordions">Accordions</LinkRoot>
-            </MenuItem>
-            <MenuItem key="4" menuId="4">
-              <LinkRoot to="/alerts">Alerts</LinkRoot>
+            <MenuItem key="29" menuId="29">
+              <LinkRoot to="/breadcrumb">Breadcrumb</LinkRoot>
             </MenuItem>
             <MenuItem key="5" menuId="5">
               <LinkRoot to="/badges">Badges</LinkRoot>
@@ -223,9 +226,7 @@ const Layout = (props: any) => {
             <MenuItem key="28" menuId="28">
               <LinkRoot to="/figures">Figures</LinkRoot>
             </MenuItem>
-            <MenuItem key="29" menuId="29">
-              <LinkRoot to="/breadcrumb">Breadcrumb</LinkRoot>
-            </MenuItem>
+
           </Menu>
         </div>
         <div className="layout-main col-lg-10 col-12">{children}</div>

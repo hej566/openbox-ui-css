@@ -10,6 +10,8 @@ import Upload from '../components/Upload';
 
 function Buttons() {
   const buttons = `
+    import Button from '../components/Button';
+    
     <Button variant="primary">Primary</Button>
     <Button variant="secondary">Secondary</Button>
     <Button variant="success">Success</Button>
@@ -21,12 +23,16 @@ function Buttons() {
   `;
 
   const buttonTypes = `
+    import Button from '../components/Button';
+
     <Button variant="primary" type="button">Button</Button>
     <Button variant="primary" type="reset">Reset</Button>
     <Button variant="primary" type="submit">Submit</Button>
   `;
 
   const outlineButtons = `
+    import Button from '../components/Button';
+
     <Button variant="outline-primary">Primary</Button>
     <Button variant="outline-secondary">Secondary</Button>
     <Button variant="outline-success">Success</Button>
@@ -38,12 +44,18 @@ function Buttons() {
   `;
 
   const sizes = `
+    import Button from '../components/Button';
+
     <Button variant="primary" size="sm">Small button</Button>
     <Button variant="primary">Normal button</Button>
     <Button variant="primary" size="lg">Large button</Button>
   `;
 
   const buttonsIcon = `
+    import Button from '../components/Button';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+
     <Button variant="primary" prefixIcon={<Icon component={Acorn} />}>Primary</Button>
     <Button variant="outline-success" prefixIcon={<Icon component={Acorn} />} />
     <Button variant="danger" prefixIcon={<Icon component={Acorn} />} />
@@ -55,12 +67,20 @@ function Buttons() {
   `;
 
   const loading = `
-     <Button isLoading prefixIcon={<Icon component={Acorn} />}>Button</Button>
-     <Button isLoading>Button</Button>
-     <Button isLoading spinnerIcon={<Icon component={Acorn} isRotating />}>Button</Button>
+    import Button from '../components/Button';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+
+    <Button isLoading prefixIcon={<Icon component={Acorn} />}>Button</Button>
+    <Button isLoading>Button</Button>
+    <Button isLoading spinnerIcon={<Icon component={Acorn} isRotating />}>Button</Button>
   `;
 
   const disabledButtons = `
+    import Button from '../components/Button';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+
     <Button prefixIcon={<Icon component={Acorn} />} isDisabled />
     <Button isDisabled variant="secondary" prefixIcon={<Icon component={Acorn} />}>Button</Button>
     <Button isDisabled variant="success">Button</Button>

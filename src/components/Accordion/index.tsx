@@ -10,28 +10,27 @@ const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes,
 
   if (!Object.keys(openStateMap).length) {
     React.Children.forEach(children, (child) => {
-      const { isOpen } = child.props;
-      const { key } = child;
-      if (key) openStateMap[key] = isOpen;
+      const { isOpen, itemId } = child.props;
+      if (itemId) openStateMap[itemId] = isOpen;
     });
   }
 
   const accordionHandler =
     (child: React.ComponentElement<any, any>, mode: undefined | boolean) =>
     (e: React.MouseEvent<HTMLElement>) => {
-      const { key } = child;
+      const { itemId } = child.props;
       if (mode) {
-        if (key) {
-          if (openStateMap[key]) openStateMap[key] = false;
+        if (itemId) {
+          if (openStateMap[itemId]) openStateMap[itemId] = false;
           else {
             for (const mapKey in openStateMap) {
               openStateMap[mapKey] = false;
             }
-            openStateMap[key] = true;
+            openStateMap[itemId] = true;
           }
         }
       } else {
-        if (key) openStateMap[key] = !openStateMap[key];
+        if (itemId) openStateMap[itemId] = !openStateMap[itemId];
       }
 
       setStateMap(() => ({
@@ -40,10 +39,10 @@ const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes,
     };
 
   const accordionList = React.Children.map(children, (child) => {
-    const { key } = child;
-    if (key) {
+    const { itemId } = child.props;
+    if (itemId) {
       return React.cloneElement(child, {
-        isOpen: openStateMap[key],
+        isOpen: openStateMap[itemId],
         onClick: accordionHandler(child, only),
       });
     }

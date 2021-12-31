@@ -10,6 +10,9 @@ import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 
 function ButtonsGroup() {
   const buttonGroup = `
+    import Button from '../components/Button';
+    import ButtonGroup from '../components/ButtonGroup';
+
     <ButtonGroup>
       <Button variant="primary">Left</Button>
       <Button variant="primary">Middle</Button>
@@ -17,6 +20,9 @@ function ButtonsGroup() {
     </ButtonGroup>
   `;
   const mixedButtonGroup = `
+    import Button from '../components/Button';
+    import ButtonGroup from '../components/ButtonGroup';
+    
     <ButtonGroup>
       <Button variant="danger" type="button">Left</Button>
       <Button variant="warning" type="reset">Middle</Button>
@@ -24,6 +30,9 @@ function ButtonsGroup() {
     </ButtonGroup> 
   `;
   const outlineButtonGroup = `
+    import Button from '../components/Button';
+    import ButtonGroup from '../components/ButtonGroup';
+    
     <ButtonGroup>
       <Button variant="outline-primary">Left</Button>
       <Button variant="outline-primary">Middle</Button>
@@ -31,6 +40,11 @@ function ButtonsGroup() {
     </ButtonGroup>
   `;
   const iconButtonGroup = `
+    import Button from '../components/Button';
+    import ButtonGroup from '../components/ButtonGroup';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+    
     <ButtonGroup>
       <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
       <Button variant="primary" prefixIcon={<Icon component={Acorn} />} />
@@ -38,6 +52,9 @@ function ButtonsGroup() {
     </ButtonGroup>
   `;
   const sizeButtonGroup = `
+    import Button from '../components/Button';
+    import ButtonGroup from '../components/ButtonGroup';
+    
     <ButtonGroup size="sm">
       <Button variant="primary" size="sm">Left</Button>
       <Button variant="primary" size="sm">Middle</Button>
@@ -55,6 +72,11 @@ function ButtonsGroup() {
     </ButtonGroup>
   `;
   const disabledButtonGroup = `
+    import Button from '../components/Button';
+    import ButtonGroup from '../components/ButtonGroup';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+
     <ButtonGroup>
       <Button prefixIcon={<Icon component={Acorn} />} isDisabled>Left</Button>
       <Button isDisabled variant="secondary" prefixIcon={<Icon component={Acorn} />}>Middle</Button>
@@ -62,6 +84,9 @@ function ButtonsGroup() {
     </ButtonGroup> 
   `;
   const verticalButtonGroup = `
+    import Button from '../components/Button';
+    import ButtonGroup from '../components/ButtonGroup';
+    
     <ButtonGroup direct="vertical">
       <Button variant="primary">Left</Button>
       <Button variant="secondary">Middle</Button>

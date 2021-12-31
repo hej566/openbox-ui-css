@@ -10,25 +10,17 @@ import Icon from '../components/Icon';
 import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 
 function Accordions() {
-  const uuid1 = uuidv4();
-  const uuid2 = uuidv4();
-  const uuid3 = uuidv4();
-  const uuid4 = uuidv4();
-  const uuid5 = uuidv4();
-  const uuid6 = uuidv4();
-  const uuid7 = uuidv4();
-  const uuid8 = uuidv4();
-  const uuid9 = uuidv4();
-  const uuid10 = uuidv4();
-  const uuid11 = uuidv4();
-
   const accordionOnly = `
-   <Accordion only>
+    import AccordionItem from '../components/AccordionItem';
+    import Accordion from '../components/Accordion';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+
+    <Accordion only>
       <AccordionItem
         title="Accordion Item #1"
-        key={uuid1}
-        AccordionIcon={<Icon component={Acorn} />}
-        itemId={uuid1}
+        prefixIcon={<Icon component={Acorn} />}
+        itemId="1"
         isDisabled
       >
         <strong>This is the first item's accordion body.</strong> It is shown by default,
@@ -38,7 +30,7 @@ function Accordions() {
         our default variables. It's also worth noting that just about any HTML can go within
         the <code>.accordion-body</code>, though the transition does limit overflow.
       </AccordionItem>
-      <AccordionItem title="Accordion Item #2" key={uuid2} itemId={uuid2}>
+      <AccordionItem title="Accordion Item #2" itemId="2">
         <strong>This is the second item's accordion body.</strong> It is hidden by
         default,*/ until the collapse plugin adds the appropriate classes that we use to
         style each element. These classes control the overall appearance, as well as the
@@ -47,7 +39,7 @@ function Accordions() {
         can go within the <code>.accordion-body</code>, though the transition does limit
         overflow.
       </AccordionItem>
-      <AccordionItem title="Accordion Item #3" key={uuid3} itemId={uuid3}>
+      <AccordionItem title="Accordion Item #3" itemId="3">
         <strong>This is the third item's accordion body.</strong> It is hidden by default,
         until the collapse plugin adds the appropriate classes that we use to style each
         element. These classes control the overall appearance, as well as the showing and
@@ -59,15 +51,19 @@ function Accordions() {
   `;
 
   const accordionAlwaysOpen = `
-   <Accordion>
+    import AccordionItem from '../components/AccordionItem';
+    import Accordion from '../components/Accordion';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+
+    <Accordion>
       <AccordionItem
         title="Accordion Item #1"
-        key={uuid7}
-        itemId={uuid7}
-        AccordionIcon={<Icon component={Acorn} />}
+        itemId="1"
+        prefixIcon={<Icon component={Acorn} />}
       >
         <Accordion only>
-          <AccordionItem title="Accordion Item #2" key={uuid8} itemId={uuid8}>
+          <AccordionItem title="Accordion Item #2" itemId="2">
             <strong>This is the second item's accordion body.</strong> It is hidden by
             default,*/ until the collapse plugin adds the appropriate classes that we use to
             style each element. These classes control the overall appearance, as well as the
@@ -76,7 +72,7 @@ function Accordions() {
             any HTML can go within the <code>.accordion-body</code>, though the transition
             does limit overflow.
           </AccordionItem>
-          <AccordionItem title="Accordion Item #3" key={uuid9} itemId={uuid9}>
+          <AccordionItem title="Accordion Item #3" itemId="3">
             <strong>This is the third item's accordion body.</strong> It is hidden by
             default, until the collapse plugin adds the appropriate classes that we use to
             style each element. These classes control the overall appearance, as well as the
@@ -87,7 +83,7 @@ function Accordions() {
           </AccordionItem>
         </Accordion>
       </AccordionItem>
-      <AccordionItem title="Accordion Item #2" key={uuid10} itemId={uuid10}>
+      <AccordionItem title="Accordion Item #2" itemId="4">
         <strong>This is the second item's accordion body.</strong> It is hidden by
         default,*/ until the collapse plugin adds the appropriate classes that we use to
         style each element. These classes control the overall appearance, as well as the
@@ -96,7 +92,7 @@ function Accordions() {
         can go within the <code>.accordion-body</code>, though the transition does limit
         overflow.
       </AccordionItem>
-      <AccordionItem title="Accordion Item #3" key={uuid11} itemId={uuid11}>
+      <AccordionItem title="Accordion Item #3" itemId="5">
         <strong>This is the third item's accordion body.</strong> It is hidden by default,
         until the collapse plugin adds the appropriate classes that we use to style each
         element. These classes control the overall appearance, as well as the showing and
@@ -108,12 +104,16 @@ function Accordions() {
   `;
 
   const accordionFlush = `
-   <Accordion only flush>
+    import AccordionItem from '../components/AccordionItem';
+    import Accordion from '../components/Accordion';
+    import Icon from '../components/Icon';
+    import Acorn from '../assets/icons/svg/acorn-duotone.svg';
+
+    <Accordion only flush>
       <AccordionItem
         title="Accordion Item #1"
-        key={uuid4}
-        AccordionIcon={<Icon component={Acorn} />}
-        itemId={uuid4}
+        prefixIcon={<Icon component={Acorn} />}
+        itemId="1"
       >
         <strong>This is the first item's accordion body.</strong> It is shown by default, until
         the collapse plugin adds the appropriate classes that we use to style each element. These
@@ -122,7 +122,7 @@ function Accordions() {
         variables. It's also worth noting that just about any HTML can go within the{' '}
         <code>.accordion-body</code>, though the transition does limit overflow.
       </AccordionItem>
-      <AccordionItem title="Accordion Item #2" key={uuid5} itemId={uuid5}>
+      <AccordionItem title="Accordion Item #2" itemId="2">
         <strong>This is the second item's accordion body.</strong> It is hidden by default,*/
         until the collapse plugin adds the appropriate classes that we use to style each element.
         These classes control the overall appearance, as well as the showing and hiding via CSS
@@ -130,7 +130,7 @@ function Accordions() {
         variables. It's also worth noting that just about any HTML can go within the{' '}
         <code>.accordion-body</code>, though the transition does limit overflow.
       </AccordionItem>
-      <AccordionItem title="Accordion Item #3" key={uuid6} itemId={uuid6}>
+      <AccordionItem title="Accordion Item #3" itemId="3">
         <strong>This is the third item's accordion body.</strong> It is hidden by default, until
         the collapse plugin adds the appropriate classes that we use to style each element. These
         classes control the overall appearance, as well as the showing and hiding via CSS
@@ -149,9 +149,8 @@ function Accordions() {
             <Accordion only>
               <AccordionItem
                 title="Accordion Item #1"
-                key={uuid1}
-                AccordionIcon={<Icon component={Acorn} />}
-                itemId={uuid1}
+                suffixIcon={<Icon component={Acorn} />}
+                itemId="1"
                 isDisabled
               >
                 <strong>This is the first item's accordion body.</strong> It is shown by default,
@@ -161,7 +160,7 @@ function Accordions() {
                 our default variables. It's also worth noting that just about any HTML can go within
                 the <code>.accordion-body</code>, though the transition does limit overflow.
               </AccordionItem>
-              <AccordionItem title="Accordion Item #2" key={uuid2} itemId={uuid2}>
+              <AccordionItem title="Accordion Item #2" itemId="2">
                 <strong>This is the second item's accordion body.</strong> It is hidden by
                 default,*/ until the collapse plugin adds the appropriate classes that we use to
                 style each element. These classes control the overall appearance, as well as the
@@ -170,7 +169,7 @@ function Accordions() {
                 can go within the <code>.accordion-body</code>, though the transition does limit
                 overflow.
               </AccordionItem>
-              <AccordionItem title="Accordion Item #3" key={uuid3} itemId={uuid3}>
+              <AccordionItem title="Accordion Item #3" itemId="3">
                 <strong>This is the third item's accordion body.</strong> It is hidden by default,
                 until the collapse plugin adds the appropriate classes that we use to style each
                 element. These classes control the overall appearance, as well as the showing and
@@ -194,12 +193,11 @@ function Accordions() {
             <Accordion>
               <AccordionItem
                 title="Accordion Item #1"
-                key={uuid7}
-                itemId={uuid7}
-                AccordionIcon={<Icon component={Acorn} />}
+                itemId="1"
+                suffixIcon={<Icon component={Acorn} />}
               >
                 <Accordion only>
-                  <AccordionItem title="Accordion Item #2" key={uuid8} itemId={uuid8}>
+                  <AccordionItem title="Accordion Item #2" itemId="2">
                     <strong>This is the second item's accordion body.</strong> It is hidden by
                     default,*/ until the collapse plugin adds the appropriate classes that we use to
                     style each element. These classes control the overall appearance, as well as the
@@ -208,7 +206,7 @@ function Accordions() {
                     any HTML can go within the <code>.accordion-body</code>, though the transition
                     does limit overflow.
                   </AccordionItem>
-                  <AccordionItem title="Accordion Item #3" key={uuid9} itemId={uuid9}>
+                  <AccordionItem title="Accordion Item #3" itemId="3">
                     <strong>This is the third item's accordion body.</strong> It is hidden by
                     default, until the collapse plugin adds the appropriate classes that we use to
                     style each element. These classes control the overall appearance, as well as the
@@ -219,7 +217,7 @@ function Accordions() {
                   </AccordionItem>
                 </Accordion>
               </AccordionItem>
-              <AccordionItem title="Accordion Item #2" key={uuid10} itemId={uuid10}>
+              <AccordionItem title="Accordion Item #2" itemId="4">
                 <strong>This is the second item's accordion body.</strong> It is hidden by
                 default,*/ until the collapse plugin adds the appropriate classes that we use to
                 style each element. These classes control the overall appearance, as well as the
@@ -228,7 +226,7 @@ function Accordions() {
                 can go within the <code>.accordion-body</code>, though the transition does limit
                 overflow.
               </AccordionItem>
-              <AccordionItem title="Accordion Item #3" key={uuid11} itemId={uuid11}>
+              <AccordionItem title="Accordion Item #3" itemId="5">
                 <strong>This is the third item's accordion body.</strong> It is hidden by default,
                 until the collapse plugin adds the appropriate classes that we use to style each
                 element. These classes control the overall appearance, as well as the showing and
@@ -253,9 +251,8 @@ function Accordions() {
             <Accordion only flush>
               <AccordionItem
                 title="Accordion Item #1"
-                key={uuid4}
-                AccordionIcon={<Icon component={Acorn} />}
-                itemId={uuid4}
+                suffixIcon={<Icon component={Acorn} />}
+                itemId="1"
               >
                 <strong>This is the first item's accordion body.</strong> It is shown by default,
                 until the collapse plugin adds the appropriate classes that we use to style each
@@ -264,7 +261,7 @@ function Accordions() {
                 our default variables. It's also worth noting that just about any HTML can go within
                 the <code>.accordion-body</code>, though the transition does limit overflow.
               </AccordionItem>
-              <AccordionItem title="Accordion Item #2" key={uuid5} itemId={uuid5}>
+              <AccordionItem title="Accordion Item #2" itemId="2">
                 <strong>This is the second item's accordion body.</strong> It is hidden by
                 default,*/ until the collapse plugin adds the appropriate classes that we use to
                 style each element. These classes control the overall appearance, as well as the
@@ -273,7 +270,7 @@ function Accordions() {
                 can go within the <code>.accordion-body</code>, though the transition does limit
                 overflow.
               </AccordionItem>
-              <AccordionItem title="Accordion Item #3" key={uuid6} itemId={uuid6}>
+              <AccordionItem title="Accordion Item #3" itemId="3">
                 <strong>This is the third item's accordion body.</strong> It is hidden by default,
                 until the collapse plugin adds the appropriate classes that we use to style each
                 element. These classes control the overall appearance, as well as the showing and

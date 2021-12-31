@@ -4,17 +4,7 @@ import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import Button from '../Button';
 
 const AccordionItem = (props: propTypes) => {
-  const {
-    title,
-    children,
-    AccordionIcon,
-    onClick,
-    isOpen,
-    className,
-    ariaLevel,
-    itemId,
-    isDisabled,
-  } = props;
+  const { title, children, suffixIcon, onClick, isOpen, className, itemId, isDisabled } = props;
   const accordionItemClasses: Array<string> = [`accordion-item`];
   const accordionItemButtonClasses: Array<string> = [`accordion-item__button`];
   const accordionItemBodyClasses: Array<string> = [`accordion-item__body`];
@@ -89,11 +79,11 @@ const AccordionItem = (props: propTypes) => {
 
   return (
     <div className={accordionItemClasses.join(' ')}>
-      <h2 className={accordionItemHeaderClasses.join(' ')} role="heading" aria-level={ariaLevel}>
+      <h1 className={accordionItemHeaderClasses.join(' ')}>
         <Button
           className={accordionItemButtonClasses.join(' ')}
           onClick={onClick}
-          suffixIcon={AccordionIcon}
+          suffixIcon={suffixIcon}
           variant="link"
           expanded={isOpen}
           controls={itemId}
@@ -101,14 +91,14 @@ const AccordionItem = (props: propTypes) => {
         >
           {title}
         </Button>
-      </h2>
+      </h1>
       <div
         className={accordionItemBodyClasses.join(' ')}
         ref={accordionItemBodyRef}
         onTransitionEnd={transitionEndHandler}
         id={itemId}
       >
-        <div className={`accordion-item__body-inner`}>{children}</div>
+        <div className="accordion-item__body-inner">{children}</div>
       </div>
     </div>
   );
@@ -117,21 +107,19 @@ const AccordionItem = (props: propTypes) => {
 type propTypes = {
   title: string;
   children: any;
-  AccordionIcon?: React.ReactComponentElement<any>;
+  suffixIcon?: React.ReactComponentElement<any>;
   onClick?: React.MouseEventHandler<HTMLElement>;
   isOpen?: boolean;
   className?: string;
-  ariaLevel?: number;
   itemId: string;
   isDisabled?: boolean;
 };
 
 AccordionItem.defaultProps = {
-  AccordionIcon: <Icon component={ChervonDown} />,
+  suffixIcon: <Icon component={ChervonDown} />,
   onClick: () => {},
   isOpen: false,
   className: '',
-  ariaLevel: 1,
   isDisabled: false,
 };
 

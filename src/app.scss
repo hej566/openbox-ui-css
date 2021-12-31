@@ -62,14 +62,12 @@
   }
 }
 //
-//.rc-breadcrumbs {
-//  margin: 1rem;
-//  .rc-breadcrumbs-basic,
-//  .rc-breadcrumbs-divider,
-//  .rc-breadcrumbs-no-divider {
-//    margin: 1rem;
-//  }
-//}
+.rb-breadcrumbs {
+  margin: 1rem;
+  .rb-breadcrumb-wrapper {
+    margin: 1rem;
+  }
+}
 //
 .rb-carousels {
   margin: 1rem;

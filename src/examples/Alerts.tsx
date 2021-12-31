@@ -11,18 +11,22 @@ import Times from '../assets/icons/svg/times-regular.svg';
 
 function Alerts() {
   const variants = `
-   <Alert variant="primary">A simple primary alert—check it out!</Alert> 
-   <Alert variant="secondary">A simple secondary alert—check it out!</Alert>
-   <Alert variant="success">A simple success alert—check it out!</Alert> 
-   <Alert variant="danger">A simple danger alert—check it out!</Alert>
-   <Alert variant="warning">A simple warning alert—check it out!</Alert>
-   <Alert variant="info">A simple info alert—check it out!</Alert>
-   <Alert variant="light">A simple light alert—check it out!</Alert>
-   <Alert variant="dark">A simple dark alert—check it out!</Alert> 
+    import Alert from '../components/Alert';
+
+    <Alert variant="primary">A simple primary alert—check it out!</Alert> 
+    <Alert variant="secondary">A simple secondary alert—check it out!</Alert>
+    <Alert variant="success">A simple success alert—check it out!</Alert> 
+    <Alert variant="danger">A simple danger alert—check it out!</Alert>
+    <Alert variant="warning">A simple warning alert—check it out!</Alert>
+    <Alert variant="info">A simple info alert—check it out!</Alert>
+    <Alert variant="light">A simple light alert—check it out!</Alert>
+    <Alert variant="dark">A simple dark alert—check it out!</Alert> 
   `;
 
   const linkColor = `
-   <Alert variant="primary">
+    import Alert from '../components/Alert';
+    
+    <Alert variant="primary">
       A simple primary alert with
       <a href="#" className="alert-link">
         &nbsp; an example link &nbsp;
@@ -81,7 +85,9 @@ function Alerts() {
   `;
 
   const additional = `
-   <Alert variant="success">
+    import Alert from '../components/Alert';
+    
+    <Alert variant="success">
       <h4 className="alert-heading">Well done!</h4>
       <p>
         Aww yeah, you successfully read this important alert message. This example text is
