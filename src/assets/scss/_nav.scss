@@ -25,6 +25,7 @@
   color: $nav-link-color;
   cursor: pointer;
   display: block;
+  height: inherit;
   font-weight: $nav-link-font-weight;
   padding: $nav-link-padding-y $nav-link-padding-x;
   text-decoration: if($link-decoration == none, null, none);
@@ -39,6 +40,11 @@
   &.disabled {
     color: $nav-link-disabled-color;
     cursor: not-allowed;
+  }
+
+  .dropdown {
+    display: flex;
+    align-items: center;
   }
 }
 
