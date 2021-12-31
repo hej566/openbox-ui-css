@@ -92,11 +92,63 @@ function Navs() {
     </Nav>
   `;
 
-  const pillTabs = `
+  const pillNav = `
     import Nav from '../components/Nav';
     import NavItem from '../components/NavItem';
 
-    <Nav tabs>
+    <Nav className="nav-pills">
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
+  const combineNav = `
+    <Nav>
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">
+        <Dropdown variant="link" buttonName="Dropdown">
+          <DropdownItem isActive itemId="3">
+            Action
+          </DropdownItem>
+          <DropdownItem isDisabled itemId="4">
+            Another action
+          </DropdownItem>
+          <DropdownItem itemId="5">
+            <a>Something else here</a>
+          </DropdownItem>
+          <hr className="dropdown-divider" />
+          <DropdownItem itemId="6">Separated link</DropdownItem>
+        </Dropdown>
+      </NavItem>
+      <NavItem itemId="7">Link</NavItem>
+      <NavItem itemId="8" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
+  const pillJustifiedNav = `
+    <Nav className="nav-pills nav-justified">
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3">Link</NavItem>
+      <NavItem itemId="4" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
+  const pillFillNav = `
+    <Nav className="nav-pills nav-fill">
       <NavItem isActive itemId="1">
         Active
       </NavItem>
@@ -221,30 +273,15 @@ function Navs() {
         </div>
       </section>
       <section className="rb-nav-pills">
-        <h1 className="rb-title">Pills tab</h1>
+        <h1 className="rb-title">Pills nav</h1>
         <div className="rb-group">
           <div className="rb-nav-wrapper">
             <Nav className="nav-pills">
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="2">
-                <Dropdown variant="link" buttonName="Dropdown" offset={[-16, 16]}>
-                  <DropdownItem isActive itemId="3">
-                    Action
-                  </DropdownItem>
-                  <DropdownItem isDisabled itemId="4">
-                    Another action
-                  </DropdownItem>
-                  <DropdownItem itemId="5">
-                    <a>Something else here</a>
-                  </DropdownItem>
-                  <hr className="dropdown-divider" />
-                  <DropdownItem itemId="6">Separated link</DropdownItem>
-                </Dropdown>
-              </NavItem>
-              <NavItem itemId="7">Link</NavItem>
-              <NavItem itemId="8" isDisabled>
+              <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3" isDisabled>
                 Disabled
               </NavItem>
             </Nav>
@@ -252,15 +289,15 @@ function Navs() {
         </div>
         <div className="rb-code">
           <SyntaxHighlighter language="javascript" style={docco}>
-            {pillTabs}
+            {pillNav}
           </SyntaxHighlighter>
         </div>
       </section>
       <section className="rb-nav-dropdown">
-        <div className="rb-title">Tabs</div>
+        <h1 className="rb-title">Combine nav</h1>
         <div className="rb-group">
           <div className="rb-nav-wrapper">
-            <Nav tabs>
+            <Nav>
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
@@ -286,9 +323,14 @@ function Navs() {
             </Nav>
           </div>
         </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {combineNav}
+          </SyntaxHighlighter>
+        </div>
       </section>
       <section className="rb-nav-pills-fill">
-        <div className="rb-title">Pills and fill nav</div>
+        <h1 className="rb-title">Pills and fill nav</h1>
         <div className="rb-group">
           <div className="rb-nav-wrapper">
             <Nav className="nav-pills nav-fill">
@@ -302,6 +344,11 @@ function Navs() {
               </NavItem>
             </Nav>
           </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {pillFillNav}
+          </SyntaxHighlighter>
         </div>
       </section>
       <section className="rb-nav-pills-justified">
@@ -317,6 +364,11 @@ function Navs() {
               Disabled
             </NavItem>
           </Nav>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {pillJustifiedNav}
+          </SyntaxHighlighter>
         </div>
       </section>
     </div>
