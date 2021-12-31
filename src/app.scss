@@ -94,17 +94,12 @@
   }
 }
 //
-//.rc-modals {
-//  margin: 1rem;
-//  .rc-group {
-//  }
-//  .rc-modal-basic,
-//  .rc-modal-scrollable,
-//  .rc-modal-centered,
-//  .rc-modal-custom-footer {
-//    margin: 1rem;
-//  }
-//}
+.rb-modals {
+  margin: 1rem;
+  .rb-modal-wrapper {
+    margin: 1rem;
+  }
+}
 //
 //.rc-navs {
 //  margin: 1rem;

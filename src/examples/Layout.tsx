@@ -131,7 +131,6 @@ const Layout = (props: any) => {
               <MenuItem key="28" menuId="28">
                 <LinkRoot to="/figures">Figures</LinkRoot>
               </MenuItem>
-
             </Menu>
           </AccordionItem>
         </Accordion>
@@ -226,7 +225,6 @@ const Layout = (props: any) => {
             <MenuItem key="28" menuId="28">
               <LinkRoot to="/figures">Figures</LinkRoot>
             </MenuItem>
-
           </Menu>
         </div>
         <div className="layout-main col-lg-10 col-12">{children}</div>

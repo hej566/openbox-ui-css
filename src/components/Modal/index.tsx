@@ -5,7 +5,7 @@ import Times from '../../assets/icons/svg/times-regular.svg';
 import Button from '../Button';
 
 interface PropsTypes {
-  onConfirm: any;
+  onConfirm?: any;
   onCancel: any;
   title: string;
   visible: boolean;
@@ -19,6 +19,7 @@ Modal.defaultProps = {
   scrollable: false,
   centered: false,
   footer: [],
+  onConfirm: () => {},
 };
 
 function Modal(props: PropsTypes) {
