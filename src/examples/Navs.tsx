@@ -229,7 +229,7 @@ function Navs() {
                 Active
               </NavItem>
               <NavItem itemId="2">
-                <Dropdown variant="link" buttonName="Dropdown">
+                <Dropdown variant="link" buttonName="Dropdown" offset={[-16, 16]}>
                   <DropdownItem isActive itemId="3">
                     Action
                   </DropdownItem>
