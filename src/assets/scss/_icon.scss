@@ -1,6 +1,4 @@
-@import 'namespace';
-
-.#{$NS}-icon {
+.icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,13 +12,13 @@
   }
 }
 
-.#{$NS}-icon--lg {
+.icon--lg {
   & > svg {
     @include icon-size($btn-font-size-lg);
   }
 }
 
-.#{$NS}-icon--sm {
+.icon--sm {
   & > svg {
     @include icon-size($btn-font-size-sm);
   }

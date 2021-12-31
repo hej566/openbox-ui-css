@@ -13,7 +13,7 @@ BreadcrumbItem.defaultProps = {
 
 function BreadcrumbItem(props: PropsTypes) {
   const { children, current, className } = props;
-  const breadcrumbItemClasses: string[] = [`${NS}-breadcrumb-item`];
+  const breadcrumbItemClasses: string[] = [`breadcrumb-item`];
 
   if (current) breadcrumbItemClasses.push('active');
   if (className) breadcrumbItemClasses.push(className);

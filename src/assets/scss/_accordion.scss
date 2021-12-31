@@ -1,6 +1,4 @@
-@import 'namespace';
-
-.#{$NS}-accordion-item__button {
+.accordion-item__button {
   position: relative;
   display: flex;
   align-items: center;
@@ -17,7 +15,7 @@
     color: $accordion-button-active-color;
     background-color: $accordion-button-active-bg;
     box-shadow: inset 0 ($accordion-border-width * -1) 0 $accordion-border-color;
-    .#{$NS}-icon {
+    .icon {
       transform: rotate(180deg);
     }
   }
@@ -27,7 +25,7 @@
     background-color: $accordion-button-bg;
   }
 
-  .#{$NS}-btn__inner {
+  .btn__inner {
     width: 100%;
     justify-content: space-between;
   }
@@ -40,12 +38,12 @@
   }
 }
 
-.#{$NS}-accordion-item__header {
+.accordion-item__header {
   margin-bottom: 0;
   width: 100%;
 }
 
-.#{$NS}-accordion-item {
+.accordion-item {
   color: color-contrast($accordion-bg);
   background-color: $accordion-bg;
   border: $accordion-border-width solid $accordion-border-color;
@@ -53,7 +51,7 @@
   &:first-of-type {
     @include border-top-radius($accordion-border-radius);
 
-    .#{$NS}-accordion-item__button {
+    .accordion-item__button {
       @include border-top-radius($accordion-inner-border-radius);
     }
   }
@@ -65,32 +63,32 @@
   &:last-of-type {
     @include border-bottom-radius($accordion-border-radius);
 
-    .#{$NS}-accordion-item__button--collapse {
+    .accordion-item__button--collapse {
       @include border-bottom-radius($accordion-inner-border-radius);
     }
 
-    .#{$NS}-accordion-item__body {
+    .accordion-item__body {
       @include border-bottom-radius($accordion-border-radius);
     }
   }
 }
 
-.#{$NS}-accordion-item__body {
+.accordion-item__body {
   height: 0;
   overflow: hidden;
   @include transition($transition-collapse);
 }
 
-.#{$NS}-accordion-item__body-inner {
+.accordion-item__body-inner {
   margin: $accordion-body-padding-y $accordion-body-padding-x;
 }
 
-.#{$NS}-accordion--flush {
-  .#{$NS}-accordion-item__body {
+.accordion--flush {
+  .accordion-item__body {
     border-width: 0;
   }
 
-  .#{$NS}-accordion-item {
+  .accordion-item {
     border-right: 0;
     border-left: 0;
     @include border-radius(0);
@@ -102,7 +100,7 @@
       border-bottom: 0;
     }
 
-    .#{$NS}-accordion-item__button {
+    .accordion-item__button {
       @include border-radius(0);
     }
   }

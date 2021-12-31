@@ -38,7 +38,9 @@ function Breadcrumbs() {
             <BreadcrumbItem>
               <a href="#">Home</a>
             </BreadcrumbItem>
-            <BreadcrumbItem><a href="#">Component</a></BreadcrumbItem>
+            <BreadcrumbItem>
+              <a href="#">Component</a>
+            </BreadcrumbItem>
             <BreadcrumbItem current>Library</BreadcrumbItem>
           </Breadcrumb>
         </div>

@@ -24,14 +24,14 @@ const Button = React.forwardRef<HTMLButtonElement, propTypes>((props: propTypes,
   } = props;
 
   const defaultSpinner = spinnerIcon || <Icon component={Spinner} isRotating size={size} />;
-  const buttonClasses: string[] = [`${NS}-btn`];
-  const buttonInnerClasses: string[] = [`${NS}-btn__inner`];
+  const buttonClasses: string[] = [`btn`];
+  const buttonInnerClasses: string[] = [`btn__inner`];
 
-  if (variant) buttonClasses.push(`${NS}-btn--${variant}`);
-  if (size) buttonClasses.push(`${NS}-btn--${size}`);
-  if (!children) buttonClasses.push(`${NS}-btn__icon`);
+  if (variant) buttonClasses.push(`btn--${variant}`);
+  if (size) buttonClasses.push(`btn--${size}`);
+  if (!children) buttonClasses.push(`btn__icon`);
   if (className) buttonClasses.push(className);
-  if (isLoading) buttonInnerClasses.push(`${NS}-btn__inner--loading`);
+  if (isLoading) buttonInnerClasses.push(`btn__inner--loading`);
 
   return (
     <button
@@ -49,11 +49,11 @@ const Button = React.forwardRef<HTMLButtonElement, propTypes>((props: propTypes,
       aria-label={label || 'icon'}
     >
       <div className={buttonInnerClasses.join(' ')}>
-        {prefixIcon && <span className={`${NS}-btn__prefix-icon`}>{prefixIcon}</span>}
-        {children && <span className={`${NS}-btn__content`}>{children}</span>}
-        {suffixIcon && <span className={`${NS}-btn__suffix-icon`}>{suffixIcon}</span>}
+        {prefixIcon && <span className={`btn__prefix-icon`}>{prefixIcon}</span>}
+        {children && <span className={`btn__content`}>{children}</span>}
+        {suffixIcon && <span className={`btn__suffix-icon`}>{suffixIcon}</span>}
       </div>
-      {isLoading && <span className={`${NS}-btn__loading-icon`}>{defaultSpinner}</span>}
+      {isLoading && <span className={`btn__loading-icon`}>{defaultSpinner}</span>}
     </button>
   );
 });

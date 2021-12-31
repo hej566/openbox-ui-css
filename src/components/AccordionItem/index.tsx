@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Icon from '../Icon';
 import ChervonDown from '../../assets/icons/svg/chevron-down-regular.svg';
 import Button from '../Button';
@@ -15,21 +15,21 @@ const AccordionItem = (props: propTypes) => {
     itemId,
     isDisabled,
   } = props;
-  const accordionItemClasses: Array<string> = [`${NS}-accordion-item`];
-  const accordionItemButtonClasses: Array<string> = [`${NS}-accordion-item__button`];
-  const accordionItemBodyClasses: Array<string> = [`${NS}-accordion-item__body`];
-  const accordionItemHeaderClasses: Array<string> = [`${NS}-accordion-item__header`];
+  const accordionItemClasses: Array<string> = [`accordion-item`];
+  const accordionItemButtonClasses: Array<string> = [`accordion-item__button`];
+  const accordionItemBodyClasses: Array<string> = [`accordion-item__body`];
+  const accordionItemHeaderClasses: Array<string> = [`accordion-item__header`];
   const accordionItemBodyRef = useRef<HTMLDivElement>(null);
   const [isInit, setInitState] = useState<boolean>(true);
 
   if (className) accordionItemClasses.push(className);
 
   if (isOpen) {
-    accordionItemButtonClasses.push(`${NS}-accordion-item__button--show`);
-    accordionItemBodyClasses.push(`${NS}-accordion-item__body--show`);
+    accordionItemButtonClasses.push(`accordion-item__button--show`);
+    accordionItemBodyClasses.push(`accordion-item__body--show`);
   } else {
-    accordionItemButtonClasses.push(`${NS}-accordion-item__button--collapsed`);
-    accordionItemBodyClasses.push(`${NS}-accordion-item__body--collapsed`);
+    accordionItemButtonClasses.push(`accordion-item__button--collapsed`);
+    accordionItemBodyClasses.push(`accordion-item__body--collapsed`);
   }
 
   const openTransition = () => {
@@ -108,7 +108,7 @@ const AccordionItem = (props: propTypes) => {
         onTransitionEnd={transitionEndHandler}
         id={itemId}
       >
-        <div className={`${NS}-accordion-item__body-inner`}>{children}</div>
+        <div className={`accordion-item__body-inner`}>{children}</div>
       </div>
     </div>
   );

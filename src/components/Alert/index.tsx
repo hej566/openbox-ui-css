@@ -14,8 +14,8 @@ Alert.defaultProps = {
 
 function Alert(props: PropsTypes) {
   const { children, variant, className } = props;
-  const alertClasses: string[] = [`${NS}-alert`];
-  if (variant) alertClasses.push(`${NS}-alert-${variant}`);
+  const alertClasses: string[] = [`alert`];
+  if (variant) alertClasses.push(`alert-${variant}`);
   if (className) alertClasses.push(className);
   return (
     <div className={alertClasses.join(' ')} role="alert">

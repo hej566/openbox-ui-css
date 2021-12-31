@@ -4,10 +4,10 @@ import DropdownContext from '../DropdownContext';
 const DropdownItem: React.FunctionComponent<propTypes> = (props) => {
   const { children, className, itemId } = props;
   const ctx = useContext(DropdownContext);
-  const dropdownItemClasses: string[] = [`${NS}-dropdown-item`];
+  const dropdownItemClasses: string[] = [`dropdown-item`];
   if (className) dropdownItemClasses.push(className);
-  if (ctx.disabledStateMap[itemId]) dropdownItemClasses.push(`${NS}-dropdown-item--disabled`);
-  if (ctx.activeStateMap[itemId]) dropdownItemClasses.push(`${NS}-dropdown-item--active`);
+  if (ctx.disabledStateMap[itemId]) dropdownItemClasses.push(`dropdown-item--disabled`);
+  if (ctx.activeStateMap[itemId]) dropdownItemClasses.push(`dropdown-item--active`);
 
   const keyDownHandler = (e: any) => {
     const { currentTarget } = e;
@@ -17,8 +17,8 @@ const DropdownItem: React.FunctionComponent<propTypes> = (props) => {
         let nextSibling = currentTarget.nextElementSibling;
         while (nextSibling) {
           if (
-            nextSibling.classList.contains(`${NS}-dropdown-item--disabled`) ||
-            !nextSibling.classList.contains(`${NS}-dropdown-item`)
+            nextSibling.classList.contains(`dropdown-item--disabled`) ||
+            !nextSibling.classList.contains(`dropdown-item`)
           ) {
             nextSibling = nextSibling.nextElementSibling;
           } else {
@@ -31,8 +31,8 @@ const DropdownItem: React.FunctionComponent<propTypes> = (props) => {
         let previousSibling = currentTarget.previousElementSibling;
         while (previousSibling) {
           if (
-            previousSibling.classList.contains(`${NS}-dropdown-item--disabled`) ||
-            !previousSibling.classList.contains(`${NS}-dropdown-item`)
+            previousSibling.classList.contains(`dropdown-item--disabled`) ||
+            !previousSibling.classList.contains(`dropdown-item`)
           ) {
             previousSibling = previousSibling.previousElementSibling;
           } else {
@@ -42,7 +42,7 @@ const DropdownItem: React.FunctionComponent<propTypes> = (props) => {
         }
       } else if (e.keyCode === 13) {
         e.preventDefault();
-        if (!currentTarget.classList.contains(`${NS}-dropdown-item--disabled`)) {
+        if (!currentTarget.classList.contains(`dropdown-item--disabled`)) {
           currentTarget.click();
         }
       } else if (e.keyCode === 27) {
@@ -55,7 +55,7 @@ const DropdownItem: React.FunctionComponent<propTypes> = (props) => {
 
   const clickHandler = (e: any) => {
     const { currentTarget } = e;
-    if (!currentTarget.classList.contains(`${NS}-dropdown-item--disabled`)) {
+    if (!currentTarget.classList.contains(`dropdown-item--disabled`)) {
       ctx.onClick(itemId, 'leaf')(e);
     }
   };

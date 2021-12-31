@@ -1,50 +1,47 @@
-// Make the div behave like a button
-@import 'namespace';
-
-.#{$NS}-btn__group,
-.#{$NS}-btn__group--vertical {
+.btn__group,
+.btn__group--vertical {
   position: relative;
   display: inline-flex;
   vertical-align: middle; // match .btn alignment given font-size hack above
 
-  > .#{$NS}-btn {
+  > .btn {
     position: relative;
     flex: 1 1 auto;
   }
 
   // Bring the hover, focused, and "active" buttons to the front to overlay
   // the borders properly
-  > .#{$NS}-btn--check:checked + .#{$NS}-btn,
-  > .#{$NS}-btn--check:focus + .#{$NS}-btn,
-  > .#{$NS}-btn:hover,
-  > .#{$NS}-btn:focus,
-  > .#{$NS}-btn:active,
-  > .#{$NS}-btn.active {
+  > .btn--check:checked + .btn,
+  > .btn--check:focus + .btn,
+  > .btn:hover,
+  > .btn:focus,
+  > .btn:active,
+  > .btn.active {
     z-index: 1;
   }
 }
 
 // Optional: Group multiple button groups together for a toolbar
-.#{$NS}-btn__toolbar {
+.btn__toolbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 
-  .#{$NS}-input__group {
+  .input__group {
     width: auto;
   }
 }
 
-.#{$NS}-btn__group {
+.btn__group {
   // Prevent double borders when buttons are next to each other
-  > .#{$NS}-btn:not(:first-child),
-  > .#{$NS}-btn__group:not(:first-child) {
+  > .btn:not(:first-child),
+  > .btn__group:not(:first-child) {
     margin-left: -$btn-border-width;
   }
 
   // Reset rounded corners
-  > .#{$NS}-btn:not(:last-child),
-  > .#{$NS}-btn__group:not(:last-child) > .#{$NS}-btn {
+  > .btn:not(:last-child),
+  > .btn__group:not(:last-child) > .btn {
     @include border-end-radius(0);
   }
 
@@ -52,9 +49,9 @@
   // - the "third or more" child
   // - the second child and the previous element isn't `.btn-check` (making it the first child visually)
   // - part of a btn-group which isn't the first child
-  > .#{$NS}-btn:nth-child(n + 3),
-  > :not(.#{$NS}-btn--check) + .#{$NS}-btn,
-  > .#{$NS}-btn__group:not(:first-child) > .#{$NS}-btn {
+  > .btn:nth-child(n + 3),
+  > :not(.btn--check) + .btn,
+  > .btn__group:not(:first-child) > .btn {
     @include border-start-radius(0);
   }
 }
@@ -63,11 +60,11 @@
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
 
-.#{$NS}-btn__group--sm > .#{$NS}-btn {
-  @extend .#{$NS}-btn--sm;
+.btn__group--sm > .btn {
+  @extend .btn--sm;
 }
-.#{$NS}-btn__group--lg > .#{$NS}-btn {
-  @extend .#{$NS}-btn--lg;
+.btn__group--lg > .btn {
+  @extend .btn--lg;
 }
 
 //
@@ -104,29 +101,29 @@
 // Vertical button groups
 //
 
-.#{$NS}-btn__group--vertical {
+.btn__group--vertical {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 
-  > .#{$NS}-btn,
-  > .#{$NS}-btn__group {
+  > .btn,
+  > .btn__group {
     width: 100%;
   }
 
-  > .#{$NS}-btn:not(:first-child),
-  > .#{$NS}-btn__group:not(:first-child) {
+  > .btn:not(:first-child),
+  > .btn__group:not(:first-child) {
     margin-top: -$btn-border-width;
   }
 
   // Reset rounded corners
-  > .#{$NS}-btn:not(:last-child):not(.#{$NS}-dropdown__toggle),
-  > .#{$NS}-btn__group:not(:last-child) > .#{$NS}-btn {
+  > .btn:not(:last-child):not(.dropdown__toggle),
+  > .btn__group:not(:last-child) > .btn {
     @include border-bottom-radius(0);
   }
 
-  > .#{$NS}-btn ~ .#{$NS}-btn,
-  > .#{$NS}-btn__group:not(:first-child) > .#{$NS}-btn {
+  > .btn ~ .btn,
+  > .btn__group:not(:first-child) > .btn {
     @include border-top-radius(0);
   }
 }

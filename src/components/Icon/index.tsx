@@ -2,11 +2,11 @@ import React from 'react';
 
 const Icon = (props: propTypes) => {
   const { isRotating, component, name, size, onClick, className } = props;
-  const iconClasses: string[] = [`${NS}-icon`];
+  const iconClasses: string[] = [`icon`];
 
-  if (isRotating) iconClasses.push(`${NS}-icon--rotating`);
-  if (name) iconClasses.push(`${NS}-${name}`);
-  if (size) iconClasses.push(`${NS}-icon--${size}`);
+  if (isRotating) iconClasses.push(`icon--rotating`);
+  if (name) iconClasses.push(`${name}`);
+  if (size) iconClasses.push(`icon--${size}`);
   if (className) iconClasses.push(className);
 
   const SVG = component;

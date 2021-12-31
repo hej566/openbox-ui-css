@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 const Accordion = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, ref) => {
   const { children, only, flush, className } = props;
   const [openStateMap, setStateMap] = useState<{ [key: string]: boolean }>({});
-  const accordionGroupClasses: string[] = [`${NS}-accordion-group`];
+  const accordionGroupClasses: string[] = [`accordion-group`];
 
-  if (flush) accordionGroupClasses.push(`${NS}-accordion--flush`);
+  if (flush) accordionGroupClasses.push(`accordion--flush`);
   if (className) accordionGroupClasses.push(className);
 
   if (!Object.keys(openStateMap).length) {

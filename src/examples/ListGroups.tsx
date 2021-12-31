@@ -207,7 +207,6 @@ function ListGroups() {
     </ListGroup>
   `;
 
-
   return (
     <div className="rb-list-groups">
       <section className="rb-list-group-basic">

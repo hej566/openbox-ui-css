@@ -1,10 +1,8 @@
-@import 'namespace';
-
-.#{$NS}-dropdown {
+.dropdown {
   position: relative;
 }
 
-.#{$NS}-dropdown-menu {
+.dropdown-menu {
   padding: $dropdown-padding-y $dropdown-padding-x;
   margin: 0;
   @include font-size($dropdown-font-size);
@@ -26,7 +24,7 @@
   }
 }
 
-.#{$NS}-dropdown-menu__wrapper {
+.dropdown-menu__wrapper {
   &--collapse {
     height: 0;
   }
@@ -35,14 +33,14 @@
   }
 }
 
-.#{$NS}-dropdown-item__divider {
+.dropdown-item__divider {
   height: 0;
   margin: $dropdown-divider-margin-y 0;
   overflow: hidden;
   border-top: 1px solid $dropdown-divider-bg;
 }
 
-.#{$NS}-dropdown-item {
+.dropdown-item {
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
   font-weight: $font-weight-normal;
   text-decoration: if($link-decoration == none, null, none);
@@ -66,14 +64,14 @@
     @include gradient-bg($dropdown-link-hover-bg);
   }
 
-  &.#{$NS}-dropdown-item--active,
+  &.dropdown-item--active,
   &:active {
     color: $dropdown-link-active-color;
     text-decoration: none;
     @include gradient-bg($dropdown-link-active-bg);
   }
 
-  &.#{$NS}-dropdown-item--disabled,
+  &.dropdown-item--disabled,
   &:disabled {
     color: $dropdown-link-disabled-color;
     background-color: transparent;
@@ -83,13 +81,13 @@
 }
 
 // Dark dropdowns
-.#{$NS}-dropdown-menu--dark {
+.dropdown-menu--dark {
   color: $dropdown-dark-color;
   background-color: $dropdown-dark-bg;
   border-color: $dropdown-dark-border-color;
   @include box-shadow($dropdown-dark-box-shadow);
 
-  .#{$NS}-dropdown-item {
+  .dropdown-item {
     color: $dropdown-dark-link-color;
 
     &:hover,
@@ -111,7 +109,7 @@
     }
   }
 
-  .#{$NS}-dropdown-item__divider {
+  .dropdown-item__divider {
     border-color: $dropdown-dark-divider-bg;
   }
 }

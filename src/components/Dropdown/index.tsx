@@ -30,9 +30,9 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   const [popperInstance, setPopperInstance] = useState<any>(null);
   const [activeStateMap, setActiveStateMap] = useState<{ [key: string]: boolean }>({});
   const [disabledStateMap, setDisabledStateMap] = useState<{ [key: string]: boolean }>({});
-  const dropdownMenuWrapperClasses: string[] = [`${NS}-dropdown-menu__wrapper`];
-  const dropdownMenuClasses: string[] = [`${NS}-dropdown-menu`];
-  const dropdownClasses: string[] = [`${NS}-dropdown`];
+  const dropdownMenuWrapperClasses: string[] = [`dropdown-menu__wrapper`];
+  const dropdownMenuClasses: string[] = [`dropdown-menu`];
+  const dropdownClasses: string[] = [`dropdown`];
 
   const popperFlipModifier = {
     name: 'flip',
@@ -62,7 +62,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   let icon: any = null;
 
   if (theme === 'dark') {
-    dropdownMenuClasses.push(`${NS}-dropdown-menu--dark`);
+    dropdownMenuClasses.push(`dropdown-menu--dark`);
   }
 
   if (className) dropdownClasses.push(className);
@@ -141,8 +141,8 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
     if (!isOpen) {
       requestAnimationFrame(() => {
         dropdownMenuWrapperElement.classList.replace(
-          `${NS}-dropdown-menu__wrapper--show`,
-          `${NS}-dropdown-menu__wrapper--collapse`
+          `dropdown-menu__wrapper--show`,
+          `dropdown-menu__wrapper--collapse`
         );
       });
     }
@@ -152,14 +152,14 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
     const dropdownMenuElement = dropdownMenuRef.current!;
     const dropdownMenuWrapperElement = dropdownMenuWrapperRef.current!;
     if (isOpen) {
-      dropdownMenuWrapperElement.classList.add(`${NS}-dropdown-menu__wrapper--show`);
-      dropdownMenuElement.classList.add(`${NS}-dropdown-menu--show`);
+      dropdownMenuWrapperElement.classList.add(`dropdown-menu__wrapper--show`);
+      dropdownMenuElement.classList.add(`dropdown-menu--show`);
       requestAnimationFrame(() => {
         document.addEventListener('click', clickOutside);
       });
     } else {
-      dropdownMenuElement.classList.add(`${NS}-dropdown-menu--collapse`);
-      dropdownMenuWrapperElement.classList.add(`${NS}-dropdown-menu__wrapper--collapse`);
+      dropdownMenuElement.classList.add(`dropdown-menu--collapse`);
+      dropdownMenuWrapperElement.classList.add(`dropdown-menu__wrapper--collapse`);
     }
   };
 
@@ -196,10 +196,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   const closeHandler = (e: any) => {
     const dropdownMenuElement = dropdownMenuRef.current!;
     requestAnimationFrame(() => {
-      dropdownMenuElement.classList.replace(
-        `${NS}-dropdown-menu--show`,
-        `${NS}-dropdown-menu--collapse`
-      );
+      dropdownMenuElement.classList.replace(`dropdown-menu--show`, `dropdown-menu--collapse`);
       document.removeEventListener('click', clickOutside);
     });
     setOpenState(() => false);
@@ -211,15 +208,12 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
 
     requestAnimationFrame(() => {
       dropdownMenuWrapperElement.classList.replace(
-        `${NS}-dropdown-menu__wrapper--collapse`,
-        `${NS}-dropdown-menu__wrapper--show`
+        `dropdown-menu__wrapper--collapse`,
+        `dropdown-menu__wrapper--show`
       );
       document.addEventListener('click', clickOutside);
       requestAnimationFrame(() => {
-        dropdownMenuElement.classList.replace(
-          `${NS}-dropdown-menu--collapse`,
-          `${NS}-dropdown-menu--show`
-        );
+        dropdownMenuElement.classList.replace(`dropdown-menu--collapse`, `dropdown-menu--show`);
       });
     });
     setOpenState(() => true);
@@ -233,7 +227,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   const menuItemFocus = () => {
     const dropdownMenuWrapperElement = dropdownMenuWrapperRef.current!;
     const nextFocus = dropdownMenuWrapperElement.querySelector<HTMLElement>(
-      `.${NS}-dropdown-item:not(.${NS}-dropdown-item--disabled)`
+      `.dropdown-item:not(.dropdown-item--disabled)`
     );
     if (nextFocus) nextFocus.focus();
   };

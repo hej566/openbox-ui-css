@@ -1,6 +1,4 @@
-@import 'namespace';
-
-.#{$NS}-badge {
+.badge {
   display: inline-block;
   padding: $badge-padding-y $badge-padding-x;
   @include font-size($badge-font-size);

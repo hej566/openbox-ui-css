@@ -1,6 +1,4 @@
-@import 'namespace';
-
-.#{$NS}-breadcrumb {
+.breadcrumb {
   display: flex;
   flex-wrap: wrap;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
@@ -11,10 +9,10 @@
   @include border-radius($breadcrumb-border-radius);
 }
 
-.#{$NS}-breadcrumb-item {
+.breadcrumb-item {
   display: flex;
   // The separator between breadcrumbs (by default, a forward-slash: "/")
-  & > .#{$NS}-icon {
+  & > .icon {
     color: $breadcrumb-divider-color;
     margin: 0 0.5rem;
   }

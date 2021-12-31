@@ -1,6 +1,4 @@
-@import 'namespace';
-
-.#{$NS}-btn {
+.btn {
   position: relative;
   display: inline-block;
   font-family: $btn-font-family;
@@ -45,7 +43,7 @@
     @include box-shadow(none);
   }
 
-  &.#{$NS}-btn__icon {
+  &.btn__icon {
     //position: relative;
     @include button-size(
       $btn-icon-padding-y,
@@ -56,7 +54,7 @@
   }
 }
 
-.#{$NS}-btn__inner {
+.btn__inner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,17 +63,17 @@
   }
 }
 
-.#{$NS}-btn__loading-icon {
+.btn__loading-icon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.#{$NS}-btn--lg {
-  &.#{$NS}-btn__icon {
-    .#{$NS}-btn__prefix-icon,
-    .#{$NS}-btn__suffix-icon {
+.btn--lg {
+  &.btn__icon {
+    .btn__prefix-icon,
+    .btn__suffix-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -85,10 +83,10 @@
   }
 }
 
-.#{$NS}-btn--sm {
-  &.#{$NS}-btn__icon {
-    .#{$NS}-btn__prefix-icon,
-    .#{$NS}-btn__suffix-icon {
+.btn--sm {
+  &.btn__icon {
+    .btn__prefix-icon,
+    .btn__suffix-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -98,36 +96,36 @@
   }
 }
 
-.#{$NS}-btn__prefix-icon {
-  & + .#{$NS}-btn__content {
+.btn__prefix-icon {
+  & + .btn__content {
     margin-left: 0.5rem;
   }
 }
 
-.#{$NS}-btn__content {
-  & + .#{$NS}-btn__suffix-icon {
+.btn__content {
+  & + .btn__suffix-icon {
     margin-left: 0.5rem;
   }
 }
 
-.#{$NS}-btn__content {
+.btn__content {
   display: flex;
   align-items: center;
 }
 
 @each $color, $value in $theme-colors {
-  .#{$NS}-btn--#{$color} {
+  .btn--#{$color} {
     @include button-variant($value, $value);
   }
 }
 
 @each $color, $value in $theme-colors {
-  .#{$NS}-btn--outline-#{$color} {
+  .btn--outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
 
-.#{$NS}-btn--link {
+.btn--link {
   font-weight: $font-weight-normal;
   color: currentColor;
 
@@ -153,8 +151,8 @@
   }
 }
 
-.#{$NS}-btn--lg {
-  &.#{$NS}-btn__icon {
+.btn--lg {
+  &.btn__icon {
     @include button-size(
       $btn-icon-padding-y-lg,
       $btn-icon-padding-x-lg,
@@ -164,8 +162,8 @@
   }
 }
 
-.#{$NS}-btn--sm {
-  &.#{$NS}-btn__icon {
+.btn--sm {
+  &.btn__icon {
     @include button-size(
       $btn-icon-padding-y-sm,
       $btn-icon-padding-x-sm,
@@ -175,8 +173,8 @@
   }
 }
 
-.#{$NS}-btn--lg {
-  &:not(.#{$NS}-btn__icon) {
+.btn--lg {
+  &:not(.btn__icon) {
     @include button-size(
       $btn-padding-y-lg,
       $btn-padding-x-lg,
@@ -186,8 +184,8 @@
   }
 }
 
-.#{$NS}-btn--sm {
-  &:not(.#{$NS}-btn__icon) {
+.btn--sm {
+  &:not(.btn__icon) {
     @include button-size(
       $btn-padding-y-sm,
       $btn-padding-x-sm,

@@ -1,6 +1,4 @@
-@import 'namespace';
-
-.#{$NS}-alert {
+.alert {
   @include border-radius($alert-border-radius);
   border: $alert-border-width solid transparent;
   margin-bottom: $alert-margin-bottom;
@@ -8,15 +6,15 @@
   position: relative;
 }
 
-.#{$NS}-alert-heading {
+.alert-heading {
   color: inherit;
 }
 
-.#{$NS}-alert-link {
+.alert-link {
   font-weight: $alert-link-font-weight;
 }
 
-.#{$NS}-alert-dismissible {
+.alert-dismissible {
   padding-right: $alert-dismissible-padding-r;
 }
 
@@ -27,7 +25,7 @@
   @if (contrast-ratio($alert-background, $alert-color) < $min-contrast-ratio) {
     $alert-color: mix($value, color-contrast($alert-background), abs($alert-color-scale));
   }
-  .#{$NS}-alert-#{$state} {
+  .alert-#{$state} {
     @include alert-variant($alert-background, $alert-border, $alert-color);
   }
 }

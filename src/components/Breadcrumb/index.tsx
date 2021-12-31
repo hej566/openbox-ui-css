@@ -17,7 +17,7 @@ Breadcrumb.defaultProps = {
 
 function Breadcrumb(props: PropsTypes) {
   const { children, Divider, className, noDivider } = props;
-  const breadcrumbGroupClasses: string[] = [`${NS}-breadcrumb`];
+  const breadcrumbGroupClasses: string[] = [`breadcrumb`];
 
   if (className) breadcrumbGroupClasses.push(className);
 
