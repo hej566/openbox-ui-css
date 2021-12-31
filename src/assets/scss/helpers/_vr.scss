@@ -1,8 +1,8 @@
 .vr {
-  display: inline-block;
   align-self: stretch;
-  width: 1px;
-  min-height: 1em;
   background-color: currentColor;
+  display: inline-block;
+  min-height: 1em;
   opacity: $hr-opacity;
+  width: 1px;
 }

@@ -3,11 +3,8 @@ import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 // @ts-ignore
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { v4 as uuidv4 } from 'uuid';
 import Dropdown from '../components/Dropdown';
-import Icon from '../components/Icon';
 import DropdownItem from '../components/DropdownItem';
-import EllipsisV from '../assets/icons/svg/ellipsis-v-regular.svg';
 
 function Dropdowns() {
   const normal = `

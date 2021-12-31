@@ -20,7 +20,7 @@
 @import 'images';
 @import 'containers';
 @import 'grid';
-@import 'tables';
+//@import 'tables';
 @import 'forms';
 @import 'buttons';
 @import 'icon';
@@ -58,9 +58,11 @@
 .tippy-box[data-theme='rb-popover'] {
   background-color: transparent;
   color: inherit;
+
   .tippy-content {
     padding: 0;
   }
+
   .tippy-arrow {
     color: $popover-arrow-outer-color;
   }
@@ -69,33 +71,37 @@
 .tippy-box[data-theme='rb-dropdown'] {
   background-color: transparent;
   color: inherit;
+
   .tippy-content {
     padding: 0;
   }
 }
 
 .tippy-box[data-theme='rb-tooltip'] {
-  color: #ffffff;
+  color: #fff;
 }
 
 .tippy-box[data-theme='rb-select'] {
   background-color: transparent;
   color: inherit;
   width: 100%;
+
   .tippy-content {
     padding: 0;
   }
 }
 
 .tippy-box[data-theme='rb-submenu'] {
+  background-color: $light;
   //background-color: transparent;
   color: inherit;
   width: 100%;
-  background-color: $light;
+
   .tippy-content {
-    padding: 0;
     font-size: 1rem;
     line-height: 1.5;
+    padding: 0;
+
     .submenu__body {
       //width:
     }

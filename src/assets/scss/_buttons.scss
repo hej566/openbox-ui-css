@@ -1,20 +1,20 @@
 .btn {
-  position: relative;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+  @include transition($btn-transition);
+  background-color: transparent;
+  border: $btn-border-width solid transparent;
+  color: $body-color;
+  cursor: if($enable-button-pointers, pointer, null);
   display: inline-block;
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
-  vertical-align: middle;
-  color: $body-color;
+  position: relative;
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
-  white-space: $btn-white-space;
-  cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
-  background-color: transparent;
-  border: $btn-border-width solid transparent;
-  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
-  @include transition($btn-transition);
+  vertical-align: middle;
+  white-space: $btn-white-space;
 
   &:hover {
     color: $body-color;
@@ -22,8 +22,8 @@
   }
 
   &:focus {
-    outline: 0;
     box-shadow: $btn-focus-box-shadow;
+    outline: 0;
   }
 
   &:active,
@@ -38,9 +38,9 @@
   &:disabled,
   &.disabled,
   fieldset:disabled & {
+    @include box-shadow(none);
     cursor: not-allowed;
     opacity: $btn-disabled-opacity;
-    @include box-shadow(none);
   }
 
   &.btn__icon {
@@ -55,18 +55,19 @@
 }
 
 .btn__inner {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+
   &--loading {
     visibility: hidden;
   }
 }
 
 .btn__loading-icon {
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -74,11 +75,11 @@
   &.btn__icon {
     .btn__prefix-icon,
     .btn__suffix-icon {
-      display: flex;
       align-items: center;
+      display: flex;
+      height: 30px;
       justify-content: center;
       width: 30px;
-      height: 30px;
     }
   }
 }
@@ -87,11 +88,11 @@
   &.btn__icon {
     .btn__prefix-icon,
     .btn__suffix-icon {
-      display: flex;
       align-items: center;
+      display: flex;
+      height: 21px;
       justify-content: center;
       width: 21px;
-      height: 21px;
     }
   }
 }
@@ -109,8 +110,8 @@
 }
 
 .btn__content {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 @each $color, $value in $theme-colors {
@@ -126,8 +127,11 @@
 }
 
 .btn--link {
-  font-weight: $font-weight-normal;
+  border: none;
   color: currentColor;
+  font-weight: $font-weight-normal;
+  padding: 0;
+  text-decoration: none;
 
   &:hover {
     color: currentColor;
@@ -146,8 +150,8 @@
   &[role='button'] {
     border: none;
     text-decoration: none;
-    padding: 0;
-    vertical-align: baseline;
+    //padding: 0;
+    //vertical-align: baseline;
   }
 }
 

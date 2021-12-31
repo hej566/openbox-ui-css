@@ -8,15 +8,15 @@
   }
 
   > label {
-    position: absolute;
-    top: 0;
-    left: 0;
+    @include transition($form-floating-transition);
+    border: $input-border-width solid transparent; // Required for aligning label's text with the input as it affects inner box model
     height: 100%; // allow textareas
+    left: 0;
     padding: $form-floating-padding-y $form-floating-padding-x;
     pointer-events: none;
-    border: $input-border-width solid transparent; // Required for aligning label's text with the input as it affects inner box model
+    position: absolute;
+    top: 0;
     transform-origin: 0 0;
-    @include transition($form-floating-transition);
   }
 
   // stylelint-disable no-duplicate-selectors
@@ -29,19 +29,19 @@
 
     &:focus,
     &:not(:placeholder-shown) {
-      padding-top: $form-floating-input-padding-t;
       padding-bottom: $form-floating-input-padding-b;
+      padding-top: $form-floating-input-padding-t;
     }
     // Duplicated because `:-webkit-autofill` invalidates other selectors when grouped
     &:-webkit-autofill {
-      padding-top: $form-floating-input-padding-t;
       padding-bottom: $form-floating-input-padding-b;
+      padding-top: $form-floating-input-padding-t;
     }
   }
 
   > .form-select {
-    padding-top: $form-floating-input-padding-t;
     padding-bottom: $form-floating-input-padding-b;
+    padding-top: $form-floating-input-padding-t;
   }
 
   > .form-control:focus,

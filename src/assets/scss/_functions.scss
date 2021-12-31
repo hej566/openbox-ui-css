@@ -27,7 +27,7 @@
     $values: map-values($map);
     $first-value: nth($values, 1);
     @if $first-value != 0 {
-      @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+      @warn 'First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.';
     }
   }
 }
@@ -209,7 +209,7 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025 0
     }
   }
 
-  @warn "Found no color leading to #{$min-contrast-ratio}:1 contrast ratio against #{$background}...";
+  @warn 'Found no color leading to #{$min-contrast-ratio}:1 contrast ratio against #{$background}...';
 
   @return $max-ratio-color;
 }
@@ -329,7 +329,7 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025 0
     @return 0;
   }
   @if $divisor == 0 {
-    @error "Cannot divide by 0";
+    @error 'Cannot divide by 0';
   }
   $remainder: $dividend;
   $result: 0;

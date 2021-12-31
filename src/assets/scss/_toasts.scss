@@ -1,14 +1,14 @@
 .toast {
-  width: $toast-max-width;
-  max-width: 100%;
   @include font-size($toast-font-size);
-  color: $toast-color;
-  pointer-events: auto;
-  background-color: $toast-background-color;
+  @include border-radius($toast-border-radius);
   background-clip: padding-box;
+  background-color: $toast-background-color;
   border: $toast-border-width solid $toast-border-color;
   box-shadow: $toast-box-shadow;
-  @include border-radius($toast-border-radius);
+  color: $toast-color;
+  max-width: 100%;
+  pointer-events: auto;
+  width: $toast-max-width;
 
   &.showing {
     opacity: 0;
@@ -20,9 +20,9 @@
 }
 
 .toast-container {
-  width: max-content;
   max-width: 100%;
   pointer-events: none;
+  width: max-content;
 
   > :not(:last-child) {
     margin-bottom: $toast-spacing;
@@ -30,18 +30,18 @@
 }
 
 .toast-header {
-  display: flex;
-  align-items: center;
-  padding: $toast-padding-y $toast-padding-x;
-  color: $toast-header-color;
-  background-color: $toast-header-background-color;
-  background-clip: padding-box;
-  border-bottom: $toast-border-width solid $toast-header-border-color;
   @include border-top-radius(subtract($toast-border-radius, $toast-border-width));
+  align-items: center;
+  background-clip: padding-box;
+  background-color: $toast-header-background-color;
+  border-bottom: $toast-border-width solid $toast-header-border-color;
+  color: $toast-header-color;
+  display: flex;
+  padding: $toast-padding-y $toast-padding-x;
 
   .btn-close {
-    margin-right: $toast-padding-x * -0.5;
     margin-left: $toast-padding-x;
+    margin-right: $toast-padding-x * -0.5;
   }
 }
 

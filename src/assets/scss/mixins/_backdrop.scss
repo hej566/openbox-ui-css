@@ -1,12 +1,12 @@
 // Shared between modals and offcanvases
 @mixin overlay-backdrop($zindex, $backdrop-bg, $backdrop-opacity) {
+  background-color: $backdrop-bg;
+  height: 100vh;
+  left: 0;
+  opacity: $backdrop-opacity;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: $backdrop-bg;
-  opacity: $backdrop-opacity;
-  visibility: hidden;
   transition: all 0.15s ease-in-out;
+  visibility: hidden;
+  width: 100vw;
 }

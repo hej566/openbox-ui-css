@@ -1,40 +1,41 @@
 .accordion-item__button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: $accordion-button-padding-y $accordion-button-padding-x;
   @include font-size($font-size-base);
-  color: $accordion-button-color;
-  background-color: $accordion-button-bg;
-  border: 0;
   @include border-radius(0);
   @include transition($accordion-transition);
+  align-items: center;
+  background-color: $accordion-button-bg;
+  border: 0;
+  color: $accordion-button-color;
+  display: flex;
+  padding: $accordion-button-padding-y $accordion-button-padding-x;
+  position: relative;
+  width: 100%;
 
   &--show {
-    color: $accordion-button-active-color;
     background-color: $accordion-button-active-bg;
     box-shadow: inset 0 ($accordion-border-width * -1) 0 $accordion-border-color;
+    color: $accordion-button-active-color;
+
     .icon {
       transform: rotate(180deg);
     }
   }
 
   &--collapsed {
-    color: $accordion-button-color;
     background-color: $accordion-button-bg;
+    color: $accordion-button-color;
   }
 
   .btn__inner {
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
   }
 
   &:focus {
-    z-index: 1;
     border-color: $accordion-button-focus-border-color;
-    outline: 0;
     box-shadow: $accordion-button-focus-box-shadow;
+    outline: 0;
+    z-index: 1;
   }
 }
 
@@ -44,9 +45,9 @@
 }
 
 .accordion-item {
-  color: color-contrast($accordion-bg);
   background-color: $accordion-bg;
   border: $accordion-border-width solid $accordion-border-color;
+  color: color-contrast($accordion-bg);
 
   &:first-of-type {
     @include border-top-radius($accordion-border-radius);
@@ -74,9 +75,9 @@
 }
 
 .accordion-item__body {
+  @include transition($transition-collapse);
   height: 0;
   overflow: hidden;
-  @include transition($transition-collapse);
 }
 
 .accordion-item__body-inner {
@@ -89,13 +90,14 @@
   }
 
   .accordion-item {
-    border-right: 0;
-    border-left: 0;
     @include border-radius(0);
+    border-left: 0;
+    border-right: 0;
 
     &:first-child {
       border-top: 0;
     }
+
     &:last-child {
       border-bottom: 0;
     }

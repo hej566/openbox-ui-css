@@ -3,29 +3,29 @@
 }
 
 .popover {
-  max-width: $popover-max-width;
   // Our parent element can be arbitrary since tooltips are by default inserted as a sibling of their target element.
   // So reset our font and text properties to avoid inheriting weird values.
   @include reset-text();
   @include font-size($popover-font-size);
-  // Allow breaking very long words so they don't overflow the popover's bounds
-  word-wrap: break-word;
-  background-color: $popover-bg;
-  background-clip: padding-box;
-  border: $popover-border-width solid $popover-border-color;
   @include border-radius($popover-border-radius);
   @include box-shadow($popover-box-shadow);
+  background-clip: padding-box;
+  background-color: $popover-bg;
+  border: $popover-border-width solid $popover-border-color;
+  max-width: $popover-max-width;
+  // Allow breaking very long words so they don't overflow the popover's bounds
+  word-wrap: break-word;
 }
 
 //// Offset the popover to account for the popover arrow
 .popover-header {
-  padding: $popover-header-padding-y $popover-header-padding-x;
-  margin-bottom: 0; // Reset the default from Reboot
   @include font-size($font-size-base);
-  color: $popover-header-color;
+  @include border-top-radius($popover-inner-border-radius);
   background-color: $popover-header-bg;
   border-bottom: $popover-border-width solid $popover-border-color;
-  @include border-top-radius($popover-inner-border-radius);
+  color: $popover-header-color;
+  margin-bottom: 0; // Reset the default from Reboot
+  padding: $popover-header-padding-y $popover-header-padding-x;
 
   &:empty {
     display: none;
@@ -33,6 +33,6 @@
 }
 
 .popover-body {
-  padding: $popover-body-padding-y $popover-body-padding-x;
   color: $popover-body-color;
+  padding: $popover-body-padding-y $popover-body-padding-x;
 }

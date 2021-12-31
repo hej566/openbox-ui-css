@@ -27,6 +27,7 @@
 
 .rb-buttons {
   margin: 1rem;
+
   .rb-button {
     display: inline-block;
     margin: 1rem;
@@ -35,6 +36,7 @@
 //
 .rb-button-groups {
   margin: 1rem;
+
   .rb-button-group {
     margin: 1rem;
   }
@@ -42,6 +44,7 @@
 //
 .rb-accordions {
   margin: 1rem;
+
   .rb-accordion {
     margin: 1rem;
   }
@@ -49,6 +52,7 @@
 //
 .rb-alerts {
   margin: 1rem;
+
   .rb-alert {
     margin: 1rem;
   }
@@ -56,6 +60,7 @@
 //
 .rb-badges {
   margin: 1rem;
+
   .rb-badge-group {
     display: inline-block;
     margin: 1rem;
@@ -64,6 +69,7 @@
 //
 .rb-breadcrumbs {
   margin: 1rem;
+
   .rb-breadcrumb-wrapper {
     margin: 1rem;
   }
@@ -71,6 +77,7 @@
 //
 .rb-carousels {
   margin: 1rem;
+
   .rb-carousel-wrapper {
     height: auto;
     margin: 1rem;
@@ -89,6 +96,7 @@
 //
 .rb-list-groups {
   margin: 1rem;
+
   .rb-list-group-wrapper {
     margin: 1rem;
   }
@@ -96,27 +104,19 @@
 //
 .rb-modals {
   margin: 1rem;
+
   .rb-modal-wrapper {
     margin: 1rem;
   }
 }
 //
-//.rc-navs {
-//  margin: 1rem;
-//  .rc-group {
-//  }
-//  .rc-nav-basic,
-//  .rc-nav-centered,
-//  .rc-nav-ended,
-//  .rc-nav-vertical,
-//  .rc-nav-tabs,
-//  .rc-nav-dropdown,
-//  .rc-nav-pills,
-//  .rc-nav-pills-fill,
-//  .rc-nav-pills-justified {
-//    margin: 1rem;
-//  }
-//}
+.rb-navs {
+  margin: 1rem;
+
+  .rc-nav-wrapper {
+    margin: 1rem;
+  }
+}
 //
 //.rc-offcanvases {
 //  margin: 1rem;
@@ -142,6 +142,7 @@
   .layout-sidebar {
     display: none;
   }
+
   .layout-topbar {
     display: block !important;
   }

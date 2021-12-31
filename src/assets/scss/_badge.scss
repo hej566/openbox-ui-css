@@ -1,15 +1,15 @@
 .badge {
-  display: inline-block;
-  padding: $badge-padding-y $badge-padding-x;
   @include font-size($badge-font-size);
-  font-weight: $badge-font-weight;
-  line-height: 1;
-  color: $badge-color;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   @include border-radius($badge-border-radius);
   @include gradient-bg();
+  color: $badge-color;
+  display: inline-block;
+  font-weight: $badge-font-weight;
+  line-height: 1;
+  padding: $badge-padding-y $badge-padding-x;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
 
   // Empty badges collapse automatically
   &:empty {

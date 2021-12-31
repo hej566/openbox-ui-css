@@ -3,18 +3,18 @@
 //
 
 .input-group {
-  position: relative;
+  align-items: stretch;
   display: flex;
   flex-wrap: wrap; // For form validation feedback
-  align-items: stretch;
+  position: relative;
   width: 100%;
 
   > .form-control,
   > .form-select {
-    position: relative; // For focus state's z-index
     flex: 1 1 auto;
-    width: 1%;
     min-width: 0; // https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size
+    position: relative; // For focus state's z-index
+    width: 1%;
   }
 
   // Bring the "active" form control to the top of surrounding elements
@@ -45,18 +45,18 @@
 // to prepend or append to an input.
 
 .input-group-text {
-  display: flex;
-  align-items: center;
-  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
   @include font-size($input-font-size); // Match inputs
-  font-weight: $input-group-addon-font-weight;
-  line-height: $input-line-height;
-  color: $input-group-addon-color;
-  text-align: center;
-  white-space: nowrap;
+  @include border-radius($input-border-radius);
+  align-items: center;
   background-color: $input-group-addon-bg;
   border: $input-border-width solid $input-group-addon-border-color;
-  @include border-radius($input-border-radius);
+  color: $input-group-addon-color;
+  display: flex;
+  font-weight: $input-group-addon-font-weight;
+  line-height: $input-line-height;
+  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+  text-align: center;
+  white-space: nowrap;
 }
 
 // Sizing
@@ -68,18 +68,18 @@
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn {
-  padding: $input-padding-y-lg $input-padding-x-lg;
   @include font-size($input-font-size-lg);
   @include border-radius($input-border-radius-lg);
+  padding: $input-padding-y-lg $input-padding-x-lg;
 }
 
 .input-group-sm > .form-control,
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn {
-  padding: $input-padding-y-sm $input-padding-x-sm;
   @include font-size($input-font-size-sm);
   @include border-radius($input-border-radius-sm);
+  padding: $input-padding-y-sm $input-padding-x-sm;
 }
 
 .input-group-lg > .form-select,
@@ -95,10 +95,13 @@
 
 // stylelint-disable-next-line no-duplicate-selectors
 .input-group {
+  $validation-messages: '';
+
   &:not(.has-validation) {
     > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
     > .dropdown-toggle:nth-last-child(n + 3) {
       @include border-end-radius(0);
+
       .btn,
       .btn-icon {
         @include border-end-radius(0);
@@ -110,6 +113,7 @@
     > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu),
     > .dropdown-toggle:nth-last-child(n + 4) {
       @include border-end-radius(0);
+
       .btn,
       .btn-icon {
         @include border-end-radius(0);
@@ -117,7 +121,15 @@
     }
   }
 
-  $validation-messages: '';
+  > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
+    @include border-start-radius(0);
+    margin-left: -$input-border-width;
+
+    .btn,
+    .btn-icon {
+      @include border-start-radius(0);
+    }
+  }
   @each $state in map-keys($form-validation-states) {
     $validation-messages: $validation-messages +
       ':not(.' +
@@ -126,14 +138,5 @@
       ':not(.' +
       unquote($state) +
       '-feedback)';
-  }
-
-  > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
-    margin-left: -$input-border-width;
-    @include border-start-radius(0);
-    .btn,
-    .btn-icon {
-      @include border-start-radius(0);
-    }
   }
 }

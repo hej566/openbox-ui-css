@@ -43,16 +43,16 @@
 
 // scss-docs-start reboot-body-rules
 body {
-  margin: 0; // 1
-  font-family: var(--#{$variable-prefix}body-font-family);
   @include font-size(var(--#{$variable-prefix}body-font-size));
+  background-color: var(--#{$variable-prefix}body-bg); // 2
+  color: var(--#{$variable-prefix}body-color);
+  font-family: var(--#{$variable-prefix}body-font-family);
   font-weight: var(--#{$variable-prefix}body-font-weight);
   line-height: var(--#{$variable-prefix}body-line-height);
-  color: var(--#{$variable-prefix}body-color);
-  text-align: var(--#{$variable-prefix}body-text-align);
-  background-color: var(--#{$variable-prefix}body-bg); // 2
-  -webkit-text-size-adjust: 100%; // 3
+  margin: 0; // 1
   -webkit-tap-highlight-color: rgba($black, 0); // 4
+  text-align: var(--#{$variable-prefix}body-text-align);
+  -webkit-text-size-adjust: 100%; // 3
 }
 // scss-docs-end reboot-body-rules
 
@@ -62,10 +62,10 @@ body {
 // 2. Set correct height and prevent the `size` attribute to make the `hr` look like an input field
 
 hr {
-  margin: $hr-margin-y 0;
-  color: $hr-color; // 1
   background-color: currentColor;
   border: 0;
+  color: $hr-color; // 1
+  margin: $hr-margin-y 0;
   opacity: $hr-opacity;
 }
 
@@ -80,13 +80,13 @@ hr:not([size]) {
 //    margin for easier control within type scales as it avoids margin collapsing.
 
 %heading {
-  margin-top: 0; // 1
-  margin-bottom: $headings-margin-bottom;
+  color: $headings-color;
   font-family: $headings-font-family;
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
+  margin-bottom: $headings-margin-bottom;
+  margin-top: 0; // 1
 }
 
 h1 {
@@ -125,8 +125,8 @@ h6 {
 // bottom margin to use `rem` units instead of `em`.
 
 p {
-  margin-top: 0;
   margin-bottom: $paragraph-margin-bottom;
+  margin-top: 0;
 }
 
 // Abbreviations
@@ -138,18 +138,18 @@ p {
 
 abbr[title],
 abbr[data-bs-original-title] {
+  cursor: help; // 3
   // 1
   text-decoration: underline dotted; // 2
-  cursor: help; // 3
   text-decoration-skip-ink: none; // 4
 }
 
 // Address
 
 address {
-  margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
+  margin-bottom: 1rem;
 }
 
 // Lists
@@ -162,8 +162,8 @@ ul {
 ol,
 ul,
 dl {
-  margin-top: 0;
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 ol ol,
@@ -210,8 +210,8 @@ small {
 // Mark
 
 mark {
-  padding: $mark-padding;
   background-color: $mark-bg;
+  padding: $mark-padding;
 }
 
 // Sub and Sup
@@ -221,15 +221,16 @@ mark {
 
 sub,
 sup {
-  position: relative;
   @include font-size($sub-sup-font-size);
   line-height: 0;
+  position: relative;
   vertical-align: baseline;
 }
 
 sub {
   bottom: -0.25em;
 }
+
 sup {
   top: -0.5em;
 }
@@ -265,9 +266,9 @@ pre,
 code,
 kbd,
 samp {
-  font-family: $font-family-code;
   @include font-size(1em); // Correct the odd `em` font sizing in all browsers.
   direction: ltr #{'/* rtl:ignore */'};
+  font-family: $font-family-code;
   unicode-bidi: bidi-override;
 }
 
@@ -276,12 +277,12 @@ samp {
 // 3. Don't allow content to break outside
 
 pre {
-  display: block;
-  margin-top: 0; // 1
-  margin-bottom: 1rem; // 2
-  overflow: auto; // 3
   @include font-size($code-font-size);
   color: $pre-color;
+  display: block;
+  margin-bottom: 1rem; // 2
+  margin-top: 0; // 1
+  overflow: auto; // 3
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -303,16 +304,16 @@ code {
 }
 
 kbd {
-  padding: $kbd-padding-y $kbd-padding-x;
   @include font-size($kbd-font-size);
-  color: $kbd-color;
-  background-color: $kbd-bg;
   @include border-radius($border-radius-sm);
+  background-color: $kbd-bg;
+  color: $kbd-color;
+  padding: $kbd-padding-y $kbd-padding-x;
 
   kbd {
-    padding: 0;
     @include font-size(1em);
     font-weight: $nested-kbd-font-weight;
+    padding: 0;
   }
 }
 
@@ -336,14 +337,14 @@ svg {
 // Prevent double borders
 
 table {
-  caption-side: bottom;
   border-collapse: collapse;
+  caption-side: bottom;
 }
 
 caption {
-  padding-top: $table-cell-padding-y;
-  padding-bottom: $table-cell-padding-y;
   color: $table-caption-color;
+  padding-bottom: $table-cell-padding-y;
+  padding-top: $table-cell-padding-y;
   text-align: left;
 }
 
@@ -400,10 +401,10 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0; // 1
-  font-family: inherit;
   @include font-size(inherit);
+  font-family: inherit;
   line-height: inherit;
+  margin: 0; // 1
 }
 
 // Remove the inheritance of text transform in Firefox
@@ -442,9 +443,9 @@ select {
 // 3. Opinionated: add "hand" cursor to non-disabled button elements.
 
 button,
-[type="button"], // 1
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button; // 2
 
   @if $enable-button-pointers {
@@ -457,8 +458,8 @@ button,
 // Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
 
 ::-moz-focus-inner {
-  padding: 0;
   border-style: none;
+  padding: 0;
 }
 
 // 1. Textareas should really only resize vertically so they don't break their (horizontal) containers.
@@ -475,10 +476,10 @@ textarea {
 // 2. Reset the default outline behavior of fieldsets so they don't affect page layout.
 
 fieldset {
+  border: 0; // 2
+  margin: 0; // 2
   min-width: 0; // 1
   padding: 0; // 2
-  margin: 0; // 2
-  border: 0; // 2
 }
 
 // 1. By using `float: left`, the legend will behave like a block element.
@@ -487,13 +488,13 @@ fieldset {
 //    See https://github.com/twbs/bootstrap/issues/29712
 
 legend {
-  float: left; // 1
-  width: 100%;
-  padding: 0;
-  margin-bottom: $legend-margin-bottom;
   @include font-size($legend-font-size);
+  float: left; // 1
   font-weight: $legend-font-weight;
   line-height: inherit;
+  margin-bottom: $legend-margin-bottom;
+  padding: 0;
+  width: 100%;
 
   + * {
     clear: left; // 2
@@ -524,8 +525,8 @@ legend {
 //    https://github.com/twbs/bootstrap/issues/11586.
 
 [type='search'] {
-  outline-offset: -2px; // 1
   -webkit-appearance: textfield; // 2
+  outline-offset: -2px; // 1
 }
 
 // 1. A few input types should stay LTR
@@ -564,8 +565,8 @@ legend {
 // 2. Correct the inability to style clickable types in iOS and Safari.
 
 ::-webkit-file-upload-button {
-  font: inherit; // 1
   -webkit-appearance: button; // 2
+  font: inherit; // 1
 }
 
 // Correct element displays
@@ -585,8 +586,8 @@ iframe {
 // 1. Add the correct display in all browsers
 
 summary {
-  display: list-item; // 1
   cursor: pointer;
+  display: list-item; // 1
 }
 
 // Progress

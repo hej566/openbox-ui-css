@@ -38,22 +38,22 @@
   $disabled-border: $border,
   $disabled-color: color-contrast($disabled-background)
 ) {
-  color: $color;
   @include gradient-bg($background);
-  border-color: $border;
   @include box-shadow($btn-box-shadow);
+  border-color: $border;
+  color: $color;
 
   &:hover {
-    color: $hover-color;
     @include gradient-bg($hover-background);
     border-color: $hover-border;
+    color: $hover-color;
   }
 
   .btn-check:focus + &,
   &:focus {
-    color: $hover-color;
     @include gradient-bg($hover-background);
     border-color: $hover-border;
+    color: $hover-color;
     @if $enable-shadows {
       @include box-shadow(
         $btn-box-shadow,
@@ -70,11 +70,11 @@
   &:active,
   &.active,
   .show > &.dropdown-toggle {
-    color: $active-color;
     background-color: $active-background;
     // Remove CSS gradients if they're enabled
     background-image: if($enable-gradients, none, null);
     border-color: $active-border;
+    color: $active-color;
 
     &:focus {
       @if $enable-shadows {
@@ -91,11 +91,11 @@
 
   &:disabled,
   &.disabled {
-    color: $disabled-color;
     background-color: $disabled-background;
     // Remove CSS gradients if they're enabled
     background-image: if($enable-gradients, none, null);
     border-color: $disabled-border;
+    color: $disabled-color;
   }
 }
 // scss-docs-end btn-variant-mixin
@@ -108,13 +108,13 @@
   $active-border: $color,
   $active-color: color-contrast($active-background)
 ) {
-  color: $color;
   border-color: $color;
+  color: $color;
 
   &:hover {
-    color: $color-hover;
     background-color: $active-background;
     border-color: $active-border;
+    color: $color-hover;
   }
 
   .btn-check:focus + &,
@@ -127,9 +127,9 @@
   &:active,
   &.active,
   &.dropdown-toggle.show {
-    color: $active-color;
     background-color: $active-background;
     border-color: $active-border;
+    color: $active-color;
 
     &:focus {
       @if $enable-shadows {
@@ -143,17 +143,17 @@
 
   &:disabled,
   &.disabled {
-    color: $color;
     background-color: transparent;
+    color: $color;
   }
 }
 // scss-docs-end btn-outline-variant-mixin
 
 // scss-docs-start btn-size-mixin
 @mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
-  padding: $padding-y $padding-x;
   @include font-size($font-size);
   // Manually declare to provide an override to the browser default
   @include border-radius($border-radius, 0);
+  padding: $padding-y $padding-x;
 }
 // scss-docs-end btn-size-mixin

@@ -1,12 +1,12 @@
 .breadcrumb {
+  @include font-size($breadcrumb-font-size);
+  @include border-radius($breadcrumb-border-radius);
+  background-color: $breadcrumb-bg;
   display: flex;
   flex-wrap: wrap;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
-  margin-bottom: $breadcrumb-margin-bottom;
-  @include font-size($breadcrumb-font-size);
   list-style: none;
-  background-color: $breadcrumb-bg;
-  @include border-radius($breadcrumb-border-radius);
+  margin-bottom: $breadcrumb-margin-bottom;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
 
 .breadcrumb-item {
@@ -16,6 +16,7 @@
     color: $breadcrumb-divider-color;
     margin: 0 0.5rem;
   }
+
   &.active {
     color: $breadcrumb-active-color;
   }

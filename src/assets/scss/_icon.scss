@@ -1,7 +1,7 @@
 .icon {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   & > svg {
     @include icon-size($btn-font-size);

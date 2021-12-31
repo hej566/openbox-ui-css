@@ -13,7 +13,7 @@ $rfs-base-value: 1.25rem !default;
 $rfs-unit: rem !default;
 
 @if $rfs-unit != rem and $rfs-unit != px {
-  @error "`#{$rfs-unit}` is not a valid unit for $rfs-unit. Use `px` or `rem`.";
+  @error '`#{$rfs-unit}` is not a valid unit for $rfs-unit. Use `px` or `rem`.';
 }
 
 // Breakpoint at where values start decreasing if screen width is smaller
@@ -21,7 +21,7 @@ $rfs-breakpoint: 1200px !default;
 $rfs-breakpoint-unit: px !default;
 
 @if $rfs-breakpoint-unit != px and $rfs-breakpoint-unit != em and $rfs-breakpoint-unit != rem {
-  @error "`#{$rfs-breakpoint-unit}` is not a valid unit for $rfs-breakpoint-unit. Use `px`, `em` or `rem`.";
+  @error '`#{$rfs-breakpoint-unit}` is not a valid unit for $rfs-breakpoint-unit. Use `px`, `em` or `rem`.';
 }
 
 // Resize values based on screen height and width
@@ -31,7 +31,7 @@ $rfs-two-dimensional: false !default;
 $rfs-factor: 10 !default;
 
 @if type-of($rfs-factor) != number or $rfs-factor <= 1 {
-  @error "`#{$rfs-factor}` is not a valid  $rfs-factor, it must be greater than 1.";
+  @error '`#{$rfs-factor}` is not a valid  $rfs-factor, it must be greater than 1.';
 }
 
 // Mode. Possibilities: "min-media-query", "max-media-query"
@@ -60,7 +60,7 @@ $rfs-base-value-unit: unit($rfs-base-value);
     @return 0;
   }
   @if $divisor == 0 {
-    @error "Cannot divide by 0";
+    @error 'Cannot divide by 0';
   }
   $remainder: $dividend;
   $result: 0;

@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
+// @ts-ignore
+import SyntaxHighlighter from 'react-syntax-highlighter';
+// @ts-ignore
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Nav from '../components/Nav';
 import NavItem from '../components/NavItem';
 import Dropdown from '../components/Dropdown';
@@ -7,168 +10,310 @@ import DropdownItem from '../components/DropdownItem';
 
 function Navs() {
   function changeHandler(key: string) {
-    console.log(key);
+    // console.log(key);
   }
+
+  const basic = `
+    import Nav from '../components/Nav';
+    import NavItem from '../components/NavItem';
+
+    <Nav>
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3">Link</NavItem>
+      <NavItem itemId="4" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
+  const centered = `
+    import Nav from '../components/Nav';
+    import NavItem from '../components/NavItem';
+
+    <Nav centered>
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3">Link</NavItem>
+      <NavItem itemId="4" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
+  const ended = `
+    import Nav from '../components/Nav';
+    import NavItem from '../components/NavItem';
+
+    <Nav ended>
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3">Link</NavItem>
+      <NavItem itemId="4" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
+  const vertical = `
+    import Nav from '../components/Nav';
+    import NavItem from '../components/NavItem';
+
+    <Nav vertical>
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3">Link</NavItem>
+      <NavItem itemId="4" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+  const tabs = `
+    import Nav from '../components/Nav';
+    import NavItem from '../components/NavItem';
+
+    <Nav tabs>
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3">Link</NavItem>
+      <NavItem itemId="4" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
+  const pillTabs = `
+    import Nav from '../components/Nav';
+    import NavItem from '../components/NavItem';
+
+    <Nav tabs>
+      <NavItem isActive itemId="1">
+        Active
+      </NavItem>
+      <NavItem itemId="2">Link</NavItem>
+      <NavItem itemId="3">Link</NavItem>
+      <NavItem itemId="4" isDisabled>
+        Disabled
+      </NavItem>
+    </Nav>
+  `;
+
   return (
-    <div className="rc-navs">
-      <section className="rc-nav-basic">
-        <div className="rc-title">Basic nav</div>
-        <div className="rc-group">
-          <Nav onChange={changeHandler}>
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+    <div className="rb-navs">
+      <section className="rb-nav-basic">
+        <h1 className="rb-title">Navs and tabs</h1>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav>
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3">Link</NavItem>
+              <NavItem itemId="4" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {basic}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-nav-centered">
-        <div className="rc-title">Centered nav</div>
-        <div className="rc-group">
-          <Nav centered>
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+      <section className="rb-nav-centered">
+        <h1 className="rb-title">Centered</h1>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav centered>
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3">Link</NavItem>
+              <NavItem itemId="4" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {centered}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-nav-ended">
-        <div className="rc-title">Ended nav</div>
-        <div className="rc-group">
-          <Nav ended>
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+      <section className="rb-nav-ended">
+        <h1 className="rb-title">Ended</h1>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav ended>
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3">Link</NavItem>
+              <NavItem itemId="4" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {ended}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-nav-vertical">
-        <div className="rc-title">Vertical nav</div>
-        <div className="rc-group">
-          <Nav vertical>
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+      <section className="rb-nav-vertical">
+        <h1 className="rb-title">Vertical</h1>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav vertical>
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3">Link</NavItem>
+              <NavItem itemId="4" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {vertical}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-nav-tabs">
-        <div className="rc-title">Tabs nav</div>
-        <div className="rc-group">
-          <Nav tabs>
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+      <section className="rb-nav-tabs">
+        <h1 className="rb-title">Tabs</h1>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav tabs>
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3">Link</NavItem>
+              <NavItem itemId="4" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {tabs}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-nav-pills">
-        <div className="rc-title">Pills nav</div>
-        <div className="rc-group">
-          <Nav className="nav-pills" onChange={changeHandler}>
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()} dropdown>
-              <Dropdown variant="link" buttonName="Dropdown">
-                {/* <DropdownItem active key={uuidv4()}> */}
-                {/*  Action */}
-                {/* </DropdownItem> */}
-                {/* <DropdownItem disabled key={uuidv4()}> */}
-                {/*  Another action */}
-                {/* </DropdownItem> */}
-                {/* <DropdownItem key={uuidv4()}> */}
-                {/*  <a>Something else here</a> */}
-                {/* </DropdownItem> */}
-                {/* <hr className="dropdown-divider" /> */}
-                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
-              </Dropdown>
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+      <section className="rb-nav-pills">
+        <h1 className="rb-title">Pills tab</h1>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav className="nav-pills">
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">
+                <Dropdown variant="link" buttonName="Dropdown">
+                  <DropdownItem isActive itemId="3">
+                    Action
+                  </DropdownItem>
+                  <DropdownItem isDisabled itemId="4">
+                    Another action
+                  </DropdownItem>
+                  <DropdownItem itemId="5">
+                    <a>Something else here</a>
+                  </DropdownItem>
+                  <hr className="dropdown-divider" />
+                  <DropdownItem itemId="6">Separated link</DropdownItem>
+                </Dropdown>
+              </NavItem>
+              <NavItem itemId="7">Link</NavItem>
+              <NavItem itemId="8" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {pillTabs}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-nav-dropdown">
-        <div className="rc-title">Tabs nav with dropdown</div>
-        <div className="rc-group">
-          <Nav tabs>
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()} dropdown>
-              <Dropdown variant="link" buttonName="Dropdown">
-                {/* <DropdownItem active key={uuidv4()}> */}
-                {/*  Action */}
-                {/* </DropdownItem> */}
-                {/* <DropdownItem disabled key={uuidv4()}> */}
-                {/*  Another action */}
-                {/* </DropdownItem> */}
-                {/* <DropdownItem key={uuidv4()}> */}
-                {/*  <a>Something else here</a> */}
-                {/* </DropdownItem> */}
-                {/* <hr className="dropdown-divider" /> */}
-                {/* <DropdownItem key={uuidv4()}>Separated link</DropdownItem> */}
-              </Dropdown>
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+      <section className="rb-nav-dropdown">
+        <div className="rb-title">Tabs</div>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav tabs>
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">
+                <Dropdown variant="link" buttonName="Dropdown">
+                  <DropdownItem isActive itemId="3">
+                    Action
+                  </DropdownItem>
+                  <DropdownItem isDisabled itemId="4">
+                    Another action
+                  </DropdownItem>
+                  <DropdownItem itemId="5">
+                    <a>Something else here</a>
+                  </DropdownItem>
+                  <hr className="dropdown-divider" />
+                  <DropdownItem itemId="6">Separated link</DropdownItem>
+                </Dropdown>
+              </NavItem>
+              <NavItem itemId="7">Link</NavItem>
+              <NavItem itemId="8" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
         </div>
       </section>
-      <section className="rc-nav-pills-fill">
-        <div className="rc-title">Pills and fill nav</div>
-        <div className="rc-group">
-          <Nav className="nav-pills nav-fill">
-            <NavItem active key={uuidv4()}>
-              Active
-            </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
-              Disabled
-            </NavItem>
-          </Nav>
+      <section className="rb-nav-pills-fill">
+        <div className="rb-title">Pills and fill nav</div>
+        <div className="rb-group">
+          <div className="rb-nav-wrapper">
+            <Nav className="nav-pills nav-fill">
+              <NavItem isActive itemId="1">
+                Active
+              </NavItem>
+              <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3">Link</NavItem>
+              <NavItem itemId="4" isDisabled>
+                Disabled
+              </NavItem>
+            </Nav>
+          </div>
         </div>
       </section>
-      <section className="rc-nav-pills-justified">
-        <div className="rc-title">Pills and justified nav</div>
-        <div className="rc-group">
+      <section className="rb-nav-pills-justified">
+        <div className="rb-title">Pills and justified nav</div>
+        <div className="rb-group">
           <Nav className="nav-pills nav-justified">
-            <NavItem active key={uuidv4()}>
+            <NavItem isActive itemId="1">
               Active
             </NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()}>Link</NavItem>
-            <NavItem key={uuidv4()} disabled>
+            <NavItem itemId="2">Link</NavItem>
+            <NavItem itemId="3">Link</NavItem>
+            <NavItem itemId="4" isDisabled>
               Disabled
             </NavItem>
           </Nav>

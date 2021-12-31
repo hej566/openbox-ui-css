@@ -14,24 +14,24 @@
 // other navbar variations.
 
 .navbar {
-  position: relative;
+  @include gradient-bg();
+  align-items: center;
   display: flex;
   flex-wrap: wrap; // allow us to do the line break for collapsing content
-  align-items: center;
   justify-content: space-between; // space out brand from logo
-  padding-top: $navbar-padding-y;
-  padding-right: $navbar-padding-x; // default: null
   padding-bottom: $navbar-padding-y;
   padding-left: $navbar-padding-x; // default: null
-  @include gradient-bg();
+  padding-right: $navbar-padding-x; // default: null
+  padding-top: $navbar-padding-y;
+  position: relative;
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
   // The `flex-wrap` property is inherited to simplify the expanded navbars
   %container-flex-properties {
+    align-items: center;
     display: flex;
     flex-wrap: inherit;
-    align-items: center;
     justify-content: space-between;
   }
 
@@ -52,10 +52,10 @@
 // Used for brand, project, or site names.
 
 .navbar-brand {
-  padding-top: $navbar-brand-padding-y;
-  padding-bottom: $navbar-brand-padding-y;
-  margin-right: $navbar-brand-margin-end;
   @include font-size($navbar-brand-font-size);
+  margin-right: $navbar-brand-margin-end;
+  padding-bottom: $navbar-brand-padding-y;
+  padding-top: $navbar-brand-padding-y;
   text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap;
 
@@ -72,13 +72,13 @@
 .navbar-nav {
   display: flex;
   flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
-  padding-left: 0;
-  margin-bottom: 0;
   list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
 
   .nav-link {
-    padding-right: 0;
     padding-left: 0;
+    padding-right: 0;
   }
 
   .dropdown-menu-wrapper {
@@ -91,8 +91,8 @@
 //
 
 .navbar-text {
-  padding-top: $nav-link-padding-y;
   padding-bottom: $nav-link-padding-y;
+  padding-top: $nav-link-padding-y;
 }
 
 // Responsive navbar
@@ -104,44 +104,44 @@
 // the default flexbox row orientation. Requires the use of `flex-wrap: wrap`
 // on the `.navbar` parent.
 .navbar-collapse {
-  flex-basis: 100%;
-  flex-grow: 1;
   // For always expanded or extra full navbars, ensure content aligns itself
   // properly vertically. Can be easily overridden with flex utilities.
   align-items: center;
+  flex-basis: 100%;
+  flex-grow: 1;
 }
 
 // Button for toggling the navbar when in its collapsed state
 .navbar-toggler {
-  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
   @include font-size($navbar-toggler-font-size);
-  line-height: 1;
-  background-color: transparent; // remove default button style
-  border: $border-width solid transparent; // remove default button style
   @include border-radius($navbar-toggler-border-radius);
   @include transition($navbar-toggler-transition);
+  background-color: transparent; // remove default button style
+  border: $border-width solid transparent; // remove default button style
+  line-height: 1;
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
 
   &:hover {
     text-decoration: none;
   }
 
   &:focus {
-    text-decoration: none;
-    outline: 0;
     box-shadow: 0 0 0 $navbar-toggler-focus-width;
+    outline: 0;
+    text-decoration: none;
   }
 }
 
 // Keep as a separate element so folks can easily override it with another icon
 // or image file as needed.
 .navbar-toggler-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
   display: inline-block;
-  width: 1.5em;
   height: 1.5em;
   vertical-align: middle;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
+  width: 1.5em;
 }
 
 .navbar-nav-scroll {
@@ -171,8 +171,8 @@
           }
 
           .nav-link {
-            padding-right: $navbar-nav-link-padding-x;
             padding-left: $navbar-nav-link-padding-x;
+            padding-right: $navbar-nav-link-padding-x;
           }
         }
 
@@ -182,9 +182,9 @@
 
         .navbar-collapse {
           display: flex !important; // stylelint-disable-line declaration-no-important
+          flex-basis: auto;
           height: auto !important;
           min-height: auto !important;
-          flex-basis: auto;
         }
 
         .navbar-toggler {
@@ -196,29 +196,30 @@
         }
 
         .offcanvas {
-          position: inherit;
-          bottom: 0;
-          z-index: 1000;
-          flex-grow: 1;
-          visibility: visible !important; // stylelint-disable-line declaration-no-important
-          background-color: transparent;
-          border-right: 0;
-          border-left: 0;
           @include transition(none);
+          background-color: transparent;
+          border-left: 0;
+          border-right: 0;
+          bottom: 0;
+          flex-grow: 1;
+          position: inherit;
           transform: none;
+          visibility: visible !important; // stylelint-disable-line declaration-no-important
+          z-index: 1000;
         }
+
         .offcanvas-top,
         .offcanvas-bottom {
-          height: auto;
-          border-top: 0;
           border-bottom: 0;
+          border-top: 0;
+          height: auto;
         }
 
         .offcanvas-body {
           display: flex;
           flex-grow: 0;
-          padding: 0;
           overflow-y: visible;
+          padding: 0;
         }
       }
     }
@@ -262,8 +263,8 @@
   }
 
   .navbar-toggler {
-    color: $navbar-light-color;
     border-color: $navbar-light-toggler-border-color;
+    color: $navbar-light-color;
   }
 
   .navbar-toggler-icon {
@@ -294,7 +295,7 @@
 
   .navbar-nav {
     .nav-link {
-      color: #ffffff;
+      color: #fff;
 
       &:hover,
       &:focus {
@@ -313,8 +314,8 @@
   }
 
   .navbar-toggler {
-    color: $navbar-dark-color;
     border-color: $navbar-dark-toggler-border-color;
+    color: $navbar-dark-color;
   }
 
   .navbar-toggler-icon {
@@ -323,6 +324,7 @@
 
   .navbar-text {
     color: $navbar-dark-color;
+
     a,
     a:hover,
     a:focus {

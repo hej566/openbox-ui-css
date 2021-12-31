@@ -30,10 +30,10 @@ const Layout = (props: any) => {
     <div className="layout">
       <div className="layout-headbar">
         <Navbar title="Navbar" className="navbar-expand-lg" variant="primary" theme="dark">
-          <NavItem active key={uuidv4()}>
+          <NavItem isActive itemId="1">
             Active
           </NavItem>
-          <NavItem key={uuidv4()}>Link</NavItem>
+          <NavItem itemId="2">Link</NavItem>
         </Navbar>
       </div>
       <div className="layout-topbar">

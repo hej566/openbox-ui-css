@@ -24,40 +24,44 @@
   $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width
     rgba($color, $input-btn-focus-color-opacity)
 ) {
-  .#{$state}-feedback {
-    display: none;
-    width: 100%;
-    margin-top: $form-feedback-margin-top;
-    @include font-size($form-feedback-font-size);
-    font-style: $form-feedback-font-style;
-    color: $color;
-  }
-
-  .#{$state}-tooltip {
-    position: absolute;
-    top: 100%;
-    z-index: 5;
-    display: none;
-    max-width: 100%; // Contain to parent when possible
-    padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
-    margin-top: 0.1rem;
-    @include font-size($form-feedback-tooltip-font-size);
-    line-height: $form-feedback-tooltip-line-height;
-    color: $tooltip-color;
-    background-color: $tooltip-bg-color;
-    @include border-radius($form-feedback-tooltip-border-radius);
-  }
-
   @include form-validation-state-selector($state) {
     ~ .#{$state}-feedback,
     ~ .#{$state}-tooltip {
       display: block;
     }
   }
+  .#{$state}-feedback {
+    @include font-size($form-feedback-font-size);
+    color: $color;
+    display: none;
+    font-style: $form-feedback-font-style;
+    margin-top: $form-feedback-margin-top;
+    width: 100%;
+  }
+
+  .#{$state}-tooltip {
+    @include font-size($form-feedback-tooltip-font-size);
+    @include border-radius($form-feedback-tooltip-border-radius);
+    background-color: $tooltip-bg-color;
+    color: $tooltip-color;
+    display: none;
+    line-height: $form-feedback-tooltip-line-height;
+    margin-top: 0.1rem;
+    max-width: 100%; // Contain to parent when possible
+    padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+  }
 
   .form-control {
     @include form-validation-state-selector($state) {
       border-color: $color;
+
+      &:focus {
+        border-color: $color;
+        box-shadow: $focus-box-shadow;
+      }
 
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
@@ -65,11 +69,6 @@
         background-repeat: no-repeat;
         background-position: right $input-height-inner-quarter center;
         background-size: $input-height-inner-half $input-height-inner-half;
-      }
-
-      &:focus {
-        border-color: $color;
-        box-shadow: $focus-box-shadow;
       }
     }
   }
@@ -88,19 +87,19 @@
     @include form-validation-state-selector($state) {
       border-color: $color;
 
-      @if $enable-validation-icons {
-        &:not([multiple]):not([size]),
-        &:not([multiple])[size='1'] {
-          padding-right: $form-select-feedback-icon-padding-end;
-          background-image: escape-svg($form-select-indicator), escape-svg($icon);
-          background-position: $form-select-bg-position, $form-select-feedback-icon-position;
-          background-size: $form-select-bg-size, $form-select-feedback-icon-size;
-        }
-      }
-
       &:focus {
         border-color: $color;
         box-shadow: $focus-box-shadow;
+      }
+
+      @if $enable-validation-icons {
+        &:not([multiple]):not([size]),
+        &:not([multiple])[size='1'] {
+          background-image: escape-svg($form-select-indicator), escape-svg($icon);
+          background-position: $form-select-bg-position, $form-select-feedback-icon-position;
+          background-size: $form-select-bg-size, $form-select-feedback-icon-size;
+          padding-right: $form-select-feedback-icon-padding-end;
+        }
       }
     }
   }
@@ -122,6 +121,7 @@
       }
     }
   }
+
   .form-check-inline .form-check-input {
     ~ .#{$state}-feedback {
       margin-left: 0.5em;
@@ -131,13 +131,13 @@
   .input-group .form-control,
   .input-group .form-select {
     @include form-validation-state-selector($state) {
+      &:focus {
+        z-index: 3;
+      }
       @if $state == 'valid' {
         z-index: 1;
       } @else if $state == 'invalid' {
         z-index: 2;
-      }
-      &:focus {
-        z-index: 3;
       }
     }
   }
