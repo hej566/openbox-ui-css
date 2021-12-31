@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Image from '../components/Image';
 
-import img1 from '../assets/img/865-600x400.jpeg';
-import img2 from '../assets/img/866-600x400.jpeg';
-import img3 from '../assets/img/867-600x400.jpeg';
+import poster1 from '../assets/img/Post-1.png';
+import poster2 from '../assets/img/Post-2.png';
+import poster3 from '../assets/img/Post-3.png';
+import poster4 from '../assets/img/Post-4.png';
+import poster5 from '../assets/img/Post-5.png';
 
 function Uploads() {
   return (
@@ -12,21 +14,21 @@ function Uploads() {
       <div className="rc-title">Basic toast</div>
       <div className="rc-group">
         <div className="rc-item">
-          <Image src={img1} className="img-fluid" />
+          <Image src={poster1} className="img-fluid" />
         </div>
         <div className="rc-item">
-          <Image src={img2} className="img-thumbnail" />
+          <Image src={poster2} className="img-thumbnail" />
         </div>
         <div className="rc-item">
-          <Image src={img1} className="rounded float-start" />
+          <Image src={poster3} className="rounded float-start" />
           <div style={{ clear: 'both' }} />
         </div>
         <div className="rc-item">
-          <Image src={img2} className="rounded float-end" />
+          <Image src={poster4} className="rounded float-end" />
           <div style={{ clear: 'both' }} />
         </div>
         <div className="rc-item">
-          <Image src={img3} className="rounded mx-auto d-block" />
+          <Image src={poster5} className="rounded mx-auto d-block" />
         </div>
       </div>
     </section>

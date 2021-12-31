@@ -47,48 +47,20 @@
   }
 }
 //
-//.rc-alerts {
-//  margin: 1rem;
-//  .rc-alert-variant,
-//  .rc-alert-link-content,
-//  .rc-alert-additional-content,
-//  .rc-alert-prefix-icon,
-//  .rc-alert-button {
-//    margin: 1rem;
-//  }
-//  .alert {
-//    //& > .icon {
-//    //  margin-right: 0.5rem;
-//    //}
-//    //&.suffix-btn {
-//    //  display: flex;
-//    //  align-items: center;
-//    //  position: relative;
-//    //  .btn-link {
-//    //    //color: currentColor;
-//    //    position: absolute;
-//    //    right: 0.5rem;
-//    //  }
-//    //}
-//  }
-//}
+.rb-alerts {
+  margin: 1rem;
+  .rb-alert {
+    margin: 1rem;
+  }
+}
 //
-//.rc-badges {
-//  margin: 1rem;
-//  .rc-badges-basic,
-//  .rc-badges-button,
-//  .rc-badges-positioned,
-//  .rc-badges-bg-color,
-//  .rc-badges-pill {
-//    margin: 1rem;
-//    .btn {
-//      margin-right: 2rem;
-//      .rc-badge-content {
-//        margin-right: 0.5rem;
-//      }
-//    }
-//  }
-//}
+.rb-badges {
+  margin: 1rem;
+  .rb-badge-group {
+    display: inline-block;
+    margin: 1rem;
+  }
+}
 //
 //.rc-breadcrumbs {
 //  margin: 1rem;
@@ -99,54 +71,30 @@
 //  }
 //}
 //
-//.rc-carousels {
-//  margin: 1rem;
-//  .carousel {
-//    width: 600px;
-//    height: auto;
-//  }
-//  .rc-carousel-basic,
-//  .rc-carousel-control,
-//  .rc-carousel-control-indicator,
-//  .rc-carousel-control-fade {
-//    margin: 1rem;
-//  }
-//}
+.rb-carousels {
+  margin: 1rem;
+  .rb-carousel-wrapper {
+    height: auto;
+    margin: 1rem;
+    width: 600px;
+  }
+}
 //
-//.rc-dropdowns {
-//  margin: 1rem;
-//  .rc-group {
-//    .dropdown {
-//      display: inline-block;
-//      margin: 1rem;
-//    }
-//  }
-//  .rc-dropdown-basic,
-//  .rc-dropdown-link,
-//  .rc-dropdown-variant,
-//  .rc-dropdown-split-button,
-//  .rc-dropdown-size,
-//  .rc-dropdown-dark,
-//  .rc-dropdown-item-disabled,
-//  .rc-dropdown-disabled {
-//    margin: 1rem;
-//  }
-//}
+.rb-dropdowns {
+  margin: 1rem;
+
+  .rb-dropdown-wrapper {
+    display: inline-block;
+    margin: 1rem;
+  }
+}
 //
-//.rc-list-groups {
-//  margin: 1rem;
-//  .rc-group {
-//  }
-//  .rc-list-group-basic,
-//  .rc-list-group-flush,
-//  .rc-list-group-numbered,
-//  .rc-list-group-horizontal,
-//  .rc-list-group-contextual,
-//  .rc-list-group-badges,
-//  .rc-list-group-custom {
-//    margin: 1rem;
-//  }
-//}
+.rb-list-groups {
+  margin: 1rem;
+  .rb-list-group-wrapper {
+    margin: 1rem;
+  }
+}
 //
 //.rc-modals {
 //  margin: 1rem;

@@ -15,7 +15,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
     split,
     size,
     theme,
-    disabled,
+    isDisabled,
     className,
     open,
     offset,
@@ -58,17 +58,6 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
       popper.style.width = '100%';
     },
   };
-
-  // const popperZindexModifier = {
-  //   name: 'zIndex',
-  //   enabled: true,
-  //   phase: 'write',
-  //   fn: (instance: any) => {
-  //     const { popper } = instance.state.elements;
-  //     console.log(popper);
-  //     popper.style.zIndex = '1';
-  //   },
-  // };
 
   let icon: any = null;
 
@@ -268,14 +257,14 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
     <div className={dropdownClasses.join(' ')} ref={ref}>
       {split ? (
         <ButtonGroup>
-          <Button variant={variant} size={size} isDisabled={disabled}>
+          <Button variant={variant} size={size} isDisabled={isDisabled}>
             {buttonName}
           </Button>
           <Button
             variant={variant}
             suffixIcon={icon}
             size={size}
-            isDisabled={disabled}
+            isDisabled={isDisabled}
             onClick={isOpen ? closeHandler : openHandler}
             ref={dropdownButtonRef}
             onKeyDown={keyDownHandler}
@@ -286,7 +275,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
           variant={variant}
           suffixIcon={icon}
           size={size}
-          isDisabled={disabled}
+          isDisabled={isDisabled}
           onClick={isOpen ? closeHandler : openHandler}
           ref={dropdownButtonRef}
           onKeyDown={keyDownHandler}
@@ -321,7 +310,7 @@ type propTypes = {
   onChange?: any;
   size?: string;
   theme?: string;
-  disabled?: boolean;
+  isDisabled?: boolean;
   open?: boolean;
   offset?: [number, number];
   type?: string;
@@ -337,7 +326,7 @@ Dropdown.defaultProps = {
   size: '',
   suffixIcon: <Icon component={ChevronDown} />,
   theme: '',
-  disabled: false,
+  isDisabled: false,
   open: false,
   offset: [0, 8],
   type: 'popper',

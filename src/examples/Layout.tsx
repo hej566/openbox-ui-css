@@ -129,6 +129,9 @@ const Layout = (props: any) => {
               <MenuItem key="28" menuId="28">
                 <LinkRoot to="/figures">Figures</LinkRoot>
               </MenuItem>
+              <MenuItem key="29" menuId="29">
+                <LinkRoot to="/breadcrumb">Breadcrumb</LinkRoot>
+              </MenuItem>
             </Menu>
           </AccordionItem>
         </Accordion>
@@ -219,6 +222,9 @@ const Layout = (props: any) => {
             </MenuItem>
             <MenuItem key="28" menuId="28">
               <LinkRoot to="/figures">Figures</LinkRoot>
+            </MenuItem>
+            <MenuItem key="29" menuId="29">
+              <LinkRoot to="/breadcrumb">Breadcrumb</LinkRoot>
             </MenuItem>
           </Menu>
         </div>

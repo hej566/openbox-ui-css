@@ -31,5 +31,6 @@ module.exports = {
     'no-param-reassign': 0,
     'jsx-a11y/no-noninteractive-tabindex': 0,
     'react/prop-types': 0,
+    'import/no-duplicates': 0,
   },
 };

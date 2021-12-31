@@ -127,6 +127,9 @@ function App() {
           <Route exact path="/figures">
             <Figures />
           </Route>
+          <Route exact path="/breadcrumb">
+            <Breadcrumbs />
+          </Route>
         </Switch>
       </Layout>
     </Router>

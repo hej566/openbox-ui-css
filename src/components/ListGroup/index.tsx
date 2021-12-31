@@ -33,11 +33,10 @@ function ListGroup(props: PropsTypes) {
 
   if (!Object.keys(activeStateMap).length) {
     React.Children.forEach(children, (child) => {
-      const { active, disabled } = child.props;
-      const { key } = child;
-      if (key) {
-        activeStateMap[key] = active;
-        disabledStateMap[key] = disabled;
+      const { active, disabled, itemId } = child.props;
+      if (itemId) {
+        activeStateMap[itemId] = active;
+        disabledStateMap[itemId] = disabled;
       }
     });
   }
@@ -61,12 +60,12 @@ function ListGroup(props: PropsTypes) {
   }
 
   const ListGroupItemList = React.Children.map(children, (child) => {
-    const { key } = child;
-    if (key) {
+    const { itemId } = child.props;
+    if (itemId) {
       return React.cloneElement(child, {
-        active: activeStateMap[key],
-        disabled: disabledStateMap[key],
-        onClick: !disabledStateMap[key] ? clickHandler(String(key)) : null,
+        isActive: activeStateMap[itemId],
+        isDisabled: disabledStateMap[itemId],
+        onClick: !disabledStateMap[itemId] ? clickHandler(String(itemId)) : null,
       });
     }
   });

@@ -17,22 +17,16 @@
   @include border-radius($dropdown-border-radius);
   @include box-shadow($dropdown-box-shadow);
 
-  transition: all 0.15s ease-in-out;
-  transform-origin: top center;
-
   &--collapse {
-    transform: scale(1, 0);
-    opacity: 0;
+    display: none;
   }
 
   &--show {
-    transform: scale(1, 1);
-    opacity: 1;
+    display: block;
   }
 }
 
 .#{$NS}-dropdown-menu__wrapper {
-  overflow: hidden;
   &--collapse {
     height: 0;
   }
