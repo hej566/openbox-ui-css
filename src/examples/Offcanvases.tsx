@@ -183,9 +183,7 @@ function Offcanvases() {
                 <DropdownItem isDisabled itemId="2">
                   Another action
                 </DropdownItem>
-                <DropdownItem itemId="3">
-                  Something else here
-                </DropdownItem>
+                <DropdownItem itemId="3">Something else here</DropdownItem>
                 <hr className="dropdown-divider" />
                 <DropdownItem itemId="4">Separated link</DropdownItem>
               </Dropdown>
@@ -211,9 +209,7 @@ function Offcanvases() {
                 <DropdownItem isDisabled itemId="2">
                   Another action
                 </DropdownItem>
-                <DropdownItem itemId="3">
-                  Something else here
-                </DropdownItem>
+                <DropdownItem itemId="3">Something else here</DropdownItem>
                 <hr className="dropdown-divider" />
                 <DropdownItem itemId="4">Separated link</DropdownItem>
               </Dropdown>
@@ -231,9 +227,7 @@ function Offcanvases() {
                 <DropdownItem isDisabled itemId="2">
                   Another action
                 </DropdownItem>
-                <DropdownItem itemId="3">
-                  Something else here
-                </DropdownItem>
+                <DropdownItem itemId="3">Something else here</DropdownItem>
                 <hr className="dropdown-divider" />
                 <DropdownItem itemId="4">Separated link</DropdownItem>
               </Dropdown>

@@ -26,27 +26,23 @@ function Pagination(props: PropsTypes) {
 
   if (!Object.keys(activeStateMap).length) {
     React.Children.forEach(children, (child) => {
-      const { active, disabled } = child.props;
-      const { key } = child;
-      if (key) {
-        activeStateMap[key] = active;
-        disabledStateMap[key] = disabled;
+      const { isActive, isDisabled, itemId } = child.props;
+      if (itemId) {
+        activeStateMap[itemId] = isActive;
+        disabledStateMap[itemId] = isDisabled;
       }
     });
   }
 
-  function clickHandler(key: string) {
+  function clickHandler(itemId: string) {
     return () => {
-      if (!disabledStateMap[key]) {
-        for (const id in activeStateMap) {
-          activeStateMap[id] = false;
-        }
-        activeStateMap[key] = true;
-
-        setActiveStateMap(() => ({
-          ...activeStateMap,
-        }));
-      }
+      Object.keys(activeStateMap).forEach((itemId) => {
+        activeStateMap[itemId] = false;
+      });
+      activeStateMap[itemId] = true;
+      setActiveStateMap(() => ({
+        ...activeStateMap,
+      }));
       setDisabledStateMap(() => ({
         ...disabledStateMap,
       }));
@@ -54,12 +50,12 @@ function Pagination(props: PropsTypes) {
   }
 
   const paginationItemList = React.Children.map(children, (child) => {
-    const { key } = child;
-    if (key) {
+    const { itemId } = child.props;
+    if (itemId) {
       return React.cloneElement(child, {
-        active: activeStateMap[key],
-        disabled: disabledStateMap[key],
-        onClick: !disabledStateMap[key] ? clickHandler(String(key)) : null,
+        isActive: activeStateMap[itemId],
+        isDisabled: disabledStateMap[itemId],
+        onClick: !disabledStateMap[itemId] ? clickHandler(itemId) : null,
       });
     }
   });

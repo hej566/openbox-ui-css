@@ -2,27 +2,35 @@ import React from 'react';
 
 interface PropsTypes {
   children: any;
-  active?: boolean;
-  disabled?: boolean;
+  itemId: string;
+  isActive?: boolean;
+  isDisabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
 PaginationItem.defaultProps = {
-  active: false,
-  disabled: false,
+  isActive: false,
+  isDisabled: false,
   onClick: () => {},
 };
 
 function PaginationItem(props: PropsTypes) {
-  const { children, disabled, active, onClick } = props;
+  const { children, isDisabled, isActive, onClick } = props;
   const paginationItemClasses: string[] = ['page-item'];
 
-  if (disabled) paginationItemClasses.push('disabled');
-  if (active) paginationItemClasses.push('active');
+  if (isDisabled) paginationItemClasses.push('disabled');
+  if (isActive) paginationItemClasses.push('active');
+
+  function keyDownHandler(e: any) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      e.currentTarget.click();
+    }
+  }
 
   return (
-    <li className={paginationItemClasses.join(' ')} onClick={onClick}>
-      <span className="page-link" tabIndex={-1}>
+    <li className={paginationItemClasses.join(' ')} onClick={onClick} onKeyDown={keyDownHandler}>
+      <span className="page-link" tabIndex={0}>
         {children}
       </span>
     </li>
