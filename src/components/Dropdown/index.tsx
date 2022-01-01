@@ -56,6 +56,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
       UListElement.style.marginTop = `${offset![1]}px`;
       UListElement.style.marginLeft = `${offset![0]}px`;
       popper.style.width = '100%';
+      popper.style.zIndex = '2';
     },
   };
 
@@ -177,7 +178,6 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
         placement: 'bottom-start',
         modifiers: [popperFlipModifier, popperOffsetModifier],
       });
-      instance.state.styles.popper.zIndex = '1';
       setPopperInstance(() => instance);
     }
   };

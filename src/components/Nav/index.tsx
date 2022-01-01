@@ -45,15 +45,13 @@ function Nav(props: PropsTypes) {
 
   function clickHandler(itemId: string) {
     return () => {
-      if (!disabledStateMap[itemId]) {
-        Object.keys(activeStateMap).forEach((itemId) => {
-          activeStateMap[itemId] = false;
-        });
-        activeStateMap[itemId] = true;
-        setActiveStateMap(() => ({
-          ...activeStateMap,
-        }));
-      }
+      Object.keys(activeStateMap).forEach((itemId) => {
+        activeStateMap[itemId] = false;
+      });
+      activeStateMap[itemId] = true;
+      setActiveStateMap(() => ({
+        ...activeStateMap,
+      }));
       setDisabledStateMap(() => ({
         ...disabledStateMap,
       }));

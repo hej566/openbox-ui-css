@@ -45,6 +45,10 @@
   .dropdown {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    .btn--link {
+      align-self: flex-start;
+    }
   }
 }
 

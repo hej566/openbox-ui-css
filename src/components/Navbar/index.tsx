@@ -34,8 +34,6 @@ function Navbar(props: PropsTypes) {
   const [disabledStateMap, setDisabledStateMap] = useState(disabledListMap);
   const [isOpen, setOpenState] = useState(open);
   const navbarCollapseRef = useRef<HTMLDivElement>(null);
-  const toggleButtonRef = useRef<HTMLButtonElement>(null);
-  const navbarNavRef = useRef<HTMLDivElement>(null);
   const navbarClasses: string[] = ['navbar'];
 
   if (className) navbarClasses.push(className);
@@ -45,91 +43,46 @@ function Navbar(props: PropsTypes) {
 
   if (!Object.keys(activeStateMap).length) {
     React.Children.forEach(children, (child) => {
-      const { active, disabled } = child.props;
-      const { key } = child;
-      if (key) {
-        activeStateMap[key] = active;
-        disabledStateMap[key] = disabled;
+      const { isActive, isDisabled, itemId } = child.props;
+      if (itemId) {
+        activeStateMap[itemId] = isActive;
+        disabledStateMap[itemId] = isDisabled;
       }
     });
   }
 
-  function clickHandler(key: string) {
+  function clickHandler(itemId: string) {
     return () => {
-      if (!disabledStateMap[key]) {
-        for (const id in activeStateMap) {
-          activeStateMap[id] = false;
-        }
-        activeStateMap[key] = true;
-
-        setActiveStateMap(() => ({
-          ...activeStateMap,
-        }));
-      }
+      Object.keys(activeStateMap).forEach((itemId) => {
+        activeStateMap[itemId] = false;
+      });
+      activeStateMap[itemId] = true;
+      setActiveStateMap(() => ({
+        ...activeStateMap,
+      }));
       setDisabledStateMap(() => ({
         ...disabledStateMap,
       }));
     };
   }
 
-  function transitionEndHandler() {
-    const navbarCollapseDom = navbarCollapseRef.current;
-    if (navbarCollapseDom && navbarCollapseDom.classList.contains('transitioning')) {
-      if (!isOpen) {
-        navbarCollapseDom.classList.remove('transitioning');
-        navbarCollapseDom.classList.add('collapse', 'show');
-        setOpenState(true);
-      } else {
-        navbarCollapseDom.classList.remove('transitioning');
-        navbarCollapseDom.classList.add('collapse');
-        navbarCollapseDom.style.display = 'none';
-        setOpenState(false);
-      }
-      navbarCollapseDom.style.removeProperty('height');
-    }
-  }
-
   function show() {
-    const navbarCollapseDom = navbarCollapseRef.current;
-    const navbarNavDom = navbarNavRef.current;
-    if (navbarCollapseDom && navbarNavDom) {
-      requestAnimationFrame(() => {
-        navbarCollapseDom.style.display = 'block';
-        navbarCollapseDom.style.height = `0px`;
-        setTimeout(() => {
-          navbarCollapseDom.style.height = `${navbarNavDom.clientHeight}px`;
-        }, 0);
-        navbarCollapseDom.classList.remove('collapse');
-        navbarCollapseDom.classList.add('transitioning');
-      });
-    }
+    navbarCollapseRef.current!.classList.remove('collapse');
+    setOpenState(true);
   }
 
   function hide() {
-    const navbarCollapseDom = navbarCollapseRef.current;
-    const navbarNavDom = navbarNavRef.current;
-    if (navbarCollapseDom && navbarNavDom) {
-      navbarCollapseDom.style.display = 'block';
-      navbarCollapseDom.style.height = `${navbarNavDom.clientHeight}px`;
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          navbarCollapseDom.style.height = `0px`;
-        }, 0);
-        navbarCollapseDom.classList.remove('collapse', 'show');
-        navbarCollapseDom.classList.add('transitioning');
-      });
-    }
+    navbarCollapseRef.current!.classList.add('collapse');
+    setOpenState(false);
   }
 
   const NavItemList = React.Children.map(children, (child) => {
-    const { key } = child;
-    if (key) {
-      return React.cloneElement(child, {
-        active: activeStateMap[key],
-        disabled: disabledStateMap[key],
-        onClick: !disabledStateMap[key] ? clickHandler(String(key)) : null,
-      });
-    }
+    const { itemId } = child.props;
+    return React.cloneElement(child, {
+      isActive: activeStateMap[itemId],
+      isDisabled: disabledStateMap[itemId],
+      onClick: !disabledStateMap[itemId] ? clickHandler(itemId) : null,
+    });
   });
 
   return (
@@ -141,16 +94,9 @@ function Navbar(props: PropsTypes) {
           variant="link"
           prefixIcon={Icon}
           onClick={isOpen ? hide : show}
-          ref={toggleButtonRef}
         />
-        <div
-          className="navbar-collapse collapse"
-          onTransitionEnd={transitionEndHandler}
-          ref={navbarCollapseRef}
-        >
-          <div className="navbar-nav me-auto mb-2 mb-lg-0" ref={navbarNavRef}>
-            {NavItemList}
-          </div>
+        <div className="navbar-collapse collapse" ref={navbarCollapseRef}>
+          <div className="navbar-nav me-auto mb-2 mb-lg-0">{NavItemList}</div>
         </div>
       </div>
     </nav>

@@ -33,7 +33,18 @@ function NavItem(props: PropsTypes) {
   if (isActive) navLinkClasses.push('active');
   if (isDisabled) navLinkClasses.push('disabled');
 
-  let navItem = null;
+  let navItem;
+
+  function keyDownHandler(e: any) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      if (e.currentTarget.querySelector('button')) {
+        e.currentTarget.querySelector('button').click();
+      } else {
+        e.currentTarget.click();
+      }
+    }
+  }
 
   const component = React.Children.map(children, (child) => {
     if (dropdown && typeof child !== 'string') {
@@ -60,21 +71,14 @@ function NavItem(props: PropsTypes) {
   }
 
   return (
-    <div className={navItemClasses.join(' ')} onClick={onClick}>
+    <div
+      className={navItemClasses.join(' ')}
+      onClick={onClick}
+      onKeyDown={keyDownHandler}
+      role="navigation"
+      tabIndex={isDisabled ? -1 : 0}
+    >
       {navItem}
-      {/*<>*/}
-      {/*  {isActive && type === 'nav' && (*/}
-      {/*    <div className={navLinkClasses.join(' ')} aria-current="page">*/}
-      {/*      {component}*/}
-      {/*    </div>*/}
-      {/*  )}*/}
-      {/*  {isActive && type === 'tab' && (*/}
-      {/*    <div className={navLinkClasses.join(' ')} aria-selected="true">*/}
-      {/*      {component}*/}
-      {/*    </div>*/}
-      {/*  )}*/}
-      {/*  {!isActive && <div className={navLinkClasses.join(' ')}>{component}</div>}*/}
-      {/*</>*/}
     </div>
   );
 }
