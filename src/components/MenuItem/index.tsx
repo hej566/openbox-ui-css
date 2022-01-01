@@ -32,7 +32,7 @@ const MenuItem = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
           <div className="menu-item__content" ref={menuItemContentRef}>
             {children}
           </div>
-      </div>
+        </div>
       </div>
     </div>
   );
