@@ -72,7 +72,7 @@ function InputGroups() {
           <div className="rc-item">
             <InputGroup className="mb-3">
               <span className="input-group-text">
-                <Checkbox checked={isChecked} onChange={clickHandler} />
+                <Checkbox isChecked={isChecked} onChange={clickHandler} />
               </span>
               <Input value="" />
             </InputGroup>

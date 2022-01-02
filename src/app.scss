@@ -33,7 +33,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-button-groups {
   margin: 1rem;
 
@@ -41,7 +40,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-accordions {
   margin: 1rem;
 
@@ -49,7 +47,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-alerts {
   margin: 1rem;
 
@@ -57,7 +54,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-badges {
   margin: 1rem;
 
@@ -66,7 +62,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-breadcrumbs {
   margin: 1rem;
 
@@ -74,7 +69,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-carousels {
   margin: 1rem;
 
@@ -84,7 +78,6 @@
     width: 600px;
   }
 }
-//
 .rb-dropdowns {
   margin: 1rem;
 
@@ -93,7 +86,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-list-groups {
   margin: 1rem;
 
@@ -101,7 +93,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-modals {
   margin: 1rem;
 
@@ -109,7 +100,6 @@
     margin: 1rem;
   }
 }
-//
 .rb-navs {
   margin: 1rem;
 
@@ -124,42 +114,36 @@
     margin: 1rem;
   }
 }
-//
 .rb-offcanvases {
   margin: 1rem;
   .rb-offcanvas-wrapper {
     margin: 1rem;
   }
 }
-
 .rb-paginations {
   margin: 1rem;
   .rb-pagination-wrapper {
     margin: 1rem;
   }
 }
-
 .rb-placeholders {
   margin: 1rem;
   .rb-placeholder-wrapper {
     margin: 1rem;
   }
 }
-
 .rb-progresses {
   margin: 1rem;
   .rb-progress-wrapper {
     margin: 1rem;
   }
 }
-
 .rb-toasts {
   margin: 1rem;
   .rb-toast-wrapper {
     margin: 1rem;
   }
 }
-
 .rb-popovers {
   margin: 1rem;
   .rb-popover-wrapper {
@@ -173,7 +157,6 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
 .rb-tooltips {
   margin: 1rem;
   .rb-tooltip-wrapper {
@@ -187,6 +170,12 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+.rb-checkboxes {
+  margin: 1rem;
+  .rb-checkbox-wrapper {
+    margin: 1rem;
+  }
+}
 
 @include media-breakpoint-down(lg) {
   .layout-sidebar {
@@ -197,9 +186,3 @@
     display: block !important;
   }
 }
-
-//@include media-breakpoint-up(lg) {
-//  .layout-topbar {
-//    display: none;
-//  }
-//}

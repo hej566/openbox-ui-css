@@ -5,24 +5,24 @@ interface PropsTypes {
   children: any;
   className?: string;
   label?: string;
-  checked?: boolean;
-  disabled?: boolean;
-  onChange: any;
-  indeterminate?: boolean;
+  isChecked?: boolean;
+  isDisabled?: boolean;
+  isIndeterminate?: boolean;
   value?: string;
   controlled?: boolean;
+  onChange?: any;
 }
 
 Checkbox.defaultProps = {
   className: '',
   children: '',
   label: '',
-  checked: false,
-  disabled: false,
-  indeterminate: false,
+  isChecked: false,
+  isDisabled: false,
+  isIndeterminate: false,
   value: '',
   controlled: false,
-  onChange: () => {},
+  onChange: undefined,
 } as PropsTypes;
 
 function Checkbox(props: PropsTypes) {
@@ -31,9 +31,9 @@ function Checkbox(props: PropsTypes) {
     className,
     label,
     onChange,
-    checked,
-    disabled,
-    indeterminate,
+    isChecked,
+    isDisabled,
+    isIndeterminate,
     value,
     controlled,
   } = props;
@@ -41,7 +41,7 @@ function Checkbox(props: PropsTypes) {
   const checkboxRef = useRef<HTMLInputElement>(null);
   if (className) checkboxClasses.push(className);
 
-  if (indeterminate) {
+  if (isIndeterminate) {
     setupIndeterminate();
   } else {
     removeIndeterminate();
@@ -63,8 +63,14 @@ function Checkbox(props: PropsTypes) {
     }
   }
 
+  function changeHandler(e: any) {
+    if (onChange) {
+      onChange(e.currentTarget.checked);
+    }
+  }
+
   useEffect(() => {
-    if (indeterminate) {
+    if (isIndeterminate) {
       setupIndeterminate();
     } else {
       removeIndeterminate();
@@ -78,10 +84,10 @@ function Checkbox(props: PropsTypes) {
           className="form-check-input"
           type="checkbox"
           id={uuid}
-          checked={checked}
+          checked={isChecked}
           value={value}
-          disabled={disabled}
-          onChange={!disabled ? onChange : () => {}}
+          disabled={isDisabled}
+          onChange={!isDisabled ? changeHandler : () => {}}
           ref={checkboxRef}
         />
       )}
@@ -91,10 +97,10 @@ function Checkbox(props: PropsTypes) {
           className="form-check-input"
           type="checkbox"
           id={uuid}
-          defaultChecked={checked}
+          defaultChecked={isChecked}
           value={value}
-          disabled={disabled}
-          onChange={!disabled ? onChange : () => {}}
+          disabled={isDisabled}
+          onChange={!isDisabled ? changeHandler : () => {}}
           ref={checkboxRef}
         />
       )}

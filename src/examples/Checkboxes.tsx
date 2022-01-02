@@ -1,120 +1,112 @@
 import React, { useState } from 'react';
+// @ts-ignore
+import SyntaxHighlighter from 'react-syntax-highlighter';
+// @ts-ignore
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Checkbox from '../components/Checkbox';
-import CheckboxGroup from '../components/CheckboxGroup';
 
 function Checkboxes() {
   const [isChecked, setChecked] = useState(false);
-  const initGroupStateList = [
-    { key: '1', checked: true, disabled: false, value: '1' },
-    { key: '2', checked: true, disabled: false, value: '2' },
-    { key: '3', checked: false, disabled: false, value: '3' },
-  ];
-  const [groupStateList, setGroupStateList] = useState(initGroupStateList);
+  const [isIndeterminate, setIndeterminate] = useState(true);
 
-  let indeterminated4 = false;
-  const checked4 =
-    initGroupStateList.filter((item) => item.checked).length === initGroupStateList.length;
-  if (!checked4 && initGroupStateList.filter((item) => item.checked).length > 0) {
-    indeterminated4 = true;
-  }
-
-  const [isChecked4, setChecked4] = useState(checked4);
-  const [isIndeterminated4, setIndeterminated4] = useState(indeterminated4);
-
-  function clickHandler() {
+  function changeHandler() {
     setChecked(!isChecked);
+    setIndeterminate(!isIndeterminate);
   }
 
-  function clickHandler4(e: any) {
-    if (e.currentTarget.checked) {
-      for (const checkbox of groupStateList) {
-        if (!checkbox.disabled) {
-          checkbox.checked = true;
-        }
-      }
-    } else {
-      for (const checkbox of groupStateList) {
-        if (!checkbox.disabled) {
-          checkbox.checked = false;
-        }
-      }
-    }
-    updateHandler(groupStateList);
-  }
+  const basic = `
+    import Checkbox from '../components/Checkbox';
+    
+    <Checkbox
+      label="default checkbox"
+      checked={false}
+      className="form-check"
+    />
+  `;
 
-  function updateHandler(state: any) {
-    const checked = state.filter((item: any) => item.checked);
-    if (!checked.length) {
-      setChecked4(() => false);
-      setIndeterminated4(() => false);
-    } else if (checked.length === state.length) {
-      setChecked4(() => true);
-      setIndeterminated4(() => false);
-    } else {
-      setChecked4(() => false);
-      setIndeterminated4(() => true);
+  const disabled = `
+    import Checkbox from '../components/Checkbox';
+    
+    <Checkbox
+      label="disabled"
+      checked={false}
+      disabled
+      className="form-check"
+    />
+    
+    <Checkbox label="disabled checked" checked disabled className="form-check" />
+  `;
+
+  const indeterminate = `
+    import Checkbox from '../components/Checkbox';
+
+    const [isChecked, setChecked] = useState(false);
+    const [isIndeterminate, setIndeterminate] = useState(true);
+    
+    function changeHandler() {
+      setChecked(!isChecked);
+      setIndeterminate(!isIndeterminate);
     }
-    setGroupStateList(() => [...state]);
-  }
+   
+    <Checkbox
+      label="indeterminate checkbox"
+      controlled
+      isChecked={isChecked}
+      isIndeterminate={isIndeterminate}
+      className="form-check"
+      onChange={changeHandler}
+    />
+  `;
 
   return (
-    <div className="rc-navbars">
-      <section className="rc-navbar-basic">
-        <div className="rc-title">Basic toast</div>
-        <div className="rc-group">
-          <div className="rc-item">
-            <Checkbox
-              label="Default checkbox"
-              checked={false}
-              // onChange={clickHandler}
-              className="form-check"
-            />
+    <div className="rb-checkboxes">
+      <section className="rb-checkbox-basic">
+        <h1 className="rb-title">Checkboxes</h1>
+        <div className="rb-group">
+          <div className="rb-checkbox-wrapper">
+            <Checkbox label="default checkbox" isChecked={false} className="form-check" />
           </div>
         </div>
-      </section>
-      <section className="rc-navbar-basic">
-        <div className="rc-title">Basic toast</div>
-        <div className="rc-group">
-          <div className="rc-item">
-            <Checkbox
-              label="Default checkbox"
-              checked={isChecked}
-              onChange={clickHandler}
-              disabled
-              className="form-check"
-            />
-          </div>
-          <div className="rc-item">
-            <Checkbox label="Default checkbox" checked disabled className="form-check" />
-          </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {basic}
+          </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-navbar-basic">
-        <div className="rc-title">Basic toast</div>
-        <div className="rc-group">
-          <div className="rc-item">
+      <section className="rb-checkboxes-basic">
+        <h1 className="rb-title">Disabled</h1>
+        <div className="rb-group">
+          <div className="rb-checkbox-wrapper">
+            <Checkbox label="disabled" isChecked={false} isDisabled className="form-check" />
+          </div>
+          <div className="rb-checkbox-wrapper">
+            <Checkbox label="disabled checked" isChecked isDisabled className="form-check" />
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {disabled}
+          </SyntaxHighlighter>
+        </div>
+      </section>
+      <section className="rb-checkbox-basic">
+        <h1 className="rb-title">Indeterminate</h1>
+        <div className="rb-group">
+          <div className="rb-checkbox-wrapper">
             <Checkbox
-              label="Default checkbox"
+              label="indeterminate checkbox"
               controlled
-              checked={isChecked4}
-              onChange={clickHandler4}
-              indeterminate={isIndeterminated4}
+              isChecked={isChecked}
+              isIndeterminate={isIndeterminate}
               className="form-check"
+              onChange={changeHandler}
             />
-            <CheckboxGroup onChange={updateHandler}>
-              {groupStateList.map((item) => (
-                <Checkbox
-                  controlled
-                  label="Default checkbox"
-                  className="form-check"
-                  checked={item.checked}
-                  value={item.value}
-                  disabled={item.disabled}
-                  key={item.key}
-                />
-              ))}
-            </CheckboxGroup>
           </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {indeterminate}
+          </SyntaxHighlighter>
         </div>
       </section>
     </div>
