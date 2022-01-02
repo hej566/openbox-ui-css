@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 interface PropsTypes {
   className?: string;
-  children: ReactNode[] | ReactNode;
+  children: React.ReactNode[] | React.ReactNode;
 }
 
 Progress.defaultProps = {
