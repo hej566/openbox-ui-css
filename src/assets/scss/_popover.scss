@@ -36,3 +36,48 @@
   color: $popover-body-color;
   padding: $popover-body-padding-y $popover-body-padding-x;
 }
+
+.popover-arrow {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  svg {
+    filter: drop-shadow(0px -1px 0px rgba(0, 0, 0, 0.3));
+  }
+}
+
+.popover[data-popper-placement^='bottom'] {
+  & > .popover-arrow {
+    color: #f0f0f0;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -60%) rotate(0deg);
+  }
+}
+
+.popover[data-popper-placement^='top'] {
+  & > .popover-arrow {
+    color: #ffffff;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -40%) rotate(180deg);
+  }
+}
+
+.popover[data-popper-placement^='left'] {
+  & > .popover-arrow {
+    color: #ffffff;
+    top: 50%;
+    left: 100%;
+    transform: translate(-40%, -50%) rotate(90deg);
+  }
+}
+
+.popover[data-popper-placement^='right'] {
+  & > .popover-arrow {
+    color: #ffffff;
+    top: 50%;
+    left: 0;
+    transform: translate(-60%, -50%) rotate(-90deg);
+  }
+}

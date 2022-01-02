@@ -1,69 +1,107 @@
-import React, { useEffect, useRef } from 'react';
-import tippy, { sticky, animateFill } from 'tippy.js';
-import 'tippy.js/dist/svg-arrow.css';
-import 'tippy.js/dist/tippy.css';
+import React, { useLayoutEffect, useRef } from 'react';
+import { createPopper } from '@popperjs/core';
+import Arrow from '../../assets/icons/svg/sort-up-solid.svg';
 
 interface PropsTypes {
   children?: any;
   className?: string;
   template: any;
-  placement: any;
-  trigger: string;
+  placement?: any;
+  isDisabled?: boolean;
+  offset?: [number, number];
+  arrow?: boolean;
 }
 
 Popover.defaultProps = {
   className: '',
   children: null,
+  isDisabled: false,
+  offset: [0, 0],
+  placement: 'auto',
+  arrow: false,
 };
 
 function Popover(props: PropsTypes) {
-  const { children, className, template, placement, trigger } = props;
+  const { children, className, template, placement, isDisabled, offset, arrow } = props;
   const popoverTargetRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const popoverArrowRef = useRef<HTMLDivElement>(null);
 
   const popoverTargetClasses: string[] = ['popover-target'];
   const popoverClasses: string[] = ['popover'];
-  const triggerMethods: string[] = [''];
-
-  if (trigger === 'click') {
-    triggerMethods.push('click');
-  } else if (trigger === 'hover') {
-    triggerMethods.push('mouseenter');
-  }
 
   if (placement) popoverClasses.push(`popover-${placement}`);
 
-  function setupTippy() {
-    const popoverTargetDom = popoverTargetRef.current;
-    const popoverDom = popoverRef.current;
-    if (popoverTargetDom && popoverDom) {
-      tippy(popoverTargetDom, {
-        allowHTML: true,
-        animateFill: false,
-        interactive: true,
-        arrow: true,
-        content: popoverDom,
-        trigger: triggerMethods.join(' '),
-        appendTo: popoverTargetDom,
-        plugins: [sticky, animateFill],
-        maxWidth: 'none',
-        theme: 'rb-popover',
-        placement,
-        sticky: true,
-      });
-    }
+  const popperFlipModifier = {
+    name: 'flip',
+    enabled: true,
+  };
+
+  const popperOffsetModifier = {
+    name: 'offset',
+    options: {
+      offset: (instance: any) => {
+        const { placement } = instance;
+        if (placement === 'right') {
+          return [0, 8];
+        }
+        if (placement === 'left') {
+          return [0, 8];
+        }
+        if (placement === 'top') {
+          return [0, 8];
+        }
+        if (placement === 'bottom') {
+          return [0, 8];
+        }
+        return [0, 0];
+      },
+    },
+  };
+
+  function setupPopper() {
+    const popoverTargetElement = popoverTargetRef.current!;
+    const popoverElement = popoverRef.current!;
+    createPopper(popoverTargetElement, popoverElement, {
+      placement,
+      modifiers: [popperFlipModifier, popperOffsetModifier],
+    });
+    popoverElement.style.zIndex = '1';
   }
 
-  useEffect(() => {
-    setupTippy();
+  function show() {
+    const popoverElement = popoverRef.current!;
+    popoverElement.style.display = 'block';
+    if (arrow) popoverArrowRef.current!.style.display = 'block';
+    setupPopper();
+  }
+
+  function hide() {
+    const popoverElement = popoverRef.current!;
+    if (arrow) popoverArrowRef.current!.style.display = 'none';
+    popoverElement.style.display = 'none';
+  }
+
+  useLayoutEffect(() => {
+    popoverRef.current!.style.display = 'none';
   }, []);
 
   return (
     <>
-      <div className={popoverTargetClasses.join('popover-target')} ref={popoverTargetRef}>
+      <div
+        className={popoverTargetClasses.join('popover-target')}
+        ref={popoverTargetRef}
+        onMouseEnter={isDisabled ? () => {} : show}
+        onMouseLeave={isDisabled ? () => {} : hide}
+      >
         {children}
       </div>
       <div ref={popoverRef} className={popoverClasses.join(' ')}>
+        {arrow && (
+          <div className="popover-arrow" ref={popoverArrowRef}>
+            <Arrow />
+          </div>
+        )}
         {template}
       </div>
     </>

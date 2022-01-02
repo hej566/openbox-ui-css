@@ -146,16 +146,19 @@
   }
 }
 //
-//.rc-popover {
-//  margin: 1rem;
-//  .rc-group {
-//    .rc-item {
-//      display: inline-block;
-//      margin-top: 4rem;
-//      margin-left: 6rem;
-//    }
-//  }
-//}
+.rb-popovers {
+  margin: 1rem;
+  .rb-popover-wrapper {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rb-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 @include media-breakpoint-down(lg) {
   .layout-sidebar {
