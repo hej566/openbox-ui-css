@@ -70,16 +70,14 @@ function Popover(props: PropsTypes) {
   }
 
   function show() {
-    const popoverElement = popoverRef.current!;
-    popoverElement.style.display = 'block';
+    popoverRef.current!.style.display = 'block';
     if (arrow) popoverArrowRef.current!.style.display = 'block';
     setupPopper();
   }
 
   function hide() {
-    const popoverElement = popoverRef.current!;
     if (arrow) popoverArrowRef.current!.style.display = 'none';
-    popoverElement.style.display = 'none';
+    popoverRef.current!.style.display = 'none';
   }
 
   useLayoutEffect(() => {
