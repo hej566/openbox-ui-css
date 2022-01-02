@@ -30,8 +30,6 @@ function Popover(props: PropsTypes) {
   const popoverTargetClasses: string[] = ['popover-target'];
   const popoverClasses: string[] = ['popover'];
 
-  if (placement) popoverClasses.push(`popover-${placement}`);
-
   const popperFlipModifier = {
     name: 'flip',
     enabled: true,

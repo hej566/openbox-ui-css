@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // @ts-ignore
 import SyntaxHighlighter from 'react-syntax-highlighter';
 // @ts-ignore
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Toast from '../components/Toast';
 import Button from '../components/Button';
 import Icon from '../components/Icon';

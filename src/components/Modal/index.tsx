@@ -93,6 +93,7 @@ function Modal(props: PropsTypes) {
       tabIndex={-1}
       onTransitionEnd={transitionEndHandler}
       onClick={clickHandler}
+      role="dialog"
     >
       <div className={dialogClasses.join(' ')}>
         <div className="modal-content">

@@ -174,6 +174,20 @@
   }
 }
 
+.rb-tooltips {
+  margin: 1rem;
+  .rb-tooltip-wrapper {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rb-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @include media-breakpoint-down(lg) {
   .layout-sidebar {
     display: none;

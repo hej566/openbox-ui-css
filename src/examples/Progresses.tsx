@@ -29,15 +29,15 @@ function Progresses() {
       <ProgressBar value={30} className="bg-success" />
     </Progress>
     
-     <Progress>
-       <ProgressBar value={50} striped />
-     </Progress>
+    <Progress>
+      <ProgressBar value={50} striped />
+    </Progress>
      
-     <Progress>
-       <ProgressBar value={75} striped animate />
-     </Progress>
-    
+    <Progress>
+      <ProgressBar value={75} striped animate />
+    </Progress>
   `;
+
   return (
     <div className="rb-progresses">
       <section className="rb-progress-basic">
