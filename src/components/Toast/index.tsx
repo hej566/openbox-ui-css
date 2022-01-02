@@ -1,9 +1,9 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface PropsTypes {
   className?: string;
   animate?: boolean;
-  children: ReactNode;
+  children: React.ReactNode;
   show?: boolean;
 }
 
@@ -21,37 +21,37 @@ function Toast(props: PropsTypes) {
   if (className) toastClasses.push(className);
 
   function transitionEndHandler() {
-    const toastDom = toastRef.current;
-    if (toastDom) {
+    const toastElement = toastRef.current;
+    if (toastElement) {
       if (!show) {
-        toastDom.classList.remove('show');
-        toastDom.classList.add('hide');
+        toastElement.classList.remove('show');
+        toastElement.classList.add('hide');
       }
     }
   }
 
   function setup() {
-    const toastDom = toastRef.current;
-    if (toastDom) {
-      if (toastDom.classList.contains('hide')) {
-        toastDom.classList.remove('hide');
+    const toastElement = toastRef.current;
+    if (toastElement) {
+      if (toastElement.classList.contains('hide')) {
+        toastElement.classList.remove('hide');
       }
       requestAnimationFrame(() => {
-        if (animate) toastDom.classList.add('fade');
-        toastDom.classList.add('show');
-        toastDom.classList.add('showing');
+        if (animate) toastElement.classList.add('fade');
+        toastElement.classList.add('show');
+        toastElement.classList.add('showing');
         requestAnimationFrame(() => {
-          toastDom.classList.remove('showing');
+          toastElement.classList.remove('showing');
         });
       });
     }
   }
 
   function remove() {
-    const toastDom = toastRef.current;
-    if (toastDom) {
+    const toastElement = toastRef.current;
+    if (toastElement) {
       requestAnimationFrame(() => {
-        toastDom.classList.add('showing');
+        toastElement.classList.add('showing');
       });
     }
   }
