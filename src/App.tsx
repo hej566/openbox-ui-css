@@ -31,12 +31,16 @@ import Menus from './examples/Menus';
 import Images from './examples/Images';
 import Figures from './examples/Figures';
 import Layout from './examples/Layout';
+import Home from './examples/Home';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-ui">
       <Layout link={Link}>
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route exact path="/buttons">
             <Buttons />
           </Route>
