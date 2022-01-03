@@ -8,7 +8,7 @@ const baseConfig = require('./webpack.base');
 module.exports = {
   mode: 'production',
   target: 'web',
-  entry: './src/build.tsx',
+  entry: './src/index.tsx',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, '../dist'),
@@ -18,7 +18,6 @@ module.exports = {
     umdNamedDefine: true,
   },
   externalsPresets: { node: true },
-  externals: [nodeExternals({ allowlist: ['tippy.js'] })],
   plugins: [
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
