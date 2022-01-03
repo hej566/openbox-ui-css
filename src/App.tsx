@@ -35,7 +35,7 @@ import Home from './examples/Home';
 
 function App() {
   return (
-    <Router basename="/react-ui">
+    <Router basename="/react-ui/">
       <Layout link={Link}>
         <Switch>
           <Route exact path="/">

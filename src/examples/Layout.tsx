@@ -19,8 +19,6 @@ const Layout = (props: any) => {
 
   const match = useRouteMatch('/');
 
-  console.log(match);
-
   const [isOpen, setOpenState] = useState<boolean>(false);
   const [defaultActiveId, setDefaultActiveId] = useState<string>('');
 

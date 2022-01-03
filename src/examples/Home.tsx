@@ -6,7 +6,9 @@ function Home() {
     <div className="home">
       <h1 style={{ marginBottom: '2rem' }}>React Bootstrap UI</h1>
       <div>
-        <a href="/react-ui/accordions"><Button>Get started</Button></a>
+        <a href="/react-ui/accordions">
+          <Button>Get started</Button>
+        </a>
       </div>
     </div>
   );
