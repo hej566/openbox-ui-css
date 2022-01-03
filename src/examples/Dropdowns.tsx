@@ -19,7 +19,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">Separated link</DropdownItem>
@@ -38,7 +38,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">
@@ -59,7 +59,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">
@@ -74,7 +74,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">
@@ -89,7 +89,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">
@@ -104,7 +104,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem  itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">
@@ -119,7 +119,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">
@@ -134,7 +134,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <hr className="dropdown-divider" />
       <DropdownItem itemId="4">
@@ -152,7 +152,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <DropdownItem itemId="4">Separated link</DropdownItem>
     </Dropdown>
@@ -167,7 +167,7 @@ function Dropdowns() {
         Another action
       </DropdownItem>
       <DropdownItem itemId="3">
-        <a>Something else here</a>
+        Something else here
       </DropdownItem>
       <DropdownItem itemId="4">Separated link</DropdownItem>
     </Dropdown>
@@ -186,9 +186,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -211,9 +209,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -236,9 +232,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -251,9 +245,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -266,9 +258,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -281,9 +271,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -296,9 +284,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -311,9 +297,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
@@ -336,9 +320,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>
           </div>
@@ -360,9 +342,7 @@ function Dropdowns() {
               <DropdownItem isDisabled itemId="2">
                 Another action
               </DropdownItem>
-              <DropdownItem itemId="3">
-                <a>Something else here</a>
-              </DropdownItem>
+              <DropdownItem itemId="3">Something else here</DropdownItem>
               <hr className="dropdown-divider" />
               <DropdownItem itemId="4">Separated link</DropdownItem>
             </Dropdown>

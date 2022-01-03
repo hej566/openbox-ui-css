@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 interface PropsTypes {
@@ -24,7 +24,6 @@ function Switch(props: PropsTypes) {
   const radioClasses: string[] = [`form-check`, 'form-switch'];
   const [checked, setChecked] = useState(isChecked);
   if (className) radioClasses.push(className);
-
 
   const uuid = uuidv4();
 

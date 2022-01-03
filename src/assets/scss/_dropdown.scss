@@ -25,6 +25,7 @@
 }
 
 .dropdown-menu__wrapper {
+  z-index: 3;
   &--collapse {
     height: 0;
   }

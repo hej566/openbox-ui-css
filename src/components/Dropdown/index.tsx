@@ -27,7 +27,6 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   const dropdownMenuRef = useRef<HTMLUListElement>(null);
   const dropdownMenuWrapperRef = useRef<HTMLDivElement>(null);
   const [isOpen, setOpenState] = useState<boolean | undefined>(open);
-  const [popperInstance, setPopperInstance] = useState<any>(null);
   const [activeStateMap, setActiveStateMap] = useState<{ [key: string]: boolean }>({});
   const [disabledStateMap, setDisabledStateMap] = useState<{ [key: string]: boolean }>({});
   const dropdownMenuWrapperClasses: string[] = [`dropdown-menu__wrapper`];
@@ -56,7 +55,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
       UListElement.style.marginTop = `${offset![1]}px`;
       UListElement.style.marginLeft = `${offset![0]}px`;
       popper.style.width = '100%';
-      popper.style.zIndex = '2';
+      popper.style.zIndex = '1';
     },
   };
 
@@ -168,25 +167,25 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
     const dropdownButtonElement = dropdownButtonRef.current!;
     const dropdownMenuWrapperElement = dropdownMenuWrapperRef.current!;
     if (type !== 'popper') {
-      const instance = createPopper(dropdownButtonElement, dropdownMenuWrapperElement, {
+      createPopper(dropdownButtonElement, dropdownMenuWrapperElement, {
         placement: 'bottom-start',
         modifiers: [popperFlipModifier, popperApplyStylesModifier, popperOffsetModifier],
       });
-      setPopperInstance(() => instance);
     } else {
-      const instance = createPopper(dropdownButtonElement, dropdownMenuWrapperElement, {
+      createPopper(dropdownButtonElement, dropdownMenuWrapperElement, {
         placement: 'bottom-start',
         modifiers: [popperFlipModifier, popperOffsetModifier],
       });
-      setPopperInstance(() => instance);
     }
   };
 
   const clickOutside = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-    const { popper, reference } = popperInstance.state.elements;
-    if (!popper.contains(e.target) && !reference.contains(e.target)) {
+    if (
+      !dropdownMenuWrapperRef.current!.contains(e.target) &&
+      !dropdownButtonRef.current!.contains(e.target)
+    ) {
       closeHandler(e);
     } else {
       document.removeEventListener('click', clickOutside);
@@ -214,6 +213,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
       document.addEventListener('click', clickOutside);
       requestAnimationFrame(() => {
         dropdownMenuElement.classList.replace(`dropdown-menu--collapse`, `dropdown-menu--show`);
+        setupPopper();
       });
     });
     setOpenState(() => true);
@@ -233,7 +233,6 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   };
 
   useEffect(() => {
-    setupPopper();
     initDropdown();
   }, []);
 
