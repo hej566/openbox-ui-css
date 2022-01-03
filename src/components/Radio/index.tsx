@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 interface PropsTypes {
   children: any;
   className?: string;
   label?: string;
-  checked?: boolean;
-  disabled?: boolean;
+  isChecked?: boolean;
+  isDisabled?: boolean;
   onChange: any;
   name?: string;
   value?: string;
@@ -17,14 +17,14 @@ Radio.defaultProps = {
   children: '',
   label: '',
   value: '',
-  checked: false,
-  disabled: false,
+  isChecked: false,
+  isDisabled: false,
   onChange: () => {},
   name: '',
 } as PropsTypes;
 
 function Radio(props: PropsTypes) {
-  const { children, className, label, onChange, checked, disabled, name, value } = props;
+  const { children, className, label, onChange, isChecked, isDisabled, name, value } = props;
   const radioClasses: string[] = [];
   if (className) radioClasses.push(className);
 
@@ -38,8 +38,8 @@ function Radio(props: PropsTypes) {
         id={uuid}
         name={name}
         defaultValue={value}
-        defaultChecked={checked}
-        disabled={disabled}
+        defaultChecked={isChecked}
+        disabled={isDisabled}
         onChange={onChange}
       />
       <label className="form-check-label" htmlFor={uuid}>

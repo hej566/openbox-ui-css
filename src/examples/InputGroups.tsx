@@ -19,7 +19,7 @@ function InputGroups() {
   return (
     <div className="rc-navbars">
       <section className="rc-navbar-basic">
-        <div className="rc-title">Basic toast</div>
+        <h1 className="rc-title">Basic toast</h1>
         <div className="rc-group">
           <div className="rc-item">
             <InputGroup className="mb-3">
@@ -80,7 +80,7 @@ function InputGroups() {
           <div className="rc-item">
             <InputGroup className="mb-3">
               <span className="input-group-text">
-                <Radio name="test" value="1" checked />
+                <Radio name="test" value="1" isChecked />
               </span>
               <Input value="" />
             </InputGroup>

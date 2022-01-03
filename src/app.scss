@@ -176,6 +176,18 @@
     margin: 1rem;
   }
 }
+.rb-radios {
+  margin: 1rem;
+  .rb-radio-wrapper {
+    margin: 1rem;
+  }
+}
+.rb-switches {
+  margin: 1rem;
+  .rb-switch-wrapper {
+    margin: 1rem;
+  }
+}
 
 @include media-breakpoint-down(lg) {
   .layout-sidebar {
