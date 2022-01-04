@@ -60,10 +60,6 @@
   @extend .btn--lg;
 }
 
-//
-// Split button dropdowns
-//
-
 .dropdown__toggle--split {
   padding-right: $btn-padding-x * 0.75;
   padding-left: $btn-padding-x * 0.75;
@@ -78,23 +74,6 @@
   padding-right: $btn-padding-x-lg * 0.75;
   padding-left: $btn-padding-x-lg * 0.75;
 }
-
-//
-//// The clickable button for toggling the menu
-//// Set the same inset shadow as the :active state
-//.btn__group.show .dropdown__toggle {
-//  @include box-shadow($btn-active-box-shadow);
-//
-//  // Show no shadow for `.btn-link` since it has no other button styles.
-//  &.btn--link {
-//    @include box-shadow(none);
-//    padding: 0;
-//  }
-//}
-
-//
-// Vertical button groups
-//
 
 .btn__group--vertical {
   align-items: flex-start;
@@ -111,7 +90,6 @@
     margin-top: -$btn-border-width;
   }
 
-  // Reset rounded corners
   > .btn:not(:last-child):not(.dropdown__toggle),
   > .btn__group:not(:last-child) > .btn {
     @include border-bottom-radius(0);

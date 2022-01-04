@@ -37,73 +37,16 @@
 @import 'alert';
 @import 'progress';
 @import 'list-group';
-@import 'close';
 @import 'toasts';
 @import 'modal';
 @import 'tooltip';
 @import 'popover';
 @import 'carousel';
-@import 'spinners';
 @import 'offcanvas';
 @import 'placeholders';
-@import 'menu';
 
 // Helpers
 @import 'helpers';
 
 // Utilities
 @import 'utilities/api';
-// scss-docs-end import-stack
-
-.tippy-box[data-theme='rb-popover'] {
-  background-color: transparent;
-  color: inherit;
-
-  .tippy-content {
-    padding: 0;
-  }
-
-  .tippy-arrow {
-    color: $popover-arrow-outer-color;
-  }
-}
-
-.tippy-box[data-theme='rb-dropdown'] {
-  background-color: transparent;
-  color: inherit;
-
-  .tippy-content {
-    padding: 0;
-  }
-}
-
-.tippy-box[data-theme='rb-tooltip'] {
-  color: #fff;
-}
-
-.tippy-box[data-theme='rb-select'] {
-  background-color: transparent;
-  color: inherit;
-  width: 100%;
-
-  .tippy-content {
-    padding: 0;
-  }
-}
-
-.tippy-box[data-theme='rb-submenu'] {
-  background-color: $light;
-  //background-color: transparent;
-  color: inherit;
-  width: 100%;
-
-  .tippy-content {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 0;
-
-    .submenu__body {
-      //width:
-    }
-  }
-}

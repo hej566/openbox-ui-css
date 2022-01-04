@@ -11,7 +11,7 @@
 
 .breadcrumb-item {
   display: flex;
-  // The separator between breadcrumbs (by default, a forward-slash: "/")
+
   & > .icon {
     color: $breadcrumb-divider-color;
     margin: 0 0.5rem;

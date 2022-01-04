@@ -26,16 +26,12 @@ import InputGroups from './examples/InputGroups';
 import FormControls from './examples/FormControl';
 import Ranges from './examples/Ranges';
 import Uploads from './examples/Uploads';
-import Selects from './examples/Selects';
-import Menus from './examples/Menus';
-import Images from './examples/Images';
-import Figures from './examples/Figures';
 import Layout from './examples/Layout';
 import Home from './examples/Home';
 
 function App() {
   return (
-    <Router basename="/react-ui/">
+    <Router basename="/react-ui">
       <Layout link={Link}>
         <Switch>
           <Route exact path="/">
@@ -118,18 +114,6 @@ function App() {
           </Route>
           <Route exact path="/uploads">
             <Uploads />
-          </Route>
-          <Route exact path="/selects">
-            <Selects />
-          </Route>
-          <Route exact path="/menus">
-            <Menus />
-          </Route>
-          <Route exact path="/images">
-            <Images />
-          </Route>
-          <Route exact path="/figures">
-            <Figures />
           </Route>
           <Route exact path="/breadcrumb">
             <Breadcrumbs />

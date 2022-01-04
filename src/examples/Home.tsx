@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
 function Home() {
@@ -6,9 +7,9 @@ function Home() {
     <div className="home">
       <h1 style={{ marginBottom: '2rem' }}>React Bootstrap UI</h1>
       <div>
-        <a href="/react-ui/accordions">
+        <Link to="/accordions">
           <Button>Get started</Button>
-        </a>
+        </Link>
       </div>
     </div>
   );
