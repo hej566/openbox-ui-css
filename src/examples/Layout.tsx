@@ -7,6 +7,7 @@ import NavItem from '../components/NavItem';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/AccordionItem';
 import LayoutNav from './LayoutNav';
+import Input from '../components/Input';
 
 const Layout = (props: any) => {
   const { link, children } = props;
@@ -43,6 +44,9 @@ const Layout = (props: any) => {
                 Active
               </NavItem>
               <NavItem itemId="2">Link</NavItem>
+              <NavItem itemId="3">
+                <Input />
+              </NavItem>
             </Navbar>
           </div>
           <div className="layout-topbar">

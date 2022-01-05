@@ -13,9 +13,6 @@ interface PropsTypes {
   size?: string;
   readonly?: boolean;
   plaintext?: boolean;
-  min?: number;
-  max?: number;
-  current?: number;
 }
 
 Input.defaultProps = {
@@ -30,9 +27,6 @@ Input.defaultProps = {
   readonly: false,
   plaintext: false,
   placeholder: '',
-  min: 0,
-  max: 100,
-  current: 40,
 } as PropsTypes;
 
 function Input(props: PropsTypes) {
@@ -48,72 +42,27 @@ function Input(props: PropsTypes) {
     size,
     readonly,
     plaintext,
-    min,
-    max,
-    current,
   } = props;
   const inputClasses: string[] = [];
-  let input = null;
   if (plaintext) inputClasses.push('form-control-plaintext');
-  else if (type === 'range') {
-    inputClasses.push('form-range');
-  } else {
-    inputClasses.push('form-control');
-  }
-
+  inputClasses.push('form-control');
   if (className) inputClasses.push(className);
-
   if (size) inputClasses.push(`form-control-${size}`);
 
-  if (type === 'range') {
-    input = (
-      <input
-        className={inputClasses.join(' ')}
-        type={type}
-        aria-label={placeholder}
-        disabled={disabled}
-        onChange={onChange}
-        onInput={onInput}
-        defaultValue={current}
-        readOnly={readonly}
-        min={min}
-        max={max}
-      />
-    );
-  } else {
-    if (id) {
-      input = (
-        <input
-          className={inputClasses.join(' ')}
-          type={type}
-          aria-label={placeholder}
-          placeholder={placeholder}
-          disabled={disabled}
-          onChange={onChange}
-          onInput={onInput}
-          value={value}
-          readOnly={readonly}
-          id={id}
-        />
-      );
-    } else {
-      input = (
-        <input
-          className={inputClasses.join(' ')}
-          type={type}
-          aria-label={placeholder}
-          placeholder={placeholder}
-          disabled={disabled}
-          onChange={onChange}
-          onInput={onInput}
-          value={value}
-          readOnly={readonly}
-        />
-      );
-    }
-  }
-
-  return input;
+  return (
+    <input
+      className={inputClasses.join(' ')}
+      type={type}
+      aria-label={placeholder}
+      placeholder={placeholder}
+      disabled={disabled}
+      onChange={onChange}
+      onInput={onInput}
+      value={value}
+      readOnly={readonly}
+      id={id}
+    />
+  );
 }
 
 export default Input;

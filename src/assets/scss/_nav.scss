@@ -11,13 +11,10 @@
   padding-left: 0;
 }
 
-//.nav-item {
-// .btn-link {
-//   &:focus {
-//     box-shadow: none;
-//   }
-// }
-//}
+.nav-item {
+  display: flex;
+  align-items: center;
+}
 
 .nav-link {
   @include font-size($nav-link-font-size);
@@ -27,7 +24,6 @@
   display: block;
   height: inherit;
   font-weight: $nav-link-font-weight;
-  padding: $nav-link-padding-y $nav-link-padding-x;
   text-decoration: if($link-decoration == none, null, none);
 
   &:hover,

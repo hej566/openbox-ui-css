@@ -1,7 +1,6 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Label from '../Label';
-import Input from '../Input';
 
 function Range(props: propTypes) {
   const { min, max, current, label, isDisabled } = props;
@@ -12,7 +11,7 @@ function Range(props: propTypes) {
       <Label htmlFor={uuid1} className="form-label">
         {label}
       </Label>
-      <Input id={uuid1} type="range" min={min} max={max} current={current} disabled={isDisabled} />
+      <input id={uuid1} type="range" min={min} max={max} value={current} disabled={isDisabled} />
     </div>
   );
 }
