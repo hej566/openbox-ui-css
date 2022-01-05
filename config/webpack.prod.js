@@ -15,6 +15,7 @@ module.exports = {
     libraryTarget: 'umd',
     globalObject: 'this',
     umdNamedDefine: true,
+    publicPath: '/react-ui/',
   },
   externalsPresets: { node: true },
   plugins: [
