@@ -89,9 +89,9 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
 
   const clickHandler = (itemId: string, type: string) => (e: any) => {
     if (!disabledStateMap[itemId]) {
-      for (const id in activeStateMap) {
-        activeStateMap[id] = false;
-      }
+      Object.keys(activeStateMap).forEach((itemId) => {
+        activeStateMap[itemId] = false;
+      });
       activeStateMap[itemId] = true;
 
       setActiveStateMap(() => ({
@@ -136,30 +136,15 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
     }
   };
 
-  const transitionEndHandler = (e: any) => {
-    const dropdownMenuWrapperElement = dropdownMenuWrapperRef.current!;
-    if (!isOpen) {
-      requestAnimationFrame(() => {
-        dropdownMenuWrapperElement.classList.replace(
-          `dropdown-menu__wrapper--show`,
-          `dropdown-menu__wrapper--collapse`
-        );
-      });
-    }
-  };
-
   const initDropdown = () => {
     const dropdownMenuElement = dropdownMenuRef.current!;
-    const dropdownMenuWrapperElement = dropdownMenuWrapperRef.current!;
     if (isOpen) {
-      dropdownMenuWrapperElement.classList.add(`dropdown-menu__wrapper--show`);
       dropdownMenuElement.classList.add(`dropdown-menu--show`);
       requestAnimationFrame(() => {
         document.addEventListener('click', clickOutside);
       });
     } else {
       dropdownMenuElement.classList.add(`dropdown-menu--collapse`);
-      dropdownMenuWrapperElement.classList.add(`dropdown-menu__wrapper--collapse`);
     }
   };
 
@@ -203,13 +188,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
 
   const openHandler = (e: any) => {
     const dropdownMenuElement = dropdownMenuRef.current!;
-    const dropdownMenuWrapperElement = dropdownMenuWrapperRef.current!;
-
     requestAnimationFrame(() => {
-      dropdownMenuWrapperElement.classList.replace(
-        `dropdown-menu__wrapper--collapse`,
-        `dropdown-menu__wrapper--show`
-      );
       document.addEventListener('click', clickOutside);
       requestAnimationFrame(() => {
         dropdownMenuElement.classList.replace(`dropdown-menu--collapse`, `dropdown-menu--show`);
@@ -237,11 +216,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   }, []);
 
   const content = (
-    <ul
-      className={dropdownMenuClasses.join(' ')}
-      ref={dropdownMenuRef}
-      onTransitionEnd={transitionEndHandler}
-    >
+    <ul className={dropdownMenuClasses.join(' ')} ref={dropdownMenuRef}>
       {children}
     </ul>
   );

@@ -203,6 +203,13 @@
   }
 }
 
+.rb-uploads {
+  margin: 1rem;
+  .rb-upload-wrapper {
+    margin: 1rem;
+  }
+}
+
 @include media-breakpoint-down(lg) {
   .layout-sidebar {
     display: none;

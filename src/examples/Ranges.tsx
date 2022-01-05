@@ -7,14 +7,20 @@ import Range from '../components/Range';
 
 function Ranges() {
   const basic = `
+    import Range from '../components/Range';
+
     <Range current={40} />
   `;
 
   const label = `
+    import Range from '../components/Range';
+
     <Range current={40} label="40%"/>
   `;
 
-  const disabeld = `
+  const disabled = `
+    import Range from '../components/Range';
+
     <Range current={40} label="40%" isDisabled />
   `;
 
@@ -50,12 +56,12 @@ function Ranges() {
         <h1 className="rb-title">Disabled</h1>
         <div className="rb-group">
           <div className="rb-range-wrapper">
-            <Range current={40} label="40%" isDisabled/>
+            <Range current={40} label="40%" isDisabled />
           </div>
         </div>
         <div className="rb-code">
           <SyntaxHighlighter language="javascript" style={docco}>
-            {disabeld}
+            {disabled}
           </SyntaxHighlighter>
         </div>
       </section>

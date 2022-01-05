@@ -4,24 +4,23 @@ import Label from '../Label';
 
 interface PropsTypes {
   className?: string;
-  disabled?: boolean;
+  isDisabled?: boolean;
   onChange: any;
-  onInput: any;
+  onInput?: any;
   size?: string;
   children?: any;
 }
 
 Upload.defaultProps = {
   className: '',
-  disabled: false,
-  onChange: () => {},
+  isDisabled: false,
   onInput: () => {},
   size: '',
   children: null,
-} as PropsTypes;
+};
 
 function Upload(props: PropsTypes) {
-  const { className, onChange, onInput, disabled, size, children } = props;
+  const { className, onChange, onInput, isDisabled, size, children } = props;
   const uploadClasses: string[] = ['form-control'];
 
   if (className) uploadClasses.push(className);
@@ -35,7 +34,7 @@ function Upload(props: PropsTypes) {
       <input
         className={uploadClasses.join(' ')}
         type="file"
-        disabled={disabled}
+        disabled={isDisabled}
         onChange={onChange}
         onInput={onInput}
         id={uuid}

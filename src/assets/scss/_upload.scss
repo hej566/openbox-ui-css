@@ -1,0 +1,10 @@
+input[type='file'] {
+  + label {
+    cursor: pointer !important;
+  }
+  &:disabled {
+    + label {
+      cursor: not-allowed !important;
+    }
+  }
+}
