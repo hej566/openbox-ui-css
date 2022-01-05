@@ -196,6 +196,12 @@
     margin: 1rem;
   }
 }
+.rb-ranges {
+  margin: 1rem;
+  .rb-range-wrapper {
+    margin: 1rem;
+  }
+}
 
 @include media-breakpoint-down(lg) {
   .layout-sidebar {

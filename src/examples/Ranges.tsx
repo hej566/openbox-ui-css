@@ -1,19 +1,64 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import Label from '../components/Label';
-import Input from '../components/Input';
+// @ts-ignore
+import SyntaxHighlighter from 'react-syntax-highlighter';
+// @ts-ignore
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Range from '../components/Range';
 
 function Ranges() {
-  const uuid1 = uuidv4();
+  const basic = `
+    <Range current={40} />
+  `;
+
+  const label = `
+    <Range current={40} label="40%"/>
+  `;
+
+  const disabeld = `
+    <Range current={40} label="40%" isDisabled />
+  `;
 
   return (
-    <div className="rc-group">
-      <div className="rc-item mb-3">
-        <Label htmlFor={uuid1} className="form-label">
-          Example range
-        </Label>
-        <Input id={uuid1} type="range" min={0} max={100} current={40} />
-      </div>
+    <div className="rb-ranges">
+      <section className="rb-range-basic">
+        <h1 className="rb-title">Range</h1>
+        <div className="rb-group">
+          <div className="rb-range-wrapper">
+            <Range current={40} />
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {basic}
+          </SyntaxHighlighter>
+        </div>
+      </section>
+      <section className="rb-range-basic">
+        <h1 className="rb-title">Label</h1>
+        <div className="rb-group">
+          <div className="rb-range-wrapper">
+            <Range current={40} label="40%" />
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {label}
+          </SyntaxHighlighter>
+        </div>
+      </section>
+      <section className="rb-range-basic">
+        <h1 className="rb-title">Disabled</h1>
+        <div className="rb-group">
+          <div className="rb-range-wrapper">
+            <Range current={40} label="40%" isDisabled/>
+          </div>
+        </div>
+        <div className="rb-code">
+          <SyntaxHighlighter language="javascript" style={docco}>
+            {disabeld}
+          </SyntaxHighlighter>
+        </div>
+      </section>
     </div>
   );
 }
