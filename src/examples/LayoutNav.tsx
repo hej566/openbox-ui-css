@@ -40,8 +40,6 @@ function LayoutNav(props: propTypes) {
   }
 
   const so = {
-    activeBackgroundColor: '#0d6efd',
-    activeColor: '#ffffff',
     innerPaddingY: '0.5rem',
   };
 
