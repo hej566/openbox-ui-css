@@ -208,9 +208,9 @@ function ListGroups() {
   `;
 
   return (
-    <div className="rb-list-groups">
+    <div className="rb-list-groups container-fluid">
       <section className="rb-list-group-basic">
-        <h1 className="rb-title">Basic</h1>
+        <h1 className="rb-title">List group</h1>
         <div className="rb-group">
           <div className="rb-list-group-wrapper">
             <ListGroup>
@@ -314,9 +314,9 @@ function ListGroups() {
           </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-list-group-horizontal">
-        <h1 className="rc-title">Horizontal</h1>
-        <div className="rc-group">
+      <section className="rb-list-group-horizontal">
+        <h1 className="rb-title">Horizontal</h1>
+        <div className="rb-group">
           <div className="rb-list-group-wrapper">
             <ListGroup horizontal>
               <ListGroupItem isActive itemId="1">
@@ -337,9 +337,9 @@ function ListGroups() {
           </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-list-group-contextual">
-        <h1 className="rc-title">Contextual</h1>
-        <div className="rc-group">
+      <section className="rb-list-group-contextual">
+        <h1 className="rb-title">Contextual</h1>
+        <div className="rb-group">
           <div className="rb-list-group-wrapper">
             <ListGroup>
               <ListGroupItem isActive itemId="1">

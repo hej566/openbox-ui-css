@@ -122,7 +122,7 @@ function Navbars() {
   `;
 
   return (
-    <div className="rb-navbars">
+    <div className="rb-navbars container-fluid">
       <section className="rb-navbar-basic">
         <h1 className="rb-title">Navbar</h1>
         <div className="rb-group">

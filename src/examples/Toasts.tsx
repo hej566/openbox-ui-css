@@ -212,9 +212,9 @@ function Toasts() {
   `;
 
   return (
-    <div className="rb-toasts">
+    <div className="rb-toasts container-fluid">
       <section className="rb-toast-basic">
-        <h1 className="rb-title">Toasts</h1>
+        <h1 className="rb-title">Toast</h1>
         <div className="rb-group">
           <div className="rb-toast-wrapper">
             <Button onClick={visibilityHandler}>live demo</Button>

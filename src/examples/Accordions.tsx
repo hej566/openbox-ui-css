@@ -141,7 +141,7 @@ function Accordions() {
     </Accordion>
   `;
   return (
-    <div className="rb-accordions">
+    <div className="rb-accordions container-fluid">
       <section className="rb-accordion-only">
         <h1 className="rb-title">Accordion</h1>
         <div className="rb-group">

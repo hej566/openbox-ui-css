@@ -59,9 +59,9 @@ function Checkboxes() {
   `;
 
   return (
-    <div className="rb-checkboxes">
+    <div className="rb-checkboxes container-fluid">
       <section className="rb-checkbox-basic">
-        <h1 className="rb-title">Checkboxes</h1>
+        <h1 className="rb-title">Checkbox</h1>
         <div className="rb-group">
           <div className="rb-checkbox-wrapper">
             <Checkbox label="default checkbox" isChecked={false} className="form-check" />

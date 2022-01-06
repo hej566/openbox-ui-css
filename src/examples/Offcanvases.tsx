@@ -169,7 +169,7 @@ function Offcanvases() {
   `;
 
   return (
-    <div className="rb-offcanvases">
+    <div className="rb-offcanvases container-fluid">
       <section className="rb-offcanvas-basic">
         <h1 className="rb-title">Offcanvas</h1>
         <div className="rb-group">

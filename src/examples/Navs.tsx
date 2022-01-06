@@ -161,9 +161,9 @@ function Navs() {
   `;
 
   return (
-    <div className="rb-navs">
+    <div className="rb-navs container-fluid">
       <section className="rb-nav-basic">
-        <h1 className="rb-title">Navs and tabs</h1>
+        <h1 className="rb-title">Nav and tab</h1>
         <div className="rb-group">
           <div className="rb-nav-wrapper">
             <Nav>

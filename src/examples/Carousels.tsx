@@ -173,9 +173,9 @@ function Carousels() {
   `;
 
   return (
-    <div className="rb-carousels">
+    <div className="rb-carousels container-fluid">
       <section className="rb-carousel-only">
-        <h1 className="rb-title">Carousel only</h1>
+        <h1 className="rb-title">Carousel</h1>
         <div className="rb-group">
           <div className="rb-carousel-wrapper">
             <Carousel imgSrc={imgSrc} className="d-block" timing={3000} />

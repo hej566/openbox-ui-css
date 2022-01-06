@@ -44,7 +44,7 @@
   &:focus {
     border-color: $form-check-input-focus-border;
     box-shadow: $form-check-input-focus-box-shadow;
-    outline: 0;
+    //outline: 0;
   }
 
   &:checked {

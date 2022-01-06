@@ -35,9 +35,9 @@ function Tooltips() {
   `;
 
   return (
-    <div className="rb-tooltips">
+    <div className="rb-tooltips container-fluid">
       <section className="rb-tooltip-basic">
-        <h1 className="rb-title">Tooltips</h1>
+        <h1 className="rb-title">Tooltip</h1>
         <div className="rb-group">
           <div className="rb-tooltip-wrapper">
             <Tooltip template={content} placement="left">

@@ -49,7 +49,7 @@ function Popovers() {
   `;
 
   return (
-    <div className="rb-popovers">
+    <div className="rb-popovers container-fluid">
       <section className="rb-popover-basic">
         <h1 className="rb-title">Popover</h1>
         <div className="rb-group">

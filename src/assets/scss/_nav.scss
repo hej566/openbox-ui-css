@@ -14,6 +14,11 @@
 .nav-item {
   display: flex;
   align-items: center;
+  &.nav-form {
+    .nav-link {
+      padding: 0;
+    }
+  }
 }
 
 .nav-link {
@@ -25,6 +30,8 @@
   height: inherit;
   font-weight: $nav-link-font-weight;
   text-decoration: if($link-decoration == none, null, none);
+  flex: 1;
+  padding: $nav-link-padding-y $nav-link-padding-x;
 
   &:hover,
   &:focus {
@@ -44,6 +51,13 @@
     flex-direction: column;
     .btn--link {
       align-self: flex-start;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start !important;
+      .btn__inner {
+        width: inherit;
+        justify-content: inherit;
+      }
     }
   }
 }

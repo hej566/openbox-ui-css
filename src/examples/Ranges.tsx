@@ -25,7 +25,7 @@ function Ranges() {
   `;
 
   return (
-    <div className="rb-ranges">
+    <div className="rb-ranges container-fluid">
       <section className="rb-range-basic">
         <h1 className="rb-title">Range</h1>
         <div className="rb-group">

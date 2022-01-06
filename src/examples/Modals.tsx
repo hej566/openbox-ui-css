@@ -240,7 +240,7 @@ function Modals() {
   `;
 
   return (
-    <div className="rb-modals">
+    <div className="rb-modals container-fluid">
       <section className="rb-modal-basic">
         <h1 className="rb-title">Modal</h1>
         <div className="rb-group">

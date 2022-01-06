@@ -58,7 +58,7 @@ function Input(props: PropsTypes) {
       disabled={disabled}
       onChange={onChange}
       onInput={onInput}
-      value={value}
+      defaultValue={value}
       readOnly={readonly}
       id={id}
     />

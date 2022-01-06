@@ -24,6 +24,10 @@
   }
 }
 
+.rb-code {
+  margin: 1rem;
+}
+
 .rb-group {
   margin: 1rem;
 }
@@ -31,131 +35,54 @@
 .rb-title {
   font-size: 2rem;
   text-align: start;
+  margin: 1rem;
 }
 
 .rb-buttons {
-  margin: 1rem;
-
   .rb-button {
     display: inline-block;
-    margin: 1rem;
+    margin-right: 1rem;
   }
 }
 .rb-button-groups {
-  margin: 1rem;
-
   .rb-button-group {
-    margin: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
   }
 }
-.rb-accordions {
-  margin: 1rem;
 
-  .rb-accordion {
-    margin: 1rem;
-  }
-}
-.rb-alerts {
-  margin: 1rem;
-
-  .rb-alert {
-    margin: 1rem;
-  }
-}
 .rb-badges {
-  margin: 1rem;
-
   .rb-badge-group {
     display: inline-block;
-    margin: 1rem;
   }
 }
-.rb-breadcrumbs {
-  margin: 1rem;
 
-  .rb-breadcrumb-wrapper {
-    margin: 1rem;
-  }
-}
 .rb-carousels {
-  margin: 1rem;
-
   .rb-carousel-wrapper {
     height: auto;
-    margin: 1rem;
     width: 600px;
   }
 }
 .rb-dropdowns {
-  margin: 1rem;
-
   .rb-dropdown-wrapper {
     display: inline-block;
-    margin: 1rem;
-  }
-}
-.rb-list-groups {
-  margin: 1rem;
-
-  .rb-list-group-wrapper {
-    margin: 1rem;
-  }
-}
-.rb-modals {
-  margin: 1rem;
-
-  .rb-modal-wrapper {
-    margin: 1rem;
-  }
-}
-.rb-navs {
-  margin: 1rem;
-
-  .rc-nav-wrapper {
-    margin: 1rem;
+    margin-right: 1rem;
   }
 }
 
-.rb-navbars {
-  margin: 1rem;
-  .rb-navbar-wrapper {
-    margin: 1rem;
-  }
-}
-.rb-offcanvases {
-  margin: 1rem;
-  .rb-offcanvas-wrapper {
-    margin: 1rem;
-  }
-}
-.rb-paginations {
-  margin: 1rem;
-  .rb-pagination-wrapper {
-    margin: 1rem;
-  }
-}
 .rb-placeholders {
-  margin: 1rem;
   .rb-placeholder-wrapper {
-    margin: 1rem;
+    margin-bottom: 1rem;
   }
 }
 .rb-progresses {
-  margin: 1rem;
   .rb-progress-wrapper {
-    margin: 1rem;
+    margin-bottom: 1rem;
   }
 }
-.rb-toasts {
-  margin: 1rem;
-  .rb-toast-wrapper {
-    margin: 1rem;
-  }
-}
+
 .rb-popovers {
-  margin: 1rem;
   .rb-popover-wrapper {
-    margin: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,9 +93,7 @@
   }
 }
 .rb-tooltips {
-  margin: 1rem;
   .rb-tooltip-wrapper {
-    margin: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,37 +101,6 @@
   .rb-group {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-.rb-checkboxes {
-  margin: 1rem;
-  .rb-checkbox-wrapper {
-    margin: 1rem;
-  }
-}
-.rb-radios {
-  margin: 1rem;
-  .rb-radio-wrapper {
-    margin: 1rem;
-  }
-}
-.rb-switches {
-  margin: 1rem;
-  .rb-switch-wrapper {
-    margin: 1rem;
-  }
-}
-.rb-ranges {
-  margin: 1rem;
-  .rb-range-wrapper {
-    margin: 1rem;
-  }
-}
-
-.rb-uploads {
-  margin: 1rem;
-  .rb-upload-wrapper {
-    margin: 1rem;
   }
 }
 

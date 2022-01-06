@@ -21,9 +21,9 @@ function FormControl() {
   const uuid7 = uuidv4();
 
   return (
-    <div className="rc-navbars">
+    <div className="rc-navbars container-fluid">
       <section className="rc-navbar-basic">
-        <div className="rc-title">Basic toast</div>
+        <div className="rc-title">Toast</div>
         <div className="rc-group">
           <div className="rc-item mb-3">
             <Label htmlFor={uuid1} className="form-label">

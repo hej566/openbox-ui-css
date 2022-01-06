@@ -94,7 +94,7 @@ function Paginations() {
   `;
 
   return (
-    <div className="rb-paginations">
+    <div className="rb-paginations container-fluid">
       <section className="rb-pagination-basic">
         <h1 className="rb-title">Pagination</h1>
         <div className="rb-group">

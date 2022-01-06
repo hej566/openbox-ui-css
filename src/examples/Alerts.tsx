@@ -102,9 +102,9 @@ function Alerts() {
   `;
 
   return (
-    <div className="rb-alerts">
+    <div className="rb-alerts container-fluid">
       <section className="rb-alert-variant">
-        <h1 className="rb-title">Alerts</h1>
+        <h1 className="rb-title">Alert</h1>
         <div className="rb-group">
           <div className="rb-alert">
             <Alert variant="primary">A simple primary alert—check it out!</Alert>

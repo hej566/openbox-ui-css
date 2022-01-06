@@ -74,7 +74,7 @@ function Placeholders() {
   `;
 
   return (
-    <div className="rb-placeholders">
+    <div className="rb-placeholders container-fluid">
       <section className="rb-placeholder-basic">
         <h1 className="rb-title">Placeholder</h1>
         <div className="rb-group">

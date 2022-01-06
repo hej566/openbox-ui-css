@@ -92,9 +92,9 @@ function Buttons() {
   }
 
   return (
-    <div className="rb-buttons">
+    <div className="rb-buttons container-fluid">
       <section className="rb-button-variant">
-        <h1 className="rb-title">Buttons</h1>
+        <h1 className="rb-title">Button</h1>
         <div className="rb-group">
           <div className="rb-button">
             <Button variant="primary">Primary</Button>
@@ -314,19 +314,6 @@ function Buttons() {
           </SyntaxHighlighter>
         </div>
       </section>
-      {/*<div className="rb-button-toggle">*/}
-      {/*  <div className="rb-title">Toggle button</div>*/}
-      {/*  <div className="rb-group">*/}
-      {/*    <Button*/}
-      {/*      variant="primary"*/}
-      {/*      isLoading={loading1}*/}
-      {/*      prefixIcon={<Icon component={Acorn} />}*/}
-      {/*      onClick={clickHandler1}*/}
-      {/*    >*/}
-      {/*      <Upload onChange={uploadHandler}>Upload</Upload>*/}
-      {/*    </Button>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
     </div>
   );
 }

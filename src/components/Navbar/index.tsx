@@ -4,7 +4,7 @@ import Button from '../Button';
 import Bars from '../../assets/icons/svg/bars-regular.svg';
 
 interface PropsTypes {
-  children: React.ComponentElement<any, any>[];
+  children: React.ComponentElement<any, any>[] | React.ComponentElement<any, any>;
   title?: string;
   className?: string;
   Icon?: React.ReactNode | null;
@@ -44,7 +44,8 @@ function Navbar(props: PropsTypes) {
   if (!Object.keys(activeStateMap).length) {
     React.Children.forEach(children, (child) => {
       const { isActive, isDisabled, itemId } = child.props;
-      if (itemId) {
+
+      if (itemId && isActive && isDisabled) {
         activeStateMap[itemId] = isActive;
         disabledStateMap[itemId] = isDisabled;
       }
@@ -78,11 +79,13 @@ function Navbar(props: PropsTypes) {
 
   const NavItemList = React.Children.map(children, (child) => {
     const { itemId } = child.props;
-    return React.cloneElement(child, {
-      isActive: activeStateMap[itemId],
-      isDisabled: disabledStateMap[itemId],
-      onClick: !disabledStateMap[itemId] ? clickHandler(itemId) : null,
-    });
+    if (itemId) {
+      return React.cloneElement(child, {
+        isActive: activeStateMap[itemId],
+        isDisabled: disabledStateMap[itemId],
+        onClick: !disabledStateMap[itemId] ? clickHandler(itemId) : null,
+      });
+    }
   });
 
   return (
@@ -95,8 +98,8 @@ function Navbar(props: PropsTypes) {
           prefixIcon={Icon}
           onClick={isOpen ? hide : show}
         />
-        <div className="navbar-collapse collapse" ref={navbarCollapseRef}>
-          <div className="navbar-nav me-auto mb-2 mb-lg-0">{NavItemList}</div>
+        <div className="navbar-collapse collapse justify-content-end" ref={navbarCollapseRef}>
+          <div className="navbar-nav">{NavItemList}</div>
         </div>
       </div>
     </nav>

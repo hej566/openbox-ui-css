@@ -40,7 +40,7 @@ function Uploads() {
   `;
 
   return (
-    <div className="rb-uploads">
+    <div className="rb-uploads container-fluid">
       <section className="rb-upload-basic">
         <h1 className="rb-title">Upload</h1>
         <div className="rb-group">

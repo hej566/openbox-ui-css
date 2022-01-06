@@ -72,9 +72,9 @@ function Badges() {
   `;
 
   return (
-    <div className="rb-badges">
+    <div className="rb-badges container-fluid">
       <section className="rb-badges-heading">
-        <h1 className="rb-title">Badges</h1>
+        <h1 className="rb-title">Badge</h1>
         <div className="rb-group">
           <div className="rb-badge-group">
             <h2>

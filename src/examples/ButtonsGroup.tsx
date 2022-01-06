@@ -95,7 +95,7 @@ function ButtonsGroup() {
   `;
 
   return (
-    <div className="rb-button-groups">
+    <div className="rb-button-groups container-fluid">
       <section className="rb-button-groups-basic">
         <h1 className="rb-title">Button group</h1>
         <div className="rb-group">

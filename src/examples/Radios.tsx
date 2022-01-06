@@ -48,9 +48,9 @@ function Radios() {
   `;
 
   return (
-    <div className="rb-radios">
+    <div className="rb-radios container-fluid">
       <section className="rb-radio-basic">
-        <h1 className="rb-title">Radios</h1>
+        <h1 className="rb-title">Radio</h1>
         <div className="rb-group">
           <div className="rb-radio-wrapper">
             <Radio label="default radio" name="test" value="1" isChecked className="form-check" />

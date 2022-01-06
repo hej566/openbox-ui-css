@@ -39,7 +39,7 @@ function Progresses() {
   `;
 
   return (
-    <div className="rb-progresses">
+    <div className="rb-progresses container-fluid">
       <section className="rb-progress-basic">
         <h1 className="rb-title">Progress</h1>
         <div className="rb-group">

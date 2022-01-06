@@ -11,7 +11,15 @@ function Range(props: propTypes) {
       <Label htmlFor={uuid1} className="form-label">
         {label}
       </Label>
-      <input id={uuid1} type="range" min={min} max={max} value={current} disabled={isDisabled} />
+      <input
+        className="form-range"
+        id={uuid1}
+        type="range"
+        min={min}
+        max={max}
+        defaultValue={current}
+        disabled={isDisabled}
+      />
     </div>
   );
 }

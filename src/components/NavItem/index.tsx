@@ -75,7 +75,6 @@ function NavItem(props: PropsTypes) {
       className={navItemClasses.join(' ')}
       onClick={onClick}
       onKeyDown={keyDownHandler}
-      role="navigation"
       tabIndex={isDisabled ? -1 : 0}
     >
       {navItem}

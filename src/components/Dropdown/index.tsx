@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useLayoutEffect, useState } from 'react';
 import { createPopper } from '@popperjs/core';
 import Button from '../Button';
 import Icon from '../Icon';
@@ -211,7 +211,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
     if (nextFocus) nextFocus.focus();
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     initDropdown();
   }, []);
 

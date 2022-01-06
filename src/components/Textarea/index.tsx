@@ -36,7 +36,7 @@ function Textarea(props: PropsTypes) {
       disabled={disabled}
       onChange={onChange}
       onInput={onInput}
-      value={value}
+      defaultValue={value}
       rows={rows}
       id={id}
     />

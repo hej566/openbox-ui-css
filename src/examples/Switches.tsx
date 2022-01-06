@@ -46,9 +46,9 @@ function Switches() {
   `;
 
   return (
-    <div className="rb-switches">
+    <div className="rb-switches container-fluid">
       <section className="rb-switch-basic">
-        <h1 className="rb-title">Switches</h1>
+        <h1 className="rb-title">Switch</h1>
         <div className="rb-group">
           <div className="rb-switch-wrapper">
             <Switch label="Default checkbox" isChecked={isChecked} />

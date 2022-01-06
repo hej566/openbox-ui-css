@@ -27,7 +27,7 @@ function Breadcrumbs() {
   `;
 
   return (
-    <div className="rb-breadcrumbs">
+    <div className="rb-breadcrumbs container-fluid">
       <section className="rb-breadcrumbs-basic">
         <h1 className="rb-title">Breadcrumb</h1>
         <div className="rb-group">

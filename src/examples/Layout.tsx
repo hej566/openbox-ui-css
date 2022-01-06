@@ -8,6 +8,10 @@ import Accordion from '../components/Accordion';
 import AccordionItem from '../components/AccordionItem';
 import LayoutNav from './LayoutNav';
 import Input from '../components/Input';
+import Button from '../components/Button';
+import DropdownItem from '../components/DropdownItem';
+import Dropdown from '../components/Dropdown';
+import InputGroup from '../components/InputGroup';
 
 const Layout = (props: any) => {
   const { link, children } = props;
@@ -43,9 +47,27 @@ const Layout = (props: any) => {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
+              <NavItem itemId="6">
+                <Dropdown variant="link" buttonName="Dropdown" type="normal">
+                  <DropdownItem isActive itemId="8">
+                    Action
+                  </DropdownItem>
+                  <DropdownItem isDisabled itemId="9">
+                    Another action
+                  </DropdownItem>
+                  <DropdownItem itemId="10">Something else here</DropdownItem>
+                  <hr className="dropdown-divider" />
+                  <DropdownItem itemId="13">Separated link</DropdownItem>
+                </Dropdown>
+              </NavItem>
               <NavItem itemId="2">Link</NavItem>
-              <NavItem itemId="3">
-                <Input />
+              <NavItem itemId="22" className="nav-form">
+                <form className="d-flex">
+                  <InputGroup>
+                    <Input />
+                    <Button variant="danger">Button</Button>
+                  </InputGroup>
+                </form>
               </NavItem>
             </Navbar>
           </div>

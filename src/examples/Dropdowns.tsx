@@ -174,9 +174,9 @@ function Dropdowns() {
   `;
 
   return (
-    <div className="rb-dropdowns">
+    <div className="rb-dropdowns container-fluid">
       <section className="rb-dropdown-basic">
-        <h1 className="rb-title">Single button</h1>
+        <h1 className="rb-title">Dropdown</h1>
         <div className="rb-group">
           <div className="rb-dropdown-wrapper" style={{ display: 'block' }}>
             <Dropdown buttonName="Dropdown button" type="normal">

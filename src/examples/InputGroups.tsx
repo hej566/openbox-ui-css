@@ -208,7 +208,7 @@ function InputGroups() {
   `;
 
   return (
-    <div className="rb-input-groups">
+    <div className="rb-input-groups container-fluid">
       <section className="rb-input-group-basic">
         <h1 className="rb-title">Input group</h1>
         <div className="rb-group">
