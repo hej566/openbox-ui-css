@@ -62,12 +62,10 @@ const Layout = (props: any) => {
               </NavItem>
               <NavItem itemId="2">Link</NavItem>
               <NavItem itemId="22" className="nav-form">
-                <form className="d-flex">
-                  <InputGroup>
-                    <Input />
-                    <Button variant="danger">Button</Button>
-                  </InputGroup>
-                </form>
+                <InputGroup>
+                  <Input placeholder="search" />
+                  <Button variant="danger">Button</Button>
+                </InputGroup>
               </NavItem>
             </Navbar>
           </div>

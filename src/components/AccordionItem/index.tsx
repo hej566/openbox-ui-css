@@ -86,7 +86,6 @@ const AccordionItem = (props: propTypes) => {
           suffixIcon={suffixIcon}
           variant="link"
           expanded={isOpen}
-          controls={itemId}
           isDisabled={isDisabled}
         >
           {title}
@@ -96,7 +95,6 @@ const AccordionItem = (props: propTypes) => {
         className={accordionItemBodyClasses.join(' ')}
         ref={accordionItemBodyRef}
         onTransitionEnd={transitionEndHandler}
-        id={itemId}
       >
         <div className="accordion-item__body-inner">{children}</div>
       </div>
