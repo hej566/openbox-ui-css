@@ -222,7 +222,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   );
 
   return (
-    <div className={dropdownClasses.join(' ')} ref={ref}>
+    <div className={dropdownClasses.join(' ')} ref={ref} role="navigation">
       {split ? (
         <ButtonGroup>
           <Button variant={variant} size={size} isDisabled={isDisabled}>
