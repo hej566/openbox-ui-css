@@ -178,7 +178,7 @@ function Carousels() {
         <h1 className="rb-title">Carousel</h1>
         <div className="rb-group">
           <div className="rb-carousel-wrapper">
-            <Carousel imgSrc={imgSrc} className="d-block" timing={3000} />
+            <Carousel imgSrc={imgSrc} className="d-block" timing={10000} />
           </div>
         </div>
         <div className="rb-code">
@@ -191,7 +191,7 @@ function Carousels() {
         <h1 className="rb-title">With controls</h1>
         <div className="rb-group">
           <div className="rb-carousel-wrapper">
-            <Carousel imgSrc={imgSrc} className="d-block w-100" timing={3000} control />
+            <Carousel imgSrc={imgSrc} className="d-block w-100" timing={10000} control />
           </div>
         </div>
         <div className="rb-code">
@@ -204,7 +204,7 @@ function Carousels() {
         <h1 className="rb-title">With indicator</h1>
         <div className="rb-group">
           <div className="rb-carousel-wrapper">
-            <Carousel imgSrc={imgSrc} className="d-block w-100" timing={3000} indicator control />
+            <Carousel imgSrc={imgSrc} className="d-block w-100" timing={10000} indicator control />
           </div>
         </div>
         <div className="rb-code">

@@ -70,4 +70,4 @@ LayoutNav.defaultProps = {
   onChange: (path: string) => {},
 };
 
-export default LayoutNav;
+export default React.memo(LayoutNav);

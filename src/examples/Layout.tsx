@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { useLocation, useRouteMatch } from 'react-router-dom';
 import Icon from '../components/Icon';
 import Acorn from '../assets/icons/svg/acorn-duotone.svg';
@@ -6,12 +6,13 @@ import Navbar from '../components/Navbar';
 import NavItem from '../components/NavItem';
 import Accordion from '../components/Accordion';
 import AccordionItem from '../components/AccordionItem';
-import LayoutNav from './LayoutNav';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import DropdownItem from '../components/DropdownItem';
 import Dropdown from '../components/Dropdown';
 import InputGroup from '../components/InputGroup';
+
+const LayoutNav = lazy(() => import('./LayoutNav'));
 
 const Layout = (props: any) => {
   const { link, children } = props;
@@ -76,13 +77,17 @@ const Layout = (props: any) => {
                 itemId="1"
                 suffixIcon={<Icon component={Acorn} />}
               >
-                <LayoutNav current={current} onChange={changeHandler} />
+                <Suspense fallback={<></>}>
+                  <LayoutNav current={current} onChange={changeHandler} />
+                </Suspense>
               </AccordionItem>
             </Accordion>
           </div>
           <div className="layout-body d-flex">
             <div className="layout-sidebar col-lg-2 col-12">
-              <LayoutNav current={current} onChange={changeHandler} />
+              <Suspense fallback={<></>}>
+                <LayoutNav current={current} onChange={changeHandler} />
+              </Suspense>
             </div>
             <div className="layout-main col-lg-10 col-12">{children}</div>
           </div>

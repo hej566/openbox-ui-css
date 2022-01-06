@@ -216,7 +216,7 @@ const Dropdown = React.forwardRef<HTMLDivElement, propTypes>((props: propTypes, 
   }, []);
 
   const content = (
-    <ul className={dropdownMenuClasses.join(' ')} ref={dropdownMenuRef}>
+    <ul className={dropdownMenuClasses.join(' ')} ref={dropdownMenuRef} role="menu">
       {children}
     </ul>
   );

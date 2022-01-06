@@ -58,16 +58,7 @@ const ButtonsGroup = lazy(() => import('./examples/ButtonsGroup'));
 function App() {
   return (
     <Layout link={Link}>
-      <Suspense
-        fallback={
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ height: '100%' }}
-          >
-            loading
-          </div>
-        }
-      >
+      <Suspense fallback={<></>}>
         <Switch>
           <Route exact path="/">
             <Home />

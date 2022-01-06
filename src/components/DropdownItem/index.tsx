@@ -66,6 +66,7 @@ const DropdownItem: React.FunctionComponent<propTypes> = (props) => {
       onClick={clickHandler}
       tabIndex={0}
       onKeyDown={keyDownHandler}
+      role="menuitem"
     >
       {children}
     </li>

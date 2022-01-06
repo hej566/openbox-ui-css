@@ -319,10 +319,10 @@ const Carousel = (props: propTypes) => {
       key={item.index}
       onTransitionEnd={transitionEndHandler}
     >
-      <img src={item.src} className={imgClassName} />
+      <img src={item.src} className={imgClassName} alt={item.content} />
       <div className="carousel-caption d-none d-md-block">
-        {item.title && <h5>{item.title}</h5>}
-        {item.content && <p>{item.content}</p>}
+        {item.title && <div>{item.title}</div>}
+        {item.content && <div>{item.content}</div>}
       </div>
     </div>
   ));
@@ -333,13 +333,13 @@ const Carousel = (props: propTypes) => {
       className={item.active ? 'active carousel-indicator' : 'carousel-indicator'}
       aria-current={item.active}
       key={item.index}
+      aria-label={`slide ${item.index}`}
     />
   ));
 
   return (
     <div
       className={carouselClasses.join(' ')}
-      data-ride="carousel"
       ref={carouselRef}
       onMouseEnter={mouseenterHandler}
       onMouseLeave={mouseleaveHandler}
@@ -396,4 +396,4 @@ Carousel.defaultProps = {
   imgClassName: '',
 };
 
-export default Carousel;
+export default React.memo(Carousel);
