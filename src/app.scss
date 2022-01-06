@@ -11,6 +11,10 @@
     display: none;
   }
 
+  .layout-sidebar {
+    background-color: rgba(9, 30, 66, 0.04);
+  }
+
   .menu {
     height: 100%;
   }
@@ -54,6 +58,7 @@
 .rb-badges {
   .rb-badge-group {
     display: inline-block;
+    margin-right: 1.5rem;
   }
 }
 

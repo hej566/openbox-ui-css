@@ -72,7 +72,7 @@ function Nav(props: PropsTypes) {
   return (
     <>
       {tabs && (
-        <div className={navClasses.join(' ')} role="tab">
+        <div className={navClasses.join(' ')} role="tablist">
           {NavItemList}
         </div>
       )}

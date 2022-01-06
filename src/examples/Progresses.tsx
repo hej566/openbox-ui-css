@@ -12,29 +12,29 @@ function Progresses() {
     import ProgressBar from '../components/ProgressBar';
     
     <Progress>
-      <ProgressBar value={50} />
+      <ProgressBar value={50} label="some label" />
     </Progress>
     
     <Progress>
-      <ProgressBar value={30} className="bg-success" />
+      <ProgressBar value={30} className="bg-success" label="some label" />
     </Progress>
     
     <Progress>
-      <ProgressBar value={30} className="bg-warning" />
+      <ProgressBar value={30} className="bg-warning" label="some label" />
     </Progress>
     
     <Progress>
-      <ProgressBar value={30} className="bg-danger" />
-      <ProgressBar value={30} className="bg-warning" />
-      <ProgressBar value={30} className="bg-success" />
+      <ProgressBar value={30} className="bg-danger" label="some label" />
+      <ProgressBar value={30} className="bg-warning" label="some label" />
+      <ProgressBar value={30} className="bg-success" label="some label" />
     </Progress>
     
     <Progress>
-      <ProgressBar value={50} striped />
+      <ProgressBar value={50} striped label="some label" />
     </Progress>
      
     <Progress>
-      <ProgressBar value={75} striped animate />
+      <ProgressBar value={75} striped animate label="some label" />
     </Progress>
   `;
 
@@ -45,34 +45,34 @@ function Progresses() {
         <div className="rb-group">
           <div className="rb-progress-wrapper">
             <Progress>
-              <ProgressBar value={50} />
+              <ProgressBar value={50} label="some label" />
             </Progress>
           </div>
           <div className="rb-progress-wrapper">
             <Progress>
-              <ProgressBar value={30} className="bg-success" />
+              <ProgressBar value={30} className="bg-success" label="some label" />
             </Progress>
           </div>
           <div className="rb-progress-wrapper">
             <Progress>
-              <ProgressBar value={30} className="bg-warning" />
+              <ProgressBar value={30} className="bg-warning" label="some label" />
             </Progress>
           </div>
           <div className="rb-progress-wrapper">
             <Progress>
-              <ProgressBar value={30} className="bg-danger" />
-              <ProgressBar value={30} className="bg-warning" />
-              <ProgressBar value={30} className="bg-success" />
+              <ProgressBar value={30} className="bg-danger" label="some label" />
+              <ProgressBar value={30} className="bg-warning" label="some label" />
+              <ProgressBar value={30} className="bg-success" label="some label" />
             </Progress>
           </div>
           <div className="rb-progress-wrapper">
             <Progress>
-              <ProgressBar value={50} striped />
+              <ProgressBar value={50} striped label="some label" />
             </Progress>
           </div>
           <div className="rb-progress-wrapper">
             <Progress>
-              <ProgressBar value={75} striped animate />
+              <ProgressBar value={75} striped animate label="some label" />
             </Progress>
           </div>
         </div>

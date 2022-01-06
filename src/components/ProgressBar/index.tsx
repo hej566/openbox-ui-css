@@ -5,16 +5,18 @@ interface PropsTypes {
   value: number;
   striped?: boolean;
   animate?: boolean;
+  label?: string;
 }
 
 Progress.defaultProps = {
   className: '',
   striped: false,
   animate: false,
+  label: '',
 };
 
 function Progress(props: PropsTypes) {
-  const { value, className, animate, striped } = props;
+  const { value, className, animate, striped, label } = props;
   const progressbarClasses: string[] = ['progress-bar'];
 
   if (className) progressbarClasses.push(className);
@@ -28,6 +30,7 @@ function Progress(props: PropsTypes) {
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
+      aria-label={label}
       style={{ width: `${value}%` }}
     />
   );

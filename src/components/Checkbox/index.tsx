@@ -89,6 +89,7 @@ function Checkbox(props: PropsTypes) {
           disabled={isDisabled}
           onChange={!isDisabled ? changeHandler : () => {}}
           ref={checkboxRef}
+          aria-label={label}
         />
       )}
 
@@ -102,11 +103,12 @@ function Checkbox(props: PropsTypes) {
           disabled={isDisabled}
           onChange={!isDisabled ? changeHandler : () => {}}
           ref={checkboxRef}
+          aria-label={label}
         />
       )}
 
       <label className="form-check-label" htmlFor={uuid}>
-        {label}
+        {children}
       </label>
     </div>
   );

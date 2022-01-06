@@ -41,9 +41,10 @@ function Radio(props: PropsTypes) {
         defaultChecked={isChecked}
         disabled={isDisabled}
         onChange={onChange}
+        aria-label={label}
       />
       <label className="form-check-label" htmlFor={uuid}>
-        {label}
+        {children}
       </label>
     </div>
   );

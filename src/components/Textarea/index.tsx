@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 interface PropsTypes {
   className?: string;
@@ -38,6 +37,7 @@ function Textarea(props: PropsTypes) {
       onInput={onInput}
       defaultValue={value}
       rows={rows}
+      placeholder={placeholder}
       id={id}
     />
   );

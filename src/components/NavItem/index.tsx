@@ -10,6 +10,7 @@ interface PropsTypes {
   collapse?: boolean;
   dropdown?: boolean;
   itemId: string;
+  role?: string;
 }
 
 NavItem.defaultProps = {
@@ -20,10 +21,12 @@ NavItem.defaultProps = {
   type: 'nav',
   collapse: false,
   dropdown: false,
+  role: 'navigation',
 };
 
 function NavItem(props: PropsTypes) {
-  const { children, className, isActive, isDisabled, onClick, type, collapse, dropdown } = props;
+  const { children, className, isActive, isDisabled, onClick, type, collapse, dropdown, role } =
+    props;
   const navLinkClasses: string[] = ['nav-link'];
   const navItemClasses: string[] = ['nav-item'];
   if (className) navItemClasses.push(className);
@@ -76,6 +79,7 @@ function NavItem(props: PropsTypes) {
       onClick={onClick}
       onKeyDown={keyDownHandler}
       tabIndex={isDisabled ? -1 : 0}
+      role={role}
     >
       {navItem}
     </div>

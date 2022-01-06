@@ -255,12 +255,16 @@ function Navs() {
         <div className="rb-group">
           <div className="rb-nav-wrapper">
             <Nav tabs>
-              <NavItem isActive itemId="1">
+              <NavItem isActive itemId="1" role="tab">
                 Active
               </NavItem>
-              <NavItem itemId="2">Link</NavItem>
-              <NavItem itemId="3">Link</NavItem>
-              <NavItem itemId="4" isDisabled>
+              <NavItem itemId="2" role="tab">
+                Link
+              </NavItem>
+              <NavItem itemId="3" role="tab">
+                Link
+              </NavItem>
+              <NavItem itemId="4" isDisabled role="tab">
                 Disabled
               </NavItem>
             </Nav>

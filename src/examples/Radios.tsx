@@ -13,14 +13,14 @@ function Radios() {
   const basic = `
     import Radio from '../components/Radio';
 
-    <Radio label="default radio" name="test" value="1" isChecked className="form-check" />
-    <Radio label="default radio" name="test" value="2" className="form-check" />
+    <Radio name="test" value="1" isChecked className="form-check">default radio</Radio>
+    <Radio name="test" value="2" className="form-check">default radio</Radio>
   `;
 
   const disabled = `
     import Radio from '../components/Radio';
 
-    <Radio label="default radio" name="test" value="3" isDisabled className="form-check" />
+    <Radio name="test" value="3" isDisabled className="form-check">default radio</Radio>
   `;
 
   const event = `
@@ -32,18 +32,16 @@ function Radios() {
 
     <div onChange={changeHandler}>
       <Radio
-        label="default radio"
         value="4"
         name="test2"
         className="form-check"
-      />
+      >default radio</Radio>
       <Radio
-        label="default radio"
         value="5"
         name="test2"
         isChecked
         className="form-check"
-      />
+      >default radio</Radio>
     </div>
   `;
 
@@ -53,8 +51,12 @@ function Radios() {
         <h1 className="rb-title">Radio</h1>
         <div className="rb-group">
           <div className="rb-radio-wrapper">
-            <Radio label="default radio" name="test" value="1" isChecked className="form-check" />
-            <Radio label="default radio" name="test" value="2" className="form-check" />
+            <Radio name="test" value="1" isChecked className="form-check">
+              default radio
+            </Radio>
+            <Radio name="test" value="2" className="form-check">
+              default radio
+            </Radio>
           </div>
         </div>
         <div className="rb-code">
@@ -67,8 +69,12 @@ function Radios() {
         <h1 className="rb-title">Disabled</h1>
         <div className="rb-group">
           <div className="rb-radio-wrapper">
-            <Radio label="default radio" value="3" isDisabled className="form-check" />
-            <Radio label="default radio" value="3" isDisabled isChecked className="form-check" />
+            <Radio value="3" isDisabled className="form-check">
+              default radio
+            </Radio>
+            <Radio value="3" isDisabled isChecked className="form-check">
+              default radio
+            </Radio>
           </div>
         </div>
         <div className="rb-code">
@@ -82,14 +88,12 @@ function Radios() {
         <div className="rb-group">
           <div className="rb-radio-wrapper">
             <div onChange={changeHandler}>
-              <Radio label="default radio" value="4" name="test2" className="form-check" />
-              <Radio
-                label="default radio"
-                value="5"
-                name="test2"
-                isChecked
-                className="form-check"
-              />
+              <Radio value="4" name="test2" className="form-check">
+                default radio
+              </Radio>
+              <Radio value="5" name="test2" isChecked className="form-check">
+                default radio
+              </Radio>
             </div>
           </div>
         </div>

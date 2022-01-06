@@ -36,13 +36,13 @@ function InputGroups() {
     
     <InputGroup className="mb-3">
       <span className="input-group-text">$</span>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
       <span className="input-group-text">.00</span>
     </InputGroup>
     
     <InputGroup className="mb-3">
       <span className="input-group-text">With textarea</span>
-      <Textarea />
+      <Textarea placeholder="some text" />
     </InputGroup>
   `;
 
@@ -52,17 +52,17 @@ function InputGroups() {
 
     <InputGroup size="sm" className="mb-3">
        <span className="input-group-text">small</span>
-       <Input value="" />
+       <Input value="" placeholder="some text" />
     </InputGroup>
      
     <InputGroup className="mb-3">
        <span className="input-group-text">normal</span>
-       <Input value="" />
+       <Input value="" placeholder="some text" />
     </InputGroup>
      
     <InputGroup className="mb-3" size="lg">
        <span className="input-group-text">large</span>
-       <Input value="" />
+       <Input value="" placeholder="some text" />
     </InputGroup>
   `;
 
@@ -82,14 +82,14 @@ function InputGroups() {
       <span className="input-group-text">
         <Checkbox isChecked={isChecked} onChange={clickHandler} />
       </span>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
     
     <InputGroup className="mb-3">
       <span className="input-group-text">
         <Radio name="test" value="1" isChecked />
       </span>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
   `;
 
@@ -99,8 +99,8 @@ function InputGroups() {
     
     <InputGroup className="mb-3">
       <span className="input-group-text">normal</span>
-      <Input value="" />
-      <Input value="" />
+      <Input value="" placeholder="some text" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
   `;
 
@@ -111,7 +111,7 @@ function InputGroups() {
     <InputGroup className="mb-3">
       <span className="input-group-text">$</span>
       <span className="input-group-text">0.00</span>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
   `;
 
@@ -121,22 +121,22 @@ function InputGroups() {
     
     <InputGroup className="mb-3">
       <Button variant="outline-secondary">Button</Button>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
     
     <InputGroup className="mb-3">
-      <Input value="" />
+      <Input value="" placeholder="some text" />
       <Button variant="outline-secondary">Button</Button>
     </InputGroup>
     
     <InputGroup className="mb-3">
       <Button variant="outline-secondary">Button</Button>
       <Button variant="outline-secondary">Button</Button>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
     
     <InputGroup className="mb-3">
-      <Input value="" />
+      <Input value="" placeholder="some text" />
       <Button variant="outline-secondary">Button</Button>
       <Button variant="outline-secondary">Button</Button>
     </InputGroup>
@@ -158,7 +158,7 @@ function InputGroups() {
         <hr className="dropdown-divider" />
         <DropdownItem itemId="4">Separated link</DropdownItem>
       </Dropdown>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
     
     <InputGroup className="mb-3">
@@ -173,11 +173,11 @@ function InputGroups() {
         <hr className="dropdown-divider" />
         <DropdownItem itemId="4">Separated link</DropdownItem>
       </Dropdown>
-      <Input value="" />
+      <Input value="" placeholder="some text" />
     </InputGroup>
     
     <InputGroup className="mb-3">
-      <Input value="" />
+      <Input value="" placeholder="some text" />
       <Dropdown variant="outline-secondary" buttonName="Dropdown" split>
         <DropdownItem isActive itemId="1">
           Action
@@ -192,7 +192,7 @@ function InputGroups() {
     </InputGroup>
     
     <InputGroup className="mb-3">
-      <Input value="" />
+      <Input value="" placeholder="some text" />
       <Dropdown variant="outline-secondary" buttonName="Dropdown">
         <DropdownItem isActive itemId="1">
           Action
@@ -227,14 +227,14 @@ function InputGroups() {
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
               <span className="input-group-text">$</span>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
               <span className="input-group-text">.00</span>
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
               <span className="input-group-text">With textarea</span>
-              <Textarea />
+              <Textarea placeholder="some text" />
             </InputGroup>
           </div>
         </div>
@@ -250,19 +250,19 @@ function InputGroups() {
           <div className="rb-input-group-wrapper">
             <InputGroup size="sm" className="mb-3">
               <span className="input-group-text">small</span>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
               <span className="input-group-text">normal</span>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3" size="lg">
               <span className="input-group-text">normal</span>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
         </div>
@@ -278,17 +278,17 @@ function InputGroups() {
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
               <span className="input-group-text">
-                <Checkbox isChecked={isChecked} onChange={clickHandler} />
+                <Checkbox isChecked={isChecked} onChange={clickHandler} label="some label" />
               </span>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
               <span className="input-group-text">
-                <Radio name="test" value="1" isChecked />
+                <Radio name="test" value="1" isChecked label="some label" />
               </span>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
         </div>
@@ -304,8 +304,8 @@ function InputGroups() {
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
               <span className="input-group-text">normal</span>
-              <Input value="" />
-              <Input value="" />
+              <Input value="" placeholder="some text" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
         </div>
@@ -322,7 +322,7 @@ function InputGroups() {
             <InputGroup className="mb-3">
               <span className="input-group-text">$</span>
               <span className="input-group-text">0.00</span>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
         </div>
@@ -338,12 +338,12 @@ function InputGroups() {
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
               <Button variant="outline-secondary">Button</Button>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
-              <Input value="" />
+              <Input value="" placeholder="some text" />
               <Button variant="outline-secondary">Button</Button>
             </InputGroup>
           </div>
@@ -351,12 +351,12 @@ function InputGroups() {
             <InputGroup className="mb-3">
               <Button variant="outline-secondary">Button</Button>
               <Button variant="outline-secondary">Button</Button>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
-              <Input value="" />
+              <Input value="" placeholder="some text" />
               <Button variant="outline-secondary">Button</Button>
               <Button variant="outline-secondary">Button</Button>
             </InputGroup>
@@ -384,7 +384,7 @@ function InputGroups() {
                 <hr className="dropdown-divider" />
                 <DropdownItem itemId="4">Separated link</DropdownItem>
               </Dropdown>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
@@ -400,12 +400,12 @@ function InputGroups() {
                 <hr className="dropdown-divider" />
                 <DropdownItem itemId="4">Separated link</DropdownItem>
               </Dropdown>
-              <Input value="" />
+              <Input value="" placeholder="some text" />
             </InputGroup>
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
-              <Input value="" />
+              <Input value="" placeholder="some text" />
               <Dropdown variant="outline-secondary" buttonName="Dropdown" split>
                 <DropdownItem isActive itemId="1">
                   Action
@@ -421,7 +421,7 @@ function InputGroups() {
           </div>
           <div className="rb-input-group-wrapper">
             <InputGroup className="mb-3">
-              <Input value="" />
+              <Input value="" placeholder="some text" />
               <Dropdown variant="outline-secondary" buttonName="Dropdown">
                 <DropdownItem isActive itemId="1">
                   Action

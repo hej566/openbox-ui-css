@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 interface PropsTypes {
   className?: string;
   disabled?: boolean;
-  onChange: any;
-  onInput: any;
+  onChange?: any;
+  onInput?: any;
   value?: string;
   placeholder?: string;
   type?: string;
@@ -13,6 +13,7 @@ interface PropsTypes {
   size?: string;
   readonly?: boolean;
   plaintext?: boolean;
+  label?: string;
 }
 
 Input.defaultProps = {
@@ -27,7 +28,8 @@ Input.defaultProps = {
   readonly: false,
   plaintext: false,
   placeholder: '',
-} as PropsTypes;
+  label: '',
+};
 
 function Input(props: PropsTypes) {
   const {
@@ -42,6 +44,7 @@ function Input(props: PropsTypes) {
     size,
     readonly,
     plaintext,
+    label,
   } = props;
   const inputClasses: string[] = [];
   if (plaintext) inputClasses.push('form-control-plaintext');
@@ -53,7 +56,7 @@ function Input(props: PropsTypes) {
     <input
       className={inputClasses.join(' ')}
       type={type}
-      aria-label={placeholder}
+      aria-label={label || placeholder}
       placeholder={placeholder}
       disabled={disabled}
       onChange={onChange}
@@ -65,4 +68,4 @@ function Input(props: PropsTypes) {
   );
 }
 
-export default Input;
+export default React.memo(Input);

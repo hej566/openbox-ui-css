@@ -18,23 +18,21 @@ function Checkboxes() {
     import Checkbox from '../components/Checkbox';
     
     <Checkbox
-      label="default checkbox"
       checked={false}
       className="form-check"
-    />
+    >default checkbox</Checkbox>
   `;
 
   const disabled = `
     import Checkbox from '../components/Checkbox';
     
     <Checkbox
-      label="disabled"
       checked={false}
       disabled
       className="form-check"
-    />
+    >disabled</Checkbox>
     
-    <Checkbox label="disabled checked" checked disabled className="form-check" />
+    <Checkbox checked disabled className="form-check">disabled checked</Checkbox>
   `;
 
   const indeterminate = `
@@ -49,13 +47,12 @@ function Checkboxes() {
     }
    
     <Checkbox
-      label="indeterminate checkbox"
       controlled
       isChecked={isChecked}
       isIndeterminate={isIndeterminate}
       className="form-check"
       onChange={changeHandler}
-    />
+    >indeterminate checkbox</Checkbox>
   `;
 
   return (
@@ -64,7 +61,9 @@ function Checkboxes() {
         <h1 className="rb-title">Checkbox</h1>
         <div className="rb-group">
           <div className="rb-checkbox-wrapper">
-            <Checkbox label="default checkbox" isChecked={false} className="form-check" />
+            <Checkbox isChecked={false} className="form-check">
+              default checkbox
+            </Checkbox>
           </div>
         </div>
         <div className="rb-code">
@@ -77,10 +76,14 @@ function Checkboxes() {
         <h1 className="rb-title">Disabled</h1>
         <div className="rb-group">
           <div className="rb-checkbox-wrapper">
-            <Checkbox label="disabled" isChecked={false} isDisabled className="form-check" />
+            <Checkbox isChecked={false} isDisabled className="form-check">
+              disabled
+            </Checkbox>
           </div>
           <div className="rb-checkbox-wrapper">
-            <Checkbox label="disabled checked" isChecked isDisabled className="form-check" />
+            <Checkbox isChecked isDisabled className="form-check">
+              disabled checked
+            </Checkbox>
           </div>
         </div>
         <div className="rb-code">
@@ -94,13 +97,14 @@ function Checkboxes() {
         <div className="rb-group">
           <div className="rb-checkbox-wrapper">
             <Checkbox
-              label="indeterminate checkbox"
               controlled
               isChecked={isChecked}
               isIndeterminate={isIndeterminate}
               className="form-check"
               onChange={changeHandler}
-            />
+            >
+              indeterminate checkbox
+            </Checkbox>
           </div>
         </div>
         <div className="rb-code">

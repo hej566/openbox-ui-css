@@ -22,4 +22,4 @@ function InputGroup(props: PropsTypes) {
   return <div className={inputGroupClasses.join(' ')}>{children}</div>;
 }
 
-export default InputGroup;
+export default React.memo(InputGroup);

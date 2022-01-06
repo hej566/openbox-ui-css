@@ -144,6 +144,9 @@ function Dropdowns() {
   `;
 
   const split = `
+    import Dropdown from '../components/Dropdown';
+    import DropdownItem from '../components/DropdownItem';
+    
     <Dropdown variant="primary" buttonName="Split button" split>
       <DropdownItem isActive itemId="1">
         Action
@@ -159,6 +162,9 @@ function Dropdowns() {
   `;
 
   const disabled = `
+    import Dropdown from '../components/Dropdown';
+    import DropdownItem from '../components/DropdownItem';
+    
     <Dropdown variant="primary" buttonName="Split button" isDisabled>
       <DropdownItem isActive itemId="1">
         Action
@@ -331,9 +337,9 @@ function Dropdowns() {
           </SyntaxHighlighter>
         </div>
       </section>
-      <section className="rc-dropdown-item-disabled">
-        <div className="rc-title">Disabled item dropdown</div>
-        <div className="rc-group">
+      <section className="rb-dropdown-item-disabled">
+        <div className="rb-title">Disabled</div>
+        <div className="rb-group">
           <div className="rb-dropdown-wrapper">
             <Dropdown variant="secondary" buttonName="Dropdown button" theme="dark" isDisabled>
               <DropdownItem isActive itemId="1">
