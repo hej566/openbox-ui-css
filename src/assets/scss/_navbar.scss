@@ -69,6 +69,9 @@
   align-items: center;
   flex-basis: 100%;
   flex-grow: 1;
+  .btn--link {
+    padding-left: 0;
+  }
 }
 
 .navbar-toggler {
@@ -126,6 +129,9 @@
           .nav-link {
             padding-left: $navbar-nav-link-padding-x;
             padding-right: $navbar-nav-link-padding-x;
+          }
+          .btn--link {
+            padding-left: $btn-padding-x;
           }
         }
 

@@ -19,7 +19,7 @@ function Navbars() {
       <NavItem isActive itemId="1">
         Active
       </NavItem>
-      <NavItem itemId="2">
+      <NavItem itemId="2" dropdown navbar>
         <Dropdown variant="link" buttonName="Dropdown" type="normal">
           <DropdownItem isActive itemId="3">
             Action
@@ -28,7 +28,7 @@ function Navbars() {
             Another action
           </DropdownItem>
           <DropdownItem itemId="5">
-            <a>Something else here</a>
+            Something else here
           </DropdownItem>
           <hr className="dropdown-divider" />
           <DropdownItem itemId="6">Separated link</DropdownItem>
@@ -51,7 +51,7 @@ function Navbars() {
       <NavItem isActive itemId="1">
         Active
       </NavItem>
-      <NavItem itemId="2">
+      <NavItem itemId="2" dropdown navbar>
         <Dropdown variant="link" buttonName="Dropdown" type="normal">
           <DropdownItem isActive itemId="3">
             Action
@@ -60,7 +60,7 @@ function Navbars() {
             Another action
           </DropdownItem>
           <DropdownItem itemId="5">
-            <a>Something else here</a>
+            Something else here
           </DropdownItem>
           <hr className="dropdown-divider" />
           <DropdownItem itemId="5">Separated link</DropdownItem>
@@ -75,7 +75,7 @@ function Navbars() {
       <NavItem isActive itemId="1">
         Active
       </NavItem>
-      <NavItem itemId="2">
+      <NavItem itemId="2" dropdown navbar>
         <Dropdown variant="link" buttonName="Dropdown" type="normal">
           <DropdownItem isActive itemId="3">
             Action
@@ -84,7 +84,7 @@ function Navbars() {
             Another action
           </DropdownItem>
           <DropdownItem itemId="5">
-            <a>Something else here</a>
+            Something else here
           </DropdownItem>
           <hr className="dropdown-divider" />
           <DropdownItem itemId="6">Separated link</DropdownItem>
@@ -99,7 +99,7 @@ function Navbars() {
       <NavItem isActive itemId="1">
         Active
       </NavItem>
-      <NavItem itemId="2">
+      <NavItem itemId="2" dropdown navbar>
         <Dropdown variant="link" buttonName="Dropdown" type="normal">
           <DropdownItem isActive itemId="3">
             Action
@@ -108,7 +108,7 @@ function Navbars() {
             Another action
           </DropdownItem>
           <DropdownItem itemId="5">
-            <a>Something else here</a>
+            Something else here
           </DropdownItem>
           <hr className="dropdown-divider" />
           <DropdownItem itemId="6">Separated link</DropdownItem>
@@ -131,7 +131,7 @@ function Navbars() {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="2" dropdown>
+              <NavItem itemId="2" dropdown navbar>
                 <Dropdown variant="link" buttonName="Dropdown" type="normal">
                   <DropdownItem isActive itemId="3">
                     Action
@@ -139,9 +139,7 @@ function Navbars() {
                   <DropdownItem isDisabled itemId="4">
                     Another action
                   </DropdownItem>
-                  <DropdownItem itemId="5">
-                    <a>Something else here</a>
-                  </DropdownItem>
+                  <DropdownItem itemId="5">Something else here</DropdownItem>
                   <hr className="dropdown-divider" />
                   <DropdownItem itemId="6">Separated link</DropdownItem>
                 </Dropdown>
@@ -167,7 +165,7 @@ function Navbars() {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="2">
+              <NavItem itemId="2" dropdown navbar>
                 <Dropdown variant="link" buttonName="Dropdown" type="normal">
                   <DropdownItem isActive itemId="3">
                     Action
@@ -175,9 +173,7 @@ function Navbars() {
                   <DropdownItem isDisabled itemId="4">
                     Another action
                   </DropdownItem>
-                  <DropdownItem itemId="5">
-                    <a>Something else here</a>
-                  </DropdownItem>
+                  <DropdownItem itemId="5">Something else here</DropdownItem>
                   <hr className="dropdown-divider" />
                   <DropdownItem itemId="5">Separated link</DropdownItem>
                 </Dropdown>
@@ -193,7 +189,7 @@ function Navbars() {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="2">
+              <NavItem itemId="2" dropdown navbar>
                 <Dropdown variant="link" buttonName="Dropdown" type="normal">
                   <DropdownItem isActive itemId="3">
                     Action
@@ -201,9 +197,7 @@ function Navbars() {
                   <DropdownItem isDisabled itemId="4">
                     Another action
                   </DropdownItem>
-                  <DropdownItem itemId="5">
-                    <a>Something else here</a>
-                  </DropdownItem>
+                  <DropdownItem itemId="5">Something else here</DropdownItem>
                   <hr className="dropdown-divider" />
                   <DropdownItem itemId="6">Separated link</DropdownItem>
                 </Dropdown>
@@ -219,7 +213,7 @@ function Navbars() {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="2">
+              <NavItem itemId="2" dropdown navbar>
                 <Dropdown variant="link" buttonName="Dropdown" type="normal">
                   <DropdownItem isActive itemId="3">
                     Action
@@ -227,9 +221,7 @@ function Navbars() {
                   <DropdownItem isDisabled itemId="4">
                     Another action
                   </DropdownItem>
-                  <DropdownItem itemId="5">
-                    <a>Something else here</a>
-                  </DropdownItem>
+                  <DropdownItem itemId="5">Something else here</DropdownItem>
                   <hr className="dropdown-divider" />
                   <DropdownItem itemId="6">Separated link</DropdownItem>
                 </Dropdown>

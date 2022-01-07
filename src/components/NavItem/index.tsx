@@ -8,6 +8,7 @@ interface PropsTypes {
   onClick?: React.MouseEventHandler<HTMLElement>;
   type?: string;
   dropdown?: boolean;
+  navbar?: boolean;
   itemId: string;
   role?: string;
 }
@@ -19,11 +20,12 @@ NavItem.defaultProps = {
   onClick: () => {},
   type: 'nav',
   dropdown: false,
+  navbar: false,
   role: 'navigation',
 };
 
 function NavItem(props: PropsTypes) {
-  const { children, className, isActive, isDisabled, onClick, type, dropdown, role } =
+  const { children, className, isActive, isDisabled, onClick, type, dropdown, navbar, role } =
     props;
   const navLinkClasses: string[] = ['nav-link'];
   const navItemClasses: string[] = ['nav-item'];
@@ -52,7 +54,7 @@ function NavItem(props: PropsTypes) {
     if (dropdown && typeof child !== 'string') {
       return React.cloneElement(child, {
         open: isActive,
-        type: 'normal',
+        type: navbar ? 'normal' : 'popper',
       });
     }
     return child;
