@@ -7,7 +7,6 @@ interface PropsTypes {
   isDisabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLElement>;
   type?: string;
-  collapse?: boolean;
   dropdown?: boolean;
   itemId: string;
   role?: string;
@@ -19,19 +18,19 @@ NavItem.defaultProps = {
   isDisabled: false,
   onClick: () => {},
   type: 'nav',
-  collapse: false,
   dropdown: false,
   role: 'navigation',
 };
 
 function NavItem(props: PropsTypes) {
-  const { children, className, isActive, isDisabled, onClick, type, collapse, dropdown, role } =
+  const { children, className, isActive, isDisabled, onClick, type, dropdown, role } =
     props;
   const navLinkClasses: string[] = ['nav-link'];
   const navItemClasses: string[] = ['nav-item'];
   if (className) navItemClasses.push(className);
   if (dropdown) {
     navItemClasses.push('dropdown');
+    navLinkClasses.push('dropdown');
   }
   if (isActive) navLinkClasses.push('active');
   if (isDisabled) navLinkClasses.push('disabled');
@@ -53,7 +52,7 @@ function NavItem(props: PropsTypes) {
     if (dropdown && typeof child !== 'string') {
       return React.cloneElement(child, {
         open: isActive,
-        type: collapse ? 'normal' : 'popper',
+        type: 'normal',
       });
     }
     return child;
@@ -61,13 +60,21 @@ function NavItem(props: PropsTypes) {
 
   if (type === 'tabs') {
     navItem = (
-      <div className={navLinkClasses.join(' ')} aria-selected="true">
+      <div
+        className={navLinkClasses.join(' ')}
+        aria-selected="true"
+        tabIndex={isDisabled || dropdown ? -1 : 0}
+      >
         {component}
       </div>
     );
   } else {
     navItem = (
-      <div className={navLinkClasses.join(' ')} aria-current="page">
+      <div
+        className={navLinkClasses.join(' ')}
+        aria-current="page"
+        tabIndex={isDisabled || dropdown ? -1 : 0}
+      >
         {component}
       </div>
     );
@@ -78,7 +85,6 @@ function NavItem(props: PropsTypes) {
       className={navItemClasses.join(' ')}
       onClick={onClick}
       onKeyDown={keyDownHandler}
-      tabIndex={isDisabled ? -1 : 0}
       role={role}
     >
       {navItem}

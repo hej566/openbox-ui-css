@@ -112,7 +112,7 @@ function Navs() {
       <NavItem isActive itemId="1">
         Active
       </NavItem>
-      <NavItem itemId="2">
+      <NavItem itemId="2" dropdown>
         <Dropdown variant="link" buttonName="Dropdown">
           <DropdownItem isActive itemId="3">
             Action
@@ -305,7 +305,7 @@ function Navs() {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="2">
+              <NavItem itemId="2" dropdown>
                 <Dropdown variant="link" buttonName="Dropdown">
                   <DropdownItem isActive itemId="3">
                     Action

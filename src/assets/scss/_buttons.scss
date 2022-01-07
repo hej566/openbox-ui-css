@@ -137,8 +137,10 @@
     text-decoration: $link-hover-decoration;
   }
 
-  &:focus {
+  &:focus-visible {
     text-decoration: $link-hover-decoration;
+    outline: 2px solid -webkit-focus-ring-color;
+    box-shadow: none;
   }
 
   &:disabled,

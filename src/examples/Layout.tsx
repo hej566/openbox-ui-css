@@ -48,7 +48,7 @@ const Layout = (props: any) => {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="6">
+              <NavItem itemId="6" dropdown>
                 <Dropdown variant="link" buttonName="Dropdown" type="normal">
                   <DropdownItem isActive itemId="8">
                     Action

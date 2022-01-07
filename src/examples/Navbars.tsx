@@ -131,7 +131,7 @@ function Navbars() {
               <NavItem isActive itemId="1">
                 Active
               </NavItem>
-              <NavItem itemId="2">
+              <NavItem itemId="2" dropdown>
                 <Dropdown variant="link" buttonName="Dropdown" type="normal">
                   <DropdownItem isActive itemId="3">
                     Action
