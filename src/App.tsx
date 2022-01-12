@@ -1,32 +1,7 @@
 import React, { Suspense, lazy } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-// import ButtonsGroup from './examples/ButtonsGroup';
-// import Accordions from './examples/Accordions';
-// import Alerts from './examples/Alerts';
-// import Badges from './examples/Badges';
-// import Breadcrumbs from './examples/Breadcrumbs';
-// import Carousels from './examples/Carousels';
-// import Dropdowns from './examples/Dropdowns';
-// import ListGroups from './examples/ListGroups';
-// import Modals from './examples/Modals';
-// import Navs from './examples/Navs';
-// import Navbars from './examples/Navbars';
-// import Offcanvases from './examples/Offcanvases';
-// import Paginations from './examples/Paginations';
-// import Placeholders from './examples/Placeholders';
-// import Popovers from './examples/Popovers';
-// import Progresses from './examples/Progresses';
-// import Toasts from './examples/Toasts';
-// import Tooltips from './examples/Tooltips';
-// import Checkboxes from './examples/Checkboxes';
-// import Radios from './examples/Radios';
-// import Switches from './examples/Switches';
-// import InputGroups from './examples/InputGroups';
-// import FormControls from './examples/FormControl';
-// import Ranges from './examples/Ranges';
-// import Uploads from './examples/Uploads';
+import { Routes, Route, Link } from 'react-router-dom';
 import Layout from './examples/Layout';
-// import Home from './examples/Home';
+
 const Buttons = lazy(() => import('./examples/Buttons'));
 const Accordions = lazy(() => import('./examples/Accordions'));
 const Alerts = lazy(() => import('./examples/Alerts'));
@@ -59,92 +34,36 @@ function App() {
   return (
     <Layout link={Link}>
       <Suspense fallback={<></>}>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/buttons">
-            <Buttons />
-          </Route>
-          <Route exact path="/buttons-group">
-            <ButtonsGroup />
-          </Route>
-          <Route exact path="/accordions">
-            <Accordions />
-          </Route>
-          <Route exact path="/alerts">
-            <Alerts />
-          </Route>
-          <Route exact path="/badges">
-            <Badges />
-          </Route>
-          <Route exact path="/breadcrumbs">
-            <Breadcrumbs />
-          </Route>
-          <Route exact path="/carousels">
-            <Carousels />
-          </Route>
-          <Route exact path="/dropdowns">
-            <Dropdowns />
-          </Route>
-          <Route exact path="/list-group">
-            <ListGroups />
-          </Route>
-          <Route exact path="/modals">
-            <Modals />
-          </Route>
-          <Route exact path="/navs&tabs">
-            <Navs />
-          </Route>
-          <Route exact path="/navbars">
-            <Navbars />
-          </Route>
-          <Route exact path="/offcanvases">
-            <Offcanvases />
-          </Route>
-          <Route exact path="/paginations">
-            <Paginations />
-          </Route>
-          <Route exact path="/placeholders">
-            <Placeholders />
-          </Route>
-          <Route exact path="/popovers">
-            <Popovers />
-          </Route>
-          <Route exact path="/progresses">
-            <Progresses />
-          </Route>
-          <Route exact path="/toasts">
-            <Toasts />
-          </Route>
-          <Route exact path="/tooltips">
-            <Tooltips />
-          </Route>
-          <Route exact path="/checkboxes">
-            <Checkboxes />
-          </Route>
-          <Route exact path="/radios">
-            <Radios />
-          </Route>
-          <Route exact path="/switches">
-            <Switches />
-          </Route>
-          <Route exact path="/input-groups">
-            <InputGroups />
-          </Route>
-          <Route exact path="/form-control">
-            <FormControls />
-          </Route>
-          <Route exact path="/range">
-            <Ranges />
-          </Route>
-          <Route exact path="/uploads">
-            <Uploads />
-          </Route>
-          <Route exact path="/breadcrumb">
-            <Breadcrumbs />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/buttons" element={<Buttons />} />
+          <Route path="/buttons-group" element={<ButtonsGroup />} />
+          <Route path="/accordions" element={<Accordions />} />
+          <Route path="/alerts" element={<Alerts />} />
+          <Route path="/badges" element={<Badges />} />
+          <Route path="/breadcrumbs" element={<Breadcrumbs />} />
+          <Route path="/carousels" element={<Carousels />} />
+          <Route path="/dropdowns" element={<Dropdowns />} />
+          <Route path="/list-group" element={<ListGroups />} />
+          <Route path="/modals" element={<Modals />} />
+          <Route path="/navs&tabs" element={<Navs />} />
+          <Route path="/navbars" element={<Navbars />} />
+          <Route path="/offcanvases" element={<Offcanvases />} />
+          <Route path="/paginations" element={<Paginations />} />
+          <Route path="/placeholders" element={<Placeholders />} />
+          <Route path="/popovers" element={<Popovers />} />
+          <Route path="/progresses" element={<Progresses />} />
+          <Route path="/toasts" element={<Toasts />} />
+          <Route path="/tooltips" element={<Tooltips />} />
+          <Route path="/checkboxes" element={<Checkboxes />} />
+          <Route path="/radios" element={<Radios />} />
+          <Route path="/switches" element={<Switches />} />
+          <Route path="/input-groups" element={<InputGroups />} />
+          <Route path="/form-control" element={<FormControls />} />
+          <Route path="/range" element={<Ranges />} />
+          <Route path="/uploads" element={<Uploads />} />
+          <Route path="/breadcrumb" element={<Breadcrumbs />} />
+        </Routes>
       </Suspense>
     </Layout>
   );

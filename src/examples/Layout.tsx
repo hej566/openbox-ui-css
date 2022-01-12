@@ -1,5 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from 'react';
-import { useLocation, useRouteMatch } from 'react-router-dom';
+import { useLocation, useMatch } from 'react-router-dom';
 import Icon from '../components/Icon';
 import Acorn from '../assets/icons/svg/acorn-duotone.svg';
 import Navbar from '../components/Navbar';
@@ -17,7 +17,7 @@ const LayoutNav = lazy(() => import('./LayoutNav'));
 const Layout = (props: any) => {
   const { link, children } = props;
 
-  const match = useRouteMatch('/');
+  const match = useMatch('/');
 
   const [isOpen, setOpenState] = useState<boolean>(false);
   const [defaultActiveId, setDefaultActiveId] = useState<string>('');
@@ -41,7 +41,7 @@ const Layout = (props: any) => {
 
   return (
     <div className="layout">
-      {!match!.isExact && (
+      {match?.pathname !== '/' && (
         <>
           <div className="layout-headbar">
             <Navbar title="Navbar" className="navbar-expand-lg" variant="primary" theme="dark">
@@ -93,7 +93,7 @@ const Layout = (props: any) => {
           </div>
         </>
       )}
-      {match!.isExact && children}
+      {match?.pathname === '/' && children}
     </div>
   );
 };

@@ -29,11 +29,11 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@hej566/button": "^1.0.3",
-    "@hej566/menu": "^1.0.18",
+    "@hej566/menu": "^1.1.3",
     "@popperjs/core": "^2.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^5.3.0",
+    "react-router-dom": "^6.2.1",
     "react-syntax-highlighter": "^15.4.5",
     "tippy.js": "^6.3.2",
     "uuid": "^8.3.2"
