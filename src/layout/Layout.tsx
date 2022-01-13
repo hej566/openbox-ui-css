@@ -15,18 +15,9 @@ import InputGroup from '../components/InputGroup';
 const LayoutNav = lazy(() => import('./LayoutNav'));
 
 const Layout = (props: any) => {
-  const { link, children } = props;
+  const { children } = props;
 
   const match = useMatch('/');
-
-  const [isOpen, setOpenState] = useState<boolean>(false);
-  const [defaultActiveId, setDefaultActiveId] = useState<string>('');
-
-  const LinkRoot = link!;
-
-  const clickHandler = (key: any) => {
-    setDefaultActiveId(() => key);
-  };
 
   const { pathname } = useLocation();
   const [current, setCurrenRoute] = useState<string>(pathname);

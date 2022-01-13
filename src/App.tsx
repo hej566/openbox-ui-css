@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Layout from './examples/Layout';
+import Layout from './layout/Layout';
 
 const Buttons = lazy(() => import('./examples/Buttons'));
 const Accordions = lazy(() => import('./examples/Accordions'));
