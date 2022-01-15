@@ -16,19 +16,13 @@ const LayoutNav = lazy(() => import('./LayoutNav'));
 
 const Layout = (props: any) => {
   const { children } = props;
-
   const match = useMatch('/');
-
   const { pathname } = useLocation();
   const [current, setCurrenRoute] = useState<string>(pathname);
 
   function changeHandler(path: string) {
     setCurrenRoute(path);
   }
-
-  useEffect(() => {
-    setCurrenRoute(pathname);
-  }, [pathname]);
 
   return (
     <div className="layout">

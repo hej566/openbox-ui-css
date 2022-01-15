@@ -32,7 +32,7 @@ const ButtonsGroup = lazy(() => import('./examples/ButtonsGroup'));
 
 function App() {
   return (
-    <Layout link={Link}>
+    <Layout>
       <Suspense fallback={<></>}>
         <Routes>
           <Route path="/" element={<Home />} />
