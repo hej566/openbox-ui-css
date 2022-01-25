@@ -11,7 +11,7 @@ const deepClone = (target) => {
   }
   if (typeof target === 'object') {
     const copy = {};
-    target.forEach((item) => {
+    Object.keys(target).forEach((item) => {
       copy[item] = deepClone(target[item]);
     });
     return copy;

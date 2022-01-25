@@ -64,8 +64,8 @@
 
 .rb-carousels {
   .rb-carousel-wrapper {
-    height: auto;
-    width: 600px;
+    min-width: 300px;
+    max-width: 600px;
   }
 }
 .rb-dropdowns {

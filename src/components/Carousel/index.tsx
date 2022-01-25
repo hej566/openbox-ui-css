@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+// @ts-ignore
 import deepClone from '../../utils/deepClone';
 import Icon from '../Icon';
 import ChevronRight from '../../assets/icons/svg/chevron-right-regular.svg';
@@ -320,7 +321,7 @@ const Carousel = (props: propTypes) => {
       onTransitionEnd={transitionEndHandler}
     >
       <img src={item.src} className={imgClassName} alt={item.content} />
-      <div className="carousel-caption d-none d-md-block">
+      <div className="carousel-caption d-md-block">
         {item.title && <div>{item.title}</div>}
         {item.content && <div>{item.content}</div>}
       </div>
