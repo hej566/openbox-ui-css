@@ -60,7 +60,7 @@ function Buttons() {
     <Button variant="outline-success" prefixIcon={<Icon component={Acorn} />} />
     <Button variant="danger" prefixIcon={<Icon component={Acorn} />} />
     <Button variant="warning" prefixIcon={<Icon component={Acorn} />} />
-    <Button variant="link" prefixIcon={<Icon component={Acorn} />}>Link</Button>
+    <Button variant="link" prefixIcon={<Icon component={Acorn} />} link="https://www.google.com" /> 
     <Button variant="secondary" prefixIcon={<Icon component={Acorn} />} suffixIcon={<Icon component={Acorn} />}>Link</Button>
     <Button variant="primary" size="lg" prefixIcon={<Icon component={Acorn} size="lg" />}>Primary</Button>
     <Button variant="outline-success" size="sm" prefixIcon={<Icon component={Acorn} size="sm" />} />
@@ -230,9 +230,7 @@ function Buttons() {
             <Button variant="warning" prefixIcon={<Icon component={Acorn} />} />
           </div>
           <div className="rb-button">
-            <Button variant="link" prefixIcon={<Icon component={Acorn} />}>
-              Link
-            </Button>
+            <Button variant="link" prefixIcon={<Icon component={Acorn} />} link="https://www.google.com" />
           </div>
           <div className="rb-button">
             <Button

@@ -22,7 +22,7 @@ module.exports = {
   },
   output: {
     filename: '[name].[chunkhash:8].bundle.js',
-    publicPath: '/react-ui/',
+    publicPath: '/',
   },
 
   plugins: [

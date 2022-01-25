@@ -62,6 +62,11 @@
   &--loading {
     visibility: hidden;
   }
+
+  & a {
+    text-decoration: none;
+    color: currentColor;
+  }
 }
 
 .btn__loading-icon {
@@ -131,6 +136,9 @@
   color: currentColor;
   font-weight: $font-weight-normal;
   text-decoration: none;
+  &.btn__icon {
+    padding: 0;
+  }
 
   &:hover {
     color: currentColor;

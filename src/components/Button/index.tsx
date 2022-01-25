@@ -21,6 +21,7 @@ const Button = React.forwardRef<HTMLButtonElement, propTypes>((props: propTypes,
     expanded,
     controls,
     label,
+    link,
   } = props;
 
   const defaultSpinner = spinnerIcon || <Icon component={Spinner} isRotating size={size} />;
@@ -49,9 +50,20 @@ const Button = React.forwardRef<HTMLButtonElement, propTypes>((props: propTypes,
       aria-label={label || 'icon'}
     >
       <div className={buttonInnerClasses.join(' ')}>
-        {prefixIcon && <span className={`btn__prefix-icon`}>{prefixIcon}</span>}
-        {children && <span className={`btn__content`}>{children}</span>}
-        {suffixIcon && <span className={`btn__suffix-icon`}>{suffixIcon}</span>}
+        {link && (
+          <a href={link}>
+            {prefixIcon && <span className={`btn__prefix-icon`}>{prefixIcon}</span>}
+            {children && <span className={`btn__content`}>{children}</span>}
+            {suffixIcon && <span className={`btn__suffix-icon`}>{suffixIcon}</span>}
+          </a>
+        )}
+        {!link && (
+          <>
+            {prefixIcon && <span className={`btn__prefix-icon`}>{prefixIcon}</span>}
+            {children && <span className={`btn__content`}>{children}</span>}
+            {suffixIcon && <span className={`btn__suffix-icon`}>{suffixIcon}</span>}
+          </>
+        )}
       </div>
       {isLoading && <span className={`btn__loading-icon`}>{defaultSpinner}</span>}
     </button>
@@ -76,6 +88,7 @@ type propTypes = {
   expanded?: boolean;
   controls?: string;
   label?: string;
+  link?: string;
 };
 
 Button.defaultProps = {
@@ -96,6 +109,7 @@ Button.defaultProps = {
   expanded: false,
   controls: '',
   label: '',
+  link: '',
 };
 
 export default Button;
