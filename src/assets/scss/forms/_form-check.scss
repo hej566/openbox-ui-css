@@ -22,7 +22,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   border: $form-check-input-border;
-  color-adjust: exact; // Keep themed appearance for print
+  print-color-adjust: exact; // Keep themed appearance for print
   height: $form-check-input-width;
   margin-top: ($line-height-base - $form-check-input-width) * 0.5; // line-height minus check height
   vertical-align: top;

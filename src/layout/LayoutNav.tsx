@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, MenuItem } from '@hej566/menu';
+import styled from '@emotion/styled';
+
+const MenuWrapper = styled.menu`
+  // padding: 1rem 0;
+`;
 
 function LayoutNav(props: propTypes) {
   const { onChange, current } = props;
@@ -33,31 +37,18 @@ function LayoutNav(props: propTypes) {
     { path: '/uploads', label: 'Upload', itemId: '25' },
   ];
 
-  const [currentPath] = navList.filter((item) => item.path === current);
-  if (currentPath) {
-    const { itemId } = currentPath;
-    defaultActiveId = `${itemId}`;
-  }
-
-  const so = {
-    innerPaddingY: '0.5rem',
-  };
-
-  function changeHandler(itemId: string, value: string) {
-    const [{ path }] = navList.filter((item) => item.itemId === itemId);
-    if (onChange) onChange(path);
-  }
-
   return (
-    <Menu indent={32} defaultActiveId={defaultActiveId} onChange={changeHandler}>
-      {navList.map((item) => {
-        return (
-          <MenuItem itemId={item.itemId} key={item.itemId} so={so}>
-            <Link to={item.path}>{item.label}</Link>
-          </MenuItem>
-        );
-      })}
-    </Menu>
+    <MenuWrapper>
+      <ul>
+        {navList.map((nav) => {
+          return (
+            <li key={nav.itemId}>
+              <a href={`#${nav.path}`}>{nav.label}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </MenuWrapper>
   );
 }
 
