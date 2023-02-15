@@ -72,11 +72,11 @@ function Nav(props: PropsTypes) {
   return (
     <>
       {tabs && (
-        <div className={navClasses.join(' ')} role="tablist">
+        <ul className={navClasses.join(' ')} role="tablist">
           {NavItemList}
-        </div>
+        </ul>
       )}
-      {!tabs && <nav className={navClasses.join(' ')}>{NavItemList}</nav>}
+      {!tabs && <ul className={navClasses.join(' ')}>{NavItemList}</ul>}
     </>
   );
 }

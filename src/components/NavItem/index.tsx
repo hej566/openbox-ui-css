@@ -62,35 +62,30 @@ function NavItem(props: PropsTypes) {
 
   if (type === 'tabs') {
     navItem = (
-      <div
+      <a
         className={navLinkClasses.join(' ')}
         aria-selected="true"
         tabIndex={isDisabled || dropdown ? -1 : 0}
       >
         {component}
-      </div>
+      </a>
     );
   } else {
     navItem = (
-      <div
+      <a
         className={navLinkClasses.join(' ')}
         aria-current="page"
         tabIndex={isDisabled || dropdown ? -1 : 0}
       >
         {component}
-      </div>
+      </a>
     );
   }
 
   return (
-    <div
-      className={navItemClasses.join(' ')}
-      onClick={onClick}
-      onKeyDown={keyDownHandler}
-      role={role}
-    >
+    <li className={navItemClasses.join(' ')} onClick={onClick} onKeyDown={keyDownHandler}>
       {navItem}
-    </div>
+    </li>
   );
 }
 

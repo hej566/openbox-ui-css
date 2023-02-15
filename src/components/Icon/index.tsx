@@ -12,9 +12,9 @@ const Icon = (props: propTypes) => {
   const SVG = component;
 
   return (
-    <i className={iconClasses.join(' ')} onClick={onClick}>
+    <span className={iconClasses.join(' ')} onClick={onClick}>
       <SVG />
-    </i>
+    </span>
   );
 };
 

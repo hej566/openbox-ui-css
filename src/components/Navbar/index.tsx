@@ -99,7 +99,7 @@ function Navbar(props: PropsTypes) {
           onClick={isOpen ? hide : show}
         />
         <div className="navbar-collapse collapse justify-content-end" ref={navbarCollapseRef}>
-          <div className="navbar-nav">{NavItemList}</div>
+          <ul className="navbar-nav">{NavItemList}</ul>
         </div>
       </div>
     </nav>

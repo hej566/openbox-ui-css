@@ -147,8 +147,8 @@
 
   &:focus {
     text-decoration: $link-hover-decoration;
-    outline-color: currentColor;
-    //box-shadow: none;
+    outline: none;
+    box-shadow: none;
   }
 
   &:disabled,
